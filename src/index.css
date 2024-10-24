@@ -86,3 +86,8 @@ footer {
   height: 60px;
 }
 
+
+.gallery-img {
+  width: 350px;
+  border-radius: 10px;
+}

@@ -15,12 +15,18 @@ border-radius: 10px;
 margin-bottom: 10px;
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  background-color: red;
-  width: 500px;
+  width: 600px;
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  background-color: yellow;
-  width: 600px;
+  width: 800px;
 }
+`;
+
+
+
+export const TextWrapper = styled(Wrapper)`
+  width: 300px;
+  background-color: none ;
+
 `;
