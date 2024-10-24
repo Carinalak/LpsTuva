@@ -1,4 +1,4 @@
-export const Home = () => {
+export const Galleri = () => {
 
   return ( <>
   
@@ -7,7 +7,5 @@ export const Home = () => {
   
   
   </>)
-
-
 
 }
