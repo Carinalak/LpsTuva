@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { BREAKPOINT_TABLET } from './styled/Variables';
+import { BREAKPOINT_TABLET } from '../styled/Variables';
 import { useState } from 'react';
+import { MenuLinks } from './MenuLinks';
 
 const MenuContainer = styled.div`
   display: flex;
@@ -105,21 +106,17 @@ export const HamburgerMenu = () => {
 
   return (
     <MenuContainer>
-      <HamburgerButton onClick={toggleMenu} className={isOpen ? 'open' : ''}>
+      <HamburgerButton onClick={toggleMenu} className={isOpen ? "open" : ""}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
       </HamburgerButton>
       <MenuList isOpen={isOpen}>
-        <li>
-          <a href="/">Hem</a>
-        </li>
-        <li>
-          <a href="/galleri">Galleri</a>
-        </li>
-        <li>
-          <a href="/kontakt">Kontakt</a>
-        </li>
+        {MenuLinks.map((link) => (
+          <li key={link.path}>
+            <a href={link.path}>{link.label}</a>
+          </li>
+        ))}
       </MenuList>
     </MenuContainer>
   );
