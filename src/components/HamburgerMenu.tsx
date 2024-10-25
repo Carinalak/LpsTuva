@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BREAKPOINT_TABLET } from './styled/Variables';
+import { useState } from 'react';
 
 const MenuContainer = styled.div`
   display: flex;
@@ -16,7 +15,7 @@ const HamburgerButton = styled.div`
   //position: fixed;
   //top: 20px;
   //right: 20px;
-  margin-right: 17px;
+  margin-right: 30px;
   width: 40px;
   height: 35px;
   display: flex;
@@ -51,7 +50,7 @@ const HamburgerButton = styled.div`
 
 const MenuList = styled.ul<{ isOpen: boolean }>`
   position: fixed;
-  top: 25px;
+  top: 12px;
   right: 0;
   height: 500px;
   width: 80vw;
@@ -75,12 +74,22 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
       text-decoration: none;
     }
 
-    &:hover {
+
+    a:hover {
+      color: #80D7EA;
       background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
-      padding: 10px;
-    }
+      padding-left: 5px;
+      padding-right: 5px;
   }
+  a:active {
+      color: #AB3DA7;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+  }
+}
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: none;
