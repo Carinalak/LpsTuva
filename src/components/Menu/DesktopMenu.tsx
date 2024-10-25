@@ -5,10 +5,11 @@ import { MenuLinks } from "./MenuLinks";
 
 export const NavigationContainer = styled.section`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  
+  width: 100%; 
 `;
 
 export const DesktopNav = styled.nav`
@@ -16,6 +17,35 @@ export const DesktopNav = styled.nav`
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: block;
+    ul {
+      margin: 0px;
+      margin-right: 30px;
+      padding: 0px;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    li a {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #FFFFFF;
+      text-decoration: inherit;
+    }
+
+    li a:hover {
+      color: #AB3DA7; 
+    }
+
+    li a:active {
+      color: #80D7EA;
+
+    }
+
+    li a:hover:active {
+      color: #80D7EA;
+    }
   }
 `;
 

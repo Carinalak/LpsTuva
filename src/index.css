@@ -38,7 +38,7 @@ header {
   margin: 0;
   width: 100%;
 }
-
+/*
 .navigation-container {
   display: flex;
   flex-direction: row;
@@ -75,7 +75,7 @@ li a:active {
 li a:hover:active {
   color: #80D7EA;
 }
-
+*/
 
 footer {
   background-color: #D77DD4;
