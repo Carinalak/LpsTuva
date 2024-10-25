@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BREAKPOINT_TABLET } from './styled/Variables';
@@ -10,9 +11,14 @@ const MenuContainer = styled.div`
   z-index: 10;
 `;
 
+
 const HamburgerButton = styled.div`
-  width: 35px;
-  height: 30px;
+  //position: fixed;
+  //top: 20px;
+  //right: 20px;
+  margin-right: 17px;
+  width: 40px;
+  height: 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,7 +34,7 @@ const HamburgerButton = styled.div`
   }
 
   &.open div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 13px);
+    transform: rotate(45deg) translate(5px, 16px);
   }
 
   &.open div:nth-child(2) {
@@ -36,7 +42,7 @@ const HamburgerButton = styled.div`
   }
 
   &.open div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -13px);
+    transform: rotate(-45deg) translate(5px, -16px);
   }
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: none;
@@ -44,28 +50,40 @@ const HamburgerButton = styled.div`
 `;
 
 const MenuList = styled.ul<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  position: absolute;
-  top: 50px;
+  position: fixed;
+  top: 25px;
   right: 0;
+  height: 500px;
+  width: 80vw;
   background: #EF8CEB;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px;
+  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease;
+  z-index: 99;
 
   li {
-    margin: 5px 0;
+    list-style-type: none;
 
     a {
-      text-decoration: none;
+      font-size: 2rem;
       color: #FFFFFF;
+      text-decoration: none;
     }
 
     &:hover {
       background: rgba(0, 0, 0, 0.1);
-      border-radius: 3px;
+      border-radius: 5px;
+      padding: 10px;
     }
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    display: none;
   }
 `;
 
@@ -79,9 +97,9 @@ export const HamburgerMenu = () => {
   return (
     <MenuContainer>
       <HamburgerButton onClick={toggleMenu} className={isOpen ? 'open' : ''}>
-        <div className='line'></div>
-        <div className='line'></div>
-        <div className='line'></div>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </HamburgerButton>
       <MenuList isOpen={isOpen}>
         <li>
@@ -97,96 +115,3 @@ export const HamburgerMenu = () => {
     </MenuContainer>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -------------------------- With ordinary icom ----------------------------------- //
-// src/components/HamburgerMenu.tsx
-
-/*
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { BREAKPOINT_TABLET } from './styled/Variables';
-
-const MenuContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
-  z-index: 10;
-`;
-
-const HamburgerIcon = styled.div`
-  cursor: pointer;
-  font-size: 30px;
-
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    display: none;
-  }
-`;
-
-const MenuList = styled.ul<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  position: absolute;
-  top: 20px;
-  right: 0;
-  background: #EF8CEB;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  list-style-type: none;
-
-  li {
-    margin: 5px 0;
-
-    a {
-      text-decoration: none;
-      color: #FFFFFF;
-    }
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 3px;
-    }
-  }
-`;
-
-export const HamburgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <MenuContainer>
-      <HamburgerIcon onClick={toggleMenu}>
-        &#9776; // Hamburger-symbol 
-      </HamburgerIcon>
-      <MenuList isOpen={isOpen}>
-        <li>
-          <NavLink to="/">Hem</NavLink>
-        </li>
-        <li>
-          <NavLink to="/galleri">Galleri</NavLink>
-        </li>
-        <li>
-          <NavLink to="/kontakt">Kontakt</NavLink>
-        </li>
-      </MenuList>
-    </MenuContainer>
-  );
-};
-*/
