@@ -17,6 +17,7 @@ const HamburgerButton = styled.div`
   //top: 20px;
   //right: 20px;
   margin-right: 30px;
+  margin-top: 30px;
   width: 40px;
   height: 35px;
   display: flex;
