@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET } from "../styled/Variables";
+import { BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 
@@ -35,16 +35,16 @@ export const DesktopNav = styled.nav`
     }
 
     li a:hover {
-      color: #AB3DA7; 
+      color: ${SKUGGLILA}; 
     }
 
     li a:active {
-      color: #80D7EA;
+      color: ${POOLBLA};
 
     }
 
     li a:hover:active {
-      color: #80D7EA;
+      color: ${POOLBLA};
     }
   }
 `;
