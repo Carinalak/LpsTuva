@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA, SMUTSROSA } from "../styled/Variables";
+import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA, SMUTSROSA } from "../styled/Variables";
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.svg";
@@ -91,7 +91,7 @@ export const DesktopNav = styled.nav`
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: ${SMUTSROSA};
+      background-color: ${GAMMELROSA};
       list-style: none;
       padding: 30px 25px;
       margin-left: 0;

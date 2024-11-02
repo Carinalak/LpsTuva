@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import { BREAKPOINT_TABLET } from '../styled/Variables';
-import { useState } from 'react';
+import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from '../styled/Variables';
+import { useState, useEffect } from 'react';
 import { MenuLinks } from './MenuLinks';
+import myCustomArrow from "../../assets/icons/arrow.svg";
+import { NavLink } from 'react-router-dom';
 
 const MenuContainer = styled.div`
   display: flex;
@@ -11,13 +13,12 @@ const MenuContainer = styled.div`
   z-index: 10;
 `;
 
-
 const HamburgerButton = styled.div`
-  //position: fixed;
-  //top: 20px;
-  //right: 20px;
-  margin-right: 30px;
-  margin-top: 30px;
+  position: relative;
+  top: 0;
+  right: 30px;
+  margin-right: 0;
+  margin-top: 0;
   width: 40px;
   height: 35px;
   display: flex;
@@ -29,7 +30,7 @@ const HamburgerButton = styled.div`
   .line {
     width: 100%;
     height: 5px;
-    background-color: #FFFFFF;
+    background-color: ${KRITVIT};
     border-radius: 10px;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -45,23 +46,27 @@ const HamburgerButton = styled.div`
   &.open div:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -16px);
   }
+
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: none;
   }
 `;
 
 const MenuList = styled.ul<{ isOpen: boolean }>`
-  position: fixed;
-  top: 12px;
+  position: absolute;
+  top: -20px;
   right: 0;
-  height: 500px;
+  margin-top: 0;
+  margin-right: 0;
   width: 80vw;
-  background: #EF8CEB;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  margin-bottom: 100px;
+  background: ${GAMMELROSA};
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
   border-radius: 10px;
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
@@ -69,45 +74,108 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
 
   li {
     list-style-type: none;
+    width: 100%; // Gör så att länkarna sträcker sig över hela bredden
+    padding-top: 3px;
+    padding-bottom: 3px;
 
+    span,
     a {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      line-height: 1rem;
+      font-weight: 600;
+      padding: 10px 15px;
+      padding-left: 10px;
       color: #FFFFFF;
       text-decoration: none;
+      display: flex;
+      justify-content: space-between; // Se till att text och pil är på varsin sida
+      align-items: center; // Centrera text och pil vertikalt
+      cursor: pointer;
     }
 
-
+    span:hover,
     a:hover {
-      color: #80D7EA;
-      background: rgba(0, 0, 0, 0.1);
+      color: ${SKUGGLILA};
       border-radius: 5px;
-      padding-left: 5px;
-      padding-right: 5px;
-  }
-  a:active {
-      color: #AB3DA7;
-      background: rgba(0, 0, 0, 0.1);
+    }
+
+    span:active,
+    a:active {
+      color: ${POOLBLA};
       border-radius: 5px;
-      padding-left: 5px;
-      padding-right: 5px;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid white;
+    }
   }
-}
+
+  .submenu {
+    display: none;
+    flex-direction: column;
+    padding-left: 50px;
+    color: ${GAMMELROSA};
+  }
+
+  .submenu.open {
+    display: flex;
+  }
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: none;
   }
 `;
 
+type ArrowIconProps = {
+  isOpen: boolean;
+};
+
+const ArrowIcon: React.FC<ArrowIconProps> = ({ isOpen }) => (
+  <img
+    src={myCustomArrow}
+    alt="Arrow icon"
+    style={{
+      width: '15px',
+      height: '15px',
+      transition: 'transform 0.3s',
+      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      marginRight: '10px',
+      verticalAlign: 'middle',
+    }}
+  />
+);
+
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
+  const toggleSubMenu = (path: string) => {
+    setOpenSubMenu(openSubMenu === path ? null : path);
+  };
+
   return (
     <MenuContainer>
-      <HamburgerButton onClick={toggleMenu} className={isOpen ? "open" : ""}>
+      <HamburgerButton onClick={toggleMenu} className={isOpen ? 'open' : ''}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
@@ -115,7 +183,32 @@ export const HamburgerMenu = () => {
       <MenuList isOpen={isOpen}>
         {MenuLinks.map((link) => (
           <li key={link.path}>
-            <a href={link.path}>{link.label}</a>
+            {link.subLinks ? (
+              <span onClick={() => toggleSubMenu(link.path)} style={{ cursor: 'pointer' }}>
+                {link.label}
+                <ArrowIcon isOpen={openSubMenu === link.path} />
+              </span>
+            ) : (
+              <NavLink to={link.path} onClick={closeMenu}>
+                {link.label}
+              </NavLink>
+            )}
+
+            {link.subLinks && (
+              <ul className={`submenu ${openSubMenu === link.path ? 'open' : ''}`}>
+                {link.subLinks.map((subLink) => (
+                  <li key={subLink.path}>
+                    <NavLink
+                      to={subLink.path}
+                      onClick={closeMenu}
+                      rel="noopener noreferrer"
+                    >
+                      {subLink.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </MenuList>
