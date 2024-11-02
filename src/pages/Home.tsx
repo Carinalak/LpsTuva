@@ -1,6 +1,7 @@
 import { GalleryImage } from "../components/styled/Image"
 import { SecondaryTitle } from "../components/styled/Title"
 import { TextWrapper, Wrapper } from "../components/styled/Wrappers"
+import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 
 export const Home = () => {
 
@@ -8,7 +9,7 @@ export const Home = () => {
   
   <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
   <Wrapper>
-    <GalleryImage src="../../src/assets/images/galleri/BirdDarkPurple.jpg" className="gallery-img" alt="Purple Bird"/>
+    <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird"/>
     <TextWrapper>
 
       testar
