@@ -8,7 +8,7 @@ export const Home = () => {
   
   <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
   <Wrapper>
-    <GalleryImage src="/src/assets/galleri/BirdDarkPurple.jpg" className="gallery-img" alt="Purple Bird"/>
+    <GalleryImage src="../../src/assets/images/galleri/BirdDarkPurple.jpg" className="gallery-img" alt="Purple Bird"/>
     <TextWrapper>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aliquid laboriosam deleniti 
     sint tenetur fuga, harum minima quaerat magni. Quod reiciendis, iste minima alias nemo pariatur 

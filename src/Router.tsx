@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { Galleri } from "./pages/Galleri";
 import { Home } from "./pages/Home";
 import { Kontakt } from "./pages/Kontakt";
@@ -8,7 +8,7 @@ import { GalleriBilder } from "./pages/GalleriBilder";
 import { MinaLps } from "./pages/MinaLps";
 
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {
         path: "/",
         element: <Layout></Layout>,
