@@ -3,7 +3,7 @@ import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "./Variables";
 
 
 export const Wrapper = styled.section`
-width: 400px;
+width: 350px;
 height: 500px;
 display: flex;
 flex-direction: column;
@@ -25,7 +25,7 @@ margin-bottom: 10px;
 `;
 
 export const TextWrapper = styled(Wrapper)`
-  width: 350px;
+  width: 300px;
   background-color: transparent;
   
 

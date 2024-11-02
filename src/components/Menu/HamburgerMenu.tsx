@@ -72,6 +72,7 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
   z-index: 99;
+  overflow: hidden;
 
   li {
     list-style-type: none;

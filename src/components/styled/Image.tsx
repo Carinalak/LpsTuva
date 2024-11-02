@@ -3,7 +3,7 @@ import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP } from "./Variables";
 
 export const GalleryImage = styled.img`
 
-  width: 350px;
+  width: 300px;
   border-radius: 10px;
 
 

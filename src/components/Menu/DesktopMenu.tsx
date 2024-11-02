@@ -34,7 +34,9 @@ export const DesktopNav = styled.nav`
       padding: 0;
       margin: 0;
       list-style: none;
-      cursor: url(${new URL("/assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+      cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+
+     // cursor: url(${new URL("/assets/icons/paw_purple.svg", import.meta.url).href}), auto;
     }
 
     li {
