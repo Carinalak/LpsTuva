@@ -3,6 +3,7 @@ import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from '../s
 import { useState, useEffect } from 'react';
 import { MenuLinks } from './MenuLinks';
 import myCustomArrow from "../../assets/icons/arrow.svg";
+import pawPurple from "../../assets/icons/paw_purple.svg";
 import { NavLink } from 'react-router-dom';
 
 const MenuContainer = styled.div`
@@ -74,9 +75,10 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
 
   li {
     list-style-type: none;
-    width: 100%; // Gör så att länkarna sträcker sig över hela bredden
+    width: 100%;
     padding-top: 3px;
     padding-bottom: 3px;
+    cursor: url(${pawPurple}), auto;
 
     span,
     a {
@@ -88,15 +90,16 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
       color: #FFFFFF;
       text-decoration: none;
       display: flex;
-      justify-content: space-between; // Se till att text och pil är på varsin sida
-      align-items: center; // Centrera text och pil vertikalt
-      cursor: pointer;
-    }
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
 
-    span:hover,
-    a:hover {
-      color: ${SKUGGLILA};
-      border-radius: 5px;
+      cursor: url(${pawPurple}), auto;
+
+      &:hover {
+        color: ${SKUGGLILA};
+        border-radius: 5px;
+      }
     }
 
     span:active,
@@ -184,7 +187,7 @@ export const HamburgerMenu = () => {
         {MenuLinks.map((link) => (
           <li key={link.path}>
             {link.subLinks ? (
-              <span onClick={() => toggleSubMenu(link.path)} style={{ cursor: 'pointer' }}>
+              <span onClick={() => toggleSubMenu(link.path)}>
                 {link.label}
                 <ArrowIcon isOpen={openSubMenu === link.path} />
               </span>

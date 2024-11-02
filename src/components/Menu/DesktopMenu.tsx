@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA, SMUTSROSA } from "../styled/Variables";
+import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.svg";
+import pawPurple from "../../assets/icons/paw_purple.svg";
 import { useState } from "react";
 
 export const NavigationContainer = styled.section`
@@ -33,6 +34,7 @@ export const DesktopNav = styled.nav`
       padding: 0;
       margin: 0;
       list-style: none;
+      cursor: url(${pawPurple}), auto;
     }
 
     li {
@@ -57,6 +59,7 @@ export const DesktopNav = styled.nav`
       position: relative;
       height: 60px; // link height
       padding: 0;
+      cursor: url(${pawPurple}), auto;
     }
 
     a > span {
