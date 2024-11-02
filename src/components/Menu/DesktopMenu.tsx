@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../styled/Variables";
+import { BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA, SMUTSROSA } from "../styled/Variables";
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
+import arrowIcon from "../../assets/icons/arrow.svg";
+import { useState } from "react";
 
 export const NavigationContainer = styled.section`
   display: flex;
@@ -9,7 +11,7 @@ export const NavigationContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  width: 100%; 
+  width: 100%;
 `;
 
 export const DesktopNav = styled.nav`
@@ -17,49 +19,169 @@ export const DesktopNav = styled.nav`
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: block;
+    width: 50%;
+    //padding-left: 10px;
+    //padding-right: 10px;
+
     ul {
-      margin: 0px;
-      margin-right: 30px;
-      padding: 0px;
-      list-style: none;
       display: flex;
       flex-direction: row;
-      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 70%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
     }
 
-    li a {
+    li {
+      position: relative;
+      flex-grow: 1;
+      text-align: center;
+
+      &:hover > ul {
+        display: flex;
+      }
+    }
+
+    a {
+      font-size: 1.2rem;
       font-weight: 700;
-      font-size: 1.4rem;
-      color: #FFFFFF;
-      text-decoration: inherit;
+      color: ${KRITVIT};
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 60px; // link height
+      padding: 0;
+    }
+
+    a > span {
+      display: block;
+      line-height: 1; // lineheight for text
+    }
+
+    .icon {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      bottom: 5px; // arrow under the links
     }
 
     li a:hover {
       color: ${SKUGGLILA}; 
     }
 
-    li a:active {
+    li a:active:focus {
       color: ${POOLBLA};
-
     }
 
     li a:hover:active {
+      color: ${POOLBLA};
+    }
+
+    /* ------------------  Submenu -------------------- */
+
+    ul.submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: ${SMUTSROSA};
+      list-style: none;
+      padding: 30px 25px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      border-radius: 5px;
+      width: auto;
+      gap: 0;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    ul.submenu li {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    ul.submenu li a {
+      color: ${KRITVIT};
+      font-weight: 600;
+      font-size: 1.2rem;
+      //display: flex;
+      //justify-content: center;
+      padding: 0;
+      margin: 0;
+      height: 40px;
+    }
+
+    ul.submenu li a:hover {
+      color: ${SKUGGLILA};
+    }
+
+    ul.submenu li a:active {
       color: ${POOLBLA};
     }
   }
 `;
 
 export const DesktopMenu = () => {
+  const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
 
-  return (<>
-              <DesktopNav>
-            <ul>
-              {MenuLinks.map((link) => (
-                <li key={link.path}>
-                  <NavLink to={link.path}>{link.label}</NavLink>
-                </li>
-              ))}
-            </ul>
-          </DesktopNav>
-  </>)
-}
+  // Toggle submenu:
+  const handleMouseEnter = (index: number) => {
+    setActiveSubMenu(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveSubMenu(null);
+  };
+
+  const handleSubLinkClick = () => {
+    setActiveSubMenu(null); // Hide submenu when link i clicked
+  };
+  
+  return (
+    <DesktopNav>
+      <ul>
+        {MenuLinks.map((link, index) => (
+          <li
+            key={link.path}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <NavLink to={link.path}>
+              <span>{link.label}</span>
+              {link.subLinks && <img src={arrowIcon} alt="arrow icon" className="icon" />}
+            </NavLink>
+
+            {link.subLinks && activeSubMenu === index && (
+              <ul className="submenu">
+                {link.subLinks.map((subLink) => (
+                  <li key={subLink.path}>
+                    <NavLink to={subLink.path} onClick={handleSubLinkClick}>
+                      {subLink.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </DesktopNav>
+  );
+};
+

@@ -17,8 +17,8 @@ export const MenuLinks = [
     path: "/galleri",
     label: "Galleri",
     subLinks: [
-      {path: "/galleri", label: "Galleri"},
-      {path: "/galleri", label: "Galleri"},
+      {path: "/galleribilder", label: "Mitt Galleri"},
+      {path: "/minalps", label: "Mina LPS"},
     ],
   },
   { path: "/kontakt", label: "Kontakt" },
