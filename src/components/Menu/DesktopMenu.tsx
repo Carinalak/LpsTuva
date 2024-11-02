@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
-import arrowIcon from "../../assets/icons/arrow.svg";
+import arrowIcon from "../../assets/icons/arrow.png";
 //import pawPurple from "../../assets/icons/paw_purple.svg";
 import { useState } from "react";
 
