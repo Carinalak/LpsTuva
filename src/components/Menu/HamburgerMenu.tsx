@@ -78,7 +78,8 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
     width: 100%;
     padding-top: 3px;
     padding-bottom: 3px;
-    cursor: url(${pawPurple}), auto;
+    cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+    //cursor: url(${pawPurple}), auto;
 
     span,
     a {

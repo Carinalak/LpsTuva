@@ -59,7 +59,8 @@ export const DesktopNav = styled.nav`
       position: relative;
       height: 60px; // link height
       padding: 0;
-      cursor: url(${pawPurple}), auto;
+      cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+      //cursor: url(${pawPurple}), auto;
     }
 
     a > span {
