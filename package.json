@@ -11,6 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "homepage": "https://Carinalak.github.io/LpsTuva/",
   "dependencies": {
     "components": "^0.1.0",
     "react": "^18.2.0",
