@@ -3,7 +3,7 @@ import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from '../s
 import { useState, useEffect } from 'react';
 import { MenuLinks } from './MenuLinks';
 import myCustomArrow from "../../assets/icons/arrow.png";
-import pawPurple from "../../assets/icons/paw_purple.svg";
+import pawWhite from "../../assets/icons/paw_white.png";
 import { NavLink } from 'react-router-dom';
 
 const MenuContainer = styled.div`
@@ -12,6 +12,8 @@ const MenuContainer = styled.div`
   align-items: flex-end;
   position: relative;
   z-index: 10;
+  max-width: 100vw;
+
 `;
 
 const HamburgerButton = styled.div`
@@ -72,15 +74,13 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
   z-index: 99;
-  overflow: hidden;
 
   li {
     list-style-type: none;
     width: 100%;
     padding-top: 3px;
     padding-bottom: 3px;
-    cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
-    //cursor: url(${pawPurple}), auto;
+    cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
     span,
     a {
@@ -95,8 +95,7 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
       justify-content: space-between;
       align-items: center;
       position: relative;
-
-      cursor: url(${pawPurple}), auto;
+      cursor: url(${pawWhite}), auto;
 
       &:hover {
         color: ${SKUGGLILA};

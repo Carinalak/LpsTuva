@@ -3,7 +3,6 @@ import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../s
 import { NavLink } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.png";
-//import pawPurple from "../../assets/icons/paw_purple.svg";
 import { useState } from "react";
 
 export const NavigationContainer = styled.section`
@@ -34,7 +33,7 @@ export const DesktopNav = styled.nav`
       padding: 0;
       margin: 0;
       list-style: none;
-      cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+      cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
      // cursor: url(${new URL("/assets/icons/paw_purple.svg", import.meta.url).href}), auto;
     }
@@ -61,7 +60,7 @@ export const DesktopNav = styled.nav`
       position: relative;
       height: 60px; // link height
       padding: 0;
-      cursor: url(${new URL("../../assets/icons/paw_purple.svg", import.meta.url).href}), auto;
+      cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
     }
 
     a > span {
