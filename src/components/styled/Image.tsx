@@ -16,3 +16,15 @@ export const GalleryImage = styled.img`
   }
 
 `;
+
+export const SocialMediaIcons = styled.img`
+  width: 32px;
+  padding: 5px;
+`;
+
+export const SocialMediaWrapper = styled.div`
+padding-left: 40px;
+padding-right: 40px;
+
+
+`;

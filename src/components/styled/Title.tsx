@@ -8,12 +8,16 @@ export const Title = styled.h1 `
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 0.3;
     padding-left: 7%;
-
-
 `;
 
 export const SecondaryTitle = styled(Title) `
   color: ${SKUGGLILA};
   line-height: 1.9;
   text-shadow: none;
+`;
+
+export const H4White = styled.h4 `
+    padding: 0;
+    color: ${KRITVIT};
+    font-size: 1.3rem;
 `;
