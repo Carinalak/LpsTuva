@@ -1,6 +1,6 @@
 import { GalleryImage } from "../components/styled/Image"
 import { SecondaryTitle } from "../components/styled/Title"
-import { TextWrapper, WrapperTransparent } from "../components/styled/Wrappers"
+import { TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 
 export const Home = () => {
@@ -8,7 +8,7 @@ export const Home = () => {
   return ( <>
   
   <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
-  <WrapperTransparent>
+  <WrapperWhite>
     <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird"/>
     <TextWrapper>
 
@@ -17,7 +17,7 @@ export const Home = () => {
     sint tenetur fuga, harum minima quaerat magni. Quod reiciendis, iste minima alias nemo pariatur 
     voluptates reprehenderit inventore commodi?
     </TextWrapper>
-  </WrapperTransparent>
+  </WrapperWhite>
 
   
   </>)

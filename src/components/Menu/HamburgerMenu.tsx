@@ -56,13 +56,13 @@ const HamburgerButton = styled.div`
 `;
 
 const MenuList = styled.ul<{ isOpen: boolean }>`
-  display: none;
-  position: absolute;
-  top: -20px;
+  position: fixed;
+  top: 0;
   right: 0;
   margin-top: 0;
   margin-right: 0;
   width: 80vw;
+  height: 100vh;
   padding-top: 60px;
   padding-bottom: 100px;
   margin-bottom: 100px;
