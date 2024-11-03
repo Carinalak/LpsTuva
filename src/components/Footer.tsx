@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { SMUTSROSA } from "./styled/Variables";
-import { WhiteFont } from "./styled/Wrappers";
 import YoutubeIcon from '../assets/icons/YoutubeIcon.png';
 import InstagramIcon from '../assets/icons/InstagramIcon.png';
 import SpotifyIcon from '../assets/icons/SpotifyIcon.png';
