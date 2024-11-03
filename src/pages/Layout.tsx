@@ -1,19 +1,12 @@
 import { Outlet } from "react-router-dom"
-import { Title } from "../components/styled/Title"
-import { HamburgerMenu } from "../components/Menu/HamburgerMenu";
-import { NavigationContainer, DesktopMenu } from "../components/Menu/DesktopMenu";
+import { Header } from "../components/Header"
+
 
 
 export const Layout = () => {
   return (
     <>
-      <header>
-        <NavigationContainer>
-          <Title>LpsTuva</Title>
-          <HamburgerMenu /> 
-          <DesktopMenu />
-        </NavigationContainer>
-      </header>
+      <Header />
       <main>
         <Outlet />
       </main>
