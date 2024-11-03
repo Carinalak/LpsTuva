@@ -23,8 +23,8 @@ export const SocialMediaIcons = styled.img`
 `;
 
 export const SocialMediaWrapper = styled.div`
-padding-left: 40px;
-padding-right: 40px;
-
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 
 `;

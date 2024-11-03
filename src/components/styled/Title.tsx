@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { KRITVIT, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
 
 export const Title = styled.h1 `
     padding: 0;
@@ -19,5 +19,13 @@ export const SecondaryTitle = styled(Title) `
 export const H4White = styled.h4 `
     padding: 0;
     color: ${KRITVIT};
-    font-size: 1.3rem;
+    font-size: 1rem;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+
+    }
 `;
