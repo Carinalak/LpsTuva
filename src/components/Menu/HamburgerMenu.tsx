@@ -29,6 +29,7 @@ const HamburgerButton = styled.div`
   justify-content: space-between;
   cursor: pointer;
   z-index: 100;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
   .line {
     width: 100%;
@@ -143,7 +144,7 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ isOpen }) => (
     alt="Arrow icon"
     style={{
       width: '15px',
-      height: '15px',
+      height: '14px',
       transition: 'transform 0.3s',
       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
       marginRight: '10px',

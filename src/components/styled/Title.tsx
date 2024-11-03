@@ -6,7 +6,7 @@ export const Title = styled.h1 `
     color: ${KRITVIT};
     font-size: 2.4rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 0.5;
+    line-height: 0.3;
     padding-left: 7%;
 
 

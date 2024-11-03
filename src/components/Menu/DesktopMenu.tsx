@@ -10,7 +10,7 @@ export const NavigationContainer = styled.section`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
 `;
 

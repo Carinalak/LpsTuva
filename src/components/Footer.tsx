@@ -9,7 +9,7 @@ background-color: ${SMUTSROSA};
   text-align: center;
   margin-top: auto; /* Flyttar footern längst ner */
   margin-bottom: 0 !important;
-  width: 100%;
+  max-width: 100%;
 `;
 
 return (<>
