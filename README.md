@@ -21,8 +21,8 @@ Tablet och Desktopversion:
 
 - npm run dev
 
-# För att deploya projektet till GitHubPages kör detta kommando varje gång du pushat och vill göra build: 
+### För att deploya projektet till GitHubPages kör detta kommando varje gång du pushat och vill göra build: 
 
-rm -rf dist
-npm run build
-npm run deploy
+- rm -rf dist
+- npm run build
+- npm run deploy

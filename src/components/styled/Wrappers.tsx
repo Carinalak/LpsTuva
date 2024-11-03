@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -58,4 +58,14 @@ export const TextWrapper = styled(WrapperWhite)`
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   width: 550px;
 }
+`;
+
+export const WhiteFont = styled.div `
+   background-color: transparent;
+   color: ${KRITVIT};
+`;
+
+export const BlackFont = styled(WhiteFont) `
+  color: ${KOLSVART};
+
 `;
