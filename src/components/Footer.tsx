@@ -21,11 +21,12 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
+gap: 40px;
 `;
 
 return (<>
 <FooterContainer>
-  <H4White>&copy; LpsTuva 2024 </H4White>
+<H4White>&copy; LpsTuva 2024 </H4White>
   <SocialMediaWrapper>
     <SocialMediaIcons src={YoutubeIcon} alt="YouTube länk till LPS-Tuva" />
     <SocialMediaIcons src={InstagramIcon} alt="Instagramlänk till LPS-Tuva" />
