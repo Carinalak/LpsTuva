@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
-width: 350px;
+width: 98%;
 height: 500px;
 display: flex;
 flex-direction: column;
@@ -47,9 +47,9 @@ margin-bottom: 10px;
 `;
 
 export const TextWrapper = styled(WrapperWhite)`
-  width: 95%;       // Måste ha samma bredd som GalleryImage!
+  width: 93%;       // Måste ha samma bredd som GalleryImage!
   background-color: transparent;
-  color: ${KRITVIT};
+  color: ${KOLSVART};
   
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
