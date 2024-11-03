@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 background-color: #ffffffd9;
 /*background-color: rgba(255, 255, 255, 0.8);*/
-padding-top: 40px;
+padding-top: 20px;
 padding-bottom: 40px;
 border-radius: 10px;
 margin-bottom: 10px;
@@ -25,7 +25,6 @@ margin-bottom: 10px;
 `;
 
 export const WrapperTransparent = styled(WrapperWhite)`
-width: 90%;
 height: 500px;
 display: flex;
 flex-direction: column;
@@ -47,7 +46,7 @@ margin-bottom: 10px;
 `;
 
 export const TextWrapper = styled(WrapperWhite)`
-  width: 93%;       // Måste ha samma bredd som GalleryImage!
+  width: 90%;       // Måste ha samma bredd som GalleryImage!
   background-color: transparent;
   color: ${KOLSVART};
   

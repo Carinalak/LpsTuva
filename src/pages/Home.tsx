@@ -7,8 +7,9 @@ export const Home = () => {
 
   return ( <>
   
-  <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
+  
   <WrapperWhite>
+    <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
     <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird"/>
     <TextWrapper>
 

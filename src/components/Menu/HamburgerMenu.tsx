@@ -98,6 +98,8 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
       position: relative;
       cursor: url(${pawWhite}), auto;
 
+      -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
+
       &:hover {
         color: ${SKUGGLILA};
         border-radius: 5px;
