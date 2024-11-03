@@ -56,6 +56,7 @@ const HamburgerButton = styled.div`
 `;
 
 const MenuList = styled.ul<{ isOpen: boolean }>`
+  display: none;
   position: absolute;
   top: -20px;
   right: 0;

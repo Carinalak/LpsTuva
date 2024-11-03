@@ -3,7 +3,7 @@ import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP } from "./Variables";
 
 export const GalleryImage = styled.img`
 
-  width: 300px;
+  width: 95%;       // Måste ha samma bredd som TextWrapper! till texten
   border-radius: 10px;
 
 
