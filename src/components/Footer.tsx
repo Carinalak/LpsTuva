@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { SMUTSROSA } from "./styled/Variables";
-import YoutubeIcon from '../assets/icons/YoutubeIcon.png';
-import InstagramIcon from '../assets/icons/InstagramIcon.png';
-import SpotifyIcon from '../assets/icons/SpotifyIcon.png';
+import YoutubeIcon from '../assets/icons/youtube.svg';
+import InstagramIcon from '../assets/icons/instagram.svg';
+import SpotifyIcon from '../assets/icons/spotify.svg';
 import { SocialMediaIcons, SocialMediaWrapper } from "./styled/Image";
 import { H4White } from "./styled/Title";
 
