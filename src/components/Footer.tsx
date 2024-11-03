@@ -28,9 +28,12 @@ return (<>
 <FooterContainer>
 <H4White>&copy; LpsTuva 2024 </H4White>
   <SocialMediaWrapper>
-    <SocialMediaIcons src={YoutubeIcon} alt="YouTube länk till LPS-Tuva" />
-    <SocialMediaIcons src={InstagramIcon} alt="Instagramlänk till LPS-Tuva" />
-    <SocialMediaIcons src={SpotifyIcon} alt="Spotifylänk till Tuva Sundgren" />
+    <a href="https://www.youtube.com/c/LPSTuwa" target="_blank" rel="noopener noreferrer">
+    <SocialMediaIcons src={YoutubeIcon} alt="YouTube länk till LPS-Tuva" /></a>
+    <a href="https://www.instagram.com/tuvasundgren/" target="_blank" rel="noopener noreferrer">
+    <SocialMediaIcons src={InstagramIcon} alt="Instagramlänk till LPS-Tuva" /></a>
+    <a href="https://open.spotify.com/artist/2zdnWVvx5WeaD3vctR5DnO" target="_blank" rel="noopener noreferrer">
+    <SocialMediaIcons src={SpotifyIcon} alt="Spotifylänk till Tuva Sundgren" /></a>
   </SocialMediaWrapper>
 </FooterContainer>
 

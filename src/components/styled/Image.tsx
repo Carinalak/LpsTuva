@@ -20,11 +20,15 @@ export const GalleryImage = styled.img`
 export const SocialMediaIcons = styled.img`
   width: 32px;
   padding: 5px;
+  vertical-align: middle; // centrera vertikalt
+  margin: 0 3px; // Avstånd mellan ikoner
 `;
 
 export const SocialMediaWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+align-items: center;
+gap: 2px; // Avstånd mellan ikoner
 
 `;
