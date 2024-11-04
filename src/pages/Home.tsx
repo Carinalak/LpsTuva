@@ -6,7 +6,7 @@ import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 export const Home = () => {
 
   return ( <>
-  
+
   
   <WrapperWhite>
     <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>

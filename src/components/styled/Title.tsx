@@ -10,6 +10,12 @@ export const Title = styled.h1 `
     padding-left: 7%;
 `;
 
+export const LogoTitle = styled(Title) `
+margin-left: 60px; // Beroende av loggans position
+z-index: 130;
+
+`;
+
 export const SecondaryTitle = styled(Title) `
   color: ${SKUGGLILA};
   line-height: 1.9;

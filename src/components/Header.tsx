@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { NavigationContainer, DesktopMenu } from "./Menu/DesktopMenu"
 import { HamburgerMenu } from "./Menu/HamburgerMenu"
-import { Title } from "./styled/Title"
+import { LogoTitle } from "./styled/Title"
 import { KRITVIT, SMUTSROSA } from "./styled/Variables";
+import { LogoContainer, LogoImage } from "./styled/Image";
+import LogoRund from '../assets/images/logoRund.png';
 
 export const Header = () => {
 
@@ -18,9 +20,11 @@ export const Header = () => {
 `;
 
 return (<>
+
   <HeaderContainer>
+  <LogoContainer><LogoImage src={LogoRund}  alt="Logo"/></LogoContainer>
     <NavigationContainer>
-      <Title>LpsTuva</Title>
+      <LogoTitle>LpsTuva</LogoTitle>
       <HamburgerMenu /> 
       <DesktopMenu />
     </NavigationContainer>
