@@ -11,9 +11,8 @@ export const Title = styled.h1 `
 `;
 
 export const LogoTitle = styled(Title) `
-margin-left: 60px; // Beroende av loggans position
-z-index: 130;
-
+margin-left: 80px; // Beroende av loggans position
+z-index: 87;
 `;
 
 export const SecondaryTitle = styled(Title) `
