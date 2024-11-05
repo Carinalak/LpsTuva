@@ -24,32 +24,53 @@ export const LogoContainer = styled.div `
   background-color: ${SMUTSROSA};
   display: flex;
   align-items: center;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   padding: 5px;
   //top: 30px;
   //left: 6%;
   //transform: translate(-50%, 0);
-  z-index: 101;
+  z-index: 85;
   margin-left: 5px;
   margin-top: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
+ 
+   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 110px;
+      height: 110px;
+    }
 
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 140px;
+      height: 140px;
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+`;  
 
 export const LogoImage = styled.img`
  position: fixed;
-  height: 80px;
-  z-index: 110;
+  height: 90px;
+  z-index: 87;
   margin-left: 5px;
   margin-top: 5px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 100px;
+      height: 100px;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 130px;
+      height: 130px;
+    }
 
 `;
 
 export const SocialMediaIcons = styled.img`
   width: 32px;
   padding: 5px;
-  vertical-align: middle; // centrera vertikalt
+  vertical-align: middle;
   margin: 0 3px; // Avstånd mellan ikoner
 `;
 

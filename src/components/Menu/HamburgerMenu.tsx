@@ -11,7 +11,7 @@ const MenuContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   position: relative;
-  z-index: 10;
+  z-index: 100;
   max-width: 100vw;
 
 `;
