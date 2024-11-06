@@ -60,6 +60,7 @@ export const DesktopNav = styled.nav`
       position: relative;
       height: 60px; // link height
       padding: 0;
+      cursor: pointer;
       cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
     }
 
