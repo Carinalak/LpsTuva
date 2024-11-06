@@ -26,3 +26,7 @@ Tablet och Desktopversion:
 - rm -rf dist
 - npm run build
 - npm run deploy
+
+## The form uses React hook form and Reg Ex to validate:
+
+- npm install react-hook-form @hookform/resolvers yup
