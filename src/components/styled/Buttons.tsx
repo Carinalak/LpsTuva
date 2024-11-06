@@ -12,6 +12,7 @@ export const Button = styled.button `
   width: 100px;
   height: 35px;
   cursor: pointer;
+  cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
   &:hover {
     background-color: ${SMUTSROSA};

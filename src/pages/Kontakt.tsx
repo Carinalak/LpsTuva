@@ -3,6 +3,7 @@ import { Person } from "../models/Person"
 import { Form } from "../components/styled/Form"
 import { WrapperTransparent } from "../components/styled/Wrappers"
 import { Button, ButtonWrapper } from "../components/styled/Buttons"
+import { H2White } from "../components/styled/Title"
 
 export const Kontakt = () => {
 
@@ -25,8 +26,7 @@ const handleMessageChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
 
   return ( <>
     <WrapperTransparent>
-      <h1>Skriv ett meddelande till mig!</h1>
-
+      <H2White>Skriv ett meddelande till mig!</H2White>
       <Form>
         <input 
           className="contactInput" 
@@ -57,12 +57,12 @@ const handleMessageChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
           required
         />
         <ButtonWrapper>
-        <Button type="button">Rensa</Button>
-        <Button type="submit">Skicka</Button>
+          <Button type="button">Rensa</Button>
+          <Button type="submit">Skicka</Button>
         </ButtonWrapper>
       </Form>
 
-      <p> {JSON.stringify(person)} </p>
+      {/* <p> {JSON.stringify(person)} </p> */}
     </WrapperTransparent>
     
     

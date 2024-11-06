@@ -31,8 +31,8 @@ flex-direction: column;
 align-items: center;
 background-color: transparent;
 /*background-color: rgba(255, 255, 255, 0.8);*/
-border: 1px solid black;
-padding-top: 40px;
+//border: 1px solid black;
+padding-top: 10px;
 padding-bottom: 40px;
 margin-bottom: 10px;
 
