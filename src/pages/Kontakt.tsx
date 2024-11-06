@@ -1,5 +1,8 @@
 import { ChangeEvent, useState } from "react"
 import { Person } from "../models/Person"
+import { Form } from "../components/styled/Form"
+import { WrapperTransparent } from "../components/styled/Wrappers"
+import { Button, ButtonWrapper } from "../components/styled/Buttons"
 
 export const Kontakt = () => {
 
@@ -21,21 +24,48 @@ const handleMessageChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
 
 
   return ( <>
-  <h1>Skriv ett meddelande till mig!</h1>
+    <WrapperTransparent>
+      <h1>Skriv ett meddelande till mig!</h1>
 
-  <form>
-    <input type="text" name="name" value={person.name} onChange={handleNameChange} required />
-    <input type="email" name="email" value={person.email} onChange={handleEmailChange} required />
-    <textarea type="textarea" name="message" placeholder="Message" rows={10} cols={10} value={person.message} onChange={handleMessageChange} required />
+      <Form>
+        <input 
+          className="contactInput" 
+          type="text" 
+          name="name" 
+          placeholder="Namn"
+          value={person.name} 
+          onChange={handleNameChange} 
+          required 
+        />
+          
+        <input 
+          className="contactInput" 
+          type="email" 
+          name="email" 
+          placeholder="Email"
+          value={person.email} 
+          onChange={handleEmailChange} 
+          required 
+        />
+
+        <textarea 
+          className="contactTextArea"
+          name="message"
+          placeholder="Meddelande"
+          value={person.message}
+          onChange={handleMessageChange}
+          required
+        />
+        <ButtonWrapper>
+        <Button type="button">Rensa</Button>
+        <Button type="submit">Skicka</Button>
+        </ButtonWrapper>
+      </Form>
+
+      <p> {JSON.stringify(person)} </p>
+    </WrapperTransparent>
     
-    <button type="button">Rensa</button>
-    <button type="submit">Skicka</button>
-  </form>
-
-  <p> {JSON.stringify(person)} </p>
-  
-  
-  
+    
   
   </>)
 
