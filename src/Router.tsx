@@ -6,6 +6,7 @@ import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
 import { GalleriBilder } from "./pages/GalleriBilder";
 import { MinaLps } from "./pages/MinaLps";
+import { Tack } from "./pages/Tack";
 
 
 export const router = createHashRouter([
@@ -33,6 +34,10 @@ export const router = createHashRouter([
             {
                 path: "/minalps",
                 element:<MinaLps></MinaLps>,
+            },
+            {
+                path: "/tack",
+                element:<Tack></Tack>,
             },
         ],
     },

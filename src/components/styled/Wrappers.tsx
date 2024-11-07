@@ -69,3 +69,10 @@ export const BlackFont = styled(WhiteFont) `
   color: ${KOLSVART};
 
 `;
+
+export const CenteredWrapperTransparent = styled.div `
+
+  padding-top: 100px;
+  text-align: center;
+
+`;

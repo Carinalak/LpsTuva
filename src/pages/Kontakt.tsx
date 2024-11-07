@@ -8,10 +8,10 @@ import { H2White } from "../components/styled/Title";
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
 
-  // Hanterar formulärsändning
   const onSubmit = (data: Person) => {
     console.log("Form data:", data);
-    reset(); // Rensar formuläret efter inskick
+    reset();
+    alert("Tack för ditt meddelande!");
   };
 
   return (
