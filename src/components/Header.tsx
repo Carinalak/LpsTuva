@@ -22,7 +22,8 @@ export const Header = () => {
 return (<>
 
   <HeaderContainer>
-  <LogoContainer><LogoImage src={LogoRund}  alt="Logo"/></LogoContainer>
+
+  <LogoContainer><LogoImage src={LogoRund} alt="Logo"/></LogoContainer>
     <NavigationContainer>
       <LogoTitle>LpsTuva</LogoTitle>
       <HamburgerMenu /> 

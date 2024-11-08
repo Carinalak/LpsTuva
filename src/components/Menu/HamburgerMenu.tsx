@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { MenuLinks } from './MenuLinks';
 import myCustomArrow from "../../assets/icons/arrow.png";
 import pawWhite from "../../assets/icons/paw_white.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const MenuContainer = styled.div`
   display: flex;
@@ -156,6 +156,7 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ isOpen }) => (
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -178,7 +179,12 @@ export const HamburgerMenu = () => {
   }, [isOpen]);
 
   const toggleSubMenu = (path: string) => {
-    setOpenSubMenu(openSubMenu === path ? null : path);
+    if (openSubMenu === path) {
+      setOpenSubMenu(null);
+    } else {
+      setOpenSubMenu(path);
+      navigate(path); // Navigera till huvudlänken
+    }
   };
 
   return (

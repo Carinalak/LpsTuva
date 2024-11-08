@@ -4,14 +4,26 @@ import { Form } from "../components/styled/Form";
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { H2White } from "../components/styled/Title";
+import { useNavigate } from "react-router-dom";
+
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
+  const navigate = useNavigate();
 
   const onSubmit = (data: Person) => {
     console.log("Form data:", data);
     reset();
     alert("Tack för ditt meddelande!");
+    navigate("/tack");
+
+    setTimeout(() => {
+      const topElement = document.getElementById("top");
+      if (topElement) {
+        topElement.scrollIntoView({ behavior: "smooth" }); // "smooth" för smidig scrollning
+      }
+    }, 0);
+
   };
 
   return (
