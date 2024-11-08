@@ -186,7 +186,13 @@ export const HamburgerMenu = () => {
       navigate(path); // Navigera till huvudlänken
     }
   };
-
+  
+  const scrollToTop = () => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <MenuContainer>
       <HamburgerButton onClick={toggleMenu} className={isOpen ? 'open' : ''}>
@@ -203,7 +209,7 @@ export const HamburgerMenu = () => {
                 <ArrowIcon isOpen={openSubMenu === link.path} />
               </span>
             ) : (
-              <NavLink to={link.path} onClick={closeMenu}>
+              <NavLink to={link.path} onClick={() => { scrollToTop(); closeMenu(); }}>
                 {link.label}
               </NavLink>
             )}
@@ -214,7 +220,7 @@ export const HamburgerMenu = () => {
                   <li key={subLink.path}>
                     <NavLink
                       to={subLink.path}
-                      onClick={closeMenu}
+                      onClick={() => { scrollToTop(); closeMenu(); }}
                       rel="noopener noreferrer"
                     >
                       {subLink.label}
