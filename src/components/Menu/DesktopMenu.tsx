@@ -158,7 +158,7 @@ export const DesktopMenu = () => {
   const handleLinkClick = () => {
     const topElement = document.getElementById("top");
     if (topElement) {
-      topElement.scrollIntoView({ behavior: "smooth" });
+      topElement.scrollIntoView({ behavior: "auto" });
     }
     setActiveSubMenu(null); // Stäng submenyn vid klick
   };
