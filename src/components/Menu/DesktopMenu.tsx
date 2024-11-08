@@ -153,11 +153,17 @@ export const DesktopMenu = () => {
   const handleMouseLeave = () => {
     setActiveSubMenu(null);
   };
-
-  const handleSubLinkClick = () => {
-    setActiveSubMenu(null); // Hide submenu when link i clicked
-  };
   
+  // Hantera klick på länkar och scrolla till toppen
+  const handleLinkClick = () => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "smooth" });
+    }
+    setActiveSubMenu(null); // Stäng submenyn vid klick
+  };
+
+
   return (
     <DesktopNav>
       <ul>
@@ -167,7 +173,7 @@ export const DesktopMenu = () => {
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
-            <NavLink to={link.path}>
+            <NavLink to={link.path} onClick={handleLinkClick}>
               <span>{link.label}</span>
               {link.subLinks && <img src={arrowIcon} alt="arrow icon" className="icon" />}
             </NavLink>
@@ -176,7 +182,7 @@ export const DesktopMenu = () => {
               <ul className="submenu">
                 {link.subLinks.map((subLink) => (
                   <li key={subLink.path}>
-                    <NavLink to={subLink.path} onClick={handleSubLinkClick}>
+                    <NavLink to={subLink.path} onClick={handleLinkClick}>
                       {subLink.label}
                     </NavLink>
                   </li>
