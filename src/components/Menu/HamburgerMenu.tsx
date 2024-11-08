@@ -190,7 +190,7 @@ export const HamburgerMenu = () => {
   const scrollToTop = () => {
     const topElement = document.getElementById("top");
     if (topElement) {
-      topElement.scrollIntoView({ behavior: "smooth" });
+      topElement.scrollIntoView({ behavior: "auto" });
     }
   };
   return (

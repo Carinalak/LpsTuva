@@ -13,11 +13,11 @@ export const Tack = () => {
 
   return ( <>
     <CenteredWrapperTransparent>
-      <H2White>Tack för att du kontaktar mig!</H2White>
-      <ButtonWrapper>
-        <Button type="button" onClick={handleBackClick}>
-          Tillbaka
-        </Button>
+      <H2White>Tack för meddelandet!</H2White>
+        <ButtonWrapper>
+          <Button type="button" onClick={handleBackClick}>
+            Tillbaka
+          </Button>
       </ButtonWrapper>
     </CenteredWrapperTransparent>
 

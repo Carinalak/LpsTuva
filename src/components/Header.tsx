@@ -23,7 +23,7 @@ return (<>
 
   <HeaderContainer>
 
-  <LogoContainer><LogoImage src={LogoRund} alt="Logo"/></LogoContainer>
+  <LogoContainer><LogoImage src={LogoRund} alt="Logo" loading="lazy"/></LogoContainer>
     <NavigationContainer>
       <LogoTitle>LpsTuva</LogoTitle>
       <HamburgerMenu /> 

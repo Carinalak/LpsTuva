@@ -1,3 +1,4 @@
+import { useState } from 'react';  // Importera useState
 import { useForm } from "react-hook-form";
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
@@ -5,29 +6,37 @@ import { WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { H2White } from "../components/styled/Title";
 import { useNavigate } from "react-router-dom";
-
+import { PawSpinner } from '../components/PawSpinner';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
+  const [loading, setLoading] = useState(false);  // State för att hantera spinnern
   const navigate = useNavigate();
 
   const onSubmit = (data: Person) => {
+    setLoading(true);  // Visa spinnern
+
     console.log("Form data:", data);
     reset();
-    alert("Tack för ditt meddelande!");
-    navigate("/tack");
 
+    // Simulera en fördröjning för att visa spinnern (t.ex. en API-anrop eller liknande)
     setTimeout(() => {
-      const topElement = document.getElementById("top");
-      if (topElement) {
-        topElement.scrollIntoView({ behavior: "smooth" }); // "smooth" för smidig scrollning
-      }
-    }, 0);
-
+      setLoading(false);  // Dölja spinnern
+      navigate("/tack");  // Navigera till tack-sidan
+    }, 2000);  // Fördröjning på 2 sekunder
   };
+
+  setTimeout(() => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "auto" });
+    }
+  }, 0);
 
   return (
     <>
+      {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
+      
       <WrapperTransparent>
         <H2White>Skriv ett meddelande till mig!</H2White>
         <Form onSubmit={handleSubmit(onSubmit)}>

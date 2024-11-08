@@ -10,7 +10,7 @@ export const Home = () => {
   
   <WrapperWhite>
     <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
-    <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird"/>
+    <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird" loading="lazy"/>
     <TextWrapper>
 
       testar
