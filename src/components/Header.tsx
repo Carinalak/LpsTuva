@@ -19,11 +19,24 @@ export const Header = () => {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
+  // Måste ha denna så att bilden håller sig på plats
+  const LogoLink = styled.a`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
+  `;
+
 return (<>
 
   <HeaderContainer>
 
-  <LogoContainer><LogoImage src={LogoRund} alt="Logo" loading="lazy"/></LogoContainer>
+  <LogoContainer>
+    <LogoLink href="/">
+    <LogoImage src={LogoRund} alt="Logo" loading="lazy"/>
+    </LogoLink>
+    </LogoContainer>
+    
     <NavigationContainer>
       <LogoTitle>LpsTuva</LogoTitle>
       <HamburgerMenu /> 

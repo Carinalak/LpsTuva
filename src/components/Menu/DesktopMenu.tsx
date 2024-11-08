@@ -16,7 +16,6 @@ export const NavigationContainer = styled.section`
 
 export const DesktopNav = styled.nav`
   display: none;
-
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     display: block;
     width: 50%;
@@ -33,7 +32,7 @@ export const DesktopNav = styled.nav`
       padding: 0;
       margin: 0;
       list-style: none;
-      cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
+     //  cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
      // cursor: url(${new URL("/assets/icons/paw_purple.svg", import.meta.url).href}), auto;
     }
