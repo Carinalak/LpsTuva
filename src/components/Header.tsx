@@ -38,7 +38,7 @@ return (<>
     </LogoContainer>
     
     <NavigationContainer>
-      <LogoTitle>LpsTuva</LogoTitle>
+      <LogoTitle>Lps-Tuva</LogoTitle>
       <HamburgerMenu /> 
       <DesktopMenu />
     </NavigationContainer>

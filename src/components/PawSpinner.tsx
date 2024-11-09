@@ -7,7 +7,7 @@ const movePaws = keyframes`
     opacity: 1;
   }
   50% {
-    transform: translateY(-15px); // Tasslyft för att simulera steg 
+    transform: translateY(-25px); // Tasslyft för att simulera steg 
     opacity: 0.5;
   }
   100% {
@@ -16,14 +16,67 @@ const movePaws = keyframes`
   }
 `;
 
-// Wrapper för hela spinner-komponenten
+const dotsAnimation = keyframes`
+  0%, 20% {
+    content: "";
+  }
+  40% {
+    content: ".";
+  }
+  60% {
+    content: "..";
+  }
+  80%, 100% {
+    content: "...";
+  }
+`;
+
+const Dots = styled.span`
+  &:after {
+    content: "";
+    animation: ${dotsAnimation} 1.2s infinite;
+  }
+`;
+const OverlayBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(213, 190, 205, 0.179);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const TextWrapper = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #765059;
+  display: flex;
+  align-items: center;
+  padding-top: 200px;
+  width: 100px;
+`;
+
+const Skickar = styled.div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+`;
+
 const SpinnerWrapper = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 20px; // Avstånd mellan de två tassarna 
+  gap: 20px; // Avstånd mellan de två tassarna
 `;
 
 
@@ -38,7 +91,6 @@ const Paw = styled.div`
   }
 `;
 
-// SVG-beskrivningen för tass
 const PawSVG = () => (
   <svg width="40" height="40" viewBox="0 0 115 120" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M72.1881 87.7211C61.3934 78.1451 52.1374 52.9357 58.2535 44.2512C75.7849 46.4631 69.9195 45.0957 88.6836 49.664C106.558 56.843 102.248 75.2271 96.1315 83.9116C90.0154 92.5961 82.9828 97.2971 72.1881 87.7211Z" fill="#765059"/>
@@ -53,6 +105,7 @@ const PawSVG = () => (
 
 export const PawSpinner = () => {
   return (
+    <OverlayBackground>
     <SpinnerWrapper>
       <Paw style={{ animationDelay: '0s' }}>
         <PawSVG />
@@ -60,6 +113,11 @@ export const PawSpinner = () => {
       <Paw style={{ animationDelay: '0.4s' }}>
         <PawSVG />
       </Paw>
+
     </SpinnerWrapper>
+    <TextWrapper>
+      <Skickar>Skickar <Dots /></Skickar>
+      </TextWrapper>
+    </OverlayBackground>
   );
 };
