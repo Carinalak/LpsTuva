@@ -13,7 +13,7 @@ export const Tack = () => {
 
   return ( <>
     <CenteredWrapperTransparent>
-      <H2White>Tack för meddelandet!</H2White>
+      <H2White>Meddelandet har skickats!</H2White>
         <ButtonWrapper>
           <Button type="button" onClick={handleBackClick}>
             Tillbaka
