@@ -1,4 +1,4 @@
-import { useState } from 'react';  // Importera useState
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
@@ -19,10 +19,9 @@ export const Kontakt = () => {
     console.log("Form data:", data);
     reset();
 
-    // Simulera en fördröjning för att visa spinnern (t.ex. en API-anrop eller liknande)
     setTimeout(() => {
-      setLoading(false);  // Dölja spinnern
-      navigate("/tack");  // Navigera till tack-sidan
+      setLoading(false); // Dölj spinnern
+      navigate("/tack");
     }, 2000);  // Fördröjning på 2 sekunder
   };
 
