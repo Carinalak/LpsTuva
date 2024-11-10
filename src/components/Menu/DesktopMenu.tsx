@@ -32,9 +32,6 @@ export const DesktopNav = styled.nav`
       padding: 0;
       margin: 0;
       list-style: none;
-     //  cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
-
-     // cursor: url(${new URL("/assets/icons/paw_purple.svg", import.meta.url).href}), auto;
     }
 
     li {
@@ -73,7 +70,9 @@ export const DesktopNav = styled.nav`
       width: 10px;
       height: 10px;
       position: absolute;
-      bottom: 5px; // arrow under the links
+      bottom: 5px;
+      left: 50%; /* Centrerar pilen horisontellt */
+      transform: translateX(-50%);
     }
 
     li a:hover {
@@ -94,8 +93,8 @@ export const DesktopNav = styled.nav`
       display: none;
       position: absolute;
       top: 100%;
-      // left: 50%;
-      // transform: translateX(-50%);
+      left: 50%;
+      transform: translateX(-50%);
       background-color: ${GAMMELROSA};
       list-style: none;
       padding: 30px 25px;
@@ -113,26 +112,29 @@ export const DesktopNav = styled.nav`
     }
 
     ul.submenu li {
-      display: flex;
-      flex-direction: row;
-      align-items: start;
+      display: block;
+      width: 100%;
+      //display: flex;
+      //flex-direction: row;
+      // align-items: start;
       gap: 0;
       margin: 0;
       padding: 0;
       text-align: left;
       white-space: nowrap;
+
     }
 
     ul.submenu li a {
       color: ${KRITVIT};
-      text-align: left;
       font-weight: 600;
       font-size: 1.2rem;
-      //display: flex;
-      //justify-content: center;
-      padding: 0;
+      padding: 5;
       margin: 0;
-      height: 40px;
+      display: block;
+      width: 100%;
+      height: 28px;
+      text-align: left;
     }
 
     ul.submenu li a:hover {
