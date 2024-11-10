@@ -74,5 +74,15 @@ export const CenteredWrapperTransparent = styled.div `
 
   padding-top: 100px;
   text-align: center;
+  color: ${KRITVIT};
+
+`;
+
+export const CenteredColTransWrapper = styled.div `
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+
 
 `;
