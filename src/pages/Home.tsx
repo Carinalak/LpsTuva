@@ -1,5 +1,5 @@
 import { GalleryImage } from "../components/styled/Image"
-import { SecondaryTitle } from "../components/styled/Title"
+import { H1Purple } from "../components/styled/Title"
 import { TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 
@@ -9,7 +9,7 @@ export const Home = () => {
 
   
   <WrapperWhite>
-    <SecondaryTitle>LpsTuvas Sida</SecondaryTitle>
+    <H1Purple>LpsTuvas Sida</H1Purple>
     <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird" loading="lazy"/>
     <TextWrapper>
 

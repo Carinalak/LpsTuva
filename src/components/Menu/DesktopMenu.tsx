@@ -133,7 +133,7 @@ export const DesktopNav = styled.nav`
       margin: 0;
       display: block;
       width: 100%;
-      height: 28px;
+      height: 30px;
       text-align: left;
     }
 
