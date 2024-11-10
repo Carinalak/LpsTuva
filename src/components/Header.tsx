@@ -32,7 +32,7 @@ return (<>
   <HeaderContainer>
 
   <LogoContainer>
-    <LogoLink href="/">
+    <LogoLink href="./">
     <LogoImage src={LogoRund} alt="Logo" loading="lazy"/>
     </LogoLink>
     </LogoContainer>
