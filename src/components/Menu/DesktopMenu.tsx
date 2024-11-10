@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.png";
 import { useState } from "react";
@@ -41,6 +41,7 @@ export const DesktopNav = styled.nav`
       position: relative;
       flex-grow: 1;
       text-align: center;
+        -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
       &:hover > ul {
         display: flex;
@@ -93,8 +94,8 @@ export const DesktopNav = styled.nav`
       display: none;
       position: absolute;
       top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
+      // left: 50%;
+      // transform: translateX(-50%);
       background-color: ${GAMMELROSA};
       list-style: none;
       padding: 30px 25px;
@@ -104,8 +105,9 @@ export const DesktopNav = styled.nav`
       border-radius: 5px;
       width: auto;
       gap: 0;
+      text-align: left;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       z-index: 99;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -113,15 +115,17 @@ export const DesktopNav = styled.nav`
     ul.submenu li {
       display: flex;
       flex-direction: row;
+      align-items: start;
       gap: 0;
       margin: 0;
       padding: 0;
-      text-align: center;
+      text-align: left;
       white-space: nowrap;
     }
 
     ul.submenu li a {
       color: ${KRITVIT};
+      text-align: left;
       font-weight: 600;
       font-size: 1.2rem;
       //display: flex;
@@ -141,27 +145,25 @@ export const DesktopNav = styled.nav`
   }
 `;
 
+
 export const DesktopMenu = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
+  const location = useLocation();
 
-  // Toggle submenu:
-  const handleMouseEnter = (index: number) => {
-    setActiveSubMenu(index);
+  // Toggle submenu när användaren klickar på pilikonen
+  const handleArrowClick = (e: React.MouseEvent, index: number) => {
+    e.preventDefault(); // Förhindra navigation när pilen klickas
+    setActiveSubMenu(activeSubMenu === index ? null : index); // Växla undermenyn
   };
 
-  const handleMouseLeave = () => {
-    setActiveSubMenu(null);
-  };
-  
-  // Hantera klick på länkar och scrolla till toppen
-  const handleLinkClick = () => {
-    const topElement = document.getElementById("top");
-    if (topElement) {
-      topElement.scrollIntoView({ behavior: "auto" });
+  const handleMainLinkClick = (index: number, path: string) => {
+    if (location.pathname === path) {
+      // Om vi är på samma sida, toggla undermenyn
+      setActiveSubMenu(activeSubMenu === index ? null : index);
+    } else {
+      setActiveSubMenu(null); // Navigera bort och stäng undermenyn
     }
-    setActiveSubMenu(null); // Stäng submenyn vid klick
   };
-
 
   return (
     <DesktopNav>
@@ -169,19 +171,30 @@ export const DesktopMenu = () => {
         {MenuLinks.map((link, index) => (
           <li
             key={link.path}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setActiveSubMenu(index)}
+            onMouseLeave={() => setActiveSubMenu(null)}
           >
-            <NavLink to={link.path} onClick={handleLinkClick}>
+            <NavLink
+              to={link.path}
+              onClick={() => handleMainLinkClick(index, link.path)}
+            >
               <span>{link.label}</span>
-              {link.subLinks && <img src={arrowIcon} alt="arrow icon" className="icon" />}
             </NavLink>
+
+            {link.subLinks && (
+              <img
+                src={arrowIcon}
+                alt="arrow icon"
+                className="icon"
+                onClick={(e) => handleArrowClick(e, index)}
+              />
+            )}
 
             {link.subLinks && activeSubMenu === index && (
               <ul className="submenu">
                 {link.subLinks.map((subLink) => (
                   <li key={subLink.path}>
-                    <NavLink to={subLink.path} onClick={handleLinkClick}>
+                    <NavLink to={subLink.path} onClick={() => setActiveSubMenu(null)}>
                       {subLink.label}
                     </NavLink>
                   </li>
@@ -194,4 +207,6 @@ export const DesktopMenu = () => {
     </DesktopNav>
   );
 };
+
+
 
