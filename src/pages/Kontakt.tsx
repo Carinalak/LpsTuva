@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
 import { WrapperTransparent } from "../components/styled/Wrappers";
@@ -13,16 +14,24 @@ export const Kontakt = () => {
   const [loading, setLoading] = useState(false);  // State för att hantera spinnern
   const navigate = useNavigate();
 
-  const onSubmit = (data: Person) => {
+  const onSubmit = async (data: Person) => {
     setLoading(true);  // Visa spinnern
 
-    console.log("Form data:", data);
-    reset();
+    try {
+      // Skicka POST-request till backend
+      const response = await axios.post("http://localhost:5000/api/contact", data);
+      console.log("Form data sent successfully:", response.data);
 
-    setTimeout(() => {
-      setLoading(false); // Dölj spinnern
-      navigate("/tack");
-    }, 2000);  // Fördröjning på 2 sekunder
+      reset();
+      setTimeout(() => {
+        setLoading(false); // Dölj spinnern
+        navigate("/tack");
+      }, 2000);  // Fördröjning på 2 sekunder
+
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setLoading(false);  // Dölj spinnern även vid fel
+    }
   };
 
   setTimeout(() => {

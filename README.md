@@ -37,6 +37,9 @@ Tablet och Desktopversion:
 
 - Har använt Spotify, Instagram och YouTube i Footern. 
 
+## Installera axios i front end för att kunna använda fetch och post
+npm install axios
+
 
 
 
