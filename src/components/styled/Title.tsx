@@ -10,13 +10,13 @@ export const H1White = styled.h1 `
     text-align: center;
 `;
 
-export const H1Purple = styled(H1White) `
+export const H1PurpleSecond = styled(H1White) `           // Titel på varje sida - lila
   color: ${SKUGGLILA};
   line-height: 1.6;
   text-shadow: none;
 `;
 
-export const H1WhiteSecond = styled(H1White) `
+export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vit
   color: ${KRITVIT};
   line-height: 1.6;
     text-shadow: none;

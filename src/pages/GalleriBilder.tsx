@@ -1,6 +1,6 @@
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 import { GalleryImage } from '../components/styled/Image';
-import { H2White } from '../components/styled/Title';
+import { H1PurpleSecond } from '../components/styled/Title';
 import { WrapperWhite, TextWrapper } from '../components/styled/Wrappers';
 
 export const GalleriBilder = () => {
@@ -9,7 +9,7 @@ export const GalleriBilder = () => {
   
     
   <WrapperWhite>
-    <H2White>Mitt Galleri</H2White>
+    <H1PurpleSecond>Mitt Galleri</H1PurpleSecond>
     <GalleryImage src={BirdDarkPurple} className="gallery-img" alt="Purple Bird" loading="lazy"/>
     <TextWrapper>
 

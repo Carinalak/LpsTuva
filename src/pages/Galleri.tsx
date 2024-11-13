@@ -1,4 +1,5 @@
-import { H1White, H4White } from "../components/styled/Title"
+import { Link } from "react-router-dom"
+import { H1WhiteSecond, H4White } from "../components/styled/Title"
 import { CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers"
 
 
@@ -7,11 +8,13 @@ export const Galleri = () => {
 
   return ( <>
   <WrapperTransparent>
-    <H1White>Galleri</H1White>
+    <H1WhiteSecond>Galleri</H1WhiteSecond>
     <WhiteFont>Här kan du hitta massa fina foton på mina LPS.</WhiteFont>
     <CenteredColTransWrapper>
-      <H4White>Mitt Galleri</H4White>
-      <H4White>Mina LPS</H4White>
+    <Link to="/galleribilder">
+      <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Mitt Galleri</H4White>
+      </Link>
+      <Link to="/minalps"><H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Mina LPS</H4White></Link>
     </CenteredColTransWrapper>
   </WrapperTransparent>
   
