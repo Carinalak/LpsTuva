@@ -67,6 +67,8 @@ export const LogoImage = styled.img`
 
 `;
 
+
+// Dessa används ej just nu. Har dem direkt från font awesome istället.
 export const SocialMediaIcons = styled.img`
   width: 32px;
   padding: 5px;
@@ -79,7 +81,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-gap: 2px; // Avstånd mellan ikoner
+gap: 12px; // Avstånd mellan ikoner
 
 `;
 

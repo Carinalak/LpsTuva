@@ -10,17 +10,16 @@ export const H1White = styled.h1 `
     text-align: center;
 `;
 
-export const LogoTitle = styled(H1White) `
-margin-left: 80px; // Beroende av loggans position
-z-index: 87;
-position: relative;
-left: 7%;
-`;
-
 export const H1Purple = styled(H1White) `
   color: ${SKUGGLILA};
-  line-height: 1.9;
+  line-height: 1.6;
   text-shadow: none;
+`;
+
+export const H1WhiteSecond = styled(H1White) `
+  color: ${KRITVIT};
+  line-height: 1.6;
+    text-shadow: none;
 `;
 
 export const H2White = styled.h2 `
@@ -46,4 +45,11 @@ export const H4White = styled.h4 `
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
 
     }
+`;
+
+export const LogoTitle = styled(H1White) `
+margin-left: 80px; // Beroende av loggans position
+z-index: 87;
+position: relative;
+left: 7%;
 `;

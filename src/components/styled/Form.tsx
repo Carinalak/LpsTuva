@@ -5,7 +5,7 @@ export const Form = styled.form `
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 8px;
+  row-gap: 10px;
     input::placeholder,
     textarea::placeholder {
       font-family: Arial, Helvetica, sans-serif;

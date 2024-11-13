@@ -30,3 +30,34 @@ Tablet och Desktopversion:
 ## The form uses React hook form and Reg Ex to validate:
 
 - npm install react-hook-form @hookform/resolvers yup
+
+## Font Awesome Social Icons:
+
+- npm install --save @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons
+
+- Har använt Spotify, Instagram och YouTube i Footern. 
+
+
+
+
+# --------------------------------- Backend ----------------------------------------------------
+
+
+
+## Mongo DB Atlas:
+
+- npm install mongoose
+## Gjorde en backend-mapp:
+
+mkdir backend
+cd backend
+npm init -y
+npm install express mongoose dotenv
+
+## Starta Backend-servern:
+
+- node server.js
+
+Jag använder Javascript i backenden
+
+
