@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState } from 'react';  // Importera useState
 import { useForm } from "react-hook-form";
-import axios from 'axios';
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
-import { H1WhiteSecond } from "../components/styled/Title";
+import { H2White } from "../components/styled/Title";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
 
@@ -14,24 +13,17 @@ export const Kontakt = () => {
   const [loading, setLoading] = useState(false);  // State för att hantera spinnern
   const navigate = useNavigate();
 
-  const onSubmit = async (data: Person) => {
+  const onSubmit = (data: Person) => {
     setLoading(true);  // Visa spinnern
 
-    try {
-      // Skicka POST-request till backend
-      const response = await axios.post("http://localhost:5000/api/contact", data);
-      console.log("Form data sent successfully:", response.data);
+    console.log("Form data:", data);
+    reset();
 
-      reset();
-      setTimeout(() => {
-        setLoading(false); // Dölj spinnern
-        navigate("/tack");
-      }, 2000);  // Fördröjning på 2 sekunder
-
-    } catch (error) {
-      console.error("Error sending message:", error);
-      setLoading(false);  // Dölj spinnern även vid fel
-    }
+    // Simulera en fördröjning för att visa spinnern (t.ex. en API-anrop eller liknande)
+    setTimeout(() => {
+      setLoading(false);  // Dölja spinnern
+      navigate("/tack");  // Navigera till tack-sidan
+    }, 2000);  // Fördröjning på 2 sekunder
   };
 
   setTimeout(() => {
@@ -46,7 +38,7 @@ export const Kontakt = () => {
       {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
-        <H1WhiteSecond>Skriv till mig!</H1WhiteSecond>
+        <H2White>Skriv ett meddelande till mig!</H2White>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input
