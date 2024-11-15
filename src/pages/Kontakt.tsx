@@ -4,9 +4,9 @@ import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
-import { H2White } from "../components/styled/Title";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
+import { H1WhiteSecond } from '../components/styled/Title';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
@@ -38,7 +38,7 @@ export const Kontakt = () => {
       {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
-        <H2White>Skriv ett meddelande till mig!</H2White>
+        <H1WhiteSecond>Skriv ett meddelande till mig!</H1WhiteSecond>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input

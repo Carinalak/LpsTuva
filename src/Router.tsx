@@ -4,9 +4,10 @@ import { Home } from "./pages/Home";
 import { Kontakt } from "./pages/Kontakt";
 import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
-import { GalleriBilder } from "./pages/GalleriBilder";
 import { MinaLps } from "./pages/MinaLps";
 import { Tack } from "./pages/Tack";
+import { GalleriBilder } from "./pages/GalleriBilder";
+import { GalleriBild } from "./pages/GalleriBild";
 
 
 export const router = createHashRouter([
@@ -28,8 +29,12 @@ export const router = createHashRouter([
                 element:<Kontakt></Kontakt>,
             },
             {
-                path: "/galleribilder",
+                path: "/galleriBilder",
                 element:<GalleriBilder></GalleriBilder>,
+            },
+            {
+                path: "/galleribild/:id",
+                element:<GalleriBild></GalleriBild>,
             },
             {
                 path: "/minalps",

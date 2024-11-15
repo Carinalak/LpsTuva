@@ -1,7 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import nodemailer from 'nodemailer';
 import cors from 'cors';
 
 dotenv.config(); // Laddar in .env-filens variabler
@@ -14,71 +13,28 @@ app.use(express.json());
 app.use(cors());
 
 // Anslut till MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("Ansluten till MongoDB Atlas"))
-.catch((error) => console.error("Kunde inte ansluta till MongoDB", error));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("Ansluten till MongoDB Atlas"))
+  .catch((error) => console.error("Kunde inte ansluta till MongoDB", error));
 
-// Definiera ett schema och modell för kontaktmeddelanden
-const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+// Definiera ett schema och modell för bilder
+const imageSchema = new mongoose.Schema({
+  title: String,
+  url: String, // URL till bilden som lagras i databasen
 });
 
-const ContactMessage = mongoose.model("ContactMessage", contactSchema);
+const MyGallery = mongoose.model("MyGallery", imageSchema);
 
-// Nodemailer-konfiguration
-const transporter = nodemailer.createTransport({
-  service: "gmail", // Ändra till den e-posttjänst du använder
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
-// Funktion för att skicka e-post
-const sendEmail = async (contactData) => {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.RECEIVER_EMAIL, // E-postadress som ska ta emot meddelandet
-    subject: "Nytt meddelande från kontaktformulär",
-    text: `Namn: ${contactData.name}\nE-post: ${contactData.email}\nMeddelande: ${contactData.message}`,
-  };
-
+// GET-route för att hämta alla bilder
+app.get("/api/images", async (req, res) => {
+  console.log("GET request received at /api/images"); // Lägg till denna rad för debugging
   try {
-    await transporter.sendMail(mailOptions);
-    console.log("E-post skickat!");
+    const images = await MyGallery.find();
+    res.status(200).json(images);
   } catch (error) {
-    console.error("Fel vid e-postskickning:", error);
+    console.error("Fel vid hämtning av bilder:", error);
+    res.status(500).json({ error: "Något gick fel vid hämtning av bilder." });
   }
-};
-
-// POST-route för att ta emot formulärdata
-app.post("/api/contact", async (req, res) => {
-  const { name, email, message } = req.body;
-
-  // Spara meddelandet i MongoDB
-  const newMessage = new ContactMessage({ name, email, message });
-  try {
-    await newMessage.save();
-    console.log("Meddelande sparat i databasen.");
-
-    // Skicka e-post
-    await sendEmail({ name, email, message });
-
-    res.status(200).send({ success: true, message: "Meddelande skickat!" });
-  } catch (error) {
-    console.error("Fel vid hantering av formulär:", error);
-    res.status(500).send({ success: false, message: "Något gick fel. Försök igen senare." });
-  }
-});
-
-// Exempel på en enkel route
-app.get("/", (req, res) => {
-  res.send("API är igång!");
 });
 
 // Starta servern

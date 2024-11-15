@@ -56,7 +56,7 @@ const HamburgerButton = styled.div`
   }
 `;
 
-const MenuList = styled.ul<{ isOpen: boolean }>`
+const MenuList = styled.ul<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
   right: 0;
@@ -73,7 +73,7 @@ const MenuList = styled.ul<{ isOpen: boolean }>`
   align-items: flex-start;
   justify-content: flex-start;
   border-radius: 10px;
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
   z-index: 99;
 
@@ -200,7 +200,7 @@ export const HamburgerMenu = () => {
         <div className="line"></div>
         <div className="line"></div>
       </HamburgerButton>
-      <MenuList isOpen={isOpen}>
+      <MenuList $isOpen={isOpen}>
         {MenuLinks.map((link) => (
           <li key={link.path}>
             {link.subLinks ? (

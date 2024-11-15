@@ -1,12 +1,26 @@
 import styled from "styled-components";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SMUTSROSA } from "./styled/Variables";
-
 import { SocialMediaWrapper } from "./styled/Image";
 import { H4White } from "./styled/Title";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
+
+const FooterContainer = styled.footer`
+background-color: ${SMUTSROSA};
+padding: 1rem;
+text-align: center;
+margin-top: auto; /* Flyttar footern längst ner */
+margin-bottom: 0 !important;
+max-width: 100%;
+height: 60px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+gap: 40px;
+`;
 
 const ResponsiveIcon = styled(FontAwesomeIcon)`
   color: ${KRITVIT};
@@ -23,22 +37,6 @@ const ResponsiveIcon = styled(FontAwesomeIcon)`
 `;
 
 export const Footer = () => {
-  const FooterContainer = styled.footer`
-
-    background-color: ${SMUTSROSA};
-    padding: 1rem;
-    text-align: center;
-    margin-top: auto; /* Flyttar footern längst ner */
-    margin-bottom: 0 !important;
-    max-width: 100%;
-    height: 60px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    
-`;
 
 return (
   <FooterContainer>

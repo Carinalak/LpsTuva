@@ -56,11 +56,14 @@ mkdir backend
 cd backend
 npm init -y
 npm install express mongoose dotenv
+npm istall
+npm install cors  
 
 ## Starta Backend-servern:
 
-- node server.js
+- npm start
 
 Jag använder Javascript i backenden
+stäng av med ctrl c
 
 
