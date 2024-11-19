@@ -58,6 +58,8 @@ npm init -y
 npm install express mongoose dotenv
 npm istall
 npm install cors  
+npm install --save-dev @types/node    // Vid typescript. Kanske även när jag har js ibackend och ts i frontend.
+
 
 ## Starta Backend-servern:
 

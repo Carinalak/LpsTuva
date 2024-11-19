@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -49,7 +49,9 @@ export const TextWrapper = styled(WrapperWhite)`
   width: 90%;       // Måste ha samma bredd som GalleryImage!
   background-color: transparent;
   color: ${KOLSVART};
-  
+  text-align: left; /* Justerar texten horisontellt */
+  align-items: flex-start; /* Justerar innehåll i Flexbox */
+  margin-top: 20px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 450px;
@@ -60,14 +62,17 @@ export const TextWrapper = styled(WrapperWhite)`
 }
 `;
 
-export const WhiteFont = styled.div `
+export const WhiteFont = styled.p `
    background-color: transparent;
+   display: block;
+   width: 100%;
+   text-align: center;
+   margin-top: 5px;
    color: ${KRITVIT};
 `;
 
 export const BlackFont = styled(WhiteFont) `
   color: ${KOLSVART};
-
 `;
 
 export const CenteredWrapperTransparent = styled.div `
@@ -83,6 +88,119 @@ export const CenteredColTransWrapper = styled.div `
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
+`;
 
 
+
+// ----------------------------------- Coloring page ----------------------------------- //
+
+export const ColoringWrapper = styled.div `
+  //border: 1px solid purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 98%;
+  align-items: center;
+  background-color: #ffffffd9;
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  padding-top: 15px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 95%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    gap: 16px;
+    //justify-content: flex-start;
+}
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+
+}
+`;
+
+export const ColoringWrapperInner = styled.div `
+  //border: 1px solid ${SMUTSROSA};
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+// ----------------------------------- End Coloring page ----------------------------------- //
+
+// ----------------------------------- Gallery page ----------------------------------- //
+export const GalleryContainer = styled.section`
+  /*width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffffd9;
+  padding-top: 15px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  margin-bottom: 10px;*/
+
+
+  //border: 1px solid purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 98%;
+  align-items: center;
+  background-color: #ffffffd9;
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  padding-top: 15px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+@media screen and (min-width: ${BREAKPOINT_TABLET}) {
+
+
+}
+
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+
+}
+`;
+
+export const GalleryWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px;
+
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 800px;
+    justify-content: center;
+  }
+`;
+
+export const GalleryWrapperInner = styled.div`
+  flex: 1 1 calc(33.333% - 16px); /* Tar upp en tredjedel av utrymmet på större skärmar */
+  max-width: 250px; /* Sätter en maxbredd på varje bild */
+  box-sizing: border-box;
+  
+  img {
+    width: 100%; /* Bilden fyller hela sin container */
+    height: auto; /* Bevarar proportionerna */
+    border-radius: 8px; /* Rundade hörn */
+  }
+
+  @media screen and (max-width: ${BREAKPOINT_TABLET}) {
+    flex: 1 1 calc(50% - 16px); /* Halva bredden på mindre skärmar */
+  }
+
+  @media screen and (max-width: 480px) {
+    flex: 1 1 100%; /* Full bredd på väldigt små skärmar */
+  }
 `;

@@ -21,5 +21,6 @@ export const MenuLinks = [
       {path: "/minalps", label: "Mina LPS"},
     ],
   },
+  { path: "/Farglagg", label: "Färgläggning" },
   { path: "/kontakt", label: "Kontakt" },
 ];

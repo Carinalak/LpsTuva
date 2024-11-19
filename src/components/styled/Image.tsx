@@ -16,6 +16,21 @@ export const GalleryImage = styled.img`
   }
 
 `;
+
+export const FarglaggImage = styled.img`
+
+  width: 90%;       // Måste ha samma bredd som TextWrapper! till texten
+  border-radius: 10px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 300px;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 300px;
+  }
+
+`;
 // ------------------ LOGO ------------------------ //
 
 export const LogoContainer = styled.div `

@@ -33,7 +33,7 @@ export const Button = styled.button `
 `;
 
 export const ButtonWrapper = styled.div `
-  padding-bottom: 50px;
+  padding-bottom: 5px;
   padding-left: 0;
   padding-top: 20px;
 `;
