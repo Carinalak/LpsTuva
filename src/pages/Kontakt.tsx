@@ -1,4 +1,4 @@
-import { useState } from 'react';  // Importera useState
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
@@ -9,23 +9,42 @@ import { PawSpinner } from '../components/PawSpinner';
 import { H1WhiteSecond } from '../components/styled/Title';
 import Nalle from '../assets/images/nalle.png';
 import { SerieImage } from '../components/styled/Image';
+import emailjs from 'emailjs-com';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
-  const [loading, setLoading] = useState(false);  // State för att hantera spinnern
+  const [loading, setLoading] = useState(false); // Hanterar laddningsindikator
   const navigate = useNavigate();
 
   const onSubmit = (data: Person) => {
-    setLoading(true);  // Visa spinnern
+    setLoading(true); // Visa spinnern
 
     console.log("Form data:", data);
-    reset();
 
-    // Simulera en fördröjning för att visa spinnern (t.ex. en API-anrop eller liknande)
-    setTimeout(() => {
-      setLoading(false);  // Dölja spinnern
-      navigate("/tack");  // Navigera till tack-sidan
-    }, 2000);  // Fördröjning på 2 sekunder
+    // För Vite: använd import.meta.env
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Kontrollera att miljövariablerna är korrekt inställda
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('Miljövariabler saknas. Kontrollera .env-filen.');
+      setLoading(false);
+      return;
+    }
+
+    // Använd EmailJS för att skicka formulärdata
+    emailjs.send(serviceId, templateId, data, publicKey)
+      .then((response) => {
+        console.log('E-post skickat:', response);
+        reset();
+        setLoading(false);
+        navigate("/tack"); // Navigera till tack-sidan
+      })
+      .catch((error) => {
+        console.error('E-postfel:', error);
+        setLoading(false);
+      });
   };
 
   setTimeout(() => {
@@ -37,7 +56,7 @@ export const Kontakt = () => {
 
   return (
     <>
-      {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
+      {loading && <PawSpinner />} {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
         <H1WhiteSecond>Skriv till Tuva!</H1WhiteSecond>
@@ -66,7 +85,7 @@ export const Kontakt = () => {
               {...register("email", {
                 required: "Email är obligatoriskt",
                 pattern: {
-                  value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, // Enkel email validering
+                  value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, // Enkel email-validering
                   message: "Ogiltigt email-format"
                 }
               })}
@@ -94,7 +113,7 @@ export const Kontakt = () => {
             <Button type="submit">Skicka</Button>
           </ButtonWrapper>
         </Form>
-        <SerieImage src={Nalle} alt="Nalle" loading="lazy"/>
+        <SerieImage src={Nalle} alt="Nalle" loading="lazy" />
       </WrapperTransparent>
     </>
   );

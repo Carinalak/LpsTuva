@@ -32,7 +32,7 @@ export const Form = styled.form `
   .contactTextArea {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    line-height: 5px;
+    //line-height: 5px;
     resize: none;
     color: ${SKUGGLILA};
     border: none;

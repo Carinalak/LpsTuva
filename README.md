@@ -39,6 +39,7 @@ Tablet och Desktopversion:
 
 ## Installera axios i front end för att kunna använda fetch och post
 npm install axios
+npm install emailjs-com
 
 
 
