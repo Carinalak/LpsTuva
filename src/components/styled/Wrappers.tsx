@@ -101,7 +101,8 @@ export const ColoringWrapper = styled.div `
   justify-content: center;
   width: 98%;
   align-items: center;
-  background-color: #ffffffd9;
+  background-color: transparent;
+  //background-color: #ffffffd9;
   /*background-color: rgba(255, 255, 255, 0.8);*/
   padding-top: 15px;
   padding-bottom: 60px;
@@ -127,7 +128,29 @@ export const ColoringWrapperInner = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
 `;
+
+
+// bakgrundsbild
+export const SpilledPaintWrapper = styled.div`
+  position: relative; 
+  display: inline-block;
+  padding: 20px;
+  background-image: url('/assets/images/farglagg/SpilledPaint.png'); 
+  background-size: cover; /* Gör att bakgrunden täcker hela wrappern */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px;
+  height: auto;
+  overflow: hidden; /* Döljer det som går utanför om bilden är för stor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
 // ----------------------------------- End Coloring page ----------------------------------- //
 
 // ----------------------------------- Gallery page ----------------------------------- //

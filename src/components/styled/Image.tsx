@@ -31,6 +31,12 @@ export const FarglaggImage = styled.img`
   }
 
 `;
+export const SerieImage = styled.img`
+  width: 100px ;
+  padding-top: 40px;
+  
+`;
+
 // ------------------ LOGO ------------------------ //
 
 export const LogoContainer = styled.div `

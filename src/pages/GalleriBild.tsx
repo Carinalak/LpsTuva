@@ -9,7 +9,7 @@ export const GalleriBild = () => {
 
   return (<>
   <H1WhiteSecond>Min galleribild</H1WhiteSecond>
-  
+
   Bild: {id}
   
   

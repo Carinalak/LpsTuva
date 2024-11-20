@@ -7,6 +7,8 @@ import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
 import { H1WhiteSecond } from '../components/styled/Title';
+import Nalle from '../assets/images/nalle.png';
+import { SerieImage } from '../components/styled/Image';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
@@ -38,7 +40,7 @@ export const Kontakt = () => {
       {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
-        <H1WhiteSecond>Skriv ett meddelande till mig!</H1WhiteSecond>
+        <H1WhiteSecond>Skriv till Tuva!</H1WhiteSecond>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input
@@ -92,6 +94,7 @@ export const Kontakt = () => {
             <Button type="submit">Skicka</Button>
           </ButtonWrapper>
         </Form>
+        <SerieImage src={Nalle} alt="Nalle" loading="lazy"/>
       </WrapperTransparent>
     </>
   );
