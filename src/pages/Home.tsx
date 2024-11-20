@@ -8,7 +8,7 @@ export const Home = () => {
 
   
   <WrapperWhite>
-    <H1PurpleSecond>LpsTuvas Sida</H1PurpleSecond>
+    <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
     <img src={Apa} className="gallery-img" width="150px" alt="Monkey" loading="lazy"/>
     <TextWrapper>
 

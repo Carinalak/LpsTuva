@@ -3,8 +3,8 @@ import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA } f
 
 
 export const WrapperWhite = styled.section`
-width: 98%;
-height: 500px;
+width: 95%;
+//height: 500px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -13,7 +13,7 @@ background-color: #ffffffd9;
 padding-top: 15px;
 padding-bottom: 60px;
 border-radius: 10px;
-margin-bottom: 10px;
+//margin-bottom: 10px;
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 600px;
@@ -109,7 +109,7 @@ export const ColoringWrapper = styled.div `
   margin-bottom: 10px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 95%;
+    width: 85%;
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 10px;
@@ -151,18 +151,21 @@ export const GalleryContainer = styled.section`
   align-items: center;
   background-color: #ffffffd9;
   /*background-color: rgba(255, 255, 255, 0.8);*/
-  padding-top: 15px;
+  padding-top: 1px;
+
   padding-bottom: 60px;
   border-radius: 10px;
   margin-bottom: 10px;
 
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
 
+@media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 85%;
 
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-
 }
 `;
 

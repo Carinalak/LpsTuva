@@ -40,7 +40,7 @@ export const Footer = () => {
 
 return (
   <FooterContainer>
-    <H4White>&copy; LpsTuva 2024 </H4White>
+    <H4White>&copy; Lps-Tuva 2024 </H4White>
     <SocialMediaWrapper>
       <a href="https://www.youtube.com/c/LPSTuwa" target="_blank" rel="noopener noreferrer">
         <ResponsiveIcon icon={faSquareYoutube} />

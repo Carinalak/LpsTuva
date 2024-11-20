@@ -28,7 +28,7 @@ export const DesktopNav = styled.nav`
       justify-content: center;
       align-items: center;
       gap: 5px;
-      width: 70%;
+      width: 95%;
       padding: 0;
       margin: 0;
       list-style: none;
@@ -158,6 +158,16 @@ export const DesktopMenu = () => {
     setActiveSubMenu(activeSubMenu === index ? null : index); // Växla undermenyn
   };
 
+  // Hantera klick på länkar och scrolla till toppen
+  const handleLinkClick = () => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "auto" });
+    }
+    setActiveSubMenu(null); // Stäng submenyn vid klick
+  };
+
+
   const handleMainLinkClick = (index: number, path: string) => {
     if (location.pathname === path) {
       // Om vi är på samma sida, toggla undermenyn
@@ -178,7 +188,10 @@ export const DesktopMenu = () => {
           >
             <NavLink
               to={link.path}
-              onClick={() => handleMainLinkClick(index, link.path)}
+              onClick={() => {
+                handleMainLinkClick(index, link.path);
+                handleLinkClick();
+              }}
             >
               <span>{link.label}</span>
             </NavLink>
@@ -196,7 +209,14 @@ export const DesktopMenu = () => {
               <ul className="submenu">
                 {link.subLinks.map((subLink) => (
                   <li key={subLink.path}>
-                    <NavLink to={subLink.path} onClick={() => setActiveSubMenu(null)}>
+                    <NavLink 
+                      to={subLink.path} 
+                      onClick={() => {
+                        setActiveSubMenu(null);
+                        handleLinkClick();
+                      }}
+                      
+                      >
                       {subLink.label}
                     </NavLink>
                   </li>
