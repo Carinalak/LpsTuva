@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 background-color: #ffffffd9;
 /*background-color: rgba(255, 255, 255, 0.8);*/
-padding-top: 15px;
+padding-top: 5px;
 padding-bottom: 60px;
 border-radius: 10px;
 //margin-bottom: 10px;
@@ -32,7 +32,7 @@ align-items: center;
 background-color: transparent;
 /*background-color: rgba(255, 255, 255, 0.8);*/
 //border: 1px solid black;
-padding-top: 10px;
+padding-top: 5px;
 padding-bottom: 40px;
 margin-bottom: 10px;
 
@@ -104,7 +104,7 @@ export const ColoringWrapper = styled.div `
   background-color: transparent;
   //background-color: #ffffffd9;
   /*background-color: rgba(255, 255, 255, 0.8);*/
-  padding-top: 15px;
+  padding-top: 5px;
   padding-bottom: 60px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -118,7 +118,6 @@ export const ColoringWrapper = styled.div `
     //justify-content: flex-start;
 }
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-
 }
 `;
 
@@ -128,8 +127,6 @@ export const ColoringWrapperInner = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 `;
 
 
@@ -198,6 +195,7 @@ export const GalleryWrapper = styled.div`
   justify-content: center;
   gap: 16px;
   padding: 40px;
+  padding-top: 5px;
 
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {

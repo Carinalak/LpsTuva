@@ -23,10 +23,10 @@ export const Kontakt = () => {
 
     // Använd EmailJS för att skicka formulärdata
     emailjs.send(
-      'service_7rkooal', //YOUR_SERVICE_ID
-      'template_ntypwmj',  // Byt ut med din Template ID YOUR_TEMPLATE_ID
+      'service_7rkooal', // SERVICE_ID
+      'template_ntypwmj',  // TEMPLATE_ID
       data,  // Skickar data från formuläret
-      'Fx0CyuhMUzMYIorTE'  // Byt ut med ditt User ID YOUR_USER_ID eller // PUBLIC_KEY
+      'Fx0CyuhMUzMYIorTE'  /// PUBLIC_KEY
     )
     .then((response) => {
       console.log('E-post skickat:', response);
