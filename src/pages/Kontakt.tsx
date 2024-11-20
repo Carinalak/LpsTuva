@@ -13,38 +13,31 @@ import emailjs from 'emailjs-com';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
-  const [loading, setLoading] = useState(false); // Hanterar laddningsindikator
+  const [loading, setLoading] = useState(false);  // State för att hantera spinnern
   const navigate = useNavigate();
 
   const onSubmit = (data: Person) => {
-    setLoading(true); // Visa spinnern
+    setLoading(true);  // Visa spinnern
 
     console.log("Form data:", data);
 
-    // För Vite: använd import.meta.env
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    // Kontrollera att miljövariablerna är korrekt inställda
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('Miljövariabler saknas. Kontrollera .env-filen.');
-      setLoading(false);
-      return;
-    }
-
     // Använd EmailJS för att skicka formulärdata
-    emailjs.send(serviceId, templateId, data, publicKey)
-      .then((response) => {
-        console.log('E-post skickat:', response);
-        reset();
-        setLoading(false);
-        navigate("/tack"); // Navigera till tack-sidan
-      })
-      .catch((error) => {
-        console.error('E-postfel:', error);
-        setLoading(false);
-      });
+    emailjs.send(
+      'service_7rkooal', //YOUR_SERVICE_ID
+      'template_ntypwmj',  // Byt ut med din Template ID YOUR_TEMPLATE_ID
+      data,  // Skickar data från formuläret
+      'Fx0CyuhMUzMYIorTE'  // Byt ut med ditt User ID YOUR_USER_ID eller // PUBLIC_KEY
+    )
+    .then((response) => {
+      console.log('E-post skickat:', response);
+      reset();
+      setLoading(false);
+      navigate("/tack");  // Navigera till tack-sidan
+    })
+    .catch((error) => {
+      console.error('E-postfel:', error);
+      setLoading(false);
+    });
   };
 
   setTimeout(() => {
@@ -56,7 +49,7 @@ export const Kontakt = () => {
 
   return (
     <>
-      {loading && <PawSpinner />} {/* Visa spinnern när loading är true */}
+      {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
         <H1WhiteSecond>Skriv till Tuva!</H1WhiteSecond>
@@ -85,7 +78,7 @@ export const Kontakt = () => {
               {...register("email", {
                 required: "Email är obligatoriskt",
                 pattern: {
-                  value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, // Enkel email-validering
+                  value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, // Enkel email validering
                   message: "Ogiltigt email-format"
                 }
               })}
@@ -113,7 +106,7 @@ export const Kontakt = () => {
             <Button type="submit">Skicka</Button>
           </ButtonWrapper>
         </Form>
-        <SerieImage src={Nalle} alt="Nalle" loading="lazy" />
+        <SerieImage src={Nalle} alt="Nalle" loading="lazy"/>
       </WrapperTransparent>
     </>
   );
