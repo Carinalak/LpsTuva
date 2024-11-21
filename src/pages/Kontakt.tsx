@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
-import { WrapperTransparent } from "../components/styled/Wrappers";
+import { WhiteFontSmallerBox, WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
@@ -53,6 +53,7 @@ export const Kontakt = () => {
       
       <WrapperTransparent>
         <H1WhiteSecond>Skriv till Tuva!</H1WhiteSecond>
+        <WhiteFontSmallerBox>Skriv till mig om vad du vill! Är det något mer du vill se på den här sidan? Skicka gärna förslag till mig här.</WhiteFontSmallerBox>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input

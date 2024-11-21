@@ -21,7 +21,7 @@ export const Form = styled.form `
     border: none;
     outline: none;
     padding: 10px;
-    width: 260px;
+    width: 280px;
     border-radius: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -40,7 +40,7 @@ export const Form = styled.form `
     height: 260px;
     padding: 10px;
     padding-top: 15px;
-    width: 260px;
+    width: 280px;
     border-radius: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {

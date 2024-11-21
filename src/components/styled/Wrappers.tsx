@@ -67,14 +67,25 @@ export const WhiteFont = styled.p `
    background-color: transparent;
    display: block;
    width: 100%;
-   text-align: center;
    margin-top: 5px;
    color: ${KRITVIT};
    font-family: "Playpen Sans", serif;
+   text-align: center;
 `;
 
 export const BlackFont = styled(WhiteFont) `
   color: ${KOLSVART};
+`;
+
+export const WhiteFontSmallerBox = styled(WhiteFont) `
+  width: 290px;
+  text-align: left;
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 370px;
+}
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+}
 `;
 
 export const CenteredWrapperTransparent = styled.div `
