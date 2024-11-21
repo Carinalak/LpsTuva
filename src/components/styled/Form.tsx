@@ -8,13 +8,13 @@ export const Form = styled.form `
   row-gap: 10px;
     input::placeholder,
     textarea::placeholder {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Playpen Sans", serif;
       color: ${SMUTSROSA};
       font-size: 16px;
 }
 
   .contactInput {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Playpen Sans", serif;
     font-size: 16px;
     line-height: 5px;
     color: ${SKUGGLILA};
@@ -30,7 +30,7 @@ export const Form = styled.form `
   }
 
   .contactTextArea {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Playpen Sans", serif;
     font-size: 16px;
     //line-height: 5px;
     resize: none;

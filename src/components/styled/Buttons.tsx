@@ -1,18 +1,23 @@
 import styled from "styled-components";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SMUTSROSA } from "./Variables";
 
-export const Button = styled.button `
+export const Button = styled.button`
   padding: 0.5rem;
-  margin: 0.5rem; 
+  margin: 0.5rem;
   border: none;
-  border-radius: 15px;
+  border-radius: 12px;
   background-color: ${GAMMELROSA};
+  font-family: "Playpen Sans", serif;
+  font-size: 1.3rem;
+  line-height: 0; /* Matchar knappens höjd */
+  text-align: center; /* Säkerställer horisontell centrering */
   color: ${KRITVIT};
-  font-weight: 600;
   width: 100px;
   height: 35px;
   cursor: pointer;
   cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
+
+
 
   &:hover {
     background-color: ${SMUTSROSA};
@@ -27,7 +32,7 @@ export const Button = styled.button `
     }
 
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 125px;
+    width: 110px;
 
     }
 `;

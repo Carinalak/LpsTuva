@@ -14,6 +14,7 @@ padding-top: 5px;
 padding-bottom: 60px;
 border-radius: 10px;
 //margin-bottom: 10px;
+font-family: "Playpen Sans", serif;
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 600px;
@@ -69,6 +70,7 @@ export const WhiteFont = styled.p `
    text-align: center;
    margin-top: 5px;
    color: ${KRITVIT};
+   font-family: "Playpen Sans", serif;
 `;
 
 export const BlackFont = styled(WhiteFont) `

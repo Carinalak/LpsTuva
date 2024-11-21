@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SMUTSROSA } from "./Variables";
+import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SMUTSROSA, BREAKPOINT_BIGGER_DESKTOP } from "./Variables";
 
 export const GalleryImage = styled.img`
 
@@ -68,6 +68,23 @@ export const LogoContainer = styled.div `
       margin-top: 5px;
     }
 `;  
+
+export const LpsLogo = styled.img `
+  width: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 200px;
+      padding-left: 40px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 250px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 300px;
+    }
+`;
 
 export const LogoImage = styled.img`
  position: fixed;

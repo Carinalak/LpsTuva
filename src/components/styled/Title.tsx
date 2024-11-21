@@ -5,6 +5,7 @@ export const H1White = styled.h1 `
     padding: 0;
     color: ${KRITVIT};
     font-size: 2.4rem;
+    font-family: "Playpen Sans", serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 0.3;
     text-align: center;
@@ -25,6 +26,7 @@ export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vi
 export const H2White = styled.h2 `
     padding: 0;
     color: ${KRITVIT};
+    font-family: "Playpen Sans", serif;
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding-bottom: 15px;
@@ -34,6 +36,7 @@ export const H2White = styled.h2 `
 
 export const H4White = styled.h4 `
     padding: 0;
+    font-family: "Playpen Sans", serif;
     color: ${KRITVIT};
     font-size: 1rem;
     text-align: center;

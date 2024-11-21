@@ -3,8 +3,9 @@ import { NavigationContainer, DesktopMenu } from "./Menu/DesktopMenu"
 import { HamburgerMenu } from "./Menu/HamburgerMenu"
 import { LogoTitle } from "./styled/Title"
 import { KRITVIT, SMUTSROSA } from "./styled/Variables";
-import { LogoContainer, LogoImage } from "./styled/Image";
+import { LogoContainer, LogoImage, LpsLogo } from "./styled/Image";
 import LogoRund from '../assets/images/logoRund.png';
+import Logo from '../assets/images/LPS-Tuva_Logo_White.png';
 
 const HeaderContainer = styled.header`
 position: fixed;
@@ -38,7 +39,8 @@ return (<>
     </LogoContainer>
     
     <NavigationContainer>
-      <LogoTitle>Lps-Tuva</LogoTitle>
+      <LogoTitle></LogoTitle>
+      <LpsLogo src={Logo} className="gallery-img" alt="LPS-Tuva" loading="lazy" />
       <HamburgerMenu /> 
       <DesktopMenu />
     </NavigationContainer>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.png";
@@ -12,6 +12,7 @@ export const NavigationContainer = styled.section`
   align-items: center;
   padding: 5px;
   width: 100%;
+  
 `;
 
 export const DesktopNav = styled.nav`
@@ -46,8 +47,8 @@ export const DesktopNav = styled.nav`
     }
 
     a {
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 600;
       color: ${KRITVIT};
       text-decoration: none;
       display: flex;
@@ -59,6 +60,15 @@ export const DesktopNav = styled.nav`
       padding: 0;
       cursor: pointer;
       cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
+
+      @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+        font-size: 1.2rem;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      font-size: 1.2rem;
+
+    }
     }
 
     a > span {
