@@ -17,3 +17,8 @@ export const POOLBLA = "#80D7EA"; // On click
 export const SOLBLEKT = "#EAE680";
 export const HJARTROD = "#F31111"; 
 export const LERBRUN = "#765059"; // Spinner
+
+// -------------------- COLOR SCHEME CHRISTMAS ----------------- //
+
+export const CHRISTMAS_RED = "#C91212";
+export const CHRISTMAS_GREEN = "#28A24B"; 
