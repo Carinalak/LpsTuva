@@ -7,8 +7,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 12px;
   background-color: ${GAMMELROSA};
-  font-family: "Playpen Sans", serif;
-  font-size: 1.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
   line-height: 0; /* Matchar knappens höjd */
   text-align: center; /* Säkerställer horisontell centrering */
   color: ${KRITVIT};

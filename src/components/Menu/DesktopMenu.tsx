@@ -62,7 +62,7 @@ export const DesktopNav = styled.nav`
       cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
       @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {

@@ -71,12 +71,11 @@ export const LogoContainer = styled.div `
 
 export const LpsLogo = styled.img `
   width: 150px;
-  padding-left: 10px;
-  padding-right: 10px;
+  z-index: 87;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 200px;
-      padding-left: 40px;
+      padding-left: 10px;
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 250px;
