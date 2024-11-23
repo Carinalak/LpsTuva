@@ -5,7 +5,7 @@ import { LogoTitle } from "./styled/Title"
 import { KRITVIT, SMUTSROSA } from "./styled/Variables";
 import { LogoContainer, LogoImage, LpsLogo } from "./styled/Image";
 import LogoRund from '../assets/images/logoRund.png';
-import Logo from '../assets/images/LPS-Tuva_Logo_White.png';
+import Logo from '../assets/images/Lps-Tuva_Logo_White.png';
 
 const HeaderContainer = styled.header`
 position: fixed;
