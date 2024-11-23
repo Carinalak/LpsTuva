@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+//import axios from 'axios';
+//import { useState, useEffect } from 'react';
 import { H1PurpleSecond } from '../components/styled/Title';
 import { GalleryContainer, GalleryWrapper, GalleryWrapperInner } from '../components/styled/Wrappers';
-import { Image } from '../models/Image';
+//import { Image } from '../models/Image';
 import { GalleryImage } from '../components/styled/Image';
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 import AntPurple from '../assets/images/galleri/AntPurple.jpg';
@@ -17,9 +17,10 @@ import IgelkottWhite from '../assets/images/galleri/IgelkottBrown.jpg';
 import GreyMouse from '../assets/images/galleri/MouseGrey.jpg';
 
 export const GalleriBilder = () => {
-  const [images, setImages] = useState<Image[]>([]);
+  // const [images, setImages] = useState<Image[]>([]);
 
   // Hämtar bilder från backend
+  /*
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -32,7 +33,7 @@ export const GalleriBilder = () => {
 
     fetchImages();
   }, []);
-
+*/
   return (
     <>
       <GalleryContainer>
@@ -51,7 +52,7 @@ export const GalleriBilder = () => {
           <GalleryWrapperInner><GalleryImage src={GreyMouse} alt="Grey Mouse" loading="lazy" /></GalleryWrapperInner>
 
         </GalleryWrapper>
-
+    {/* 
        <div className="gallery">
         {images.map((image) => (
           <div key={image._id} className="image-item">
@@ -60,6 +61,7 @@ export const GalleriBilder = () => {
           </div>
         ))}
       </div>
+    */}
 </GalleryContainer>
 </> );
 };
