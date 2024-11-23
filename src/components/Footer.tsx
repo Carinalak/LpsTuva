@@ -11,7 +11,7 @@ const FooterContainer = styled.footer`
 background-color: ${SMUTSROSA};
 padding: 10px;
 text-align: center;
-margin-top: 0; /* Flyttar footern längst ner */
+margin-top: auto; /* Flyttar footern längst ner */
 margin-bottom: 0 !important;
 max-width: 100%;
 height: 60px;

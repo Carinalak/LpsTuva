@@ -1,4 +1,4 @@
-import { SpilledPaintWrapper, WrapperTransparent } from "../components/styled/Wrappers"
+import { WrapperTransparent } from "../components/styled/Wrappers"
 
 export const MinaLps = () => {
 
@@ -6,7 +6,6 @@ export const MinaLps = () => {
     <WrapperTransparent>
   <h1>Mina Lps</h1>
 
-  <SpilledPaintWrapper></SpilledPaintWrapper>
   </WrapperTransparent>
   </>)
 }
