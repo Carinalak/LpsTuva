@@ -7,7 +7,7 @@ const MainContainer = styled.main`
   padding-top: 130px; // Höjd på main för att när header är fixed tar den upp den plats över main som dens egen höjd.
   //width: 100%;
   overflow-x: hidden;
-  padding-bottom: 10px;
+  padding-bottom: 0;
 `;
 
 export const Layout = () => {
@@ -18,7 +18,6 @@ export const Layout = () => {
         <Outlet />
       </MainContainer>
       <Footer />
-
     </>
   );
 };

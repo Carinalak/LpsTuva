@@ -4,16 +4,15 @@ import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA } f
 
 export const WrapperWhite = styled.section`
 width: 95%;
-//height: 500px;
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #ffffffd9;
 /*background-color: rgba(255, 255, 255, 0.8);*/
 padding-top: 5px;
-padding-bottom: 60px;
+padding-bottom: 10px;
 border-radius: 10px;
-//margin-bottom: 10px;
+margin-bottom: 0;
 font-family: "Playpen Sans", serif;
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -26,12 +25,18 @@ font-family: "Playpen Sans", serif;
 `;
 
 export const WrapperTransparent = styled(WrapperWhite)`
+  background-color: transparent;
+`;
+
+
+// OLD WRAPPER TRANSPARENT //
+/*
+export const WrapperTransparent = styled(WrapperWhite)`
 height: 500px;
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: transparent;
-/*background-color: rgba(255, 255, 255, 0.8);*/
 //border: 1px solid black;
 padding-top: 5px;
 padding-bottom: 40px;
@@ -45,6 +50,8 @@ margin-bottom: 10px;
   width: 800px;
 }
 `;
+*/
+
 
 export const TextWrapper = styled(WrapperWhite)`
   width: 90%;       // Måste ha samma bredd som GalleryImage!
