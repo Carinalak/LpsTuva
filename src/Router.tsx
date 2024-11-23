@@ -43,10 +43,6 @@ export const router = createHashRouter([
                 element:<MinaLps></MinaLps>,
             },
             {
-                path: "/pyssel",
-                element:<Pyssel></Pyssel>,
-            },
-            {
                 path: "/farglagg",
                 element:<Farglagg></Farglagg>,
             },
