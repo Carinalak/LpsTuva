@@ -29,8 +29,6 @@ main {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  padding-top: 130px;
-  padding-bottom: 10px;
 } 
 
 /*
