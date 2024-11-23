@@ -9,7 +9,6 @@ import { Tack } from "./pages/Tack";
 import { GalleriBilder } from "./pages/GalleriBilder";
 import { GalleriBild } from "./pages/GalleriBild";
 import { Farglagg } from "./pages/Farglagg";
-import { Pyssel } from "./pages/Pyssel";
 
 
 export const router = createHashRouter([
