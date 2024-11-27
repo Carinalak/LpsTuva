@@ -1,27 +1,27 @@
-# LpsTuva 🐈 🦜🐟 🐢 🐶
+# Lps-Tuva 🐈 🦜🐟 🐢 🐶
 
-- Det här är Tuvas Littlest Petshop sida! 
+- This is the site of Lps-Tuva! 
 
-## Här är designen:
-Mobilversion:
+## The deisgn:
+Mobileversion:
 ![Mobilversion i Figma](src/assets/screenshots/Mobil.png)  
 
 Tablet och Desktopversion:
 ![Tabletversion i Figma](src/assets/screenshots/Tablet.png)
 
 
-### Gjort med:
+### I used:
 - React
 - Vite
 - Typescript
 - Styled Components
 
 
-### För att köra projektet lokalt:
+### To run the project on your local machine:
 
 - npm run dev
 
-### För att deploya projektet till GitHubPages kör detta kommando varje gång du pushat och vill göra build: 
+### To deploy the projectto GitHubPages run this command every tine you pushed and want to do a new build: 
 
 - rm -rf dist
 - npm run build
@@ -37,7 +37,7 @@ Tablet och Desktopversion:
 
 - Har använt Spotify, Instagram och YouTube i Footern. 
 
-## Installera axios i front end för att kunna använda fetch och post
+## Install axios in front end for using fetch och post
 npm install axios
 npm install emailjs-com
 
@@ -48,27 +48,12 @@ npm install emailjs-com
 
 ## Försöker installera en ny backend som använder postgreSQL
 
+- npm init -y
+- npm install express pg dotenv
+- npm install --save-dev typescript @types/node @types/express ts-node nodemon
+- npm install --save-dev @types/pg
 
 
-## Mongo DB Atlas:
-
-- npm install mongoose
-## Gjorde en backend-mapp:
-
-mkdir backend
-cd backend
-npm init -y
-npm install express mongoose dotenv
-npm istall
-npm install cors  
-npm install --save-dev @types/node    // Vid typescript. Kanske även när jag har js ibackend och ts i frontend.
-
-
-## Starta Backend-servern:
-
-- npm start
-
-Jag använder Javascript i backenden
-stäng av med ctrl c
-
+Generera en TypeScript-konfigurationsfil:
+- npx tsc --init
 
