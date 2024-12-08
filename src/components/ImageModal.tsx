@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SKUGGLILA, BREAKPOINT_BIGGER_DESKTOP, KRITVIT } from './styled/Variables';
+import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, BREAKPOINT_BIGGER_DESKTOP, KRITVIT, TRANSSVART } from './styled/Variables';
 
 type ImageModalProps = {
   imageSrc: string;
@@ -10,7 +10,7 @@ type ImageModalProps = {
 
 export const ModalImage = styled.img `
   max-width: 450px;
-  border-radius: 4px;
+  border-radius: 10px;
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     max-width: 550px;
@@ -26,11 +26,11 @@ export const ModalImage = styled.img `
 
 export const ModalContainer = styled.div `
   position: fixed;
-  top: 10px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${SKUGGLILA};
+  background: ${TRANSSVART};
   display: flex;
   align-items: center;
   justify-content: center;

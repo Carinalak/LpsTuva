@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA, TRANSVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -189,10 +189,8 @@ export const GalleryContainer = styled.section`
   justify-content: center;
   width: 98%;
   align-items: center;
-  background-color: #ffffffd9;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
+  background-color: ${TRANSVIT};
   padding-top: 1px;
-
   padding-bottom: 60px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -201,8 +199,7 @@ export const GalleryContainer = styled.section`
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   padding-left: 20px;
   padding-right: 20px;
-  width: 85%;
-
+  width: 90%;
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
@@ -222,18 +219,24 @@ export const GalleryWrapper = styled.div`
 
 export const GalleryWrapperInner = styled.div`
   box-sizing: border-box;
-  height: 450px;
-  background-color: ${SMUTSROSA};
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
+  height: 300px;
+  aspect-ratio: 1 / 1; /* Gör det fyrkantigt */
+  background-color: ${KRITVIT};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden; // Beskär innehållet om det är större
+  padding: 8px;
+
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     height: 200px;
+
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     height: 300px;
+
   }
 `;
+
 
