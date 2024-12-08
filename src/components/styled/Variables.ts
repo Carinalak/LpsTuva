@@ -9,12 +9,12 @@ export const BREAKPOINT_BIGGER_DESKTOP = "1800px";
 // ------------------ COLORS --------------------- //
 
 export const KRITVIT = "#FFFFFF"; // 
-export const TRANSVIT = "#ffffffd9";
+export const TRANSVIT = "#ffffffd9"; // WhiteWrapper
 export const KOLSVART = "#000000"; //#000000da
 export const TRANSSVART = "#000000da";
 export const SKUGGLILA = "#AB3DA7"; // BackgroundColor on main page Hover-link in desktopMenu
-export const SMUTSROSA = "#D77DD4";
-export const GAMMELROSA = "#EF8CEB";
+export const SMUTSROSA = "#D77DD4"; // buttons-hover
+export const GAMMELROSA = "#EF8CEB"; // buttons-bakgrund
 export const POOLBLA = "#80D7EA"; // On click
 export const SOLBLEKT = "#EAE680";
 export const HJARTROD = "#F31111"; 

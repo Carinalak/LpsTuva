@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SMUTSROSA } from "./Variables";
+import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
+import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
+
 
 export const Button = styled.button`
   padding: 0.5rem;
@@ -43,3 +46,40 @@ export const ButtonWrapper = styled.div `
   padding-left: 0;
   padding-top: 20px;
 `;
+
+export const PaginationWrapper = styled.div `
+  width: 120px;
+  text-align: center;
+
+`;
+
+export const ButtonArrowLeft = styled(Button)`
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background-image: url(${arrowWhiteLeft});
+  background-size: 22px 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: ${GAMMELROSA};
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: -5px;
+`;
+
+export const ButtonArrowRight = styled(Button)`
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background-image: url(${arrowWhiteRight});
+  background-size: 22px 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: ${GAMMELROSA};
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: -5px;
+`;
+

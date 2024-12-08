@@ -4,7 +4,7 @@ import { GalleryContainer, GalleryWrapper, GalleryWrapperInner } from '../compon
 import { GalleryImage } from '../components/styled/Image';
 import { useGalleryImages } from '../components/useGalleryImages';
 import { ImageModal } from '../components/ImageModal';
-import { Button } from '../components/styled/Buttons';
+import { ButtonArrowLeft, ButtonArrowRight, PaginationWrapper } from '../components/styled/Buttons';
 
 
 
@@ -40,17 +40,16 @@ export const GalleriBilder: React.FC = () => {
           ))}
         </GalleryWrapper>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-          <Button onClick={handlePrevious} disabled={currentPage === 1}>
-            Föregående
-          </Button>
-          <span style={{ margin: '0 1rem' }}>
+
+          <ButtonArrowLeft onClick={handlePrevious} disabled={currentPage === 1} />
+            
+          <PaginationWrapper style={{ margin: '0 1rem' }}>
             Sida {currentPage} av {totalPages}
-          </span>
-          <Button onClick={handleNext} disabled={currentPage === totalPages}>
-            Nästa
-          </Button>
+          </PaginationWrapper>
+          <ButtonArrowRight onClick={handleNext} disabled={currentPage === totalPages} />
         </div>
       </GalleryContainer>
+
       {/* Visa modal om den är öppen */}
       {isModalOpen && (
         <ImageModal
