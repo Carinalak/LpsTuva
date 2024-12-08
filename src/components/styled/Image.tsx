@@ -93,8 +93,8 @@ export const LogoContainer = styled.div `
     }
 `;  
 
-export const LpsLogo = styled.img `
-  width: 150px;
+export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
+  width: 180px;
   z-index: 87;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -109,7 +109,7 @@ export const LpsLogo = styled.img `
     }
 `;
 
-export const LogoImage = styled.img`
+export const LogoImage = styled.img` //rund
  position: fixed;
   height: 90px;
   z-index: 87;
