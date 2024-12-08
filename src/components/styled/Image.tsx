@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SMUTSROSA, BREAKPOINT_BIGGER_DESKTOP } from "./Variables";
 
 export const GalleryImage = styled.img`
-
   width: 90%;       // Måste ha samma bredd som TextWrapper! till texten
   border-radius: 10px;
+  max-width: 80%;
+  cursor: pointer;
+   /* Centrering */
+  display: block;
+  margin: 0 auto;
 
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 450px;
+    max-width: 100%;
+    width: 450px;
   }
 
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {

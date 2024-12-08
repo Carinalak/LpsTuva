@@ -210,41 +210,30 @@ export const GalleryContainer = styled.section`
 `;
 
 export const GalleryWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  padding: 40px;
-  padding-top: 5px;
-
+  display: grid;
+  grid-template-columns: 1fr;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 100%;
-    justify-content: space-evenly;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 800px;
-    justify-content: center;
-  }
+  gap: 10px;
 `;
 
 export const GalleryWrapperInner = styled.div`
-  flex: 1 1 calc(33.333% - 16px); /* Tar upp en tredjedel av utrymmet på större skärmar */
-  max-width: 250px; /* Sätter en maxbredd på varje bild */
   box-sizing: border-box;
-  
+  height: 450px;
+  background-color: ${SMUTSROSA};
   img {
-    width: 100%; /* Bilden fyller hela sin container */
-    height: auto; /* Bevarar proportionerna */
-    border-radius: 8px; /* Rundade hörn */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
-
-  @media screen and (max-width: ${BREAKPOINT_TABLET}) {
-    flex: 1 1 calc(50% - 16px); /* Halva bredden på mindre skärmar */
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    height: 200px;
   }
-
-  @media screen and (max-width: 480px) {
-    flex: 1 1 100%; /* Full bredd på väldigt små skärmar */
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    height: 300px;
   }
 `;
+

@@ -4,6 +4,7 @@ import { GalleryContainer, GalleryWrapper, GalleryWrapperInner } from '../compon
 import { GalleryImage } from '../components/styled/Image';
 import { useGalleryImages } from '../components/useGalleryImages';
 import { ImageModal } from '../components/ImageModal';
+import { Button } from '../components/styled/Buttons';
 
 
 
@@ -33,22 +34,21 @@ export const GalleriBilder: React.FC = () => {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                style={{ cursor: 'pointer' }}
                 onClick={() => openModal(image.src, image.alt)} // Öppna modal vid klick
               />
             </GalleryWrapperInner>
           ))}
         </GalleryWrapper>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-          <button onClick={handlePrevious} disabled={currentPage === 1}>
+          <Button onClick={handlePrevious} disabled={currentPage === 1}>
             Föregående
-          </button>
+          </Button>
           <span style={{ margin: '0 1rem' }}>
             Sida {currentPage} av {totalPages}
           </span>
-          <button onClick={handleNext} disabled={currentPage === totalPages}>
+          <Button onClick={handleNext} disabled={currentPage === totalPages}>
             Nästa
-          </button>
+          </Button>
         </div>
       </GalleryContainer>
       {/* Visa modal om den är öppen */}

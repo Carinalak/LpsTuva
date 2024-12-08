@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 import AntPurple from '../assets/images/galleri/AntPurple.jpg';
 import BirdPink from '../assets/images/galleri/BirdPink.jpg';
@@ -10,6 +10,7 @@ import DogWhitePurpleDot from '../assets/images/galleri/DogWhitePurpleDot.jpg';
 import DragonflyBlue from '../assets/images/galleri/DragonflyBlue.jpg';
 import IgelkottWhite from '../assets/images/galleri/IgelkottBrown.jpg';
 import GreyMouse from '../assets/images/galleri/MouseGrey.jpg';
+import { BREAKPOINT_TABLET } from './styled/Variables';
 
 const images = [
   { src: BirdDarkPurple, alt: 'Purple Bird' },
@@ -27,9 +28,27 @@ const images = [
 
 export const useGalleryImages = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const imagesPerPage = 3;
+  const [imagesPerPage, setImagesPerPage] = useState(1);
 
   const totalPages = Math.ceil(images.length / imagesPerPage);
+
+  // Dynamiskt hantera antalet bilder per skärmstorlek
+  const updateImagesPerPage = () => {
+    if (window.innerWidth >= parseInt(BREAKPOINT_TABLET, 10)) { // Tablet-läge
+      setImagesPerPage(3);
+    } else {
+      setImagesPerPage(1); // Mobilläge
+    }
+  };
+
+  useEffect(() => {
+    updateImagesPerPage();
+    window.addEventListener('resize', updateImagesPerPage);
+
+    return () => {
+      window.removeEventListener('resize', updateImagesPerPage);
+    };
+  }, []);
 
   const handleNext = () => {
     if (currentPage < totalPages) {
