@@ -14,15 +14,14 @@ type MenuLinks = {
 export const MenuLinks = [
   { path: "/", label: "Hem" },
   { 
-    path: "/galleri",
+    path: "/galleribilder",
     label: "Galleri",
-    subLinks: [
+    /*subLinks: [
       {path: "/galleribilder", label: "Mitt Galleri"},
-      {path: "/minalps", label: "Mina LPS"},
-    ],
+    ],*/
   },
   { 
-    path: "/pyssel", 
+    path: "/pysselspel", 
     label: "Pyssel & Spel",
     subLinks: [
       { path: "/farglagg", label: "Färgläggning" },

@@ -9,12 +9,12 @@ export const Galleri = () => {
   return ( <>
   <WrapperTransparent>
     <H1WhiteSecond>Galleri</H1WhiteSecond>
-    <WhiteFont>Här kan du hitta massa fina foton på mina LPS.</WhiteFont>
+    <WhiteFont>Här kan du hitta konstnärliga foton på mina LPS.</WhiteFont>
     <CenteredColTransWrapper>
     <Link to="/galleribilder">
       <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Mitt Galleri</H4White>
       </Link>
-      <Link to="/minalps"><H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Mina LPS</H4White></Link>
+      {/*<Link to="/minalps"><H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Mina LPS</H4White></Link>*/}
     </CenteredColTransWrapper>
   </WrapperTransparent>
   

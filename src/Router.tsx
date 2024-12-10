@@ -4,12 +4,11 @@ import { Home } from "./pages/Home";
 import { Kontakt } from "./pages/Kontakt";
 import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
-import { MinaLps } from "./pages/MinaLps";
 import { Tack } from "./pages/Tack";
 import { GalleriBilder } from "./pages/GalleriBilder";
 import { GalleriBild } from "./pages/GalleriBild";
 import { Farglagg } from "./pages/Farglagg";
-import { Pyssel } from "./pages/Pyssel";
+import { PysselSpel } from "./pages/Pysselspel";
 
 
 export const router = createHashRouter([
@@ -39,12 +38,8 @@ export const router = createHashRouter([
                 element:<GalleriBild></GalleriBild>,
             },
             {
-                path: "/minalps",
-                element:<MinaLps></MinaLps>,
-            },
-            {
-                path: "/pyssel",
-                element:<Pyssel></Pyssel>,
+                path: "/pysselspel",
+                element:<PysselSpel></PysselSpel>,
             },
             {
                 path: "/farglagg",
