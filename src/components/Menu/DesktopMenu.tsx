@@ -156,13 +156,14 @@ export const DesktopNav = styled.nav`
     }
   }
 `;
+
 export const DesktopMenu = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
   const [isClickTriggered, setIsClickTriggered] = useState(false);
   const location = useLocation();
 
-  const handleArrowClick = (e: React.MouseEvent, index: number) => {
-    e.preventDefault();
+  const toggleSubMenu = (e: React.MouseEvent, index: number) => {
+    e.preventDefault(); // Förhindra navigation
     if (activeSubMenu === index) {
       setActiveSubMenu(null);
       setIsClickTriggered(false);
@@ -212,7 +213,8 @@ export const DesktopMenu = () => {
           >
             <NavLink
               to={link.path}
-              onClick={() => {
+              onClick={(e) => {
+                toggleSubMenu(e, index);
                 handleMainLinkClick(index, link.path);
                 handleLinkClick();
               }}
@@ -225,7 +227,7 @@ export const DesktopMenu = () => {
                 src={arrowIcon}
                 alt="arrow icon"
                 className="icon"
-                onClick={(e) => handleArrowClick(e, index)}
+                onClick={(e) => toggleSubMenu(e, index)}
               />
             )}
 
