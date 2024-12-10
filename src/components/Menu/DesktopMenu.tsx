@@ -162,7 +162,7 @@ export const DesktopMenu = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
   const location = useLocation();
 
-  // Toggle submenu när användaren klickar på pilikonen
+  // Toggle submenu på klick
   const handleArrowClick = (e: React.MouseEvent, index: number) => {
     e.preventDefault(); // Förhindra navigation när pilen klickas
     setActiveSubMenu(activeSubMenu === index ? null : index); // Växla undermenyn
@@ -176,7 +176,6 @@ export const DesktopMenu = () => {
     }
     setActiveSubMenu(null); // Stäng submenyn vid klick
   };
-
 
   const handleMainLinkClick = (index: number, path: string) => {
     if (location.pathname === path) {
@@ -193,8 +192,10 @@ export const DesktopMenu = () => {
         {MenuLinks.map((link, index) => (
           <li
             key={link.path}
-            onMouseEnter={() => setActiveSubMenu(index)}
-            onMouseLeave={() => setActiveSubMenu(null)}
+            onMouseEnter={() => setActiveSubMenu(index)} // Öppnar vid hover
+            onMouseLeave={() => {
+              if (activeSubMenu !== index) setActiveSubMenu(null); // Stänger om det inte är aktivt
+            }}
           >
             <NavLink
               to={link.path}
@@ -211,7 +212,7 @@ export const DesktopMenu = () => {
                 src={arrowIcon}
                 alt="arrow icon"
                 className="icon"
-                onClick={(e) => handleArrowClick(e, index)}
+                onClick={(e) => handleArrowClick(e, index)} // Öppnar/stänger på klick
               />
             )}
 
@@ -219,14 +220,13 @@ export const DesktopMenu = () => {
               <ul className="submenu">
                 {link.subLinks.map((subLink) => (
                   <li key={subLink.path}>
-                    <NavLink 
-                      to={subLink.path} 
+                    <NavLink
+                      to={subLink.path}
                       onClick={() => {
                         setActiveSubMenu(null);
                         handleLinkClick();
                       }}
-                      
-                      >
+                    >
                       {subLink.label}
                     </NavLink>
                   </li>
@@ -239,6 +239,7 @@ export const DesktopMenu = () => {
     </DesktopNav>
   );
 };
+
 
 
 
