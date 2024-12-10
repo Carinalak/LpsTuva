@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SMUTSROSA } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD, GAMMELROSA, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
 import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
 import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
 
@@ -66,6 +66,12 @@ export const ButtonArrowLeft = styled(Button)`
   height: 40px;
   transition: background-color 0.2s ease, transform 0.2s ease;
   margin-top: -5px;
+
+  &:disabled {
+    background-color: ${DISSAD};
+    cursor: not-allowed;
+    transform: none;
+  }
 `;
 
 export const ButtonArrowRight = styled(Button)`
@@ -81,5 +87,11 @@ export const ButtonArrowRight = styled(Button)`
   height: 40px;
   transition: background-color 0.2s ease, transform 0.2s ease;
   margin-top: -5px;
+
+  &:disabled {
+    background-color: ${DISSAD};
+    cursor: not-allowed;
+    transform: none;
+  }
 `;
 

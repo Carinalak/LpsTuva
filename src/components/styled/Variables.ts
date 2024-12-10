@@ -9,7 +9,8 @@ export const BREAKPOINT_BIGGER_DESKTOP = "1800px";
 // ------------------ COLORS --------------------- //
 
 export const KRITVIT = "#FFFFFF"; // 
-export const TRANSVIT = "#ffffffd9"; // WhiteWrapper
+export const TRANSVIT = "#ffffffd9"; // WhiteWrapper EAC4E8
+export const DISSAD = "#EAC4E8";
 export const KOLSVART = "#000000"; //#000000da
 export const TRANSSVART = "#000000da";
 export const SKUGGLILA = "#AB3DA7"; // BackgroundColor on main page Hover-link in desktopMenu
