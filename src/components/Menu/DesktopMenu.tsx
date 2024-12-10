@@ -160,12 +160,29 @@ export const DesktopNav = styled.nav`
 
 export const DesktopMenu = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
+  const [isClickTriggered, setIsClickTriggered] = useState(false); // För att separera klick och hover
+
   const location = useLocation();
 
   // Toggle submenu på klick
   const handleArrowClick = (e: React.MouseEvent, index: number) => {
-    e.preventDefault(); // Förhindra navigation när pilen klickas
+    e.preventDefault(); // Förhindra navigation
+    setIsClickTriggered(true); // Klicket tar kontroll
     setActiveSubMenu(activeSubMenu === index ? null : index); // Växla undermenyn
+  };
+
+  // Hantera hover över meny
+  const handleMouseEnter = (index: number) => {
+    if (!isClickTriggered) {
+      setActiveSubMenu(index); // Öppna undermenyn vid hover om klick inte är aktivt
+    }
+  };
+
+  // Hantera musens utträde
+  const handleMouseLeave = () => {
+    if (!isClickTriggered) {
+      setActiveSubMenu(null); // Stäng undermenyn om klick inte är aktivt
+    }
   };
 
   // Hantera klick på länkar och scrolla till toppen
@@ -174,12 +191,12 @@ export const DesktopMenu = () => {
     if (topElement) {
       topElement.scrollIntoView({ behavior: "auto" });
     }
-    setActiveSubMenu(null); // Stäng submenyn vid klick
+    setIsClickTriggered(false); // Återställ klick-trigger
+    setActiveSubMenu(null); // Stäng submenyn
   };
 
   const handleMainLinkClick = (index: number, path: string) => {
     if (location.pathname === path) {
-      // Om vi är på samma sida, toggla undermenyn
       setActiveSubMenu(activeSubMenu === index ? null : index);
     } else {
       setActiveSubMenu(null); // Navigera bort och stäng undermenyn
@@ -192,10 +209,8 @@ export const DesktopMenu = () => {
         {MenuLinks.map((link, index) => (
           <li
             key={link.path}
-            onMouseEnter={() => setActiveSubMenu(index)} // Öppnar vid hover
-            onMouseLeave={() => {
-              if (activeSubMenu !== index) setActiveSubMenu(null); // Stänger om det inte är aktivt
-            }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
           >
             <NavLink
               to={link.path}
@@ -212,7 +227,7 @@ export const DesktopMenu = () => {
                 src={arrowIcon}
                 alt="arrow icon"
                 className="icon"
-                onClick={(e) => handleArrowClick(e, index)} // Öppnar/stänger på klick
+                onClick={(e) => handleArrowClick(e, index)} // Hanterar klick
               />
             )}
 
@@ -223,7 +238,7 @@ export const DesktopMenu = () => {
                     <NavLink
                       to={subLink.path}
                       onClick={() => {
-                        setActiveSubMenu(null);
+                        setIsClickTriggered(false); // Återställ klick-trigger
                         handleLinkClick();
                       }}
                     >
@@ -239,7 +254,6 @@ export const DesktopMenu = () => {
     </DesktopNav>
   );
 };
-
 
 
 
