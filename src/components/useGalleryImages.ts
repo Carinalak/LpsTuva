@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import BirdDarkPurple from '../assets/images/galleri/BirdDarkPurple.jpg';
 import AntPurple from '../assets/images/galleri/AntPurple.jpg';
 import BirdPink from '../assets/images/galleri/BirdPink.jpg';
@@ -32,23 +32,37 @@ export const useGalleryImages = () => {
 
   const totalPages = Math.ceil(images.length / imagesPerPage);
 
-  // Dynamiskt hantera antalet bilder per skärmstorlek
-  const updateImagesPerPage = () => {
-    if (window.innerWidth >= parseInt(BREAKPOINT_TABLET, 10)) { // Tablet-läge
+  // Dynamiskt antal bilder per skärmstorlek
+  const updateImagesPerPage = useCallback(() => {
+    if (window.innerWidth >= parseInt(BREAKPOINT_TABLET, 10)) {
       setImagesPerPage(3);
     } else {
-      setImagesPerPage(1); // Mobilläge
+      setImagesPerPage(1);
     }
-  };
+  }, []);
+
+  // Stabil funktion som validerar nuvarande sida
+  const validateCurrentPage = useCallback(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
 
   useEffect(() => {
     updateImagesPerPage();
-    window.addEventListener('resize', updateImagesPerPage);
+    validateCurrentPage();
+    window.addEventListener('resize', () => {
+      updateImagesPerPage();
+      validateCurrentPage();
+    });
 
     return () => {
-      window.removeEventListener('resize', updateImagesPerPage);
+      window.removeEventListener('resize', () => {
+        updateImagesPerPage();
+        validateCurrentPage();
+      });
     };
-  }, []);
+  }, [updateImagesPerPage, validateCurrentPage]);
 
   const handleNext = () => {
     if (currentPage < totalPages) {
