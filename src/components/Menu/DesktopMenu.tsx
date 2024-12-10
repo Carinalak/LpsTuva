@@ -156,50 +156,48 @@ export const DesktopNav = styled.nav`
     }
   }
 `;
-
-
 export const DesktopMenu = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
-  const [isClickTriggered, setIsClickTriggered] = useState(false); // För att separera klick och hover
-
+  const [isClickTriggered, setIsClickTriggered] = useState(false);
   const location = useLocation();
 
-  // Toggle submenu på klick
   const handleArrowClick = (e: React.MouseEvent, index: number) => {
-    e.preventDefault(); // Förhindra navigation
-    setIsClickTriggered(true); // Klicket tar kontroll
-    setActiveSubMenu(activeSubMenu === index ? null : index); // Växla undermenyn
+    e.preventDefault();
+    if (activeSubMenu === index) {
+      setActiveSubMenu(null);
+      setIsClickTriggered(false);
+    } else {
+      setActiveSubMenu(index);
+      setIsClickTriggered(true);
+    }
   };
 
-  // Hantera hover över meny
   const handleMouseEnter = (index: number) => {
     if (!isClickTriggered) {
-      setActiveSubMenu(index); // Öppna undermenyn vid hover om klick inte är aktivt
+      setActiveSubMenu(index);
     }
   };
 
-  // Hantera musens utträde
-  const handleMouseLeave = () => {
-    if (!isClickTriggered) {
-      setActiveSubMenu(null); // Stäng undermenyn om klick inte är aktivt
+  const handleMouseLeave = (index: number) => {
+    if (!isClickTriggered && activeSubMenu === index) {
+      setActiveSubMenu(null);
     }
   };
 
-  // Hantera klick på länkar och scrolla till toppen
   const handleLinkClick = () => {
     const topElement = document.getElementById("top");
     if (topElement) {
       topElement.scrollIntoView({ behavior: "auto" });
     }
-    setIsClickTriggered(false); // Återställ klick-trigger
-    setActiveSubMenu(null); // Stäng submenyn
+    setActiveSubMenu(null);
+    setIsClickTriggered(false);
   };
 
   const handleMainLinkClick = (index: number, path: string) => {
     if (location.pathname === path) {
       setActiveSubMenu(activeSubMenu === index ? null : index);
     } else {
-      setActiveSubMenu(null); // Navigera bort och stäng undermenyn
+      setActiveSubMenu(null);
     }
   };
 
@@ -210,7 +208,7 @@ export const DesktopMenu = () => {
           <li
             key={link.path}
             onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
             <NavLink
               to={link.path}
@@ -227,7 +225,7 @@ export const DesktopMenu = () => {
                 src={arrowIcon}
                 alt="arrow icon"
                 className="icon"
-                onClick={(e) => handleArrowClick(e, index)} // Hanterar klick
+                onClick={(e) => handleArrowClick(e, index)}
               />
             )}
 
@@ -238,7 +236,7 @@ export const DesktopMenu = () => {
                     <NavLink
                       to={subLink.path}
                       onClick={() => {
-                        setIsClickTriggered(false); // Återställ klick-trigger
+                        setActiveSubMenu(null);
                         handleLinkClick();
                       }}
                     >
@@ -254,6 +252,8 @@ export const DesktopMenu = () => {
     </DesktopNav>
   );
 };
+
+
 
 
 
