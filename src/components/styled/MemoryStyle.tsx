@@ -1,12 +1,17 @@
 import styled from "styled-components";
+import { BREAKPOINT_TABLET } from "./Variables";
 
 export const MemoryStyle = styled.div `
-
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   max-width: 400px;
   margin: 0 auto;
+
+  
+@media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  grid-template-columns: repeat(4, 1fr);
+}
 `;
 
 export const MemoryCard = styled.div `

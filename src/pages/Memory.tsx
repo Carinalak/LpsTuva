@@ -74,7 +74,9 @@ export const Memory: React.FC = () => {
 
   useEffect(() => {
     if (matchedCards.length === cards.length) {
-      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(true);
+      }, 1000); // 1000ms = 1 sekund
     }
   }, [matchedCards]);
 
@@ -113,7 +115,7 @@ export const Memory: React.FC = () => {
             </div>
             {/* Baksidan: Standard baksida */}
             <div className="card-back">
-              <CardImage src={Back} alt="Baksida" />
+              <CardImage src={Back} />
             </div>
           </div>
         </MemoryCard>
