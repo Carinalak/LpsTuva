@@ -10,10 +10,13 @@ export const MemoryStyle = styled.div `
 `;
 
 export const MemoryCard = styled.div `
-  width: 80px;
+  width: 100px;
+  padding: 2px;
+  background-color: white;
   cursor: pointer;
   perspective: 1000px;
-
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export const CardImage = styled.img `
