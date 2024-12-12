@@ -25,6 +25,7 @@ export const MenuLinks = [
     label: "Pyssel & Spel",
     subLinks: [
       { path: "/farglagg", label: "Färgläggning" },
+      { path: "/memory", label: "Memoryspel" },
     ],
   },
   

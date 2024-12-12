@@ -10,7 +10,7 @@ import Sheep from '../assets/images/memory_cards/sheep.png';
 import Snake from '../assets/images/memory_cards/snake.png';*/
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
-import { Button } from '../components/styled/Buttons';
+import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { CardModal } from '../components/CardModal';
 import { useNavigate } from 'react-router-dom';
 
@@ -95,10 +95,8 @@ export const Memory: React.FC = () => {
     preloadImages();
   }, []);
   
-
   return (
     <>
-    <div>
       <MemoryStyle>
     {shuffledCards.map((card, index) => {
       const isFlipped = selectedCards.includes(card) || matchedCards.includes(card.id);
@@ -122,12 +120,13 @@ export const Memory: React.FC = () => {
       );
     })}
   </MemoryStyle>
-  </div>
       {showModal && (
         <CardModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>
-          <Button onClick={shuffleCards}>Ja</Button>
-          <Button onClick={() =>  { setShowModal(false); navigate('/pysselspel'); }}>Nej</Button>
+          <ButtonWrapper>
+            <Button onClick={shuffleCards}>Ja</Button>
+            <Button onClick={() =>  { setShowModal(false); navigate('/pysselspel'); }}>Nej</Button>
+          </ButtonWrapper>
         </CardModal>
       )}
     </>

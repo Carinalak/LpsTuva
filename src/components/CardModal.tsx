@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, KRITVIT } from "./styled/Variables";
+import { BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./styled/Variables";
 
 export const CardModal = styled.div `
   position: fixed;
@@ -15,8 +15,15 @@ export const CardModal = styled.div `
 
   
   @media screen and ( min-width: ${BREAKPOINT_TABLET}) {
-
-
+    width: 400px;
+    height: 300px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: ${SKUGGLILA};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
 `;

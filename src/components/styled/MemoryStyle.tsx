@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "./Variables";
 
 export const MemoryStyle = styled.div `
   display: grid;
@@ -12,9 +12,6 @@ export const MemoryStyle = styled.div `
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   grid-template-columns: repeat(4, 1fr);
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 90%;
 }
 `;
 
@@ -30,6 +27,14 @@ export const MemoryCard = styled.div `
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 120px;
     height: 120px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 140px;
+    height: 140px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 150px;
+    height: 150px;
   }
   
 
@@ -64,11 +69,8 @@ export const MemoryCard = styled.div `
     transform: rotateY(180deg); /* Framsidan är spegelvänd */
     background-color: white;
     padding: 2px;
-
-
   }
 `;
-
 
 export const CardImage = styled.img `
     width: 100%;
