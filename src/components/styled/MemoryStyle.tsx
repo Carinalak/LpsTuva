@@ -23,6 +23,7 @@ export const MemoryCard = styled.div `
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 120px;
