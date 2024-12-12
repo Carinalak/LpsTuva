@@ -11,13 +11,44 @@ export const MemoryStyle = styled.div `
 
 export const MemoryCard = styled.div `
   width: 100px;
-  padding: 2px;
-  background-color: white;
+  height: 100px;
+  perspective: 1000px; /* För att ge 3D-effekten */
   cursor: pointer;
-  perspective: 1000px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  &.flipped .card-inner {
+    transform: rotateY(180deg); /* Vänder kortet till framsidan */
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hindrar den dolda sidan från att synas */
+    border-radius: 5px;
+  }
+
+  .card-back {
+    transform: rotateY(0deg); /* Baksidan är rättvänd */
+  }
+
+  .card-front {
+    transform: rotateY(180deg); /* Framsidan är spegelvänd */
+    background-color: white;
+  }
 `;
+
 
 export const CardImage = styled.img `
     width: 100%;

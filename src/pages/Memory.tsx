@@ -81,23 +81,45 @@ export const Memory: React.FC = () => {
   const navigate = useNavigate();
 
 
+  // För att bilderna ska laddas fortare:
+  useEffect(() => {
+    const preloadImages = () => {
+      const imagePaths = cards.map((card) => card.src).concat(Back); // Lägg till både framsidor och baksida
+      imagePaths.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+  
+    preloadImages();
+  }, []);
+  
+
   return (
     <>
       <MemoryStyle>
-        {shuffledCards.map((card, index) => (
-          <MemoryCard
-            key={index}
-            className={`card ${matchedCards.includes(card.id) ? 'matched' : ''}`}
-            onClick={() => handleCardClick(card)}
-          >
-            {selectedCards.includes(card) || matchedCards.includes(card.id) ? (
+    {shuffledCards.map((card, index) => {
+      const isFlipped = selectedCards.includes(card) || matchedCards.includes(card.id);
+      return (
+        <MemoryCard
+          key={index}
+          className={`card ${isFlipped ? 'flipped' : ''}`}
+          onClick={() => handleCardClick(card)}
+        >
+          <div className="card-inner">
+            {/* Framsidan: Djurets bild */}
+            <div className="card-front">
               <CardImage src={card.src} alt={card.alt} />
-            ) : (
+            </div>
+            {/* Baksidan: Standard baksida */}
+            <div className="card-back">
               <CardImage src={Back} alt="Baksida" />
-            )}
-          </MemoryCard>
-        ))}
-      </MemoryStyle>
+            </div>
+          </div>
+        </MemoryCard>
+      );
+    })}
+  </MemoryStyle>
       {showModal && (
         <CardModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>
