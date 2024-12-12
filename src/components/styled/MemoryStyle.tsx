@@ -5,12 +5,16 @@ export const MemoryStyle = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  max-width: 400px;
+  max-width: 100%;
   margin: 0 auto;
+  justify-items: center;
+  align-items: center;
 
-  
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   grid-template-columns: repeat(4, 1fr);
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 90%;
 }
 `;
 
@@ -22,6 +26,12 @@ export const MemoryCard = styled.div `
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 120px;
+    height: 120px;
+  }
+  
 
   .card-inner {
     width: 100%;
@@ -42,15 +52,20 @@ export const MemoryCard = styled.div `
     height: 100%;
     backface-visibility: hidden; /* Hindrar den dolda sidan från att synas */
     border-radius: 5px;
+    
   }
 
   .card-back {
     transform: rotateY(0deg); /* Baksidan är rättvänd */
+    padding: 2px;
   }
 
   .card-front {
     transform: rotateY(180deg); /* Framsidan är spegelvänd */
     background-color: white;
+    padding: 2px;
+
+
   }
 `;
 

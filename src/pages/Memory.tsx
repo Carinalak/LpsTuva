@@ -5,8 +5,8 @@ import CatCan from '../assets/images/memory_cards/cat_can.png';
 import CatPurple from '../assets/images/memory_cards/cat_purple.png';
 import Cow from '../assets/images/memory_cards/cow.png';
 import Monkey from '../assets/images/memory_cards/monkey.png';
-import Rabbit from '../assets/images/memory_cards/rabbit.png';
-/*import Sheep from '../assets/images/memory_cards/sheep.png';
+import Sheep from '../assets/images/memory_cards/sheep.png';
+/*import Rabbit from '../assets/images/memory_cards/rabbit.png';
 import Snake from '../assets/images/memory_cards/snake.png';*/
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
@@ -14,15 +14,14 @@ import { Button } from '../components/styled/Buttons';
 import { CardModal } from '../components/CardModal';
 import { useNavigate } from 'react-router-dom';
 
-
 const cards = [
   { id: 1, src: Bear, alt: 'Björn' },
   { id: 2, src: CatCan, alt: 'Katt med burk' },
   { id: 3, src: CatPurple, alt: 'Lila katt' },
   { id: 4, src: Cow, alt: 'Ko' },
   { id: 5, src: Monkey, alt: 'Apa' },
-  { id: 6, src: Rabbit, alt: 'Kanin' },
-  /*{ id: 7, src: Sheep, alt: 'Får' },
+  { id: 7, src: Sheep, alt: 'Får' },
+  /*{ id: 6, src: Rabbit, alt: 'Kanin' },
   { id: 8, src: Snake, alt: 'Orm' },*/
 ];
 
@@ -99,6 +98,7 @@ export const Memory: React.FC = () => {
 
   return (
     <>
+    <div>
       <MemoryStyle>
     {shuffledCards.map((card, index) => {
       const isFlipped = selectedCards.includes(card) || matchedCards.includes(card.id);
@@ -122,6 +122,7 @@ export const Memory: React.FC = () => {
       );
     })}
   </MemoryStyle>
+  </div>
       {showModal && (
         <CardModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>

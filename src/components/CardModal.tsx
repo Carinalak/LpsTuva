@@ -16,6 +16,7 @@ export const CardModal = styled.div `
   
   @media screen and ( min-width: ${BREAKPOINT_TABLET}) {
 
+
   }
 
 `;
