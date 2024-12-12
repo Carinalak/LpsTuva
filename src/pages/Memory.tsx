@@ -11,6 +11,8 @@ import Snake from '../assets/images/memory_cards/snake.png';
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { Button } from '../components/styled/Buttons';
 import { CardModal } from '../components/CardModal';
+import { useNavigate } from 'react-router-dom';
+
 
 const cards = [
   { id: 1, src: Bear, alt: 'Björn' },
@@ -75,6 +77,8 @@ export const Memory: React.FC = () => {
     }
   }, [matchedCards]);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <MemoryStyle>
@@ -96,7 +100,7 @@ export const Memory: React.FC = () => {
         <CardModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>
           <Button onClick={shuffleCards}>Ja</Button>
-          <Button onClick={() => { setShowModal(false); setShuffledCards([])}}>Nej</Button>
+          <Button onClick={() =>  { setShowModal(false); navigate('/pysselspel'); }}>Nej</Button>
         </CardModal>
       )}
     </>
