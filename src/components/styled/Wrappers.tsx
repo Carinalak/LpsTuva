@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, SMUTSROSA, TRANSVIT } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, TRANSVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -115,15 +115,12 @@ export const CenteredColTransWrapper = styled.div `
 // ----------------------------------- Coloring page ----------------------------------- //
 
 export const ColoringWrapper = styled.div `
-  //border: 1px solid purple;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 98%;
   align-items: center;
   background-color: transparent;
-  //background-color: #ffffffd9;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
   padding-top: 5px;
   padding-bottom: 60px;
   border-radius: 10px;
@@ -135,14 +132,12 @@ export const ColoringWrapper = styled.div `
     flex-wrap: wrap;
     row-gap: 10px;
     gap: 16px;
-    //justify-content: flex-start;
 }
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
 }
 `;
 
 export const ColoringWrapperInner = styled.div `
-  //border: 1px solid ${SMUTSROSA};
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -156,12 +151,12 @@ export const SpilledPaintWrapper = styled.div`
   display: inline-block;
   padding: 20px;
   background-image: url('/assets/images/farglagg/SpilledPaint.png'); 
-  background-size: cover; /* Gör att bakgrunden täcker hela wrappern */
+  background-size: cover; // Gör att bakgrunden täcker hela wrappern
   background-position: center;
   background-repeat: no-repeat;
   width: 250px;
   height: auto;
-  overflow: hidden; /* Döljer det som går utanför om bilden är för stor */
+  overflow: hidden; // Döljer det som går utanför om bilden är för stor 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,18 +167,6 @@ export const SpilledPaintWrapper = styled.div`
 
 // ----------------------------------- Gallery page ----------------------------------- //
 export const GalleryContainer = styled.section`
-  /*width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffffd9;
-  padding-top: 15px;
-  padding-bottom: 60px;
-  border-radius: 10px;
-  margin-bottom: 10px;*/
-
-
-  //border: 1px solid purple;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,7 +177,6 @@ export const GalleryContainer = styled.section`
   padding-bottom: 60px;
   border-radius: 10px;
   margin-bottom: 10px;
-
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   padding-left: 20px;
@@ -209,24 +191,23 @@ export const GalleryContainer = styled.section`
 export const GalleryWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  gap: 10px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  gap: 10px;
 `;
 
 export const GalleryWrapperInner = styled.div`
   box-sizing: border-box;
   height: 300px;
-  aspect-ratio: 1 / 1; /* Gör det fyrkantigt */
+  aspect-ratio: 1 / 1; // Gör det fyrkantigt
   background-color: ${KRITVIT};
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  overflow: hidden; // Beskär innehållet om det är större
+  overflow: hidden; // Beskär innehållet om det är större 
   padding: 8px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {

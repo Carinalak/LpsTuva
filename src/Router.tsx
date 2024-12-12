@@ -9,6 +9,7 @@ import { GalleriBilder } from "./pages/GalleriBilder";
 import { GalleriBild } from "./pages/GalleriBild";
 import { Farglagg } from "./pages/Farglagg";
 import { PysselSpel } from "./pages/Pysselspel";
+import { Memory } from "./pages/Memory";
 
 
 export const router = createHashRouter([
@@ -44,6 +45,10 @@ export const router = createHashRouter([
             {
                 path: "/farglagg",
                 element:<Farglagg></Farglagg>,
+            },
+            {
+                path: "/memory",
+                element:<Memory></Memory>,
             },
             {
                 path: "/tack",
