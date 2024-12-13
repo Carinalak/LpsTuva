@@ -35,8 +35,8 @@ export const MemoryCard = styled.div `
     height: 120px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     width: 190px;

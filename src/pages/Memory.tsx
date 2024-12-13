@@ -10,6 +10,7 @@ import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryS
 import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { CardModal } from '../components/CardModal';
 import { useNavigate } from 'react-router-dom';
+import { H1WhiteSecond } from '../components/styled/Title';
 
 
 const cards = [
@@ -102,7 +103,8 @@ const shuffleCards = () => {
 
 
   return (
-    <>
+    <div>
+      <H1WhiteSecond>Memoryspel</H1WhiteSecond>
       <MemoryStyle>
       {shuffledCards.map((card, index) => {
     const isFlipped =
@@ -136,6 +138,6 @@ const shuffleCards = () => {
           </ButtonWrapper>
         </CardModal>
       )}
-    </>
+    </div>
   );
 };

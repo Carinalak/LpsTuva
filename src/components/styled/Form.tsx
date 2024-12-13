@@ -61,6 +61,9 @@ export const Form = styled.form `
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 350px;
     }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 400px;
+    }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       width: 800px;
       height: 600px;

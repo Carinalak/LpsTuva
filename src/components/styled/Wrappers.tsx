@@ -28,8 +28,11 @@ font-family: "Playpen Sans", serif;
     width: 1500px;
     height: 89%;
     padding-bottom: 70px;
-    font-size: 3rem;
+    font-size: 60px;
   }
+
+
+
 `;
 
 export const WrapperTransparent = styled(WrapperWhite)`
@@ -93,18 +96,24 @@ export const WhiteFont = styled.p `
    color: ${KRITVIT};
    font-family: "Playpen Sans", serif;
    text-align: center;
+
+   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    font-size: 3rem;
+}
 `;
 
 export const BlackFont = styled(WhiteFont) `
   color: ${KOLSVART};
 `;
 
+
+// TExt ovanför kontaktformuläret:
 export const WhiteFontSmallerBox = styled(WhiteFont) `
   width: 290px;
   text-align: left;
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 370px;
+    width: 400px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   }
@@ -127,6 +136,11 @@ export const CenteredColTransWrapper = styled.div `
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
+
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    gap: 80px;
+}
 `;
 
 
