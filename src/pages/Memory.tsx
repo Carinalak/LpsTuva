@@ -10,7 +10,6 @@ import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryS
 import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { CardModal } from '../components/CardModal';
 import { useNavigate } from 'react-router-dom';
-import { PawSpinnerBig } from '../components/PawSpinnerBig';
 
 
 const cards = [
@@ -90,29 +89,8 @@ export const Memory: React.FC = () => {
     preloadImages();
   }, []);
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Sätt en timeout för att visa spinnern om sidan laddar långsamt
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Sätt till false om det går långsamt
-    }, 1000); // Sätt en fördröjning innan spinnern försvinner, t.ex. 1000ms
-
-    return () => clearTimeout(timer); // Rensa timeout om komponenten tas bort
-  }, []);
-
-  // När alla bilder är inladdade, döljer vi spinnern
-  useEffect(() => {
-    if (shuffledCards.length > 0) {
-      setIsLoading(false);
-    }
-  }, [shuffledCards]);
-
   return (
     <>
-      {isLoading ? (
-        <PawSpinnerBig /> // Visa spinnern om isLoading är true
-      ) : (
         <MemoryStyle>
           {shuffledCards.map((card, index) => {
             const isFlipped = selectedCards.includes(card) || matchedCards.includes(card.id);
@@ -136,7 +114,6 @@ export const Memory: React.FC = () => {
             );
           })}
         </MemoryStyle>
-      )}
       {showModal && (
         <CardModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>
