@@ -40,7 +40,8 @@ return (<>
     
     <NavigationContainer>
       <LogoTitle></LogoTitle>
-      <LpsLogo src={Logo} className="gallery-img" alt="LPS-Tuva" loading="lazy" />
+      <LogoLink href="./">
+      <LpsLogo src={Logo} alt="LPS-Tuva" loading="lazy" /></LogoLink>
       <HamburgerMenu /> 
       <DesktopMenu />
     </NavigationContainer>

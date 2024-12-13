@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, TRANSVIT } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, TRANSVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -15,17 +15,29 @@ border-radius: 10px;
 margin-bottom: 0;
 font-family: "Playpen Sans", serif;
 
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 600px;
-}
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 600px;
+    padding-bottom: 20px;
+  }
 
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  width: 800px;
-}
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 800px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 1500px;
+    height: 89%;
+    padding-bottom: 70px;
+    font-size: 3rem;
+  }
 `;
 
 export const WrapperTransparent = styled(WrapperWhite)`
   background-color: transparent;
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  width: 1000px;
+}
 `;
 
 
@@ -68,6 +80,9 @@ export const TextWrapper = styled(WrapperWhite)`
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   width: 550px;
 }
+@media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  width: 1000px;
+}
 `;
 
 export const WhiteFont = styled.p `
@@ -90,8 +105,12 @@ export const WhiteFontSmallerBox = styled(WhiteFont) `
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 370px;
-}
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  width: 850px;
 }
 `;
 

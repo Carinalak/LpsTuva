@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
 import arrowIcon from "../../assets/icons/arrow.png";
@@ -67,8 +67,13 @@ export const DesktopNav = styled.nav`
 
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       font-size: 1.2rem;
-
     }
+    
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      font-size: 2.3rem;
+    }
+
+
     }
 
     a > span {

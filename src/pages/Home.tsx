@@ -4,6 +4,7 @@ import Apa from '../assets/images/apa.png';
 import { Link } from "react-router-dom";
 import { POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
+import { SerieImage } from "../components/styled/Image";
 
 export const Home = () => {
 
@@ -24,7 +25,7 @@ const StyledLink = styled(Link)`
   
   <WrapperWhite>
     <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-    <img src={Apa} className="gallery-img" width="150px" alt="Monkey" loading="lazy"/>
+    <SerieImage src={Apa} width="150px" alt="Monkey" loading="lazy"/>
     <TextWrapper>
 
       <p>Välkommen till min nya sida! Här kommer jag att ha massa spännande saker. Bland annat kan du titta på foton på mina Lps i galleriet. </p>

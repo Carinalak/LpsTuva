@@ -27,7 +27,6 @@ export const MemoryCard = styled.div `
   perspective: 1000px; /* För att ge 3D-effekten */
   cursor: pointer;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
@@ -63,6 +62,7 @@ export const MemoryCard = styled.div `
     height: 100%;
     backface-visibility: hidden; /* Hindrar den dolda sidan från att synas */
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .card-back {

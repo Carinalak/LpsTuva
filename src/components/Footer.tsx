@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SMUTSROSA } from "./styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SMUTSROSA } from "./styled/Variables";
 import { SocialMediaWrapper } from "./styled/Image";
 import { H4White } from "./styled/Title";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,19 +20,29 @@ flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 40px;
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    height: 100px;
+  }
 `;
 
 const ResponsiveIcon = styled(FontAwesomeIcon)`
   color: ${KRITVIT};
   font-size: 32px;
 
-  /* Öka storleken på större skärmar */
   @media (min-width: ${BREAKPOINT_TABLET}) {
     font-size: 35px;
   }
 
   @media (min-width: ${BREAKPOINT_DESKTOP}) {
-    font-size: 35px;
+        font-size: 40px;
+      }
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    font-size: 60px;
+    gap: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 `;
 

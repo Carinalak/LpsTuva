@@ -56,8 +56,13 @@ export const FarglaggImage = styled.img`
 
 `;
 export const SerieImage = styled.img`
-  width: 100px ;
+  width: 100px;
   padding-top: 40px;
+
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 300px;
+    padding-top: 50px;
+    }
   
 `;
 
@@ -91,6 +96,12 @@ export const LogoContainer = styled.div `
       margin-left: 10px;
       margin-top: 5px;
     }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 310px;
+      height: 310px;
+      margin-left: 10px;
+      margin-top: 5px;
+    }
 `;  
 
 export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
@@ -105,12 +116,12 @@ export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
       width: 250px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 300px;
+      width: 400px;
     }
 `;
 
 export const LogoImage = styled.img` //rund
- position: fixed;
+  position: fixed;
   height: 90px;
   z-index: 87;
   margin-left: 5px;
@@ -124,6 +135,11 @@ export const LogoImage = styled.img` //rund
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 130px;
       height: 130px;
+    }
+    
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 300px;
+      height: 300px;
     }
 
 `;

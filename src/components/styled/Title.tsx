@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
 
 export const H1White = styled.h1 `
     padding: 0;
@@ -12,9 +12,11 @@ export const H1White = styled.h1 `
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       font-size: 2.2rem;
     }
-
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       font-size: 2.4rem;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      font-size: 6rem;
     }
 `;
 
@@ -52,8 +54,12 @@ export const H4White = styled.h4 `
       font-size: 1.3rem;
     }
 
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    @media (min-width: ${BREAKPOINT_DESKTOP}) {
+        font-size: 1.4rem;
+      }
 
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      font-size: 3rem;
     }
 `;
 
