@@ -302,7 +302,7 @@ export const JulBackground = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 100px;
   padding-bottom: 100px;
   margin-bottom: 0;
