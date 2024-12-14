@@ -8,7 +8,7 @@ import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryS
 import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { H1WhiteSecond } from '../components/styled/Title';
-import { MemoryJulModal } from '../components/MemoryModal';
+import { JulMemoryModal } from '../components/MemoryModal';
 import { JulBackground } from '../components/styled/Wrappers';
 import SnowFall  from '../components/SnowFall';
 
@@ -27,7 +27,7 @@ type Card = {
   matched?: boolean;
 };
 
-export const MemoryJul: React.FC = () => {
+export const Julmemory: React.FC = () => {
   const [shuffledCards, setShuffledCards] = useState<Card[]>([]);
   const [selectedCards, setSelectedCards] = useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
@@ -96,7 +96,7 @@ export const MemoryJul: React.FC = () => {
 
   return (
     <JulBackground>
-      <H1WhiteSecond>Memoryspel</H1WhiteSecond>
+      <H1WhiteSecond>Julmemory</H1WhiteSecond>
       <MemoryStyle>
         {shuffledCards.map((card, index) => {
           const isFlipped =
@@ -124,13 +124,13 @@ export const MemoryJul: React.FC = () => {
       {showModal && (
         <>
           <SnowFall count={50} /> {/* Använd SnowFall-komponenten */}
-          <MemoryJulModal>
+          <JulMemoryModal>
             <p>Grattis du hittade alla djur! Spela igen?</p>
             <ButtonWrapper>
               <JulButton onClick={shuffleCards}>Ja</JulButton>
               <JulButton onClick={() => { setShowModal(false); navigate('/pysselspel'); }}>Nej</JulButton>
             </ButtonWrapper>
-          </MemoryJulModal>
+          </JulMemoryModal>
         </>
       )}
     </JulBackground>

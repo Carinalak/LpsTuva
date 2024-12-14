@@ -28,7 +28,7 @@ export const MemoryModal = styled.div `
   }
 `;
 
-export const MemoryJulModal = styled(MemoryModal) `
+export const JulMemoryModal = styled(MemoryModal) `
   background-color: ${CHRISTMAS_GREEN};
   background-color: ${JULGRON_LJUS};
   border: 1px solid ${JULGULD_MORK}; 
