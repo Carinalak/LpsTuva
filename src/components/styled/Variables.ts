@@ -25,4 +25,6 @@ export const LERBRUN = "#765059"; // Spinner
 
 export const CHRISTMAS_RED = "#C91212"; // #C91212 på button
 export const CHRISTMAS_GREEN = "#28A24B"; 
-export const JULGRON = "#206a35"; // 206a35
+export const JULGRON_MORK = "#0d4d1f"; // Andra gröna  #008000 #0d4d1f 
+export const JULGRON_LJUS = "#206a35"
+export const JULGULD = "#fbd100";

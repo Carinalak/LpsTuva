@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, CHRISTMAS_GREEN, KRITVIT, SKUGGLILA } from "./styled/Variables";
+import { BREAKPOINT_TABLET, CHRISTMAS_GREEN, JULGRON_LJUS, JULGULD, KRITVIT, SKUGGLILA } from "./styled/Variables";
 
 export const MemoryModal = styled.div `
   position: fixed;
@@ -30,7 +30,8 @@ export const MemoryModal = styled.div `
 
 export const MemoryJulModal = styled(MemoryModal) `
   background-color: ${CHRISTMAS_GREEN};
-  background-color: #206a35;
+  background-color: ${JULGRON_LJUS};
+  border: 1px solid ${JULGULD}; 
   color: ${KRITVIT};
 
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, DISSAD, GAMMELROSA, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, DISSAD, GAMMELROSA, JULGULD, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
 import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
 import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
 
@@ -65,7 +65,7 @@ export const JulButton = styled(Button) `
   background-color: ${CHRISTMAS_RED}; 
 
   background-color: #C91212;
-  border: 1px solid #fbd100;
+  border: 1px solid ${JULGULD}; 
 
   &:hover {
     background-color: #e85050;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -296,8 +296,8 @@ export const BackgroundOriginal = styled.div `
 `;
 
 export const JulBackground = styled.div `
-  background-color: #0d4d1f; /* Grön färg  #008000 #0d4d1f*/
-  min-height: 100%;
+  background-color: ${JULGRON_MORK}; 
+  min-height: 100vh;
   min-width: 100%;
   display: flex;
   flex-direction: column;
