@@ -296,20 +296,21 @@ export const BackgroundOriginal = styled.div `
 `;
 
 export const JulBackground = styled.div `
-  background-color: #0d4d1f; /* Grön färg  #008000*/
-  min-height: 100%; /* Täck hela höjden på skärmen */
+  background-color: #0d4d1f; /* Grön färg  #008000 #0d4d1f*/
+  min-height: 100%;
   min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 100px;
+  padding-bottom: 100px;
   margin-bottom: 0;
 
   //position: relative; /* Viktigt för att positionera barn relativt */
   /*width: 100%;
   height: 100vh;*/ /* Täcker hela viewporten */
-  overflow: hidden; /* Döljer innehåll som går utanför */
+  overflow: hidden;
   overflow-y: hidden;
 `;
 

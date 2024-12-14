@@ -11,6 +11,7 @@ const MainContainer = styled.main`
  // padding-bottom: 30px;
 `;
 
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
