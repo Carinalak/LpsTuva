@@ -12,6 +12,7 @@ background-color: #ffffffd9;
 padding-top: 5px;
 padding-bottom: 10px;
 border-radius: 10px;
+margin-top: 20px;
 margin-bottom: 0;
 font-family: "Playpen Sans", serif;
 
@@ -282,6 +283,27 @@ export const PaginationWrapper = styled.div `
     width: 300px;
   }
 
+`;
+
+export const BackgroundOriginal = styled.div `
+  min-height: 100%; /* Täck hela höjden på skärmen */
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+`;
+
+export const JulBackground = styled.div `
+  background-color: #0d4d1f; /* Grön färg  #008000*/
+  min-height: 100%; /* Täck hela höjden på skärmen */
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
 `;
 
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./styled/Variables";
+import { BREAKPOINT_TABLET, CHRISTMAS_GREEN, KRITVIT, SKUGGLILA } from "./styled/Variables";
 
-export const CardModal = styled.div `
+export const MemoryModal = styled.div `
   position: fixed;
   top: 50%;
   left: 50%;
@@ -25,5 +25,11 @@ export const CardModal = styled.div `
     align-items: center;
     justify-content: center;
   }
+`;
+
+export const MemoryJulModal = styled(MemoryModal) `
+  background-color: ${CHRISTMAS_GREEN};
+  background-color: #206a35;
+  color: ${KRITVIT};
 
 `;

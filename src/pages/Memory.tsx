@@ -8,9 +8,9 @@ import Monkey from '../assets/images/memory_cards/monkey.png';
 import Sheep from '../assets/images/memory_cards/sheep.png';
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { Button, ButtonWrapper } from '../components/styled/Buttons';
-import { CardModal } from '../components/CardModal';
 import { useNavigate } from 'react-router-dom';
 import { H1WhiteSecond } from '../components/styled/Title';
+import { MemoryModal } from '../components/MemoryModal';
 
 
 const cards = [
@@ -130,13 +130,13 @@ const shuffleCards = () => {
         })}
       </MemoryStyle>
       {showModal && (
-        <CardModal>
+        <MemoryModal>
           <p>Grattis du hittade alla djur! Spela igen?</p>
           <ButtonWrapper>
             <Button onClick={shuffleCards}>Ja</Button>
             <Button onClick={() => { setShowModal(false); navigate('/pysselspel'); }}>Nej</Button>
           </ButtonWrapper>
-        </CardModal>
+        </MemoryModal>
       )}
     </div>
   );

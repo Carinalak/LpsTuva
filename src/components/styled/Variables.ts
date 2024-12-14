@@ -25,3 +25,4 @@ export const LERBRUN = "#765059"; // Spinner
 
 export const CHRISTMAS_RED = "#C91212";
 export const CHRISTMAS_GREEN = "#28A24B"; 
+export const JULGRON = "#206a35"; // 206a35

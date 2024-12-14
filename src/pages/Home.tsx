@@ -1,5 +1,5 @@
 import { H1PurpleSecond } from "../components/styled/Title"
-import { TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
+import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Apa from '../assets/images/apa.png';
 import { Link } from "react-router-dom";
 import { POOLBLA, SKUGGLILA } from "../components/styled/Variables";
@@ -20,9 +20,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-  return ( <>
-
-  
+  return ( <BackgroundOriginal>
   <WrapperWhite>
     <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
     <SerieImage src={Apa} width="150px" alt="Monkey" loading="lazy"/>
@@ -35,6 +33,6 @@ const StyledLink = styled(Link)`
   </WrapperWhite>
 
   
-  </>)
+  </BackgroundOriginal>)
 
 }
