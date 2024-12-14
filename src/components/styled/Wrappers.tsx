@@ -304,6 +304,13 @@ export const JulBackground = styled.div `
   align-items: center;
   justify-content: center;
   padding: 100px;
+  margin-bottom: 0;
+
+  //position: relative; /* Viktigt för att positionera barn relativt */
+  /*width: 100%;
+  height: 100vh;*/ /* Täcker hela viewporten */
+  overflow: hidden; /* Döljer innehåll som går utanför */
+  overflow-y: hidden;
 `;
 
 
