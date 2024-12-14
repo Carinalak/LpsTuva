@@ -26,20 +26,20 @@ const Snowflake = styled.div`
 
 // Föräldrakomponent som täcker hela viewporten och förhindrar att snöflingor påverkar sidans storlek
 const SnowContainer = styled.div`
-  position: fixed; /* Fixeras för att täcka hela skärmen */
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100vw; /* Täcker hela skärmens bredd */
-  height: 100vh; /* Täcker hela skärmens höjd */
+  width: 100vw;
+  height: 100vh;
   overflow: hidden; /* Döljer flingor som går utanför */
-  z-index: 9999; /* Säkerställer att snön syns ovanpå allt annat */
+  z-index: 9999;
   pointer-events: none; /* Gör att snön inte kan interageras med */
 `;
 
 // SnowFall-komponenten
 const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
   const [snowflakes, setSnowflakes] = useState<
-    { id: string; left: string; size: string; duration: string }[]
+    { id: string; left: string; size: string; duration: string; delay: string }[]
   >([]);
 
   // Generera snöflingor när komponenten mountar
@@ -50,6 +50,7 @@ const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
         left: `${Math.random() * 100}%`, // Random position horisontellt
         size: `${Math.random() * 10 + 5}px`, // Mellan 5px och 15px
         duration: `${Math.random() * 5 + 5}s`, // Mellan 5s och 10s
+        delay: `${Math.random() * 5}s`, // Mellan 0s och 5s för fördröjd start
       }));
 
     setSnowflakes(generateSnowflakes(count));
@@ -65,6 +66,7 @@ const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
             width: flake.size,
             height: flake.size,
             animationDuration: flake.duration,
+            animationDelay: flake.delay, // Fördröjning innan animationen startar
           }}
         />
       ))}

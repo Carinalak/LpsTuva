@@ -28,3 +28,4 @@ export const CHRISTMAS_GREEN = "#28A24B";
 export const JULGRON_MORK = "#0d4d1f"; // Andra gröna  #008000 #0d4d1f 
 export const JULGRON_LJUS = "#206a35"
 export const JULGULD = "#fbd100";
+export const JULGULD_MORK = "#f1d85c"

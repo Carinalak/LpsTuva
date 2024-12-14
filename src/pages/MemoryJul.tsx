@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { H1WhiteSecond } from '../components/styled/Title';
 import { MemoryJulModal } from '../components/MemoryModal';
 import { JulBackground } from '../components/styled/Wrappers';
-import SnowFall  from '../components/SnoFall';
+import SnowFall  from '../components/SnowFall';
 
 
 const cards = [
