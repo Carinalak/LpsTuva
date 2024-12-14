@@ -11,6 +11,7 @@ import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { H1WhiteSecond } from '../components/styled/Title';
 import { MemoryModal } from '../components/MemoryModal';
+import { BackgroundOriginal } from '../components/styled/Wrappers';
 
 
 const cards = [
@@ -103,7 +104,7 @@ const shuffleCards = () => {
 
 
   return (
-    <div>
+    <BackgroundOriginal>
       <H1WhiteSecond>Memoryspel</H1WhiteSecond>
       <MemoryStyle>
       {shuffledCards.map((card, index) => {
@@ -138,6 +139,6 @@ const shuffleCards = () => {
           </ButtonWrapper>
         </MemoryModal>
       )}
-    </div>
+    </BackgroundOriginal>
   );
 };

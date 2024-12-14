@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { H1WhiteSecond } from '../components/styled/Title';
-import { GalleryContainer, GalleryWrapper, GalleryWrapperInner, PaginationWrapper } from '../components/styled/Wrappers';
+import { BackgroundOriginal, GalleryContainer, GalleryWrapper, GalleryWrapperInner, PaginationWrapper } from '../components/styled/Wrappers';
 import { GalleryImage } from '../components/styled/Image';
 import { useGalleryImages } from '../components/useGalleryImages';
 import { ImageModal } from '../components/ImageModal';
@@ -24,7 +24,7 @@ export const GalleriBilder: React.FC = () => {
   };
 
   return (
-    <>
+    <BackgroundOriginal>
       <GalleryContainer>
         <H1WhiteSecond>Mitt Galleri</H1WhiteSecond>
         <GalleryWrapper>
@@ -58,6 +58,6 @@ export const GalleriBilder: React.FC = () => {
           onClose={closeModal}
         />
       )}
-    </>
+    </BackgroundOriginal>
   );
 };

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Person } from "../models/Person";
 import { Form } from "../components/styled/Form";
-import { WhiteFontSmallerBox, WrapperTransparent } from "../components/styled/Wrappers";
+import { BackgroundOriginal, WhiteFontSmallerBox, WrapperTransparent } from "../components/styled/Wrappers";
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
@@ -48,7 +48,7 @@ export const Kontakt = () => {
   }, 0);
 
   return (
-    <>
+    <BackgroundOriginal>
       {loading && <PawSpinner />}  {/* Visa spinnern när loading är true */}
       
       <WrapperTransparent>
@@ -109,6 +109,6 @@ export const Kontakt = () => {
         </Form>
         <SerieImage src={Nalle} alt="Nalle" loading="lazy"/>
       </WrapperTransparent>
-    </>
+    </BackgroundOriginal>
   );
 };

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { H1WhiteSecond, H4White } from "../components/styled/Title"
-import { CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers"
+import { BackgroundOriginal, CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers"
 
 
 
 export const Galleri = () => {
 
-  return ( <>
+  return ( <BackgroundOriginal>
   <WrapperTransparent>
     <H1WhiteSecond>Galleri</H1WhiteSecond>
     <WhiteFont>Här kan du hitta konstnärliga foton på mina LPS.</WhiteFont>
@@ -20,6 +20,6 @@ export const Galleri = () => {
   
   
   
-  </>)
+  </BackgroundOriginal>)
 
 }

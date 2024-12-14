@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { H1WhiteSecond, H4White } from "../components/styled/Title";
-import { CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers";
+import { BackgroundOriginal, CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers";
 
 export const PysselSpel = () => {
 
 
 
-  return (<>
+  return (<BackgroundOriginal>
 <WrapperTransparent>
     <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
     <WhiteFont></WhiteFont>
@@ -23,5 +23,5 @@ export const PysselSpel = () => {
 
 
   
-  </>)
+  </BackgroundOriginal>)
 };

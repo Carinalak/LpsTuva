@@ -1,7 +1,7 @@
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { FarglaggImage } from "../components/styled/Image";
 import { H1WhiteSecond } from "../components/styled/Title";
-import { ColoringWrapper, ColoringWrapperInner, WhiteFont } from "../components/styled/Wrappers";
+import { BackgroundOriginal, ColoringWrapper, ColoringWrapperInner, WhiteFont } from "../components/styled/Wrappers";
 import Seal from '../assets/images/farglagg/sal.jpg';
 import Kanin from '../assets/images/farglagg/kanin.jpg';
 import Apflicka from '../assets/images/farglagg/apflicka.jpg';
@@ -50,7 +50,7 @@ export const Farglagg = () => {
   };
 
   return (
-    <>
+    <BackgroundOriginal>
       <ColoringWrapper>
         <H1WhiteSecond>Färgläggning</H1WhiteSecond>
         <WhiteFont>Här kan du skriva ut, eller ladda ner bilder att färglägga.</WhiteFont>
@@ -96,6 +96,6 @@ export const Farglagg = () => {
         </ColoringWrapperInner>
 
       </ColoringWrapper>
-    </>
+    </BackgroundOriginal>
   );
 };
