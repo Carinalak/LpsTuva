@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { H1PurpleSecond } from '../components/styled/Title';
-import { GalleryContainer, GalleryWrapper, GalleryWrapperInner } from '../components/styled/Wrappers';
+import { H1WhiteSecond } from '../components/styled/Title';
+import { GalleryContainer, GalleryWrapper, GalleryWrapperInner, PaginationWrapper } from '../components/styled/Wrappers';
 import { GalleryImage } from '../components/styled/Image';
 import { useGalleryImages } from '../components/useGalleryImages';
 import { ImageModal } from '../components/ImageModal';
-import { ButtonArrowLeft, ButtonArrowRight, PaginationWrapper } from '../components/styled/Buttons';
+import { ButtonArrowLeft, ButtonArrowRight } from '../components/styled/Buttons';
 
 
 
@@ -26,7 +26,7 @@ export const GalleriBilder: React.FC = () => {
   return (
     <>
       <GalleryContainer>
-        <H1PurpleSecond>Mitt Galleri</H1PurpleSecond>
+        <H1WhiteSecond>Mitt Galleri</H1WhiteSecond>
         <GalleryWrapper>
           {currentImages.map((image, index) => (
             <GalleryWrapperInner key={index}>

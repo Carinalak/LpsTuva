@@ -118,11 +118,12 @@ export const LogoContainer = styled.div `
 export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
   width: 180px;
   z-index: 87;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 200px;
-      padding-left: 10px;
-    }
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+        width: 200px;
+        padding-left: 10px;
+      }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 250px;
     }

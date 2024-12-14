@@ -79,6 +79,20 @@ export const useGalleryImages = () => {
   const startIndex = (currentPage - 1) * imagesPerPage;
   const currentImages = images.slice(startIndex, startIndex + imagesPerPage);
 
+
+  // Förladdar bilderna
+  useEffect(() => {
+    const preloadImages = () => {
+      images.forEach(({ src }) => {
+        const img = new Image();
+        img.src = src; // Förladdar varje bild
+      });
+    };
+
+    preloadImages();
+  }, []); // Kör endast en gång vid montering
+
+
   return {
     currentImages,
     currentPage,

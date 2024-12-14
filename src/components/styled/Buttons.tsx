@@ -59,11 +59,6 @@ export const ButtonWrapper = styled.div `
       
 `;
 
-export const PaginationWrapper = styled.div `
-  width: 120px;
-  text-align: center;
-
-`;
 
 export const ButtonArrowLeft = styled(Button)`
   padding: 0;
@@ -84,6 +79,13 @@ export const ButtonArrowLeft = styled(Button)`
     cursor: not-allowed;
     transform: none;
   }
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+    width: 80px;
+    height: 80px;
+    background-size: 62px 62px;
+  }
+
 `;
 
 export const ButtonArrowRight = styled(Button)`
@@ -105,5 +107,11 @@ export const ButtonArrowRight = styled(Button)`
     cursor: not-allowed;
     transform: none;
   }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+    width: 80px;
+    height: 80px;
+    background-size: 62px 62px;
+  }
 `;
+
 

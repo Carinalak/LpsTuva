@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT, POOLBLA, SKUGGLILA } from "../styled/Variables";
 import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "./MenuLinks";
-import arrowIcon from "../../assets/icons/arrow.png";
+import arrowIcon from "../../assets/icons/arrow_white_down.png";
 import { useState } from "react";
 
 export const NavigationContainer = styled.section`
@@ -12,7 +12,8 @@ export const NavigationContainer = styled.section`
   align-items: center;
   padding: 5px;
   width: 100%;
-  
+
+
 `;
 
 export const DesktopNav = styled.nav`
@@ -22,6 +23,11 @@ export const DesktopNav = styled.nav`
     width: 50%;
     //padding-left: 10px;
     //padding-right: 10px;
+
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    align-items: flex-end;
+
+  }
 
     ul {
       display: flex;
@@ -88,6 +94,12 @@ export const DesktopNav = styled.nav`
       bottom: 5px;
       left: 50%; /* Centrerar pilen horisontellt */
       transform: translateX(-50%);
+
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+        width: 25px;
+        height: 25px;
+        bottom: -28px;
+      }
     }
 
     li a:hover {

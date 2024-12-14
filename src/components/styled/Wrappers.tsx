@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, TRANSVIT } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -89,17 +89,17 @@ export const TextWrapper = styled(WrapperWhite)`
 `;
 
 export const WhiteFont = styled.p `
-   background-color: transparent;
-   display: block;
-   width: 100%;
-   margin-top: 5px;
-   color: ${KRITVIT};
-   font-family: "Playpen Sans", serif;
-   text-align: center;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  color: ${KRITVIT};
+  font-family: "Playpen Sans", serif;
+  text-align: center;
 
-   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    font-size: 3rem;
-}
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  font-size: 3rem;
+  }
 `;
 
 export const BlackFont = styled(WhiteFont) `
@@ -199,38 +199,53 @@ export const SpilledPaintWrapper = styled.div`
 // ----------------------------------- End Coloring page ----------------------------------- //
 
 // ----------------------------------- Gallery page ----------------------------------- //
+// Innehåller bilder och knappar
 export const GalleryContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 98%;
+  height: 100%;
   align-items: center;
-  background-color: ${TRANSVIT};
+  background-color: transparent;
   padding-top: 1px;
   padding-bottom: 60px;
   border-radius: 10px;
   margin-bottom: 10px;
 
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 90%;
-}
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 90%;
+  }
 
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-}
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  }
+
 `;
 
+// Innehåller boxen bilderna är i.
 export const GalleryWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+  padding-bottom: 30px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    gap: 60px;
+    padding-bottom: 60px;
   }
 `;
 
+// Box där bilderna är i:
 export const GalleryWrapperInner = styled.div`
   box-sizing: border-box;
   height: 300px;
@@ -249,8 +264,25 @@ export const GalleryWrapperInner = styled.div`
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     height: 300px;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    height: 500px;
+    padding: 20px;
 
   }
 `;
+
+export const PaginationWrapper = styled.div `
+  width: 120px;
+  text-align: center;
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+    font-size: 3rem;
+    width: 300px;
+  }
+
+`;
+
 
 
