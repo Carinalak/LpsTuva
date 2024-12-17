@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { H1WhiteSecond } from "../components/styled/Title";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
-import { PysselSpelLinkImage } from "../components/styled/Image";
 import Farglagg from '../assets/images/link_farglagg.png';
 import Memory from '../assets/images/link_memory.png';
 import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, GAMMELROSA, KRITVIT } from "../components/styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT } from "../components/styled/Variables";
 
 
 export const PysselSpel = () => {
@@ -14,10 +13,10 @@ export const PysselSpel = () => {
   const PysselLink = styled(Link)`
     display: flex;
     flex-direction: column;
+    gap: 5px;
     text-decoration: none;
     color: ${KRITVIT};
     font-size: 1.2rem;
-    line-height: 40px;
     text-align: center;
     cursor: pointer;
 
@@ -32,10 +31,45 @@ export const PysselSpel = () => {
       }
 `;
 
+
+const PysselSpelLinkImage = styled.img`
+  width: 100px;
+  height: 100px; 
+  object-fit: cover; // Beskär bilden
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid ${KRITVIT};
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      object-fit: cover;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 200px;
+      height: 200px; 
+      object-fit: cover;
+    }
+`;
+
+const PysselSpelWrapper = styled(CenteredColTransWrapper) `
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+  }
+`;
+
+
+
   return (<BackgroundOriginal>
 <WrapperTransparent>
     <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
-    <CenteredColTransWrapper>
+    < PysselSpelWrapper>
     <PysselLink to="/farglagg">Färgläggning<PysselSpelLinkImage src={Farglagg} /></PysselLink>
     <PysselLink to="/memory">Memoryspel<PysselSpelLinkImage src={Memory} /></PysselLink>
     <PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink>
@@ -45,7 +79,7 @@ export const PysselSpel = () => {
       <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Memoryspel</H4White>
       <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Julmemory</H4White>*/}
       
-    </CenteredColTransWrapper>
+    </ PysselSpelWrapper>
   </WrapperTransparent>
 
 

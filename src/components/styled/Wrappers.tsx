@@ -145,7 +145,6 @@ export const CenteredColTransWrapper = styled.div `
 `;
 
 
-
 // ----------------------------------- Coloring page ----------------------------------- //
 
 export const ColoringWrapper = styled.div `
