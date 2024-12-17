@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SMUTSROSA, BREAKPOINT_BIGGER_DESKTOP } from "./Variables";
+import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP, SMUTSROSA, BREAKPOINT_BIGGER_DESKTOP, KRITVIT } from "./Variables";
 
 export const GalleryImage = styled.img`
   width: 100%; // Måste ha samma bredd som TextWrapper! till texten
@@ -16,6 +16,29 @@ export const GalleryImage = styled.img`
     object-fit: cover;
   }
 `;
+
+export const PysselSpelLinkImage = styled.img`
+  width: 100px;
+  height: 100px; 
+  object-fit: cover; // Beskär bilden
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid ${KRITVIT};
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    object-fit: cover;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 200px;
+    height: 200px; 
+    object-fit: cover;
+  }
+`;
+
 
 /* Gammal
 export const GalleryImage = styled.img`
@@ -59,20 +82,21 @@ export const FarglaggImage = styled.img`
 
 `;
 export const SerieImage = styled.img`
-  width: 150px;
-  padding-top: 20px;
+  width: 120px;
+  padding-top: 10px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
 
 
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 200px;
-    padding-top: 20px;
+    width: 150px;
+    padding-top: 15px;
+    padding-bottom: 20px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 300px;
-      padding-top: 50px;
+      width: 250px;
+      padding-top: 40px;
     }
   
 `;
