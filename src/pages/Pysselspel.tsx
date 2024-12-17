@@ -18,6 +18,9 @@ export const PysselSpel = () => {
       <Link to="/memory">
       <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Memoryspel</H4White>
       </Link>
+      <Link to="/julmemory">
+      <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Julmemory</H4White>
+      </Link>
     </CenteredColTransWrapper>
   </WrapperTransparent>
 

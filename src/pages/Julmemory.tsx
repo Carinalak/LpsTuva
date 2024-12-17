@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Back from '../assets/images/memory_cards/memory_jul/back.png';
 import Pig from '../assets/images/memory_cards/memory_jul/pig.png';
-import Bear from '../assets/images/memory_cards/bear.png';
-import Sheep from '../assets/images/memory_cards/sheep.png';
+import IceBear from '../assets/images/memory_cards/memory_jul/icebear.png';
+import Penguin from '../assets/images/memory_cards/memory_jul/penguin.png';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
@@ -15,8 +15,8 @@ import SnowFall  from '../components/SnowFall';
 
 const cards = [
   { id: 1, src: Pig, alt: 'Gris' },
-  { id: 2, src: Bear, alt: 'Björn' },
-  { id: 3, src: Sheep, alt: 'Får' },
+  { id: 2, src: IceBear, alt: 'Björn' },
+  { id: 3, src: Penguin, alt: 'Pingvin' },
 ];
 
 type Card = {

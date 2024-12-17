@@ -49,8 +49,8 @@ const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
         id: Math.random().toString(36).substr(2, 9),
         left: `${Math.random() * 100}%`, // Random position horisontellt
         size: `${Math.random() * 10 + 5}px`, // Mellan 5px och 15px
-        duration: `${Math.random() * 5 + 5}s`, // Mellan 5s och 10s
-        delay: `${Math.random() * 5}s`, // Mellan 0s och 5s för fördröjd start
+        duration: `${Math.random() * 4 + 4}s`, // Mellan 5s och 10s
+        delay: `${Math.random() * 4}s`, // Mellan 0s och 5s för fördröjd start
       }));
 
     setSnowflakes(generateSnowflakes(count));
