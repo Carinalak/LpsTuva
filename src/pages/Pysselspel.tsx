@@ -38,7 +38,10 @@ const PysselSpelLinkImage = styled.img`
   object-fit: cover; // Beskär bilden
   border-radius: 10px;
   cursor: pointer;
-  border: 3px solid ${KRITVIT};
+  border: 2px solid ${KRITVIT};
+    &:hover {
+        border: 2px solid ${GAMMELROSA};
+      }
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       object-fit: cover;

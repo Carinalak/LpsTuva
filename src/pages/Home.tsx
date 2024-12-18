@@ -25,8 +25,7 @@ const StyledLink = styled(Link)`
     <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
     
     <TextWrapper>
-
-      <p>Välkommen till min nya sida! Här kommer jag att ha massa spännande saker. Bland annat kan du titta på foton på mina Lps i galleriet. </p>
+      <p>God Jul och välkommen till min nya sida! Här kommer jag att ha massa spännande saker. Bland annat kan du titta på foton på mina Lps i galleriet. </p>
       <p>Det finns bilder du kan skriva ut och färglägga, och det finns två olika <StyledLink to="/pysselspel">memoryspel</StyledLink> att spela!</p>
       <p>Om du vill skriva ett meddelande till mig kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där. Jag ska svara så fort jag kan.</p>
     </TextWrapper>
