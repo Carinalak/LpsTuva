@@ -3,6 +3,9 @@ import Back from '../assets/images/memory_cards/memory_jul/back.png';
 import Pig from '../assets/images/memory_cards/memory_jul/pig.png';
 import IceBear from '../assets/images/memory_cards/memory_jul/icebear.png';
 import Penguin from '../assets/images/memory_cards/memory_jul/penguin.png';
+import Sheep from '../assets/images/memory_cards/sheep.png';
+import Snake from '../assets/images/memory_cards/snake.png';
+import Bear from '../assets/images/memory_cards/bear.png';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
@@ -17,6 +20,9 @@ const cards = [
   { id: 1, src: Pig, alt: 'Gris' },
   { id: 2, src: IceBear, alt: 'Björn' },
   { id: 3, src: Penguin, alt: 'Pingvin' },
+  { id: 4, src: Sheep, alt: 'Får' },
+  { id: 5, src: Snake, alt: 'Orm' },
+  { id: 6, src: Bear, alt: 'Björn' },
 ];
 
 type Card = {

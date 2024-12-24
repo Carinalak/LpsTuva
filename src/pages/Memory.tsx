@@ -20,7 +20,7 @@ const cards = [
   { id: 3, src: CatPurple, alt: 'Lila katt' },
   { id: 4, src: Cow, alt: 'Ko' },
   { id: 5, src: Monkey, alt: 'Apa' },
-  { id: 7, src: Sheep, alt: 'Får' },
+  { id: 6, src: Sheep, alt: 'Får' },
 ];
 
 type Card = {
