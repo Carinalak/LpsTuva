@@ -2,11 +2,26 @@ import { H1PurpleSecond } from "../components/styled/Title"
 import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
 import { Link } from "react-router-dom";
-import { POOLBLA, SKUGGLILA } from "../components/styled/Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
+import HomeImage from '../assets/images/galleri/BirdDarkPurple.jpg';
 
 export const Home = () => {
+
+const HomeImg = styled.img `
+  width: 300px;
+  padding-bottom: 60px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 400px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 500px;
+      padding-bottom: 80px;
+  }
+
+`;
 
 const StyledLink = styled(Link)`
   cursor: pointer;
@@ -23,13 +38,14 @@ const StyledLink = styled(Link)`
   return ( <BackgroundOriginal>
   <WrapperWhite>
     <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-    
-    <TextWrapper>
-      <p>God Jul och välkommen till min nya sida! Här kommer jag att ha massa spännande saker. Bland annat kan du titta på foton på mina Lps i galleriet. </p>
-      <p>Det finns bilder du kan skriva ut och färglägga, och det finns två olika <StyledLink to="/pysselspel">memoryspel</StyledLink> att spela!</p>
-      <p>Om du vill skriva ett meddelande till mig kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där. Jag ska svara så fort jag kan.</p>
-    </TextWrapper>
     <SerieImage src={Gris} alt="Gris" loading="lazy"/>
+    <TextWrapper>
+      <p>Välkommen till Lps-Tuvas sida!</p>
+      <p>Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och 
+      ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
+      Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
+    </TextWrapper>
+    <HomeImg src={HomeImage} />
   </WrapperWhite>
 
   
