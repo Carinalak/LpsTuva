@@ -18,6 +18,7 @@ export const SMUTSROSA = "#D77DD4"; // buttons-hover
 export const GAMMELROSA = "#EF8CEB"; // buttons-bakgrund
 export const POOLBLA = "#80D7EA"; // On click
 export const SOLBLEKT = "#EAE680";
+export const SOLGUL = "#EFEA67";
 export const HJARTROD = "#F31111"; 
 export const LERBRUN = "#765059"; // Spinner
 

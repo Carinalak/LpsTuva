@@ -59,7 +59,7 @@ export const H4White = styled.h4 `
       }
 
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      font-size: 3rem;
+      font-size: 2rem;
     }
 `;
 

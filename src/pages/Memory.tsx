@@ -9,7 +9,7 @@ import Sheep from '../assets/images/memory_cards/sheep.png';
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1WhiteSecond } from '../components/styled/Title';
+import { H1WhiteSecond } from '../components/styled/Fonts';
 import { MemoryModal } from '../components/MemoryModal';
 import { BackgroundOriginal } from '../components/styled/Wrappers';
 
@@ -111,11 +111,11 @@ const shuffleCards = () => {
     const isFlipped =
       !isResetting && (selectedCards.includes(card) || matchedCards.includes(card.id));
           return (
-           <MemoryCard
-      key={index}
-      className={`card ${isFlipped ? 'flipped' : ''}`}
-      onClick={() => !isResetting && handleCardClick(card)} // Hindra klick under reset
-    >
+            <MemoryCard
+              key={index}
+              className={`card ${isFlipped ? 'flipped' : ''}`}
+              onClick={() => !isResetting && handleCardClick(card)} // Hindra klick under reset
+            >
       <div className="card-inner">
         {/* Framsidan: Djurets bild */}
         <div className="card-front">

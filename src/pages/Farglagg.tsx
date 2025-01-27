@@ -1,6 +1,6 @@
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { FarglaggImage } from "../components/styled/Image";
-import { H1WhiteSecond } from "../components/styled/Title";
+import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, ColoringWrapper, ColoringWrapperInner, WhiteFont } from "../components/styled/Wrappers";
 import Seal from '../assets/images/farglagg/sal.jpg';
 import Kanin from '../assets/images/farglagg/kanin.jpg';

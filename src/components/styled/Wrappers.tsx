@@ -29,7 +29,6 @@ font-family: "Playpen Sans", serif;
     width: 1500px;
     height: 89%;
     padding-bottom: 70px;
-    font-size: 60px;
   }
 
 
@@ -84,9 +83,6 @@ export const TextWrapper = styled(WrapperWhite)`
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   width: 550px;
 }
-@media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-  width: 1000px;
-}
 `;
 
 export const WhiteFont = styled.p `
@@ -97,10 +93,6 @@ export const WhiteFont = styled.p `
   color: ${KRITVIT};
   font-family: "Playpen Sans", serif;
   text-align: center;
-
-  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-  font-size: 3rem;
-  }
 `;
 
 export const BlackFont = styled(WhiteFont) `
@@ -119,9 +111,6 @@ export const WhiteFontSmallerBox = styled(WhiteFont) `
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   }
 
-  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-  width: 850px;
-}
 `;
 
 export const CenteredWrapperTransparent = styled.div `
@@ -278,7 +267,6 @@ export const PaginationWrapper = styled.div `
   text-align: center;
 
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
-    font-size: 3rem;
     width: 300px;
   }
 

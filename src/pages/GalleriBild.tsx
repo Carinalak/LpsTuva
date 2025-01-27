@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { H1WhiteSecond } from "../components/styled/Title";
+import { H1WhiteSecond } from "../components/styled/Fonts";
 
 export const GalleriBild = () => {
 

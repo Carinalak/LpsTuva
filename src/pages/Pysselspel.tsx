@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { H1WhiteSecond } from "../components/styled/Title";
+import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
 import Farglagg from '../assets/images/link_farglagg.png';
 import Memory from '../assets/images/link_memory.png';

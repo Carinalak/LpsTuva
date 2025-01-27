@@ -28,13 +28,13 @@ export const Form = styled.form `
     width: 280px;
     border-radius: 10px;
 
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 350px;
+      @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+        width: 350px;
 
-    }
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 400px;
-    }
+      }
+      @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+        width: 400px;
+      }
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       width: 800px;
       height: 30px;

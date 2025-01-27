@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { H1WhiteSecond, H4White } from "../components/styled/Title"
+import { H1WhiteSecond, H4White } from "../components/styled/Fonts"
 import { BackgroundOriginal, CenteredColTransWrapper, WhiteFont, WrapperTransparent } from "../components/styled/Wrappers"
 
 

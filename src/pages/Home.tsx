@@ -1,4 +1,4 @@
-import { H1PurpleSecond } from "../components/styled/Title"
+import { H1PurpleSecond } from "../components/styled/Fonts"
 import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
 import { Link } from "react-router-dom";

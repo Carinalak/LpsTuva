@@ -6,7 +6,7 @@ import { BackgroundOriginal, WhiteFontSmallerBox, WrapperTransparent } from "../
 import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { useNavigate } from "react-router-dom";
 import { PawSpinner } from '../components/PawSpinner';
-import { H1WhiteSecond } from '../components/styled/Title';
+import { H1WhiteSecond } from '../components/styled/Fonts';
 import Nalle from '../assets/images/nalle.png';
 import { SerieImage } from '../components/styled/Image';
 import emailjs from 'emailjs-com';

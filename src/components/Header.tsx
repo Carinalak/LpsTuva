@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavigationContainer, DesktopMenu } from "./Menu/DesktopMenu"
 import { HamburgerMenu } from "./Menu/HamburgerMenu"
-import { LogoTitle } from "./styled/Title"
+import { LogoTitle } from "./styled/Fonts"
 import { KRITVIT, SMUTSROSA } from "./styled/Variables";
 import { LogoContainer, LogoImage, LpsLogo } from "./styled/Image";
 import LogoRund from '../assets/images/logoRund.png';

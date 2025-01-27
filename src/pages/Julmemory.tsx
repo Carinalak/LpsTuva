@@ -10,7 +10,7 @@ import Bear from '../assets/images/memory_cards/bear.png';
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1WhiteSecond } from '../components/styled/Title';
+import { H1WhiteSecond } from '../components/styled/Fonts';
 import { JulMemoryModal } from '../components/MemoryModal';
 import { JulBackground } from '../components/styled/Wrappers';
 import SnowFall  from '../components/SnowFall';

@@ -21,8 +21,6 @@ export const Button = styled.button`
   cursor: pointer;
   cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
-
-
   &:hover {
     background-color: ${SMUTSROSA};
     color: ${KRITVIT};
@@ -92,6 +90,7 @@ export const ButtonArrowLeft = styled(Button)`
   height: 40px;
   transition: background-color 0.2s ease, transform 0.2s ease;
   margin-top: -5px;
+  -webkit-tap-highlight-color: transparent;
 
   &:disabled {
     background-color: ${DISSAD};
@@ -120,6 +119,7 @@ export const ButtonArrowRight = styled(Button)`
   height: 40px;
   transition: background-color 0.2s ease, transform 0.2s ease;
   margin-top: -5px;
+  -webkit-tap-highlight-color: transparent;
 
   &:disabled {
     background-color: ${DISSAD};

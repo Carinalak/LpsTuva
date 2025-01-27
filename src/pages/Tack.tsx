@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'; // Importera useNavigate
 import { ButtonWrapper, Button } from "../components/styled/Buttons";
-import { H2White } from "../components/styled/Title";
+import { H2White } from "../components/styled/Fonts";
 import { CenteredWrapperTransparent } from "../components/styled/Wrappers";
 
 export const Tack = () => {

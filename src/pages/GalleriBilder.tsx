@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { H1WhiteSecond } from '../components/styled/Title';
+import { H1WhiteSecond } from '../components/styled/Fonts';
 import { BackgroundOriginal, GalleryContainer, GalleryWrapper, GalleryWrapperInner, PaginationWrapper } from '../components/styled/Wrappers';
 import { GalleryImage } from '../components/styled/Image';
 import { useGalleryImages } from '../components/useGalleryImages';
