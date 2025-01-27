@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, DISSAD, GAMMELROSA, JULGULD, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, DISSAD, GAMMELROSA, JULGULD, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
 import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
 import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
 
@@ -31,16 +31,6 @@ export const Button = styled.button`
   }
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 110px;
-    }
-
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 110px;
-    }
-    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 190px;
-    height: 60px;
-    font-weight: 700;
-    font-size: 2rem;
     }
 `;
 
