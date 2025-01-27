@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
 
 export const H1White = styled.h1 `
     padding: 0;
@@ -14,9 +14,6 @@ export const H1White = styled.h1 `
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       font-size: 2.4rem;
-    }
-    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      font-size: 6rem;
     }
 `;
 
@@ -57,10 +54,6 @@ export const H4White = styled.h4 `
     @media (min-width: ${BREAKPOINT_DESKTOP}) {
         font-size: 1.4rem;
       }
-
-    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      font-size: 2rem;
-    }
 `;
 
 export const LogoTitle = styled(H1White) `
