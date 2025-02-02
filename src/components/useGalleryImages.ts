@@ -10,6 +10,8 @@ import DogWhitePurpleDot from "../assets/images/galleri/DogWhitePurpleDot.jpg";
 import DragonflyBlue from "../assets/images/galleri/DragonflyBlue.jpg";
 import IgelkottWhite from "../assets/images/galleri/IgelkottBrown.jpg";
 import GreyMouse from "../assets/images/galleri/MouseGrey.jpg";
+import WinterPinkBear from "../assets/images/galleri/winterPinkBear.jpg";
+import SnowKana from "../assets/images/galleri/snow_kana.jpg";
 import { BREAKPOINT_TABLET } from "./styled/Variables";
 
 const images = [
@@ -19,20 +21,19 @@ const images = [
   { src: BirdPink2, alt: "Pink Bird second", season: "summer" },
   { src: BirdPink3, alt: "Purple Bird third", season: "summer" },
   { src: RainbowCat, alt: "Rainbowcat", season: "spring" },
-  { src: WhiteCat, alt: "White cat", season: "winter" },
-  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "winter" },
+  { src: WhiteCat, alt: "White cat", season: "autumn" },
+  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
   { src: DragonflyBlue, alt: "Blue dragonfly", season: "summer" },
   { src: IgelkottWhite, alt: "Hedgehog", season: "autumn" },
   { src: GreyMouse, alt: "Grey Mouse", season: "autumn" },
+  { src: SnowKana, alt: "Snowkana", season: "winter" },
+  { src: WinterPinkBear, alt: "Pink Bear", season: "winter" },
 ];
-
 export const useGalleryImages = (sortBy: string) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [imagesPerPage, setImagesPerPage] = useState(1);
 
-
   const filteredImages = sortBy === "all" ? images : images.filter(img => img.season === sortBy);
-
   const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
 
   const updateImagesPerPage = useCallback(() => {
@@ -64,6 +65,11 @@ export const useGalleryImages = (sortBy: string) => {
       });
     };
   }, [updateImagesPerPage, validateCurrentPage]);
+
+  // ⚠️ FIX: Återställ sidan till 1 när sorteringsalternativet ändras
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [sortBy]);
 
   const handleNext = () => {
     if (currentPage < totalPages) {
