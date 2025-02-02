@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA } from "./Variables";
+import { Link } from "react-router-dom";
 
 export const H1White = styled.h1 `
     padding: 0;
@@ -74,4 +75,39 @@ margin-left: 80px; // Beroende av loggans position
 z-index: 87;
 position: relative;
 left: 7%;
+`;
+
+export const H1Title = styled.h1 `
+    padding: 0;
+    color: ${KRITVIT};
+    font-size: 2rem;
+    font-family: "Playpen Sans", serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 0.3;
+    text-align: center;
+    padding-bottom: 12px;
+    
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      font-size: 2.4rem;
+    }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      font-size: 2.6rem;
+    }
+
+`;
+export const H1Title404 = styled(H1Title) `
+    padding-bottom: 0;
+    line-height: 0;
+`;
+
+export const StyledLinkWhite = styled(Link)`
+  text-decoration: none;
+  margin: 0;
+  padding: 0; 
+  display: flex;
+  color: ${KRITVIT};
+    &:hover {
+      color: ${POOLBLA};
+      text-decoration: none;
+    }
 `;
