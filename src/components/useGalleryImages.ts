@@ -10,7 +10,7 @@ import DogWhitePurpleDot from "../assets/images/galleri/DogWhitePurpleDot.jpg";
 import DragonflyBlue from "../assets/images/galleri/DragonflyBlue.jpg";
 import IgelkottWhite from "../assets/images/galleri/IgelkottBrown.jpg";
 import GreyMouse from "../assets/images/galleri/MouseGrey.jpg";
-import WinterPinkBear from "../assets/images/galleri/winterPinkBear.jpg";
+import WinterPinkBear from "../assets/images/galleri/WinterPinkBear.jpg";
 import SnowKana from "../assets/images/galleri/snow_kana.jpg";
 import { BREAKPOINT_TABLET } from "./styled/Variables";
 
