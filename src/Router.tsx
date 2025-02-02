@@ -58,7 +58,11 @@ export const router = createHashRouter([
             {
                 path: "/tack",
                 element:<Tack></Tack>,
-            },
+            }
+            /*{
+                path: "/puzzle",
+                element:<Puzzle></Puzzle>,
+            },*/
         ],
     },
 ]);

@@ -31,8 +31,6 @@ font-family: "Playpen Sans", serif;
     padding-bottom: 70px;
   }
 
-
-
 `;
 
 export const WrapperTransparent = styled(WrapperWhite)`
@@ -302,4 +300,25 @@ export const JulBackground = styled.div `
 `;
 
 
+
+
+// ----------------------------------- Puzzle ----------------------------------- //
+
+
+export const PuzzleWrapper = styled.section`
+//width: 95%;
+//display: flex;
+//flex-direction: column;
+align-items: center;
+margin-top: 200px;
+padding-bottom: 10px;
+//margin-bottom: 0;
+//font-family: "Playpen Sans", serif;
+/*
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 600px;
+    padding-bottom: 20px;
+  }
+*/
+`;
 
