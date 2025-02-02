@@ -44,7 +44,6 @@ export const ButtonWrapper = styled.div `
       flex-direction: row;
       gap: 25px;
     }
-      
 `;
 
 // ------------- Christmas Button ------------------------------- //
@@ -63,7 +62,6 @@ export const JulButton = styled(Button) `
     background-color: #f1d85c;
     color: ${KRITVIT};
   }
-
 `;
 
 
