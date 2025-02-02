@@ -28,12 +28,12 @@ const HomeImg = styled.img `
 const StyledLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
-  color: ${SKUGGLILA}; /* Ursprunglig färg */
-  transition: color 0.3s ease; /* Mjuk övergång för färgändring */
+  color: ${SKUGGLILA};
+  transition: color 0.3s ease;
 
   &:hover {
-    color: ${POOLBLA}; /* Färg på hover */
-    text-decoration: underline; /* Ta bort understrykning på hover (kan justeras) */
+    color: ${POOLBLA};
+    text-decoration: underline;
   }
 `;
 
@@ -46,7 +46,7 @@ const StyledLink = styled(Link)`
       ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
       Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
     </TextWrapper>
-    <HomeImg src={HomeImage} />
+    <HomeImg src={HomeImage} alt="Pingvin åker kana i snön" loading="lazy"/>
     <SerieImage src={Gris} alt="Gris" loading="lazy"/>
   </WrapperWhite>
 

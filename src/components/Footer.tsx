@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, SMUTSROSA } from "./styled/Variables";
 import { SocialMediaWrapper } from "./styled/Image";
-import { H4White } from "./styled/Fonts";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
+import { FooterTextWhite } from "./styled/Fonts";
 
 const FooterContainer = styled.footer`
 background-color: ${SMUTSROSA};
@@ -50,7 +50,7 @@ export const Footer = () => {
 
 return (
   <FooterContainer>
-    <H4White>&copy; Lps-Tuva 2024 </H4White>
+    <FooterTextWhite>&copy; Lps-Tuva 2025 </FooterTextWhite>
     <SocialMediaWrapper>
       <a href="https://www.youtube.com/c/LPSTuwa" target="_blank" rel="noopener noreferrer">
         <ResponsiveIcon icon={faSquareYoutube} />

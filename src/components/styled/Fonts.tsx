@@ -56,6 +56,19 @@ export const H4White = styled.h4 `
       }
 `;
 
+export const FooterTextWhite = styled.p `
+    padding: 0;
+    font-family: "Playpen Sans", serif;
+    color: ${KRITVIT};
+    font-size: 1rem;
+    text-align: center;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      font-size: 1.1rem;
+    }
+
+`;
+
 export const LogoTitle = styled(H1White) `
 margin-left: 80px; // Beroende av loggans position
 z-index: 87;

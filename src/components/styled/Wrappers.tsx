@@ -100,7 +100,7 @@ export const BlackFont = styled(WhiteFont) `
 `;
 
 
-// TExt ovanför kontaktformuläret:
+// Text ovanför kontaktformuläret:
 export const WhiteFontSmallerBox = styled(WhiteFont) `
   width: 290px;
   text-align: left;
