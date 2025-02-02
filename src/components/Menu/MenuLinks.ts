@@ -26,7 +26,7 @@ export const MenuLinks = [
     subLinks: [
       { path: "/farglagg", label: "Färgläggning" },
       { path: "/memory", label: "Memoryspel" },
-      { path: "/julmemory", label: "Julmemory" },
+      //{ path: "/julmemory", label: "Julmemory" },
     ],
   },
   

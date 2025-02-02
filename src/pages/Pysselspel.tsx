@@ -3,7 +3,7 @@ import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
 import Farglagg from '../assets/images/link_farglagg.png';
 import Memory from '../assets/images/link_memory.png';
-import JulMemory from '../assets/images/link_julmemory.png';
+//import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT } from "../components/styled/Variables";
 
@@ -75,7 +75,7 @@ const PysselSpelWrapper = styled(CenteredColTransWrapper) `
     < PysselSpelWrapper>
     <PysselLink to="/farglagg">Färgläggning<PysselSpelLinkImage src={Farglagg} /></PysselLink>
     <PysselLink to="/memory">Memoryspel<PysselSpelLinkImage src={Memory} /></PysselLink>
-    <PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink>
+    {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 
     {/* 
       <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Färgläggning</H4White>

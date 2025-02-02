@@ -19,7 +19,7 @@ export const H1White = styled.h1 `
 
 export const H1PurpleSecond = styled(H1White) `           // Titel på varje sida - lila
   color: ${SKUGGLILA};
-  line-height: 1.6;
+  line-height: 1.1;
   text-shadow: none;
 `;
 

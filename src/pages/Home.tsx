@@ -5,20 +5,22 @@ import { Link } from "react-router-dom";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/BirdDarkPurple.jpg';
+import HomeImage from '../assets/images/snow_kana_mindre.jpg';
+
 
 export const Home = () => {
 
 const HomeImg = styled.img `
   width: 300px;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-radius: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 400px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 500px;
-      padding-bottom: 80px;
+      margin-bottom: 80px;
   }
 
 `;
@@ -38,7 +40,6 @@ const StyledLink = styled(Link)`
   return ( <BackgroundOriginal>
   <WrapperWhite>
     <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-    <SerieImage src={Gris} alt="Gris" loading="lazy"/>
     <TextWrapper>
       <p>Välkommen till Lps-Tuvas sida!</p>
       <p>Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och 
@@ -46,6 +47,7 @@ const StyledLink = styled(Link)`
       Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
     </TextWrapper>
     <HomeImg src={HomeImage} />
+    <SerieImage src={Gris} alt="Gris" loading="lazy"/>
   </WrapperWhite>
 
   
