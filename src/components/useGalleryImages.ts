@@ -10,8 +10,11 @@ import DogWhitePurpleDot from "../assets/images/galleri/DogWhitePurpleDot.jpg";
 import DragonflyBlue from "../assets/images/galleri/DragonflyBlue.jpg";
 import IgelkottWhite from "../assets/images/galleri/IgelkottBrown.jpg";
 import GreyMouse from "../assets/images/galleri/MouseGrey.jpg";
-import WinterPinkBear from "../assets/images/galleri/WinterPinkBear.jpg";
-import SnowKana from "../assets/images/galleri/Snow_kana.jpg";
+import WinterPinkBear from "../assets/images/galleri/winter/WinterPinkBear.jpg";
+import SnowKana from "../assets/images/galleri/winter/Snow_kana.jpg";
+import SealOnIce from "../assets/images/galleri/winter/SealOnIce.jpg";
+import NalleLilaMossa from "../assets/images/galleri/winter/NalleLilaMossa.jpg";
+import CrystalBear from "../assets/images/galleri/winter/IceBearSnowCrystals.jpg";
 import { BREAKPOINT_TABLET } from "./styled/Variables";
 
 const images = [
@@ -26,8 +29,12 @@ const images = [
   { src: DragonflyBlue, alt: "Blue dragonfly", season: "summer" },
   { src: IgelkottWhite, alt: "Hedgehog", season: "autumn" },
   { src: GreyMouse, alt: "Grey Mouse", season: "autumn" },
-  { src: SnowKana, alt: "Snowkana", season: "winter" },
-  { src: WinterPinkBear, alt: "Pink Bear", season: "winter" },
+  { src: SnowKana, alt: "Snökana", season: "winter" },
+  { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
+  { src: SealOnIce, alt: "En säl på isen", season: "winter" },
+  { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
+  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
+  
 ];
 export const useGalleryImages = (sortBy: string) => {
   const [currentPage, setCurrentPage] = useState(1);

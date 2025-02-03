@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/snow_kana_mindre.jpg';
+import HomeImage from '../assets/images/galleri/winter/SealOnIce.jpg';
 
 
 export const Home = () => {
@@ -46,7 +46,7 @@ const StyledLink = styled(Link)`
       ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
       Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
     </TextWrapper>
-    <HomeImg src={HomeImage} alt="Pingvin åker kana i snön" loading="lazy"/>
+    <HomeImg src={HomeImage} alt="Säl glider på isen." loading="lazy"/>
     <SerieImage src={Gris} alt="Gris" loading="lazy"/>
   </WrapperWhite>
 
