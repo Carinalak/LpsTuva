@@ -305,10 +305,12 @@ export const JulBackground = styled.div `
 
 export const TitleDropdownWrapper = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 1rem; 
+  justify-content: center;
+  gap: 0.5rem; 
   margin-bottom: 5px;
+
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       display: grid;

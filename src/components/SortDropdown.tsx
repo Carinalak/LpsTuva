@@ -9,7 +9,7 @@ interface SortDropdownProps {
 
 const CustomDropdown = styled.div`
   position: relative;
-  width: 200px;
+  width: 110px;
 `;
 
 const DropdownButton = styled.div<{ isOpen: boolean }>`
