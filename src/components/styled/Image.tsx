@@ -97,8 +97,10 @@ export const LogoContainer = styled.div `
   margin-left: 5px;
   margin-top: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
  
    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    visibility: visible;
       width: 110px;
       height: 110px;
     }
@@ -117,31 +119,19 @@ export const LogoContainer = styled.div `
     }
 `;  
 
-export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
-  width: 180px;
-  z-index: 87;
-  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
-
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-        width: 200px;
-        padding-left: 10px;
-      }
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 250px;
-    }
-    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 400px;
-    }
-`;
-
 export const LogoImage = styled.img` //rund
+  visibility: visible;
   position: absolute;
-  height: 90px;
+  height: 70px;
   z-index: 87;
-  margin-left: 5px;
-  margin-top: 5px;
+  //margin-left: 5px;
+  //margin-top: 5px;
+  margin-left: 0;
+  margin-top: -45px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      margin-left: 5px;
+      margin-top: 5px;
       width: 100px;
       height: 100px;
     }
@@ -156,6 +146,24 @@ export const LogoImage = styled.img` //rund
       height: 300px;
     }
 
+`;
+ // LPS-Tuva Text Logo
+export const LpsLogo = styled.img `
+  width: 180px;
+  z-index: 87;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
+
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+        width: 200px;
+        padding-left: 10px;
+      }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 250px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 400px;
+    }
 `;
 
 
