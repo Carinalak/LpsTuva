@@ -12,8 +12,6 @@ export const NavigationContainer = styled.section`
   align-items: center;
   padding: 5px;
   width: 100%;
-
-
 `;
 
 export const DesktopNav = styled.nav`

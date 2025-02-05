@@ -9,11 +9,12 @@ flex-direction: column;
 align-items: center;
 background-color: #ffffffd9;
 /*background-color: rgba(255, 255, 255, 0.8);*/
-padding-top: 5px;
+//padding-top: 3px;
 padding-bottom: 10px;
 border-radius: 10px;
-margin-top: 20px;
+//margin-top: 20px;
 margin-bottom: 0;
+margin-top: 10px;
 font-family: "Playpen Sans", serif;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -277,7 +278,10 @@ export const BackgroundOriginal = styled.div `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 60px;
+  
 `;
 
 export const JulBackground = styled.div `
@@ -299,7 +303,21 @@ export const JulBackground = styled.div `
   overflow-y: hidden;
 `;
 
+export const TitleDropdownWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; 
+  margin-bottom: 5px;
 
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 4rem; 
+      margin-bottom: 5px;
+  }
+`;
 
 
 // ----------------------------------- Puzzle ----------------------------------- //

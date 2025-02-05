@@ -82,7 +82,7 @@ export const SerieImage = styled.img`
 // ------------------ LOGO ------------------------ //
 
 export const LogoContainer = styled.div `
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   background-color: ${SMUTSROSA};
   display: flex;
@@ -135,7 +135,7 @@ export const LpsLogo = styled.img ` // LPS-Tuva Text Logo
 `;
 
 export const LogoImage = styled.img` //rund
-  position: fixed;
+  position: absolute;
   height: 90px;
   z-index: 87;
   margin-left: 5px;

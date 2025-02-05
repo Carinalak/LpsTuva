@@ -8,7 +8,7 @@ import LogoRund from '../assets/images/logoRund.png';
 import Logo from '../assets/images/Lps-Tuva_Logo_White.png';
 
 const HeaderContainer = styled.header`
-position: fixed;
+position: relative;
 top: 0;
 z-index: 100;
 background-color: ${SMUTSROSA};

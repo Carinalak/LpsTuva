@@ -42,6 +42,11 @@ Tablet och Desktopversion:
 ## Install axios in front end for using fetch och post
 npm install axios
 npm install emailjs-com
+npm install framer-motion till switchknappen
+
+
+## Kortflippningsfakta:
+För att vända korten i memoryspelet använder jag klassen "flipped" i kombinatione med CSS föratt skapa en flip-animation. Klassen "flipped" sätts baserat på om kortet är valt eller ej. När ett kort väljs får den klassen "flipped". Jag använder className="flipped" för att styra flippningen, och själva animeringen hanteras i CSS med transform: rotateY(180deg).
 
 
 

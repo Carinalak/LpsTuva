@@ -28,19 +28,20 @@ export const MemoryCard = styled.div `
   cursor: pointer;
   border-radius: 5px;
   position: relative;
+  cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), !important;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
   }
   
   .card-inner {
