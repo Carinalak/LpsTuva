@@ -308,13 +308,13 @@ export const TitleDropdownWrapper = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem; 
+  gap: 30px; 
   margin-bottom: 5px;
 
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 0.5fr 1.5fr 1fr;
       align-items: center;
       gap: 4rem; 
       margin-bottom: 5px;
