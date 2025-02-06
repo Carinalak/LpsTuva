@@ -7,6 +7,8 @@ import Kanin from '../assets/images/farglagg/kanin.jpg';
 import Apflicka from '../assets/images/farglagg/apflicka.jpg';
 import Hund from '../assets/images/farglagg/hund.jpg';
 import Nalle from '../assets/images/farglagg/nalle.jpg';
+import KaninMorotter from '../assets/images/farglagg/kanin_med_morotter.jpg';
+import KyckilngAgg from '../assets/images/farglagg/kyckling_med_agg.jpg';
 
 export const Farglagg = () => {
 
@@ -54,7 +56,20 @@ export const Farglagg = () => {
       <ColoringWrapper>
         <H1WhiteSecond>Färgläggning</H1WhiteSecond>
         <WhiteFont>Här kan du skriva ut, eller ladda ner bilder att färglägga.</WhiteFont>
-        
+        <ColoringWrapperInner>
+          <FarglaggImage src={KyckilngAgg} className="gallery-img" alt="Kyckling med ägg" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(Seal)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(Seal)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner>        
+        <ColoringWrapperInner>
+          <FarglaggImage src={KaninMorotter} className="gallery-img" alt="Kanin med morötter" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(Seal)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(Seal)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner>
         <ColoringWrapperInner>
           <FarglaggImage src={Seal} className="gallery-img" alt="Säl" loading="lazy" />
           <ButtonWrapper>
