@@ -59,15 +59,15 @@ export const Farglagg = () => {
         <ColoringWrapperInner>
           <FarglaggImage src={KyckilngAgg} className="gallery-img" alt="Kyckling med ägg" loading="lazy" />
           <ButtonWrapper>
-            <Button onClick={() => handlePrint(Seal)}>Skriv ut</Button>
-            <Button onClick={() => handleDownload(Seal)}>Ladda ned</Button>
+            <Button onClick={() => handlePrint(KyckilngAgg)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(KyckilngAgg)}>Ladda ned</Button>
           </ButtonWrapper>
         </ColoringWrapperInner>        
         <ColoringWrapperInner>
           <FarglaggImage src={KaninMorotter} className="gallery-img" alt="Kanin med morötter" loading="lazy" />
           <ButtonWrapper>
-            <Button onClick={() => handlePrint(Seal)}>Skriv ut</Button>
-            <Button onClick={() => handleDownload(Seal)}>Ladda ned</Button>
+            <Button onClick={() => handlePrint(KaninMorotter)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(KaninMorotter)}>Ladda ned</Button>
           </ButtonWrapper>
         </ColoringWrapperInner>
         <ColoringWrapperInner>
@@ -79,7 +79,7 @@ export const Farglagg = () => {
         </ColoringWrapperInner>
 
         <ColoringWrapperInner>
-          <FarglaggImage src={Kanin} className="gallery-img" alt="Kanin och hund" loading="lazy" />
+          <FarglaggImage src={Kanin} className="gallery-img" alt="Kanin" loading="lazy" />
           <ButtonWrapper>
             <Button onClick={() => handlePrint(Kanin)}>Skriv ut</Button>
             <Button onClick={() => handleDownload(Kanin)}>Ladda ned</Button>
