@@ -54,6 +54,8 @@ Från Freesound.com:
 - Flip.ogg by egomassive -- https://freesound.org/s/536782/ -- License: Attribution 3.0
 - achievement-sparkle by pigeonfriend -- https://freesound.org/s/715067/ -- License: Creative Commons 0
 
+### To the Puzzle
+- npm install react-dnd react-dnd-html5-backend
 
 
 # ----------------------- Backend -------------------------- not in use right now

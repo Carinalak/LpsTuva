@@ -3,6 +3,7 @@ import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
 import Farglagg from '../assets/logos/farglagg_logo2_300.png';
 import Memory from '../assets/logos/memory_logo300.png';
+import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
 //import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
@@ -76,6 +77,7 @@ const PysselSpelWrapper = styled(CenteredColTransWrapper) `
     < PysselSpelWrapper>
     <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
     <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
+    <PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>
     {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 
     {/* 

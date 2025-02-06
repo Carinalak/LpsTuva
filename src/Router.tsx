@@ -11,6 +11,7 @@ import { Farglagg } from "./pages/Farglagg";
 import { PysselSpel } from "./pages/Pysselspel";
 import { Memory } from "./pages/Memory";
 import { Julmemory } from "./pages/Julmemory";
+import Puzzle from "./components/Puzzle/Puzzle";
 
 
 export const router = createHashRouter([
@@ -58,11 +59,11 @@ export const router = createHashRouter([
             {
                 path: "/tack",
                 element:<Tack></Tack>,
-            }
-            /*{
+            },
+            {
                 path: "/puzzle",
                 element:<Puzzle></Puzzle>,
-            },*/
+            },
         ],
     },
 ]);

@@ -211,15 +211,27 @@ export const DesktopMenu = () => {
             onMouseEnter={() => setActiveSubMenu(index)}
             onMouseLeave={() => setActiveSubMenu(null)}
           >
-            <NavLink
-              to={link.path}
-              onClick={() => {
-                handleMainLinkClick(index, link.path);
-                handleLinkClick();
-              }}
-            >
-              <span>{link.label}</span>
-            </NavLink>
+             {/* Ändring: Kontrollera om länken ska öppnas i en ny flik */}
+             {link.target === "_blank" ? (  // Markerad ändring
+              <a
+                href={link.path}
+                target="_blank"
+                rel="noopener noreferrer"  // Markerad ändring
+                onClick={() => handleLinkClick()}
+              >
+                <span>{link.label}</span>
+              </a>
+            ) : (
+              <NavLink
+                to={link.path}
+                onClick={() => {
+                  handleMainLinkClick(index, link.path);
+                  handleLinkClick();
+                }}
+              >
+                <span>{link.label}</span>
+              </NavLink>
+            )}
 
             {link.subLinks && (
               <img
@@ -234,16 +246,27 @@ export const DesktopMenu = () => {
               <ul className="submenu">
                 {link.subLinks.map((subLink) => (
                   <li key={subLink.path}>
-                    <NavLink 
-                      to={subLink.path} 
-                      onClick={() => {
-                        setActiveSubMenu(null);
-                        handleLinkClick();
-                      }}
-                      
+                    {/* Ändring: Kontrollera om sublänken ska öppnas i en ny flik */}
+                    {subLink.target === "_blank" ? (  // Markerad ändring
+                      <a
+                        href={subLink.path}
+                        target="_blank"
+                        rel="noopener noreferrer"  // Markerad ändring
+                        onClick={() => setActiveSubMenu(null)}
                       >
-                      {subLink.label}
-                    </NavLink>
+                        {subLink.label}
+                      </a>
+                    ) : (
+                      <NavLink
+                        to={subLink.path}
+                        onClick={() => {
+                          setActiveSubMenu(null);
+                          handleLinkClick();
+                        }}
+                      >
+                        {subLink.label}
+                      </NavLink>
+                    )}
                   </li>
                 ))}
               </ul>

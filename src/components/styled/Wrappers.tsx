@@ -268,7 +268,6 @@ export const PaginationWrapper = styled.div `
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
     width: 300px;
   }
-
 `;
 
 export const BackgroundOriginal = styled.div `

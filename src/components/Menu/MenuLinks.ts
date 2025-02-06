@@ -23,12 +23,13 @@ export const MenuLinks = [
   { 
     path: "/pysselspel", 
     label: "Pyssel & Spel",
+    target: "_blank",
     subLinks: [
       { path: "/farglagg", label: "Färgläggning" },
       { path: "/memory", label: "Memoryspel" },
+      { path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
       //{ path: "/julmemory", label: "Julmemory" },
     ],
   },
-  
   { path: "/kontakt", label: "Kontakt" },
 ];

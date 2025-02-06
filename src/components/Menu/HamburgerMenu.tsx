@@ -209,9 +209,15 @@ export const HamburgerMenu = () => {
                 <ArrowIcon isOpen={openSubMenu === link.path} />
               </span>
             ) : (
-              <NavLink to={link.path} onClick={() => { scrollToTop(); closeMenu(); }}>
+              <NavLink 
+                to={link.path} 
+                onClick={() => { scrollToTop(); closeMenu(); }}
+                target={link.target || undefined} // Lägg till target här
+                rel={link.target === '_blank' ? 'noopener noreferrer' : undefined} // Sätt rel för externa länkar
+              >
                 {link.label}
               </NavLink>
+
             )}
 
             {link.subLinks && (
@@ -221,10 +227,12 @@ export const HamburgerMenu = () => {
                     <NavLink
                       to={subLink.path}
                       onClick={() => { scrollToTop(); closeMenu(); }}
-                      rel="noopener noreferrer"
+                      target={subLink.target || undefined} // Lägg till target här också för subLinks
+                      rel={subLink.target === '_blank' ? 'noopener noreferrer' : undefined} // Sätt rel för externa länkar
                     >
                       {subLink.label}
                     </NavLink>
+
                   </li>
                 ))}
               </ul>
