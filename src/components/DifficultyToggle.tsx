@@ -52,15 +52,15 @@ padding-right: 6px;
 export const DifficultyToggle: React.FC<DifficultyToggleProps> = ({ onClick, difficulty }) => {
   return (
     <SwitchContainer onClick={onClick}>
-      <FontToggleLeft>12</FontToggleLeft>
+      <FontToggleLeft>20</FontToggleLeft>
       <SwitchHandle
         layout
         initial={false}
         difficulty={difficulty}
-        animate={{ x: difficulty === "hard" ? 30 : 0 }}
+        animate={{ x: difficulty === "hard" ? 30 : 3 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
-      <FontToggleRight>20</FontToggleRight>
+      <FontToggleRight>12</FontToggleRight>
     </SwitchContainer>
   );
 };
