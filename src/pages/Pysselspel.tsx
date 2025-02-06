@@ -64,8 +64,9 @@ const PysselSpelWrapper = styled(CenteredColTransWrapper) `
   
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 80px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
   }
 `;
 
