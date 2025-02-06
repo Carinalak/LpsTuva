@@ -303,6 +303,9 @@ export const JulBackground = styled.div `
   overflow-y: hidden;
 `;
 
+// --------------------------- DROPDOWN AND TOGGLE - TITLE WRAPPERS ------------------------------ //
+
+
 export const TitleDropdownWrapper = styled.section`
   display: flex;
   flex-direction: row;
@@ -318,6 +321,20 @@ export const TitleDropdownWrapper = styled.section`
       align-items: center;
       gap: 4rem; 
       margin-bottom: 5px;
+  }
+`;
+
+export const TitleToggleWrapper = styled(TitleDropdownWrapper)`
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      & > *:first-child {
+        justify-self: right;
+      }
+      & > *:nth-child(n+2) {
+        justify-self: center;
+      }
   }
 `;
 

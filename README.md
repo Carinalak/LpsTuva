@@ -51,7 +51,7 @@ För att vända korten i memoryspelet använder jag klassen "flipped" i kombinat
 
 
 
-# ----------------------- Backend --------------------------
+# ----------------------- Backend -------------------------- not in use right now
 
 ## PpostgreSQL:
 

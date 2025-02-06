@@ -13,38 +13,8 @@ import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { H1WhiteSecond } from '../components/styled/Fonts';
 import { MemoryModal } from '../components/MemoryModal';
-import { BackgroundOriginal, TitleDropdownWrapper } from '../components/styled/Wrappers';
-import styled from 'styled-components';
-import { SMUTSROSA, KRITVIT, FONT_PLAYPEN, KOLSVART, SOLGUL } from '../components/styled/Variables';
-
-
-const DropdownSelect = styled.select`
-  background-color: ${SMUTSROSA};
-  color: ${KRITVIT};
-  font-size: 1rem;
-  font-family: ${FONT_PLAYPEN};
-  padding: 5px 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 0;
-  border-radius: 5px;
-  width: 100px;
-`;
-
-const Option = styled.option `
-  padding: 5px;
-  cursor: pointer;
-  color: ${KRITVIT};
-  border-radius: 5px;
-
-  &:hover {
-    background-color: ${SOLGUL};
-    color: ${KOLSVART};
-  }
-`;
-
+import { BackgroundOriginal, TitleToggleWrapper } from '../components/styled/Wrappers';
+import { DifficultyToggle } from '../components/DifficultyToggle';
 
 
 const easyCards = [
@@ -143,24 +113,29 @@ export const Memory: React.FC = () => {
 
   return (
     <BackgroundOriginal>
-      <TitleDropdownWrapper>
-        <div/>
+      <TitleToggleWrapper>
+      <div className="difficulty-toggle">
+    
+    <DifficultyToggle
+      difficulty={difficulty}
+      onClick={() => setDifficulty(difficulty === "easy" ? "hard" : "easy")}
+    />
+   
+  </div>
       <H1WhiteSecond>Memoryspel</H1WhiteSecond>
-        <DropdownSelect value={difficulty} onChange={(e) => setDifficulty(e.target.value as 'easy' | 'hard')}>
-          <Option value="easy">Lätt</Option>
-          <Option value="hard">Svår</Option>
-        </DropdownSelect>
-        </TitleDropdownWrapper>
+       <div/>
+        </TitleToggleWrapper>
 
-      <MemoryStyle>
+        <MemoryStyle className={difficulty === "hard" ? "hard-mode" : ""}>
+
         {shuffledCards.map((card) => {
           const isFlipped = !isResetting && (selectedCards.includes(card) || matchedCards.includes(card.id));
           return (
             <MemoryCard
-              key={card.uuid}
-              className={`card ${isFlipped ? 'flipped' : ''}`}
-              onClick={() => !isResetting && handleCardClick(card)}
-            >
+            key={card.uuid}
+            className={`card ${isFlipped ? 'flipped' : ''} ${difficulty === "hard" ? "hard-mode" : ""}`}
+            onClick={() => !isResetting && handleCardClick(card)}
+          >
               <div className="card-inner">
                 <div className="card-front">
                   <CardImage src={card.src} alt={card.alt} />

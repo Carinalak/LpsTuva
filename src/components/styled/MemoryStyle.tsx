@@ -19,6 +19,12 @@ export const MemoryStyle = styled.div `
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     gap: 30px;
   }
+  &.hard-mode {
+      grid-template-columns: repeat(4, 1fr);
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
 `;
 
 export const MemoryCard = styled.div `
@@ -43,6 +49,18 @@ export const MemoryCard = styled.div `
     width: 160px;
     height: 160px;
   }
+
+  &.hard-mode {
+    width: 70px;
+    height: 70px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 80px;
+      height: 80px;
+    }
+
+  }
+  
   
   .card-inner {
     width: 100%;
