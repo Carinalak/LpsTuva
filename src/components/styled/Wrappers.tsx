@@ -325,6 +325,10 @@ export const TitleDropdownWrapper = styled.section`
 `;
 
 export const TitleToggleWrapper = styled(TitleDropdownWrapper)`
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       grid-template-columns: 1fr 1fr 1fr;

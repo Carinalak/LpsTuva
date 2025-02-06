@@ -27,7 +27,7 @@ export const H1PurpleSecond = styled(H1White) `           // Titel på varje sid
 export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vit
   color: ${KRITVIT};
   //line-height: 1.1;
-    text-shadow: none;
+  text-shadow: none;
 `;
 
 export const H2White = styled.h2 `

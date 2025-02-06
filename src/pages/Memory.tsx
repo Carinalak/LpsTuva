@@ -141,16 +141,15 @@ export const Memory: React.FC = () => {
         />
       <TitleToggleWrapper>
         
-      <div className="difficulty-toggle">
-      
-    <DifficultyToggle
-      difficulty={difficulty}
-      onClick={() => setDifficulty(difficulty === "easy" ? "hard" : "easy")}
-    />
-   
-  </div>
+      <div/>
       <H1WhiteSecond>Memoryspel</H1WhiteSecond>
-       <div/>
+
+       <div>
+        <DifficultyToggle
+          difficulty={difficulty}
+          onClick={() => setDifficulty(difficulty === "easy" ? "hard" : "easy")}
+        />
+        </div>
         </TitleToggleWrapper>
 
         <MemoryStyle className={difficulty === "hard" ? "hard-mode" : ""}>
