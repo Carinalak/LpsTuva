@@ -34,23 +34,43 @@ export const SwitchHandle = styled(motion.div)<{ difficulty: "easy" | "hard" }>`
 
 export const FontToggleLeft = styled.span `
 
-font-family: ${FONT_PLAYPEN};
-font-size: 12px;
-font-weight: 600;
-color: ${KRITVIT};
-padding-left: 6px;
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  padding-left: 6px;
 `;
 export const FontToggleRight = styled.span `
 
-font-family: ${FONT_PLAYPEN};
-font-size: 12px;
-font-weight: 600;
-color: ${KRITVIT};
-padding-right: 6px;
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  padding-right: 6px;
+`;
+export const FontToggleStyle = styled.span `
+
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+`;
+
+export const ToggleWrap = styled.span `
+  font-family: ${FONT_PLAYPEN};
+  font-size: 14px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const DifficultyToggle: React.FC<DifficultyToggleProps> = ({ onClick, difficulty }) => {
-  return (
+  return (<ToggleWrap>
+    <FontToggleStyle>Välj nivå:</FontToggleStyle>
     <SwitchContainer onClick={onClick}>
       <FontToggleLeft>20</FontToggleLeft>
       <SwitchHandle
@@ -62,5 +82,6 @@ export const DifficultyToggle: React.FC<DifficultyToggleProps> = ({ onClick, dif
       />
       <FontToggleRight>12</FontToggleRight>
     </SwitchContainer>
+    </ToggleWrap>
   );
 };

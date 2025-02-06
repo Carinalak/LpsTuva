@@ -18,6 +18,8 @@ import { MemoryModal } from '../components/MemoryModal';
 import { BackgroundOriginal, TitleToggleWrapper } from '../components/styled/Wrappers';
 import { DifficultyToggle } from '../components/DifficultyToggle';
 import { SoundPlayerHandle, SoundPlayer } from '../components/SoundPlayer';
+import styled from 'styled-components';
+import { FONT_PLAYPEN, KRITVIT } from '../components/styled/Variables';
 
 
 const easyCards = [
@@ -44,6 +46,16 @@ type Card = {
   alt: string;
   matched?: boolean;
 };
+
+
+
+export const FontEMmoryStyle = styled.span `
+
+font-family: ${FONT_PLAYPEN};
+font-size: 12px;
+font-weight: 600;
+color: ${KRITVIT};
+`;
 
 export const Memory: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'hard'>('easy');
@@ -128,8 +140,9 @@ export const Memory: React.FC = () => {
         matchVolume={0.8} // Sätt match-ljudet till 80% volym
         />
       <TitleToggleWrapper>
+        
       <div className="difficulty-toggle">
-    
+      
     <DifficultyToggle
       difficulty={difficulty}
       onClick={() => setDifficulty(difficulty === "easy" ? "hard" : "easy")}

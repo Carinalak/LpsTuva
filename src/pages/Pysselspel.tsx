@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
-import Farglagg from '../assets/images/link_farglagg.png';
-import Memory from '../assets/images/link_memory.png';
+import Farglagg from '../assets/logos/Farglagg_logo2_300.png';
+import Memory from '../assets/logos/memory_logo300.png';
 //import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, GAMMELROSA, KRITVIT } from "../components/styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 
 
 export const PysselSpel = () => {
@@ -20,10 +20,6 @@ export const PysselSpel = () => {
     text-align: center;
     cursor: pointer;
 
-    &:hover {
-      color: ${GAMMELROSA};
-      text-decoration: underline;
-    }
 
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
         font-size: 2rem;
@@ -35,16 +31,19 @@ export const PysselSpel = () => {
 const PysselSpelLinkImage = styled.img`
   width: 100px;
   height: 100px; 
-  object-fit: cover; // Beskär bilden
+  //object-fit: cover; // Beskär bilden
   border-radius: 10px;
   cursor: pointer;
-  border: 2px solid ${KRITVIT};
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
     &:hover {
-        border: 2px solid ${GAMMELROSA};
+        transform: scale(1.3);
       }
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       object-fit: cover;
+      width: 150px;
+      height: 150px; 
     }
 
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
@@ -60,10 +59,12 @@ const PysselSpelLinkImage = styled.img`
 const PysselSpelWrapper = styled(CenteredColTransWrapper) `
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding-top: 30px;
+  
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px;
   }
 `;
 
@@ -73,8 +74,8 @@ const PysselSpelWrapper = styled(CenteredColTransWrapper) `
 <WrapperTransparent>
     <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
     < PysselSpelWrapper>
-    <PysselLink to="/farglagg">Färgläggning<PysselSpelLinkImage src={Farglagg} /></PysselLink>
-    <PysselLink to="/memory">Memoryspel<PysselSpelLinkImage src={Memory} /></PysselLink>
+    <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
+    <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
     {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 
     {/* 

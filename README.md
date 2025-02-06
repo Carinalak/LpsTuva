@@ -48,6 +48,11 @@ npm install framer-motion till switchknappen
 ## Kortflippningsfakta:
 För att vända korten i memoryspelet använder jag klassen "flipped" i kombinatione med CSS föratt skapa en flip-animation. Klassen "flipped" sätts baserat på om kortet är valt eller ej. När ett kort väljs får den klassen "flipped". Jag använder className="flipped" för att styra flippningen, och själva animeringen hanteras i CSS med transform: rotateY(180deg).
 
+### Ljud/Sounds: 🔊
+
+Från Freesound.com:
+- Flip.ogg by egomassive -- https://freesound.org/s/536782/ -- License: Attribution 3.0
+- achievement-sparkle by pigeonfriend -- https://freesound.org/s/715067/ -- License: Creative Commons 0
 
 
 
@@ -63,4 +68,6 @@ För att vända korten i memoryspelet använder jag klassen "flipped" i kombinat
 
 Generera en TypeScript-konfigurationsfil:
 - npx tsc --init
+
+
 
