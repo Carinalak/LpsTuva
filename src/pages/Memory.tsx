@@ -8,6 +8,8 @@ import Monkey from '../assets/images/memory_cards/monkey.png';
 import Sheep from '../assets/images/memory_cards/sheep.png';
 import TigerPurple from '../assets/images/memory_cards/purpletiger.png';
 import Snake from '../assets/images/memory_cards/snake.png';
+import Bee from '../assets/images/memory_cards/bee.png';
+import Oxe from '../assets/images/memory_cards/oxe.png';
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { Button, ButtonWrapper } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +32,8 @@ const hardCards = [
   ...easyCards,
   { id: 7, src: TigerPurple, alt: 'Tiger' },
   { id: 8, src: Snake, alt: 'Orm' },
+  { id: 9, src: Bee, alt: 'Bi' },
+  { id: 10, src: Oxe, alt: 'Oxe' },
 ];
 
 type Card = {
