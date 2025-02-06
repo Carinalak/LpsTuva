@@ -211,7 +211,7 @@ export const DesktopMenu = () => {
             onMouseEnter={() => setActiveSubMenu(index)}
             onMouseLeave={() => setActiveSubMenu(null)}
           >
-             {/* Ändring: Kontrollera om länken ska öppnas i en ny flik */}
+            
              {link.target === "_blank" ? (  // Markerad ändring
               <a
                 href={link.path}
