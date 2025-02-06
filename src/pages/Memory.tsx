@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Back from '../assets/images/memory_cards/back.png';
 import Bear from '../assets/images/memory_cards/bear.png';
 import CatCan from '../assets/images/memory_cards/cat_can.png';
@@ -17,6 +17,7 @@ import { H1WhiteSecond } from '../components/styled/Fonts';
 import { MemoryModal } from '../components/MemoryModal';
 import { BackgroundOriginal, TitleToggleWrapper } from '../components/styled/Wrappers';
 import { DifficultyToggle } from '../components/DifficultyToggle';
+import { SoundPlayerHandle, SoundPlayer } from '../components/SoundPlayer';
 
 
 const easyCards = [
@@ -51,6 +52,7 @@ export const Memory: React.FC = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
+  const soundRef = useRef<SoundPlayerHandle>(null);
 
   const getCards = useCallback(() => (difficulty === 'easy' ? easyCards : hardCards), [difficulty]);
 
@@ -80,6 +82,7 @@ export const Memory: React.FC = () => {
 
   const handleCardClick = (card: Card) => {
     if (selectedCards.length === 2 || selectedCards.some((c) => c.uuid === card.uuid)) return;
+    soundRef.current?.play("flip");
     setSelectedCards((prev) => [...prev, card]);
   };
 
@@ -88,6 +91,7 @@ export const Memory: React.FC = () => {
       const [first, second] = selectedCards;
       if (first.id === second.id) {
         setMatchedCards((prev) => [...prev, first.id]);
+        soundRef.current?.play("match");
       }
       setTimeout(() => setSelectedCards([]), 1000);
     }
@@ -97,6 +101,7 @@ export const Memory: React.FC = () => {
     if (matchedCards.length === getCards().length) {
       setTimeout(() => {
         setShowModal(true);
+        soundRef.current?.play("win");
       }, 1000);
     }
   }, [matchedCards, getCards]);
@@ -117,6 +122,11 @@ export const Memory: React.FC = () => {
 
   return (
     <BackgroundOriginal>
+      <SoundPlayer ref={soundRef} 
+        winVolume={0.5}  // Sätt volymen för 'win' ljudet till 50%
+        flipVolume={1.0}  // Behåll flip-ljudet på full volym
+        matchVolume={0.8} // Sätt match-ljudet till 80% volym
+        />
       <TitleToggleWrapper>
       <div className="difficulty-toggle">
     
