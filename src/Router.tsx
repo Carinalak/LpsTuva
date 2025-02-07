@@ -57,7 +57,7 @@ export const router = createHashRouter([
             },
             {
                 path: "/tack",
-                element:<Tack></Tack>,
+                element:<Tack></Tack>
             }
             /*
             {

@@ -16,6 +16,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Gör att hela sidan alltid fyller hela höjden */
+  overflow-x: hidden;
 `;
 
 export const Layout = () => {
