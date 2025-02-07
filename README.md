@@ -45,6 +45,10 @@ npm install emailjs-com
 npm install framer-motion till switchknappen
 
 
+## Supabase till att Tuva själv kan uppdatera texten i sin sida, genom Admin-komponenten: 
+- npm install @supabase/supabase-js
+
+
 ## Kortflippningsfakta:
 För att vända korten i memoryspelet använder jag klassen "flipped" i kombinatione med CSS föratt skapa en flip-animation. Klassen "flipped" sätts baserat på om kortet är valt eller ej. När ett kort väljs får den klassen "flipped". Jag använder className="flipped" för att styra flippningen, och själva animeringen hanteras i CSS med transform: rotateY(180deg).
 

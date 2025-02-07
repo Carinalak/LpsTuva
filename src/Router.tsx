@@ -1,6 +1,6 @@
 import { createHashRouter } from "react-router-dom";
 import { Galleri } from "./pages/Galleri";
-import { Home } from "./pages/Home";
+import { HomeTest } from "./pages/HomeTest";
 import { Kontakt } from "./pages/Kontakt";
 import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
@@ -11,6 +11,10 @@ import { Farglagg } from "./pages/Farglagg";
 import { PysselSpel } from "./pages/Pysselspel";
 import { Memory } from "./pages/Memory";
 import { Julmemory } from "./pages/Julmemory";
+import { AdminHome } from "./pages/AdminHome";
+import { Home } from "./pages/Home";
+
+
 
 
 export const router = createHashRouter([
@@ -58,12 +62,15 @@ export const router = createHashRouter([
             {
                 path: "/tack",
                 element:<Tack></Tack>
-            }
-            /*
+            },
             {
-                path: "/puzzle",
-                element:<Puzzle></Puzzle>,
-            },*/
+                path: "/hometest",
+                element:<HomeTest></HomeTest>,
+            },
+            {
+                path: "/adminhome",
+                element:<AdminHome></AdminHome>,
+            },
         ],
     },
 ]);
