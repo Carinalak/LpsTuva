@@ -7,9 +7,6 @@ import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/winter/SealOnIce.jpg';
 
-
-export const Home = () => {
-
 const HomeImg = styled.img `
   width: 300px;
   margin-bottom: 60px;
@@ -22,7 +19,6 @@ const HomeImg = styled.img `
       width: 500px;
       margin-bottom: 80px;
   }
-
 `;
 
 const StyledLink = styled(Link)`
@@ -37,20 +33,22 @@ const StyledLink = styled(Link)`
   }
 `;
 
-  return ( <BackgroundOriginal>
-  <WrapperWhite>
-    <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-    <TextWrapper>
-      <p>Välkommen till Lps-Tuvas sida!</p>
-      <p>Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och 
-      ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
-      Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
-    </TextWrapper>
-    <HomeImg src={HomeImage} alt="Säl glider på isen." loading="lazy"/>
-    <SerieImage src={Gris} alt="Gris" loading="lazy"/>
-  </WrapperWhite>
+export const Home = () => {
 
+  return ( 
+  <BackgroundOriginal>
+    <WrapperWhite>
+      <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
+      <TextWrapper>
+        <p>Välkommen till Lps-Tuvas sida!</p>
+        <p>Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och 
+        ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
+        Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
+      </TextWrapper>
+      <HomeImg src={HomeImage} alt="Säl glider på isen." loading="lazy"/>
+      <SerieImage src={Gris} alt="Gris" loading="lazy"/>
+    </WrapperWhite>
   
-  </BackgroundOriginal>)
+  </BackgroundOriginal>
 
-}
+  )};
