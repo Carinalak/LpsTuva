@@ -64,6 +64,9 @@ Från Freesound.com:
 ### To the Puzzle
 - npm install react-dnd react-dnd-html5-backend
 
+### Cookiies:
+- npm install js-cookie
+
 
 # ----------------------- Backend -------------------------- not in use right now
 

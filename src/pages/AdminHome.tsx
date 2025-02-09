@@ -1,116 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { H1PurpleSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers";
+import { Link } from "react-router-dom";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
+import { SerieImage } from "../components/styled/Image";
 import { supabase } from "../components/supabase";
+import Gris from '../assets/images/gris.png';
 
-const EditButton = styled.button`
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
+const HomeImg = styled.img`
+  width: 300px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 400px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 500px;
+    margin-bottom: 80px;
+  }
+`;
+
+const StyledLink = styled(Link)`
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
+  text-decoration: none;
+  color: ${SKUGGLILA};
+  transition: color 0.3s ease;
+
   &:hover {
-    background: #0056b3;
+    color: ${POOLBLA};
+    text-decoration: underline;
   }
 `;
 
 export const AdminHome = () => {
-  const [updatedContent, setUpdatedContent] = useState(""); // Texten som ska sparas
-  const [updatedTitle, setUpdatedTitle] = useState(""); // Titeln som ska sparas
-  const [selectedImage, setSelectedImage] = useState<File | null>(null); // Fil för vald bild
+  const [content, setContent] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [title, setTitle] = useState("");
 
-  // Funktion för att hantera bildval
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setSelectedImage(e.target.files[0]); // Spara vald fil
-    }
-  };
+  // Hämta titel, text och bild-URL från Supabase
+  useEffect(() => {
+    const fetchContent = async () => {
+      const { data, error } = await supabase
+        .from("content")
+        .select("title, content, image_url")
+        .eq("title", "homepage")
+        .single();
 
-  // Funktion för att ladda upp bild till Supabase
-  const uploadImage = async (file: File) => {
-    const fileName = `${Date.now()}-${file.name}`;
-    console.log("Försöker ladda upp fil:", fileName);
-  
-    const { data, error } = await supabase.storage
-    .from("images") // Se till att detta är rätt bucket
-    .upload(fileName, file, {
-      cacheControl: "3600",
-      upsert: false,
-      contentType: file.type, // Se till att rätt contentType skickas
-    });
-  
-  if (error) {
-    console.error("Uppladdningsfel:", error.message); // Logga felet
-  } else {
-    console.log("Fil uppladdad:", data);
-  }
-  
-    console.log("Uppladdning lyckades!", data);
-  
-    // Hämta och returnera bildens offentliga URL
-    const { data: publicUrlData } = supabase.storage.from("images").getPublicUrl(fileName);
-    console.log("Bildens URL:", publicUrlData.publicUrl);
-  
-    return publicUrlData.publicUrl;
-  };
-  
-  
+      if (error) {
+        console.error("Fel vid hämtning av text:", error);
+      } else {
+        setTitle(data.title);
+        setContent(data.content);
+        setImageUrl(data.image_url || "");
+      }
+    };
 
-  // Spara uppdaterad text och bild till Supabase
-  const saveContent = async () => {
-    const currentDate = new Date().toISOString(); // Sätt aktuellt datum
-    let imageUrl = null;
-
-    // Om en bild är vald, ladda upp den
-    if (selectedImage) {
-      imageUrl = await uploadImage(selectedImage);
-    }
-
-    // Spara text, titel och ev. bild-URL i Supabase
-    const { error } = await supabase
-      .from("content")
-      .insert([{ content: updatedContent, title: updatedTitle, date: currentDate, image_url: imageUrl }]);
-
-    if (error) {
-      console.error("Fel vid uppdatering av text:", error.message);
-    } else {
-      alert("Text och bild uppdaterad!");
-      setUpdatedContent(""); // Rensa textfältet
-      setUpdatedTitle(""); // Rensa titeln
-      setSelectedImage(null); // Rensa vald bild
-    }
-  };
+    fetchContent();
+  }, []);
 
   return (
     <BackgroundOriginal>
       <WrapperWhite>
-        <H1PurpleSecond>Lps-Tuvas sida</H1PurpleSecond>
-        
-        <input 
-          type="text" 
-          value={updatedTitle}
-          placeholder="Titel" 
-          onChange={(e) => setUpdatedTitle(e.target.value)} 
-        />
-        
+        <H1PurpleSecond>{title}</H1PurpleSecond>
         <TextWrapper>
-          <textarea
-            value={updatedContent}
-            onChange={(e) => setUpdatedContent(e.target.value)}
-            rows={5}
-            style={{ width: "100%" }}
-            placeholder="Skriv din text här"
-          />
+          <p>{content}</p>
+          <p>
+            Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och
+            ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
+            Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.
+          </p>
         </TextWrapper>
 
-        {/* Bilduppladdning */}
-        <input type="file" accept="image/*" onChange={handleImageChange} />
-        {selectedImage && <p>Vald bild: {selectedImage.name}</p>}
-
-        <EditButton onClick={saveContent}>Spara</EditButton>
+        {imageUrl && <HomeImg src={imageUrl} alt="Hemsidans bild" />}
+        <SerieImage src={Gris} alt="Gris" loading="lazy" />
       </WrapperWhite>
     </BackgroundOriginal>
   );

@@ -112,6 +112,8 @@ export const WhiteFontSmallerBox = styled(WhiteFont) `
 
 `;
 
+
+
 export const CenteredWrapperTransparent = styled.div `
 
   padding-top: 100px;

@@ -7,7 +7,7 @@ import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/winter/SealOnIce.jpg';
 
-const HomeImg = styled.img `
+export const HomeImg = styled.img `
   width: 300px;
   margin-bottom: 60px;
   border-radius: 10px;

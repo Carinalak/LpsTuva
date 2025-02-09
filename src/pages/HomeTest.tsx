@@ -3,6 +3,7 @@ import { supabase } from "../components/supabase";
 import { H1PurpleSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, WrapperWhite } from "../components/styled/Wrappers";
 import { styled } from "styled-components";
+import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP } from "../components/styled/Variables";
 
 const PostWrapper = styled.div`
   margin-bottom: 20px;
@@ -22,6 +23,20 @@ const PostDate = styled.span`
 const PostContent = styled.p`
   font-size: 1.2em;
   line-height: 1.6;
+`;
+
+const PostImage = styled.img`
+  margin-top: 10px;
+  width: 300px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 400px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+        width: 500px;
+        margin-bottom: 80px;
+    }
 `;
 
 export const HomeTest = () => {
@@ -56,6 +71,7 @@ export const HomeTest = () => {
             <PostTitle>{post.title}</PostTitle>
             <PostDate>{new Date(post.date).toLocaleString()}</PostDate> {/* Visa datum */}
             <PostContent>{post.content}</PostContent>
+            {post.image_url && <PostImage src={post.image_url} alt={post.title} />}
           </PostWrapper>
         ))}
       </WrapperWhite>
