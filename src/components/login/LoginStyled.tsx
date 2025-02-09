@@ -36,7 +36,7 @@ padding: 10px;
     }
 `;
 
-export const InputImageContainer = styled.div `
+export const InputImageContainer = styled.div ` // Det vita runt där man laddar upp bilden
   padding: 10px;
   background-color: ${KRITVIT};
   width: 300px;
@@ -46,7 +46,7 @@ export const InputImageContainer = styled.div `
     }
 `;
 
-export const InputImageBack = styled.input `
+export const InputImageBack = styled.input ` // Inputen där Bläddra - knappen finns
 padding: 10px;
 background-color: ${KRITVIT};
 width: 260px;

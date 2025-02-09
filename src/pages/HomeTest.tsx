@@ -69,7 +69,7 @@ export const HomeTest = () => {
         {posts.map((post) => (
           <PostWrapper key={post.id}>
             <PostTitle>{post.title}</PostTitle>
-            <PostDate>{new Date(post.date).toLocaleString()}</PostDate> {/* Visa datum */}
+            <PostDate>{new Date(post.date).toLocaleString()}</PostDate>
             <PostContent>{post.content}</PostContent>
             {post.image_url && <PostImage src={post.image_url} alt={post.title} />}
           </PostWrapper>
