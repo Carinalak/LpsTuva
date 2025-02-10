@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Eye, EyeOff } from "lucide-react";
 
-import { ErrorText, LoginForm, LoginButton, LoginInput, TextStyleWhite } from "../components/login/LoginStyled";
+import { ErrorText, LoginForm, LoginButton, LoginInput, TextStyleWhite, EyeButton } from "../components/login/LoginStyled";
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { getAdminSession, saveAdminSession } from "../services/CookieServiceAdmin";
+import { H1WhiteSecond } from "../components/styled/Fonts";
 
 export const AdminLogin = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Kontrollera om admin redan är inloggad vid sidladdning
   useEffect(() => {
     const session = getAdminSession();
     if (session) {
@@ -46,6 +48,7 @@ export const AdminLogin = () => {
 
   return (
     <WrapperTransparent>
+      <H1WhiteSecond>Tuvas Admin</H1WhiteSecond>
       <TextStyleWhite>Logga in som admin</TextStyleWhite>
       <LoginForm onSubmit={handleSubmit}>
         <LoginInput
@@ -54,13 +57,21 @@ export const AdminLogin = () => {
           onChange={(e) => setName(e.target.value)}
           placeholder="Namn"
         />
-        <LoginInput
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Lösenord"
-          autoComplete="new-password"
-        />
+        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+          <LoginInput
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Lösenord"
+            autoComplete="new-password"
+          />
+          <EyeButton
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </EyeButton>
+        </div>
         <LoginButton type="submit">Logga in</LoginButton>
         {error && <ErrorText>{error}</ErrorText>}
       </LoginForm>

@@ -52,6 +52,10 @@ npm install framer-motion till switchknappen
 - npm install browser-image-compression
 
 
+## Ikon till password
+- npm install lucide-react
+
+
 
 
 ## Kortflippningsfakta:

@@ -144,6 +144,7 @@ align-items: center;
 justify-content: center;
 row-gap: 12px;
 padding-top: 10px;
+margin-top: 10px;
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
 }
@@ -166,6 +167,9 @@ export const LoginInput = styled.input`
   border: 1px solid ${GAMMELROSA};
   text-align: center;
   padding: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 230px;
@@ -173,6 +177,17 @@ export const LoginInput = styled.input`
     }
 `;
 
+export const EyeButton = styled.button `
+
+position: absolute;
+right: 10px;
+background-color: transparent;
+border: none;
+cursor: pointer;
+color: ${SKUGGLILA};
+display: flex;
+justify-content: center;
+`;
 
 export const LoginButton = styled.button`
 width: 190px;
@@ -186,6 +201,9 @@ font-size: 15px;
 text-align: center;
 color: ${KRITVIT};
 cursor: pointer;
+padding-right: 20px;
+padding-left: 20px;
+box-sizing: border-box;
 
   &:hover {
     background-color: ${SMUTSROSA};
@@ -200,7 +218,6 @@ cursor: pointer;
       height: 35px;
     }
 `;
-
 
 
 // ----------------------- FONT ------------------------- //
