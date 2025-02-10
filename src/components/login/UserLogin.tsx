@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { getUserSession, saveUserSession, removeUserSession } from "../../services/CookieService";
 import { WrapperTransparent } from "../styled/Wrappers";
-import { LogoutMessage, TextStyle, FormButton, ErrorText, FormInput, LoginForm } from "./LoginStyled";
+import { LogoutMessage, FormButton, ErrorText, FormInput, LoginForm, TextStyleWhite } from "./LoginStyled";
 
 
 
@@ -114,7 +114,7 @@ export const UsernLogin = ({ onLogin }: LoginProps) => {
     return (
       <WrapperTransparent>
       <LogoutMessage>
-        <TextStyle>Är du säker att du vill logga ut, {user?.name}?</TextStyle>
+        <TextStyleWhite>Är du säker att du vill logga ut, {user?.name}?</TextStyleWhite>
         <FormButton onClick={handleLogout}>Ja</FormButton>
         <FormButton onClick={handleStay}>Nej</FormButton>
       </LogoutMessage>
