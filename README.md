@@ -48,6 +48,8 @@ npm install framer-motion till switchknappen
 ## Supabase till att Tuva själv kan uppdatera texten i sin sida, genom Admin-komponenten: 
 - npm install @supabase/supabase-js
 
+## Komprimera bilder innan de skickas till Supabase så att de inte överstiger en viss storlek:
+- npm install browser-image-compression
 
 
 
@@ -64,7 +66,7 @@ Från Freesound.com:
 ### To the Puzzle
 - npm install react-dnd react-dnd-html5-backend
 
-### Cookiies:
+### Cookies:
 - npm install js-cookie
 
 

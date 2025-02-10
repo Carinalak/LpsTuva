@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { TextStyle, FormButton, ErrorText, FormInput, LoginForm } from "../components/login/LoginStyled";
+import { ErrorText, LoginForm, LoginButton, LoginInput, TextStyleWhite } from "../components/login/LoginStyled";
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { getAdminSession, saveAdminSession } from "../services/CookieServiceAdmin";
 
@@ -46,22 +46,22 @@ export const AdminLogin = () => {
 
   return (
     <WrapperTransparent>
-      <TextStyle>Logga in som admin</TextStyle>
+      <TextStyleWhite>Logga in som admin</TextStyleWhite>
       <LoginForm onSubmit={handleSubmit}>
-        <FormInput
+        <LoginInput
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Namn"
         />
-        <FormInput
+        <LoginInput
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Lösenord"
           autoComplete="new-password"
         />
-        <FormButton type="submit">Logga in</FormButton>
+        <LoginButton type="submit">Logga in</LoginButton>
         {error && <ErrorText>{error}</ErrorText>}
       </LoginForm>
     </WrapperTransparent>

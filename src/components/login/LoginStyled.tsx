@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, BREAKPOINT_BIGGER_DESKTOP, GAMMELROSA, KRITVIT, SMUTSROSA, POOLBLA, KOLSVART, HJARTROD } from "../styled/Variables";
+import { BREAKPOINT_TABLET, BREAKPOINT_BIGGER_DESKTOP, GAMMELROSA, KRITVIT, SMUTSROSA, POOLBLA, KOLSVART, SKUGGLILA, SOLGUL } from "../styled/Variables";
 
 // ----------------------- ADMIN FORM ------------------------- //
 
@@ -76,50 +76,6 @@ resize: none;
     width: 500px;
   }
 `;
-
-
-
-// ----------------------- LOGIN FORM ------------------------- //
-export const LoginForm = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-row-gap: 12px;
-padding-top: 10px;
-
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
-}
-@media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-  row-gap: 20px;
-  padding-top: 30px;
-}
-`;
-
-// ----------------------- BUTTONS ------------------------- //
-export const LoginButton = styled.button`
-width: 180px;
-height: 35px;
-border: none;
-border-radius: 5px;
-background-color: ${GAMMELROSA};
-font-family: Arial, Helvetica, sans-serif;
-font-weight: 600;
-font-size: 15px;
-text-align: center;
-color: ${KRITVIT};
-cursor: pointer;
-
-  &:hover {
-    background-color: ${SMUTSROSA};
-    color: ${KRITVIT};
-  }
-  &:active {
-    background-color: ${POOLBLA};
-    color: ${KRITVIT};
-  }
-`;
-
 export const FormButton = styled.button`
 width: 100px;
 height: 35px;
@@ -155,9 +111,77 @@ export const FormButtonWrapper = styled.div `
   gap: 25px;
 `;
 
+
+// ----------------------- LOGIN FORM ------------------------- //
+export const LoginForm = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+row-gap: 12px;
+padding-top: 10px;
+
+@media screen and (min-width: ${BREAKPOINT_TABLET}) {
+}
+@media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  row-gap: 20px;
+  padding-top: 30px;
+}
+`;
+
+
+export const LoginInput = styled.input`
+  font-family: "Playpen Sans", serif;
+  font-size: 1rem;
+  color: ${SKUGGLILA};
+  border: none;
+  outline: none;
+  width: 190px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid ${GAMMELROSA};
+  text-align: center;
+  padding: 0;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 230px;
+      height: 35px;
+    }
+`;
+
+
+export const LoginButton = styled.button`
+width: 190px;
+height: 35px;
+border: none;
+border-radius: 5px;
+background-color: ${GAMMELROSA};
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 600;
+font-size: 15px;
+text-align: center;
+color: ${KRITVIT};
+cursor: pointer;
+
+  &:hover {
+    background-color: ${SMUTSROSA};
+    color: ${KRITVIT};
+  }
+  &:active {
+    background-color: ${POOLBLA};
+    color: ${KRITVIT};
+  }
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 230px;
+      height: 35px;
+    }
+`;
+
+
+
 // ----------------------- FONT ------------------------- //
 
-export const TextStyle = styled.div `
+export const TextStyleBlack = styled.div `
 font-size: 1rem;
 color: ${KOLSVART};
 font-weight: 500;
@@ -166,8 +190,17 @@ padding-right: 15px;
 padding-left: 20px;
 `;
 
-export const ErrorText = styled(TextStyle) `
-  color: ${HJARTROD};
+export const TextStyleWhite = styled.div `
+font-size: 1rem;
+color: ${KRITVIT};
+font-weight: 500;
+padding-top: 5px;
+padding-right: 15px;
+padding-left: 20px;
+`;
+
+export const ErrorText = styled(TextStyleBlack) `
+  color: ${SOLGUL};
   font-size: 0.8rem;
 `;
 
