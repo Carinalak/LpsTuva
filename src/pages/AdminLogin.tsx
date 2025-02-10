@@ -7,6 +7,7 @@ import { ErrorText, LoginForm, LoginButton, LoginInput, TextStyleWhite, EyeButto
 import { WrapperTransparent } from "../components/styled/Wrappers";
 import { getAdminSession, saveAdminSession } from "../services/CookieServiceAdmin";
 import { H1WhiteSecond } from "../components/styled/Fonts";
+import { SKUGGLILA } from "../components/styled/Variables";
 
 export const AdminLogin = () => {
   const [name, setName] = useState("");
@@ -64,12 +65,14 @@ export const AdminLogin = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Lösenord"
             autoComplete="new-password"
+            
           />
-          <EyeButton
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          <EyeButton type="button" onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? (
+              <EyeOff size={20} color={SKUGGLILA} />
+            ) : (
+              <Eye size={20} color={SKUGGLILA} />
+            )}
           </EyeButton>
         </div>
         <LoginButton type="submit">Logga in</LoginButton>

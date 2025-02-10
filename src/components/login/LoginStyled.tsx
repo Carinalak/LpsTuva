@@ -161,7 +161,7 @@ export const LoginInput = styled.input`
   color: ${SKUGGLILA};
   border: none;
   outline: none;
-  width: 190px;
+  width: 220px;
   height: 35px;
   border-radius: 5px;
   border: 1px solid ${GAMMELROSA};
@@ -190,7 +190,7 @@ justify-content: center;
 `;
 
 export const LoginButton = styled.button`
-width: 190px;
+width: 220px;
 height: 35px;
 border: none;
 border-radius: 5px;

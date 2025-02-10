@@ -30,3 +30,14 @@ main {
   align-items: center;
   overflow-x: hidden;
 }
+
+
+/* --------------  VIKTIGT HA DENNA KVAR, DET GÖR ATT ÖGAT INTE SER KONSTIGT UT I INLOGGNINGEN I EDGE!!! --------------- */
+
+input[type="password"]::-ms-reveal {
+  display: none;  /* Döljer autofyllningens "ögon"-ikon i Edge */
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none;  /* Döljer autofyllningens öga i Webkit-baserade webbläsare (som Chrome, Safari) */
+}
