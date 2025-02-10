@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAdminSession, removeAdminSession } from "../services/CookieServiceAdmin";
 import { supabase } from "../components/supabase";
 import { AdminForm, FormButton, FormButtonWrapper, FormInput, FormTextarea, InputImageBack, InputImageContainer } from "../components/login/LoginStyled";
-import { AdminLogoutLink, BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers";
+import { AdminLogoutLink, BackgroundOriginal, WrapperWhite } from "../components/styled/Wrappers";
 import styled from "styled-components";
 import { H1PurpleSecond, StyledLinkPurple, } from "../components/styled/Fonts";
 import { KRITVIT, SMUTSROSA, BREAKPOINT_TABLET } from "../components/styled/Variables";
