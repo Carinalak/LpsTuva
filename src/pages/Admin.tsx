@@ -6,6 +6,7 @@ import { AdminForm, FormButton, FormButtonWrapper, FormInput, FormTextarea, Inpu
 import { AdminLogoutLink, BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers";
 import styled from "styled-components";
 import { H1PurpleSecond, StyledLinkPurple, } from "../components/styled/Fonts";
+import { KRITVIT, SMUTSROSA, BREAKPOINT_TABLET } from "../components/styled/Variables";
 
 const ImageOuterWrapper = styled.section<{ isFocused: boolean }>`
   display: flex;
@@ -24,9 +25,25 @@ const TitleContainer = styled.div`
   font-weight: 600;
   padding: 10px;
   border-radius: 5px;
+  outline: none;
   cursor: pointer;
-  min-height: 40px;
-  text-align: left; 
+  width: 300px;
+  height: 35px;
+  text-align: center; 
+  border: 1px solid ${KRITVIT};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #726e6e;
+
+  
+    &:focus {
+        border: 1px solid ${SMUTSROSA};
+        outline: none;
+      }
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+        width: 500px;
+      }
 `;
 
 
@@ -160,7 +177,7 @@ export const Admin = () => {
         {isEditingTitle ? (
           <FormInput
             type="text"
-            placeholder="Titel"
+            placeholder="Skriv din titel här!"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onBlur={() => { setIsEditingTitle(false); handleBlurTitle(); }}
@@ -170,7 +187,7 @@ export const Admin = () => {
           />
         ) : (
           <TitleContainer onClick={() => setIsEditingTitle(true)}>
-            {title || "Skriv titel här!"}
+            {title || "Skriv din titel här!"}
           </TitleContainer>
         )}
 

@@ -58,6 +58,11 @@ padding: 10px;
 border: 1px solid white;
 resize: none;
 
+&::placeholder {
+    color: rgba(0, 0, 0, 0.4); /* Justera färgen så den matchar exakt */
+    opacity: 1; /* Safari fix - gör så att färgen inte blir genomskinlig */
+  }
+
 
   &:focus {
         border: 1px solid ${SMUTSROSA};
