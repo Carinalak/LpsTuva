@@ -304,7 +304,7 @@ export const JulBackground = styled.div `
   overflow-y: hidden;
 `;
 
-// --------------------------- DROPDOWN AND TOGGLE - TITLE WRAPPERS ------------------------------ //
+// --------------------------- TITLE - DROPDOWN, TOGGLE AND ADMIN WRAPPERS ------------------------------ //
 
 
 export const TitleDropdownWrapper = styled.section`
@@ -344,6 +344,16 @@ export const TitleToggleWrapper = styled(TitleDropdownWrapper)`
 `;
 
 
+export const AdminLogoutLink = styled.div`
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 0;
+
+
+`;
 // ----------------------------------- Puzzle ----------------------------------- //
 
 

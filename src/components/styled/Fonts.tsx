@@ -106,6 +106,20 @@ export const StyledLinkWhite = styled(Link)`
   padding: 0; 
   display: flex;
   color: ${KRITVIT};
+  
+    &:hover {
+      color: ${POOLBLA};
+      text-decoration: none;
+    }
+`;
+export const StyledLinkPurple = styled(Link)`
+  text-decoration: none;
+  margin: 0;
+  padding: 0; 
+  display: flex;
+  color: ${SKUGGLILA};
+  margin-right: 20px;
+
     &:hover {
       color: ${POOLBLA};
       text-decoration: none;

@@ -12,6 +12,7 @@ row-gap: 12px;
 padding-top: 10px;
 padding-bottom: 30px;
 width: 600px;
+text-align: left; 
 
 @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
   row-gap: 20px;
@@ -21,15 +22,21 @@ width: 600px;
 
 export const FormInput = styled.input`
 font-family: "Playpen Sans", serif;
-font-size: 1rem;
+font-size: 1.2rem;
+font-weight: 600;
 color: ${KOLSVART};
-border: none;
-outline: none;
 width: 300px;
 height: 35px;
 border-radius: 5px;
-text-align: left;
+text-align: center; 
 padding: 10px;
+border: 1px solid ${KRITVIT};
+
+
+  &:focus {
+      border: 1px solid ${SMUTSROSA};
+      outline: none;
+    }
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 500px;
     }
@@ -51,9 +58,15 @@ padding: 10px;
 border: 1px solid white;
 resize: none;
 
+
+  &:focus {
+        border: 1px solid ${SMUTSROSA};
+      }
+
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 500px;
   }
+
 `;
 
 
@@ -76,6 +89,7 @@ background-color: ${KRITVIT};
 width: 260px;
 padding: 10px;
 border-radius: 5px;
+
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 460px;
     }

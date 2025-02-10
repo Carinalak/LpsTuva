@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { getAdminSession, removeAdminSession } from "../services/CookieServiceAdmin";
 import { supabase } from "../components/supabase";
 import { AdminForm, FormButton, FormButtonWrapper, FormInput, FormTextarea, InputImageBack, InputImageContainer } from "../components/login/LoginStyled";
-import { WrapperWhite } from "../components/styled/Wrappers";
+import { AdminLogoutLink, BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers";
 import styled from "styled-components";
-import { H1PurpleSecond } from "../components/styled/Fonts";
+import { H1PurpleSecond, StyledLinkPurple, } from "../components/styled/Fonts";
 
 const ImageOuterWrapper = styled.section<{ isFocused: boolean }>`
   display: flex;
@@ -20,12 +20,13 @@ const ImageOuterWrapper = styled.section<{ isFocused: boolean }>`
 `;
 
 const TitleContainer = styled.div`
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 600;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   min-height: 40px;
+  text-align: left; 
 `;
 
 
@@ -40,8 +41,6 @@ cursor: pointer;
 border-radius: 50%; 
 width: 30px; 
 height: 30px;
-
-
 `;
 
 export const Admin = () => {
@@ -90,6 +89,7 @@ export const Admin = () => {
       fileInput.value = "";
     }
   };
+  
 
   const handleRemoveAll = () => {
     setImage(null);
@@ -104,36 +104,41 @@ export const Admin = () => {
 
   const handleSubmit = async () => {
     let imageUrl = null;
-
+  
     if (image) {
       const { error } = await supabase.storage
         .from("images")
         .upload(`public/${image.name}`, image, { upsert: true });
-
+  
       if (error) {
         console.error("Bilduppladdningsfel:", error);
         alert("Fel vid uppladdning av bild");
         return;
       }
-
+  
       imageUrl = supabase.storage.from("images").getPublicUrl(`public/${image.name}`).data.publicUrl;
     }
-
+  
     const { error } = await supabase
       .from("content")
       .insert([{ title, content, image_url: imageUrl }]);
-
+  
     if (error) {
       console.error("Database insert error:", error);
       alert("Fel vid sparande av text!");
     } else {
-      alert("Text sparad!");
+      alert("Inlägg uppdaterat!");
       setTitle("");
       setContent("");
-      setImage(null);
-      setPreview(null);
+      setImage(null);   // Rensar bilden
+      setPreview(null); // Rensar förhandsvisningen
+      const fileInput = document.getElementById("imageInput") as HTMLInputElement;
+      if (fileInput) {
+        fileInput.value = "";
+      }
     }
   };
+  
 
   const handleFocusTitle = () => setIsTitleFocused(true);
   const handleBlurTitle = () => setIsTitleFocused(false);
@@ -145,8 +150,12 @@ export const Admin = () => {
   const handleBlurImage = () => setIsImageFocused(false);
 
   return (
+    <BackgroundOriginal>
     <WrapperWhite>
+      <AdminLogoutLink><StyledLinkPurple to="/adminlogin" onClick={handleLogout}>Logga ut</StyledLinkPurple></AdminLogoutLink>
       <H1PurpleSecond>Lps-Tuvas sida</H1PurpleSecond>
+      
+      <TextWrapper>
       <AdminForm>
         {isEditingTitle ? (
           <FormInput
@@ -161,12 +170,12 @@ export const Admin = () => {
           />
         ) : (
           <TitleContainer onClick={() => setIsEditingTitle(true)}>
-            {title || "Klicka för att redigera titel"}
+            {title || "Skriv titel här!"}
           </TitleContainer>
         )}
 
         <FormTextarea
-          placeholder="Text"
+          placeholder="Skriv din text här!"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           onFocus={handleFocusContent}
@@ -175,10 +184,10 @@ export const Admin = () => {
         />
         
         <InputImageContainer
-  isFocused={isImageFocused}  // Skickar fokus-status till InputImageContainer
-  onFocus={handleFocusImage}  // När fokus sätts, ändras bakgrund
-  onBlur={handleBlurImage}    // När fokus tas bort, återställ bakgrund
->
+          isFocused={isImageFocused}  // Skickar fokus-status till InputImageContainer
+          onFocus={handleFocusImage}  // När fokus sätts, ändras bakgrund
+          onBlur={handleBlurImage}    // När fokus tas bort, återställ bakgrund
+        >
   {preview ? (
     <ImageOuterWrapper
       isFocused={isImageFocused}
@@ -199,8 +208,9 @@ export const Admin = () => {
         </FormButtonWrapper>
       </AdminForm>
 
-      <FormButton onClick={handleLogout}>Logga ut</FormButton>
+      </TextWrapper>
     </WrapperWhite>
+    </BackgroundOriginal>
   );
 };
 
