@@ -11,7 +11,7 @@ justify-content: center;
 row-gap: 12px;
 padding-top: 10px;
 padding-bottom: 30px;
-width: 600px;
+width: 500px;
 text-align: left; 
 
 @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
@@ -23,7 +23,7 @@ text-align: left;
 export const FormInput = styled.input`
 font-family: "Playpen Sans", serif;
 font-size: 1.2rem;
-font-weight: 600;
+font-weight: 500;
 color: ${KOLSVART};
 width: 300px;
 height: 35px;
