@@ -172,7 +172,7 @@ export const Admin = () => {
       <AdminLogoutLink><StyledLinkPurple to="/adminlogin" onClick={handleLogout}>Logga ut</StyledLinkPurple></AdminLogoutLink>
       <H1PurpleSecond>Lps-Tuvas sida</H1PurpleSecond>
       
-      <TextWrapper>
+
       <AdminForm>
         {isEditingTitle ? (
           <FormInput
@@ -225,7 +225,7 @@ export const Admin = () => {
         </FormButtonWrapper>
       </AdminForm>
 
-      </TextWrapper>
+
     </WrapperWhite>
     </BackgroundOriginal>
   );

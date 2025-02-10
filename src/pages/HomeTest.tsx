@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../components/supabase";
 import { H1PurpleSecond } from "../components/styled/Fonts";
-import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers";
+import { BackgroundOriginal, WrapperWhite } from "../components/styled/Wrappers";
 import { styled } from "styled-components";
 import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP } from "../components/styled/Variables";
 
@@ -110,7 +110,6 @@ export const HomeTest = () => {
     <BackgroundOriginal>
       <WrapperWhite>
         <H1PurpleSecond>Lps-Tuvas sida</H1PurpleSecond>
-        <TextWrapper>
         {posts.map((post) => (
           <PostWrapper key={post.id}>
             <TitleHomeDateWrapper>
@@ -123,7 +122,6 @@ export const HomeTest = () => {
           </PostWrapper>
           
         ))}
-        </TextWrapper>
       </WrapperWhite>
     </BackgroundOriginal>
   );
