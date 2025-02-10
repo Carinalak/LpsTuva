@@ -1,59 +1,68 @@
-import { useState, useEffect } from "react";
+
+/*
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAdminSession, removeAdminSession } from "../services/CookieServiceAdmin";
 import { supabase } from "../components/supabase";
 import { AdminForm, FormButton, FormButtonWrapper, FormInput, FormTextarea, InputImageBack, InputImageContainer } from "../components/login/LoginStyled";
 import { WrapperWhite } from "../components/styled/Wrappers";
 import styled from "styled-components";
-import { H1PurpleSecond } from "../components/styled/Fonts";
 
-const ImageOuterWrapper = styled.section<{ isFocused: boolean }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: ${(props) => (props.isFocused ? "rgba(255, 255, 255, 0.5)" : "transparent")}; /* Bakgrund genomskinlig vid fokus */
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-`;
-
-const TitleContainer = styled.div`
+const EditableContainer = styled.div`
   font-size: 18px;
   font-weight: bold;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   min-height: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  &:hover {
+    background-color: #f0f0f0;
+  }
 `;
 
+const EditableTextArea = styled.div`
+  padding: 10px;
+  min-height: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: white;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
 
-export const XRemoveButton = styled.button `
-position: absolute;
-top: 10px; 
-right: 10px; 
-background: red; 
-color: white; 
-border: none;
-cursor: pointer; 
-border-radius: 50%; 
-width: 30px; 
-height: 30px;
+const ImageOuterWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
+const ImageWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+`;
 
+const ImagePreview = styled.img`
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
 `;
 
 export const Admin = () => {
   const [title, setTitle] = useState("");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [content, setContent] = useState("");
+  const [isEditingContent, setIsEditingContent] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+  const [isEditingImage, setIsEditingImage] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isTitleFocused, setIsTitleFocused] = useState(false);
-  const [isContentFocused, setIsContentFocused] = useState(false);
-  const [isImageFocused, setIsImageFocused] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -80,22 +89,13 @@ export const Admin = () => {
     if (file) {
       setPreview(URL.createObjectURL(file));
     }
+    setIsEditingImage(false); // Avsluta redigeringsläget efter att en bild valts
   };
 
   const handleRemoveImage = () => {
     setImage(null);
     setPreview(null);
-    const fileInput = document.getElementById("imageInput") as HTMLInputElement;
-    if (fileInput) {
-      fileInput.value = "";
-    }
-  };
-
-  const handleRemoveAll = () => {
-    setImage(null);
-    setPreview(null);
-    setTitle("");
-    setContent("");
+    setIsEditingImage(false);
     const fileInput = document.getElementById("imageInput") as HTMLInputElement;
     if (fileInput) {
       fileInput.value = "";
@@ -135,67 +135,65 @@ export const Admin = () => {
     }
   };
 
-  const handleFocusTitle = () => setIsTitleFocused(true);
-  const handleBlurTitle = () => setIsTitleFocused(false);
-
-  const handleFocusContent = () => setIsContentFocused(true);
-  const handleBlurContent = () => setIsContentFocused(false);
-
-  const handleFocusImage = () => setIsImageFocused(true);
-  const handleBlurImage = () => setIsImageFocused(false);
-
   return (
     <WrapperWhite>
-      <H1PurpleSecond>Lps-Tuvas sida</H1PurpleSecond>
+      <h2>Lägg till ny text</h2>
       <AdminForm>
+
+
+
         {isEditingTitle ? (
           <FormInput
             type="text"
             placeholder="Titel"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            onBlur={() => { setIsEditingTitle(false); handleBlurTitle(); }}
+            onBlur={() => setIsEditingTitle(false)}
             autoFocus
-            onFocus={handleFocusTitle}
-            style={{ backgroundColor: isTitleFocused ? "white" : "transparent" }}
           />
         ) : (
-          <TitleContainer onClick={() => setIsEditingTitle(true)}>
+          <EditableContainer onClick={() => setIsEditingTitle(true)}>
             {title || "Klicka för att redigera titel"}
-          </TitleContainer>
+          </EditableContainer>
         )}
 
-        <FormTextarea
-          placeholder="Text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          onFocus={handleFocusContent}
-          onBlur={handleBlurContent}
-          style={{ backgroundColor: isContentFocused ? "white" : "transparent" }}
-        />
+
+
+
+        {isEditingContent ? (
+          <FormTextarea
+            placeholder="Text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            onBlur={() => setIsEditingContent(false)}
+            autoFocus
+          />
+        ) : (
+          <EditableTextArea onClick={() => setIsEditingContent(true)}>
+            {content || "Klicka för att redigera text"}
+          </EditableTextArea>
+        )}
+
+
+
         
-        <InputImageContainer
-  isFocused={isImageFocused}  // Skickar fokus-status till InputImageContainer
-  onFocus={handleFocusImage}  // När fokus sätts, ändras bakgrund
-  onBlur={handleBlurImage}    // När fokus tas bort, återställ bakgrund
->
-  {preview ? (
-    <ImageOuterWrapper
-      isFocused={isImageFocused}
-      onFocus={handleFocusImage}
-      onBlur={handleBlurImage}
-    >
-      <img src={preview} alt="Förhandsvisning av bild" style={{ width: "100%", maxWidth: "300px", borderRadius: "10px", marginTop: "10px" }} />
-      <XRemoveButton onClick={handleRemoveImage} >✖</XRemoveButton>
-    </ImageOuterWrapper>
-  ) : (
-    <div>Lägg till en bild</div>
-  )}
-  <InputImageBack id="imageInput" type="file" accept="image/*" onChange={handleImageChange} />
-</InputImageContainer>
+        <InputImageContainer>
+          {isEditingImage ? (
+            <InputImageBack id="imageInput" type="file" accept="image/*" onChange={handleImageChange} onBlur={() => setIsEditingImage(false)} />
+          ) : preview ? (
+            <ImageOuterWrapper>
+              <ImageWrapper onClick={() => setIsEditingImage(true)}>
+                <ImagePreview src={preview} alt="Förhandsvisning av bild" />
+              </ImageWrapper>
+            </ImageOuterWrapper>
+          ) : (
+            <div onClick={() => setIsEditingImage(true)}>Klicka för att lägga till en bild</div>
+          )}
+        </InputImageContainer>
+
         <FormButtonWrapper>
-          <FormButton onClick={handleRemoveAll}>Rensa</FormButton>
-          <FormButton onClick={handleSubmit}>Skicka</FormButton>
+          <FormButton onClick={() => { setTitle(""); setContent(""); setImage(null); setPreview(null); }}>Rensa</FormButton>
+          <FormButton onClick={handleSubmit}>Spara</FormButton>
         </FormButtonWrapper>
       </AdminForm>
 
@@ -205,3 +203,5 @@ export const Admin = () => {
 };
 
 export default Admin;
+
+*/

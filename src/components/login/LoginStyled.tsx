@@ -30,32 +30,11 @@ height: 35px;
 border-radius: 5px;
 text-align: left;
 padding: 10px;
-
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 500px;
     }
 `;
 
-export const InputImageContainer = styled.div ` // Det vita runt där man laddar upp bilden
-  padding: 10px;
-  background-color: ${KRITVIT};
-  width: 300px;
-  border-radius: 5px;
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 500px;
-    }
-`;
-
-export const InputImageBack = styled.input ` // Inputen där Bläddra - knappen finns
-padding: 10px;
-background-color: ${KRITVIT};
-width: 260px;
-padding: 10px;
-border-radius: 5px;
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 460px;
-    }
-`;
 
 export const FormTextarea = styled.textarea`
 font-family: "Playpen Sans", serif;
@@ -76,6 +55,32 @@ resize: none;
     width: 500px;
   }
 `;
+
+
+export const InputImageContainer = styled.div<{ isFocused: boolean }>`
+  padding: 10px;
+  background-color: ${(props) => (props.isFocused ? "rgba(255, 255, 255, 0.2)" : `${KRITVIT}`)}; /* Bakgrund genomskinlig vid fokus */
+  width: 300px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;  /* Lägger till en mjuk övergång för bakgrundsfärgen */
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 500px;
+  }
+`;
+
+
+export const InputImageBack = styled.input ` // Inputen där Bläddra - knappen finns
+padding: 10px;
+background-color: ${KRITVIT};
+width: 260px;
+padding: 10px;
+border-radius: 5px;
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 460px;
+    }
+`;
+
 export const FormButton = styled.button`
 width: 100px;
 height: 35px;

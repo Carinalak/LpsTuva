@@ -38,10 +38,9 @@ const PostImage = styled.img`
         margin-bottom: 80px;
     }
 `;
-
 export const HomeTest = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [posts, setPosts] = useState<any[]>([]); 
+  const [posts, setPosts] = useState<any[]>([]);
 
   // Hämta alla inlägg från Supabase
   useEffect(() => {
@@ -49,17 +48,27 @@ export const HomeTest = () => {
       const { data, error } = await supabase
         .from("content")
         .select("*")
-        .order("date", { ascending: false }); // Sortera så att den senaste posten kommer först
+        .order("date", { ascending: false });
 
       if (error) {
         console.error("Fel vid hämtning av inlägg:", error.message);
       } else {
-        setPosts(data); // Uppdatera state med alla inlägg
+        setPosts(data);
       }
     };
 
     fetchPosts();
   }, []);
+
+  // Hjälpfunktion för att konvertera radbrytningar
+  const convertNewlinesToBr = (text: string) => {
+    return text.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
+  };
 
   return (
     <BackgroundOriginal>
@@ -70,7 +79,7 @@ export const HomeTest = () => {
           <PostWrapper key={post.id}>
             <PostTitle>{post.title}</PostTitle>
             <PostDate>{new Date(post.date).toLocaleString()}</PostDate>
-            <PostContent>{post.content}</PostContent>
+            <PostContent>{convertNewlinesToBr(post.content)}</PostContent>
             {post.image_url && <PostImage src={post.image_url} alt={post.title} />}
           </PostWrapper>
         ))}
@@ -78,3 +87,4 @@ export const HomeTest = () => {
     </BackgroundOriginal>
   );
 };
+
