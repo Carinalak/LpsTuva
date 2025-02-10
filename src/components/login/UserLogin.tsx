@@ -124,7 +124,7 @@ export const UsernLogin = ({ onLogin }: LoginProps) => {
 
   return (
     <WrapperTransparent>
-      <TextStyle>{isRegistering ? "Skapa konto" : "Logga in"}</TextStyle>
+      <TextStyleWhite>{isRegistering ? "Skapa konto" : "Logga in"}</TextStyleWhite>
       <LoginForm onSubmit={handleSubmit}>
         <FormInput
           type="text"
@@ -145,7 +145,7 @@ export const UsernLogin = ({ onLogin }: LoginProps) => {
           {error && <ErrorText>{error}</ErrorText>}
 
           {isRegistering ? (
-            <TextStyle>
+            <TextStyleWhite>
               Har du redan ett konto?{" "}
               <span
                 onClick={() => {
@@ -156,9 +156,9 @@ export const UsernLogin = ({ onLogin }: LoginProps) => {
               >
                 Logga in här.
               </span>
-            </TextStyle>
+            </TextStyleWhite>
           ) : (
-            <TextStyle>
+            <TextStyleWhite>
               Inget konto?{" "}
               <span
                 onClick={() => {
@@ -169,7 +169,7 @@ export const UsernLogin = ({ onLogin }: LoginProps) => {
               >
                 Registrera dig.
               </span>
-            </TextStyle>
+            </TextStyleWhite>
           )}
         </div>
       </LoginForm>
