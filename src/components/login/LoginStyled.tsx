@@ -42,7 +42,6 @@ border: 1px solid ${KRITVIT};
     }
 `;
 
-
 export const FormTextarea = styled.textarea`
 font-family: "Playpen Sans", serif;
 font-size: 1rem;

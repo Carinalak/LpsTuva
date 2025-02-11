@@ -15,6 +15,7 @@ import { AdminHome } from "./pages/AdminHome";
 import { Home } from "./pages/Home";
 import { AdminLogin } from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
+import DrawingBoard from "./components/canvas/DrawingBoard";
 
 
 
@@ -80,6 +81,10 @@ export const router = createHashRouter([
             {
                 path: "/admin",
                 element: <Admin />,
+            },
+            {
+                path: "/drawingboard",
+                element: <DrawingBoard />,
             },
         ],
     },
