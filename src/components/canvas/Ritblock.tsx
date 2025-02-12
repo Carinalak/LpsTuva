@@ -177,10 +177,15 @@ export const Ritblock = () => {
     setColor(newColor);
   };
 
-  const toggleEraser = () => {
+  const togglePen = () => {
+    setIsEraser(false);
+    setColor("#000000");  // Återställ till standardfärgen (kan ändras till den senaste färgen om så önskas)
+};
+
+const toggleEraser = () => {
     setIsEraser(true);
-    setColor("#FFFFFF");
-  };
+    setColor("#FFFFFF");  // Sätt färgen till vitt för suddgummit
+};
 
   return (
     <BackgroundOriginal>
@@ -188,11 +193,20 @@ export const Ritblock = () => {
       <Board>
         <Toolbox>
           {/* Färgval på första raden */}
+
           <Colors>
             {["#000000", "#6d2323", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
-              <ColorBtn key={c} style={{ backgroundColor: c }} onClick={() => handleColorChange(c)} />
+              <ColorBtn 
+                key={c} 
+                style={{
+                  backgroundColor: c, 
+                  border: color === c ? "2px solid #000000" : "none"  // Sätt border om den är vald
+                }} 
+                onClick={() => handleColorChange(c)} 
+              />
             ))}
           </Colors>
+
            {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
            <div>
                       {/* Penselstorlek */}
@@ -204,7 +218,7 @@ export const Ritblock = () => {
             {/* Penna och Suddgummi till höger */}
             <EraserPenContainer>
             
-            <PenBtn onClick={toggleEraser} />
+            <PenBtn onClick={togglePen} />
             <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
           </EraserPenContainer>
           </div>
