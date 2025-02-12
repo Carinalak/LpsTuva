@@ -10,6 +10,7 @@ export const Ritblock = () => {
   const [color, setColor] = useState("#000000");
   const [brushSize, setBrushSize] = useState(5);
   const [isEraser, setIsEraser] = useState(false);
+  const [, setIsBrush] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
 
@@ -126,6 +127,16 @@ export const Ritblock = () => {
     };
   };
 
+  const handleToolChange = (tool: 'pen' | 'eraser') => {
+    if (tool === 'pen') {
+      setIsEraser(false);
+      setIsBrush(true);
+    } else {
+      setIsEraser(true);
+      setIsBrush(false);
+    }
+  };
+
   return (
     <BackgroundOriginal>
       <H1WhiteSecond>Ritblock</H1WhiteSecond>
@@ -166,17 +177,13 @@ export const Ritblock = () => {
             {/* Penna och Suddgummi till höger */}
             <EraserPenContainer>
               <PenBtn
-                onClick={() => {
-                  setIsEraser(false);
-                }}
+                onClick={() => handleToolChange('pen')}
               />
               <EraserBtn
+                onClick={() => handleToolChange('eraser')}
                 className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
                   isEraser ? "bg-gray-300" : "bg-white"
                 }`}
-                onClick={() => {
-                  setIsEraser(true);
-                }}  
               />
             </EraserPenContainer>
             </div>

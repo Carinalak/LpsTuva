@@ -25,10 +25,18 @@ export const Canvas = styled.canvas.withConfig({
   padding: 10px;
   margin-bottom: 0;
 
+  /*
   cursor: ${({ isEraser }) =>
     isEraser
       ? "url(/eraser2.png) 16 32, auto"
-      : "crosshair"};
+      : "crosshair"};*/
+
+    cursor: ${({ isEraser }) => 
+      isEraser 
+        ? "url(/eraser2.png) 16 32, auto"
+        : "url(/paint-brush3.png) 0 0, auto"
+    };
+
 
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -78,20 +86,18 @@ export const Toolbox = styled.div `
     gap: 10px;
   }
 
-
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-
+      @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         width: 600px;
 
-        }
+          }
       @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 800px;
+        width: 800px;
 
       }
 `;
 
 export const ControlBox = styled.div `
-width: 350px;
+  width: 350px;
   background-color: #4c4849;
   padding: 10px;
   display: flex;
@@ -129,6 +135,12 @@ export const UndoBtn = styled.button`
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
+
   &:disabled {
     background-color: ${DISSAD};
     cursor: not-allowed;
@@ -152,6 +164,12 @@ margin-top: -5px;
 cursor: pointer;
 -webkit-tap-highlight-color: transparent;
 
+transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
+
 &:disabled {
   background-color: ${DISSAD};
   cursor: not-allowed;
@@ -162,10 +180,22 @@ cursor: pointer;
 export const ClearBoardBtn = styled(UndoBtn) `
 background-image: url(${ClearBoard});
 
+transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
+
 `;
 
 export const SaveBoardBtn = styled(UndoBtn) `
 background-image: url(${SaveBoard});
+
+transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
 
 `;
 export const EraserBtn = styled(UndoBtn) `
@@ -191,7 +221,7 @@ export const PenBtn = styled(UndoBtn)`
 
 
   &:focus {
-    cursor: url(${new URL("../../assets/icons/paint_brush2.png", import.meta.url).href}) 16 32, auto;
+    cursor: url(${new URL("../../assets/icons/paint-brush2.png", import.meta.url).href}) 16 32, auto;
   }
 
 `;
@@ -217,6 +247,12 @@ export const ColorBtn = styled.button `
   width: 20px;
   height: 20px;
   cursor: pointer;
+
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
 
 `;
 
