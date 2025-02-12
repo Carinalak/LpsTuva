@@ -13,29 +13,43 @@ export const Ritblock = () => {
   const [, setIsBrush] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
-
   useEffect(() => {
     const updateCanvasSize = () => {
       const canvas = canvasRef.current;
-      if (canvas) {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          ctx.lineCap = "round";
-          ctxRef.current = ctx;
-        }
+      if (!canvas) return;
+  
+      // Spara nuvarande ritning
+      const prevData = canvas.toDataURL();
+  
+      // Uppdatera storleken utan att rensa
+      const tempWidth = canvas.offsetWidth;
+      const tempHeight = canvas.offsetHeight;
+  
+      canvas.width = tempWidth;
+      canvas.height = tempHeight;
+  
+      // Återskapa ritningen
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.lineCap = "round";
+        ctxRef.current = ctx;
+  
+        const img = new Image();
+        img.src = prevData;
+        img.onload = () => {
+          ctx.drawImage(img, 0, 0);
+        };
       }
     };
-
+  
     updateCanvasSize();
     window.addEventListener("resize", updateCanvasSize);
-
+  
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
   }, []);
+  
 
   const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
     const rect = canvas.getBoundingClientRect();
@@ -72,7 +86,7 @@ export const Ritblock = () => {
     setIsDrawing(true);
   };
   const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDrawing || !ctxRef.current) return; // Se till att vi bara ritar när isDrawing är true
+    if (!isDrawing || !ctxRef.current) return;
     e.preventDefault();
     const canvas = canvasRef.current;
     if (!canvas) return;

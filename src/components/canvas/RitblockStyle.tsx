@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD, SMUTSROSA } from "../styled/Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD, KOLSVART, SMUTSROSA } from "../styled/Variables";
 import UndoButton from "../../assets/icons/undo.png";
 import RedoButton from "../../assets/icons/redo.png";
 import SaveBoard from "../../assets/icons/data-storage.png";
@@ -267,33 +267,33 @@ export const BrushSize = styled.div `
     background: #ddd; /* Bakgrundsfärg på reglaget */
     border-radius: 5px;
   }
-
+/*
   input[type="range"]::-webkit-slider-runnable-track {
-    background:${SMUTSROSA}; /* Lila färg på den aktiva delen */
+    background:${SMUTSROSA}; // Lila färg på den aktiva delen
     height: 8px;
     border-radius: 5px;
-  }
-
+  }*/
+/*
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
-    background: ${SMUTSROSA}; /* Lila färg på thumb */
+    background: ${SMUTSROSA}; // Lila färg på thumb 
     border-radius: 50%;
     cursor: pointer;
-  }
+  }*/
 
-  input[type="range"]::-moz-range-progress {
-    background: ${SMUTSROSA};
+  input[type="range"]::-moz-range-progress { // Långa pinnen - inre
+    background: ${KOLSVART};
     padding: 1px;
     border-radius: 5px;
   }
 
-  input[type="range"]::-moz-range-thumb {
+  input[type="range"]::-moz-range-thumb { // Handtaget - inre
     width: 20px;
     height: 20px;
-    background: ${SMUTSROSA};
+    background: ${KOLSVART};
     border-radius: 50%;
   }
 `;
