@@ -187,19 +187,27 @@ export const Ritblock = () => {
       <H1WhiteSecond>Ritblock</H1WhiteSecond>
       <Board>
         <Toolbox>
+          {/* Färgval på första raden */}
           <Colors>
             {["#000000", "#6d2323", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
               <ColorBtn key={c} style={{ backgroundColor: c }} onClick={() => handleColorChange(c)} />
             ))}
           </Colors>
+           {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
+           <div>
+                      {/* Penselstorlek */}
           <BrushSize>
             <input type="range" min="1" max="20" value={brushSize} onChange={(e) => setBrushSize(Number(e.target.value))} />
             <span>{brushSize}px</span>
           </BrushSize>
-          <EraserPenContainer>
+           
+            {/* Penna och Suddgummi till höger */}
+            <EraserPenContainer>
+            
             <PenBtn onClick={toggleEraser} />
             <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
           </EraserPenContainer>
+          </div>
         </Toolbox>
         <Canvas
           ref={canvasRef}
