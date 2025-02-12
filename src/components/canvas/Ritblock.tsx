@@ -37,33 +37,70 @@ export const Ritblock = () => {
     };
   }, []);
 
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const { offsetX, offsetY } = e.nativeEvent;
-    if (ctxRef.current && canvasRef.current) {
-      setHistory((prev) => [...prev, canvasRef.current!.toDataURL()]);
-      setRedoHistory([]);
-      ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
-      ctxRef.current.lineWidth = brushSize;
-      ctxRef.current.beginPath();
-      ctxRef.current.moveTo(offsetX, offsetY);
-      setIsDrawing(true);
-    }
+  const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      offsetX: touch.clientX - rect.left,
+      offsetY: touch.clientY - rect.top,
+    };
   };
-
-  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!isDrawing || !ctxRef.current) return;
-    const { offsetX, offsetY } = e.nativeEvent;
+  
+  
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const canvas = canvasRef.current;
+    if (!canvas || !ctxRef.current) return;
+  
+    let offsetX: number, offsetY: number;
+  
+    if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
+      // MouseEvent
+      offsetX = e.nativeEvent.offsetX;
+      offsetY = e.nativeEvent.offsetY;
+    } else {
+      // TouchEvent
+      const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
+      ({ offsetX, offsetY } = getTouchPos(canvas, touch));
+    }
+  
+    setHistory((prev) => [...prev, canvas.toDataURL()]);
+    setRedoHistory([]);
+    ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
+    ctxRef.current.lineWidth = brushSize;
+    ctxRef.current.beginPath();
+    ctxRef.current.moveTo(offsetX, offsetY);
+    setIsDrawing(true);
+  };
+  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    if (!isDrawing || !ctxRef.current) return; // Se till att vi bara ritar när isDrawing är true
+    e.preventDefault();
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+  
+    let offsetX: number, offsetY: number;
+  
+    if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
+      // MouseEvent
+      offsetX = e.nativeEvent.offsetX;
+      offsetY = e.nativeEvent.offsetY;
+    } else {
+      // TouchEvent
+      const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
+      ({ offsetX, offsetY } = getTouchPos(canvas, touch));
+    }
+  
     ctxRef.current.lineTo(offsetX, offsetY);
     ctxRef.current.stroke();
   };
-
+  
   const stopDrawing = () => {
     if (ctxRef.current) {
       ctxRef.current.closePath();
     }
     setIsDrawing(false);
   };
-
+  
+  
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas && ctxRef.current) {
@@ -199,6 +236,9 @@ export const Ritblock = () => {
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
+          onTouchStart={startDrawing}
+          onTouchMove={draw}
+          onTouchEnd={stopDrawing}
         />
   
         {/* Kontrollknappar */}
