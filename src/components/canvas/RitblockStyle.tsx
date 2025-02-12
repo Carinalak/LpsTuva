@@ -42,17 +42,40 @@ export const Canvas = styled.canvas.withConfig({
 
 
 export const Toolbox = styled.div `
-    width: 350px;
+  width: 350px;
   background-color: #4c4849;
   padding: 10px;
   color: #FFFFFF;
   display: grid;
-  grid-template-columns: auto 1fr; /* Färgval + Penselstorlek på första raden */
+ // grid-template-columns: auto 1fr; /* Färgval + Penselstorlek på första raden */
+  //grid-template-rows: auto auto;
+  grid-template-columns: 1fr; /* Första raden för färger */
   grid-template-rows: auto auto;
   gap: 10px;
   column-gap: 70px;
   align-items: center;
   border-radius: 5px 5px 0 0;
+
+  /* Färgvalen på första raden */
+  > div:first-child {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  /* Andra raden med verktyg */
+  > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Delar upp i två kolumner: Färgval till vänster, Penna och suddgummi till höger */
+    gap: 10px;
+    align-items: center;
+  }
+    /* Penselstorlek på andra raden */
+    > div:nth-child(3) {
+    display: flex;
+    gap: 10px;
+  }
+
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
 
@@ -164,4 +187,27 @@ export const PenBtn = styled.button`
   &:hover {
     background-color: #f0f0f0;
   }
+`;
+
+export const EraserPenContainer = styled.div `
+  display: flex;
+  align-self: flex-start;
+  justify-self: right;
+  
+ 
+
+`;
+
+
+export const Colors = styled.div `
+
+
+
+`;
+
+export const ColorBtn = styled.button `
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
 `;

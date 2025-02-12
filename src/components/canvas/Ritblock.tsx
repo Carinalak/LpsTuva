@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn } from "./RitblockStyle";
+import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors } from "./RitblockStyle";
 
 export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -131,39 +131,24 @@ export const Ritblock = () => {
       <H1WhiteSecond>Ritblock</H1WhiteSecond>
       <Board>
         <Toolbox>
-          {/* Färgval och Penselstorlek */}
-          <div className="flex gap-2">
-            {["#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF"].map((c) => (
-              <button
+          {/* Färgval på första raden */}
+          <Colors>
+            {["#000000", "#6d2323", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
+              <ColorBtn
                 key={c}
                 className="w-8 h-8 rounded-full border-2 transition"
-                style={{ backgroundColor: c, borderColor: color === c ? "gray" : "transparent" }}
+                style={{ backgroundColor: c, borderColor: color === c ? "white" : "transparent" }}
                 onClick={() => {
                   setColor(c);
                   setIsEraser(false);
                 }}
               />
             ))}
-          </div>
-
-          {/* Suddgummi + Penna */}
-          <EraserBtn
-            className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-              isEraser ? "bg-gray-300" : "bg-white"
-            }`}
-            onClick={() => {
-              setIsEraser(true);
-            }}
-          />
-          <PenBtn
-            className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-              !isEraser ? "bg-gray-300" : "bg-white"
-            }`}
-            onClick={() => {
-              setIsEraser(false);
-            }}
-          />
-          
+          </Colors>
+  
+          {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
+          <div>
+                      {/* Penselstorlek */}
           <div className="flex items-center gap-2">
             <input
               type="range"
@@ -175,8 +160,32 @@ export const Ritblock = () => {
             />
             <span className="text-sm">{brushSize}px</span>
           </div>
-        </Toolbox>
 
+ 
+            {/* Penna och Suddgummi till höger */}
+            <EraserPenContainer>
+              <PenBtn
+                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                  !isEraser ? "bg-gray-300" : "bg-white"
+                }`}
+                onClick={() => {
+                  setIsEraser(false);
+                }}
+              />
+              <EraserBtn
+                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                  isEraser ? "bg-gray-300" : "bg-white"
+                }`}
+                onClick={() => {
+                  setIsEraser(true);
+                }}  
+              />
+            </EraserPenContainer>
+          </div>
+  
+
+        </Toolbox>
+  
         {/* Canvas */}
         <Canvas
           ref={canvasRef}
@@ -186,7 +195,7 @@ export const Ritblock = () => {
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
         />
-
+  
         {/* Kontrollknappar */}
         <ControlBox>
           <ClearBoardBtn onClick={clearCanvas} />
@@ -197,4 +206,5 @@ export const Ritblock = () => {
       </Board>
     </BackgroundOriginal>
   );
+  
 };
