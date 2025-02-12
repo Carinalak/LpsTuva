@@ -45,22 +45,20 @@ export const Ritblock = () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
   }, []);
-
-  // Förhindra scroll & pull-to-refresh på mobilen
-  useEffect(() => {
-    const preventScroll = (e: TouchEvent) => {
-      if (e.target === canvasRef.current) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener("touchmove", preventScroll, { passive: false });
-
-    return () => {
-      document.removeEventListener("touchmove", preventScroll);
-    };
-  }, []);
-
+    // Förhindra scroll & pull-to-refresh på mobilen
+    useEffect(() => {
+      const preventScroll = (e: TouchEvent) => {
+        if (e.target === canvasRef.current) {
+          e.preventDefault();
+        }
+      };
+  
+      document.addEventListener("touchmove", preventScroll, { passive: false });
+  
+      return () => {
+        document.removeEventListener("touchmove", preventScroll);
+      };
+    }, []);
   const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
     const rect = canvas.getBoundingClientRect();
     return {
@@ -88,7 +86,7 @@ export const Ritblock = () => {
 
     setHistory((prev) => [...prev, canvas.toDataURL()]);
     setRedoHistory([]);
-    ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
+    ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color; // Använd rätt färg beroende på om suddgummi är aktivt
     ctxRef.current.lineWidth = brushSize;
     ctxRef.current.beginPath();
     ctxRef.current.moveTo(offsetX, offsetY);
@@ -120,7 +118,7 @@ export const Ritblock = () => {
       ctxRef.current.closePath();
     }
     setIsDrawing(false);
-    document.body.style.overflow = ""; // Återställ scrollning efter rita
+    document.body.style.overflow = "";
   };
 
   const clearCanvas = () => {
@@ -174,6 +172,16 @@ export const Ritblock = () => {
     };
   };
 
+  const handleColorChange = (newColor: string) => {
+    setIsEraser(false);
+    setColor(newColor);
+  };
+
+  const toggleEraser = () => {
+    setIsEraser(true);
+    setColor("#FFFFFF");
+  };
+
   return (
     <BackgroundOriginal>
       <H1WhiteSecond>Ritblock</H1WhiteSecond>
@@ -181,7 +189,7 @@ export const Ritblock = () => {
         <Toolbox>
           <Colors>
             {["#000000", "#6d2323", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
-              <ColorBtn key={c} style={{ backgroundColor: c }} onClick={() => setColor(c)} />
+              <ColorBtn key={c} style={{ backgroundColor: c }} onClick={() => handleColorChange(c)} />
             ))}
           </Colors>
           <BrushSize>
@@ -189,21 +197,20 @@ export const Ritblock = () => {
             <span>{brushSize}px</span>
           </BrushSize>
           <EraserPenContainer>
-            <PenBtn onClick={() => setIsEraser(false)} />
-            <EraserBtn onClick={() => setIsEraser(true)} className={isEraser ? "bg-gray-300" : "bg-white"} />
+            <PenBtn onClick={toggleEraser} />
+            <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
           </EraserPenContainer>
         </Toolbox>
         <Canvas
-  ref={canvasRef}
-  isEraser={isEraser}  // Lägg till denna rad
-  onMouseDown={startDrawing}
-  onMouseMove={draw}
-  onMouseUp={stopDrawing}
-  onTouchStart={startDrawing}
-  onTouchMove={draw}
-  onTouchEnd={stopDrawing}
-/>
-
+          ref={canvasRef}
+          isEraser={isEraser}
+          onMouseDown={startDrawing}
+          onMouseMove={draw}
+          onMouseUp={stopDrawing}
+          onTouchStart={startDrawing}
+          onTouchMove={draw}
+          onTouchEnd={stopDrawing}
+        />
         <ControlBox>
           <ClearBoardBtn onClick={clearCanvas} />
           <SaveBoardBtn onClick={saveCanvas} />
