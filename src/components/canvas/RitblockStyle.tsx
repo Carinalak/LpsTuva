@@ -24,20 +24,22 @@ export const Canvas = styled.canvas.withConfig({
   padding: 10px;
   margin-bottom: 0;
 
-  // cursor: crosshair;
   cursor: ${({ isEraser }) =>
-    isEraser ? "url(/eraser.png) 10 10, auto" : "crosshair"};
+    isEraser
+      ? "url(/eraser2.png) 16 32, auto"
+      : "crosshair"};
 
 
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 600px;
-      height: 400px;
-      }
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 600px;
+    height: 400px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     width: 800px;
     height: 400px;
-    }
+  }
 `;
+
 
 export const Toolbox = styled.div `
     width: 350px;
@@ -144,4 +146,22 @@ background-image: url(${SaveBoard});
 export const EraserBtn = styled(UndoBtn) `
 background-image: url(${EraserButton});
 
+  &:focus {
+    cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
+  }
+`;
+export const PenBtn = styled.button`
+  background-image: url("/pen-icon.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 5px;
+  cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
 `;

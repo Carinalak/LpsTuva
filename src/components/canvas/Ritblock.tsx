@@ -1,8 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { Board, Canvas, ClearBoardBtn, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn } from "./RitblockStyle";
-
+import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn } from "./RitblockStyle";
 
 export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -18,10 +17,9 @@ export const Ritblock = () => {
     const updateCanvasSize = () => {
       const canvas = canvasRef.current;
       if (canvas) {
-
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
-  
+
         const ctx = canvas.getContext("2d");
         if (ctx) {
           ctx.lineCap = "round";
@@ -29,21 +27,18 @@ export const Ritblock = () => {
         }
       }
     };
-  
+
     updateCanvasSize();
-  
     window.addEventListener("resize", updateCanvasSize);
-  
+
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
   }, []);
-  
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const { offsetX, offsetY } = e.nativeEvent;
     if (ctxRef.current && canvasRef.current) {
-      // Spara nuvarande bild i historiken innan användaren börjar rita
       setHistory((prev) => [...prev, canvasRef.current!.toDataURL()]);
       setRedoHistory([]);
       ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
@@ -80,25 +75,24 @@ export const Ritblock = () => {
   const saveCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-  
+
     const tempCanvas = document.createElement("canvas");
     const tempCtx = tempCanvas.getContext("2d");
     if (!tempCtx) return;
-  
+
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
-  
+
     tempCtx.fillStyle = "#FFFFFF";
     tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
-  
+
     tempCtx.drawImage(canvas, 0, 0);
-  
+
     const link = document.createElement("a");
     link.href = tempCanvas.toDataURL("image/png");
     link.download = "my_drawing.png";
     link.click();
   };
-  
 
   const undoLast = () => {
     if (history.length === 0 || !canvasRef.current || !ctxRef.current) return;
@@ -131,55 +125,59 @@ export const Ritblock = () => {
       ctx.drawImage(img, 0, 0);
     };
   };
-  
 
-  return (    
-  <BackgroundOriginal>
-    <H1WhiteSecond>Ritblock</H1WhiteSecond>
-    <Board>
-      <Toolbox>
-        {/* Rad 1: Färgval + "Penselstorlek" text */}
-        <div className="flex gap-2">
-          {["#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF"].map((c) => (
-            <button
-              key={c}
-              className="w-8 h-8 rounded-full border-2 transition"
-              style={{ backgroundColor: c, borderColor: color === c ? "gray" : "transparent" }}
-              onClick={() => {
-                setColor(c);
-                setIsEraser(false);
-              }}
-            ></button>
-          ))}
-        </div>
-        <label className="text-sm font-semibold">🖌️ Penselstorlek:</label>
+  return (
+    <BackgroundOriginal>
+      <H1WhiteSecond>Ritblock</H1WhiteSecond>
+      <Board>
+        <Toolbox>
+          {/* Färgval och Penselstorlek */}
+          <div className="flex gap-2">
+            {["#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF"].map((c) => (
+              <button
+                key={c}
+                className="w-8 h-8 rounded-full border-2 transition"
+                style={{ backgroundColor: c, borderColor: color === c ? "gray" : "transparent" }}
+                onClick={() => {
+                  setColor(c);
+                  setIsEraser(false);
+                }}
+              />
+            ))}
+          </div>
 
-        {/* Rad 2: Suddgummi + Skala */}
-        <EraserBtn
-        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-          isEraser ? "bg-gray-300" : "bg-white"
-        }`}
-        onClick={() => {
-          console.log("Eraser clicked, isEraser before:", isEraser);
-          setIsEraser(true);
-          console.log("isEraser after:", true);
-        }}
-      />
-
-        <div className="flex items-center gap-2">
-          <input
-            type="range"
-            min="1"
-            max="20"
-            value={brushSize}
-            onChange={(e) => setBrushSize(Number(e.target.value))}
-            className="cursor-pointer"
+          {/* Suddgummi + Penna */}
+          <EraserBtn
+            className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+              isEraser ? "bg-gray-300" : "bg-white"
+            }`}
+            onClick={() => {
+              setIsEraser(true);
+            }}
           />
-          <span className="text-sm">{brushSize}px</span>
-        </div>
+          <PenBtn
+            className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+              !isEraser ? "bg-gray-300" : "bg-white"
+            }`}
+            onClick={() => {
+              setIsEraser(false);
+            }}
+          />
+          
+          <div className="flex items-center gap-2">
+            <input
+              type="range"
+              min="1"
+              max="20"
+              value={brushSize}
+              onChange={(e) => setBrushSize(Number(e.target.value))}
+              className="cursor-pointer"
+            />
+            <span className="text-sm">{brushSize}px</span>
+          </div>
         </Toolbox>
 
-        {/* Ritcanvas */}
+        {/* Canvas */}
         <Canvas
           ref={canvasRef}
           isEraser={isEraser}
@@ -187,18 +185,16 @@ export const Ritblock = () => {
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
-        ></Canvas>
+        />
 
-        {/* Kontroller */}
+        {/* Kontrollknappar */}
         <ControlBox>
-            <ClearBoardBtn onClick={clearCanvas} />
-            <SaveBoardBtn onClick={saveCanvas} />
-            <UndoBtn onClick={undoLast}/>
-            <RedoBtn onClick={redoLast} />
-
-      </ControlBox>
+          <ClearBoardBtn onClick={clearCanvas} />
+          <SaveBoardBtn onClick={saveCanvas} />
+          <UndoBtn onClick={undoLast} />
+          <RedoBtn onClick={redoLast} />
+        </ControlBox>
       </Board>
     </BackgroundOriginal>
   );
 };
-
