@@ -160,7 +160,7 @@ export const Ritblock = () => {
           {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
           <div>
                       {/* Penselstorlek */}
-          <BrushSize className="flex items-center gap-2">
+          <BrushSize >
             <input
               type="range"
               min="1"

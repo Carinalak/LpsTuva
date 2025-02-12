@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD } from "../styled/Variables";
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD, SMUTSROSA } from "../styled/Variables";
 import UndoButton from "../../assets/icons/undo.png";
 import RedoButton from "../../assets/icons/redo.png";
 import SaveBoard from "../../assets/icons/data-storage.png";
@@ -231,15 +231,10 @@ export const EraserPenContainer = styled.div `
   align-self: center;
   justify-self: right;
   gap: 10px;
-  
- 
-
 `;
 
 
 export const Colors = styled.div `
-
-
 
 `;
 
@@ -260,5 +255,45 @@ export const BrushSize = styled.div `
   display: flex;
   align-self: center;
   justify-self: left;
+  gap: 5px;
+  align-items: center;
 
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    padding-left: 2px;
+    background: #ddd; /* Bakgrundsfärg på reglaget */
+    border-radius: 5px;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    background:${SMUTSROSA}; /* Lila färg på den aktiva delen */
+    height: 8px;
+    border-radius: 5px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: ${SMUTSROSA}; /* Lila färg på thumb */
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-moz-range-progress {
+    background: ${SMUTSROSA};
+    padding: 1px;
+    border-radius: 5px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: ${SMUTSROSA};
+    border-radius: 50%;
+  }
 `;
