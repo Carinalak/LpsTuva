@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors } from "./RitblockStyle";
+import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors, BrushSize } from "./RitblockStyle";
 
 export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -149,7 +149,7 @@ export const Ritblock = () => {
           {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
           <div>
                       {/* Penselstorlek */}
-          <div className="flex items-center gap-2">
+          <BrushSize className="flex items-center gap-2">
             <input
               type="range"
               min="1"
@@ -159,15 +159,13 @@ export const Ritblock = () => {
               className="cursor-pointer"
             />
             <span className="text-sm">{brushSize}px</span>
-          </div>
+            </BrushSize>
+          
 
  
             {/* Penna och Suddgummi till höger */}
             <EraserPenContainer>
               <PenBtn
-                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-                  !isEraser ? "bg-gray-300" : "bg-white"
-                }`}
                 onClick={() => {
                   setIsEraser(false);
                 }}
@@ -181,7 +179,7 @@ export const Ritblock = () => {
                 }}  
               />
             </EraserPenContainer>
-          </div>
+            </div>
   
 
         </Toolbox>

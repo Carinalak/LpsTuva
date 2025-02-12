@@ -5,6 +5,7 @@ import RedoButton from "../../assets/icons/redo.png";
 import SaveBoard from "../../assets/icons/data-storage.png";
 import ClearBoard from "../../assets/icons/dust.png";
 import EraserButton from "../../assets/icons/eraser.png";
+import PaintBrush from "../../assets/icons/paint-brush.png";
 
 
 export const Board = styled.div `
@@ -51,7 +52,7 @@ export const Toolbox = styled.div `
   //grid-template-rows: auto auto;
   grid-template-columns: 1fr; /* Första raden för färger */
   grid-template-rows: auto auto;
-  gap: 10px;
+  gap: 5px;
   column-gap: 70px;
   align-items: center;
   border-radius: 5px 5px 0 0;
@@ -60,7 +61,7 @@ export const Toolbox = styled.div `
   > div:first-child {
     display: flex;
     gap: 10px;
-    justify-content: center;
+    justify-content: left;
   }
 
   /* Andra raden med verktyg */
@@ -73,6 +74,7 @@ export const Toolbox = styled.div `
     /* Penselstorlek på andra raden */
     > div:nth-child(3) {
     display: flex;
+    justify-content: left;
     gap: 10px;
   }
 
@@ -167,32 +169,38 @@ background-image: url(${SaveBoard});
 
 `;
 export const EraserBtn = styled(UndoBtn) `
-background-image: url(${EraserButton});
+  background-image: url(${EraserButton});
+
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
 
   &:focus {
     cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
   }
 `;
-export const PenBtn = styled.button`
-  background-image: url("/pen-icon.png");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  margin-top: 5px;
-  cursor: url(${new URL("../../assets/icons/paw_white.png", import.meta.url).href}), auto;
+export const PenBtn = styled(UndoBtn)`
+  background-image: url(${PaintBrush});
 
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
   &:hover {
-    background-color: #f0f0f0;
+      transform: scale(1.3);
+    }
+
+
+  &:focus {
+    cursor: url(${new URL("../../assets/icons/paint_brush2.png", import.meta.url).href}) 16 32, auto;
   }
+
 `;
 
 export const EraserPenContainer = styled.div `
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   justify-self: right;
+  gap: 10px;
   
  
 
@@ -209,5 +217,12 @@ export const ColorBtn = styled.button `
   width: 20px;
   height: 20px;
   cursor: pointer;
+
+`;
+
+export const BrushSize = styled.div `
+  display: flex;
+  align-self: center;
+  justify-self: left;
 
 `;
