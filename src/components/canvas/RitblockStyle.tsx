@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, DISSAD } from "../styled/Variables";
-import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
-import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
+import UndoButton from "../../assets/icons/undo.png";
+import RedoButton from "../../assets/icons/redo.png";
+import SaveBoard from "../../assets/icons/data-storage.png";
+import ClearBoard from "../../assets/icons/dust.png";
+import EraserButton from "../../assets/icons/eraser.png";
 
 
 export const Board = styled.div `
@@ -12,14 +15,18 @@ export const Board = styled.div `
 
 `;
 
-export const Canvas = styled.canvas `
+export const Canvas = styled.canvas.withConfig({
+  shouldForwardProp: (prop) => prop !== "isEraser",
+})<{ isEraser: boolean }>`
   width: 350px;
   height: 400px;
   background-color: white;
   padding: 10px;
   margin-bottom: 0;
 
-  cursor: crosshair;
+  // cursor: crosshair;
+  cursor: ${({ isEraser }) =>
+    isEraser ? "url(/eraser.png) 10 10, auto" : "crosshair"};
 
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -71,7 +78,7 @@ width: 350px;
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         width: 600px;
 
-        }
+    }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     width: 800px;
 
@@ -79,11 +86,11 @@ width: 350px;
 
 `;
 
-export const AngraBtn = styled.button`
+export const UndoBtn = styled.button`
   padding: 0;
   border: none;
   border-radius: 10px;
-  background-image: url(${arrowWhiteLeft});
+  background-image: url(${UndoButton});
   background-size: 22px 22px;
   background-repeat: no-repeat;
   background-position: center;
@@ -106,7 +113,7 @@ export const RedoBtn = styled.button`
 padding: 0;
 border: none;
 border-radius: 10px;
-background-image: url(${arrowWhiteRight});
+background-image: url(${RedoButton});
 background-size: 22px 22px;
 background-repeat: no-repeat;
 background-position: center;
@@ -123,4 +130,18 @@ cursor: pointer;
   cursor: not-allowed;
   transform: none;
 }
+`;
+
+export const ClearBoardBtn = styled(UndoBtn) `
+background-image: url(${ClearBoard});
+
+`;
+
+export const SaveBoardBtn = styled(UndoBtn) `
+background-image: url(${SaveBoard});
+
+`;
+export const EraserBtn = styled(UndoBtn) `
+background-image: url(${EraserButton});
+
 `;

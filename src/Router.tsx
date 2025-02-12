@@ -15,7 +15,8 @@ import { AdminHome } from "./pages/AdminHome";
 import { Home } from "./pages/Home";
 import { AdminLogin } from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
-import DrawingBoard from "./components/canvas/DrawingBoard";
+import { Ritblock } from "./components/canvas/Ritblock";
+
 
 
 
@@ -83,8 +84,8 @@ export const router = createHashRouter([
                 element: <Admin />,
             },
             {
-                path: "/drawingboard",
-                element: <DrawingBoard />,
+                path: "/ritblock",
+                element: <Ritblock />,
             },
         ],
     },

@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { AngraBtn, Board, Canvas, ControlBox, RedoBtn, Toolbox } from "./DrawingStyle";
+import { Board, Canvas, ClearBoardBtn, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn } from "./RitblockStyle";
 
 
-const DrawingBoard = () => {
+export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -131,6 +131,7 @@ const DrawingBoard = () => {
       ctx.drawImage(img, 0, 0);
     };
   };
+  
 
   return (    
   <BackgroundOriginal>
@@ -154,14 +155,17 @@ const DrawingBoard = () => {
         <label className="text-sm font-semibold">🖌️ Penselstorlek:</label>
 
         {/* Rad 2: Suddgummi + Skala */}
-        <button
-          className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-            isEraser ? "bg-gray-300" : "bg-white"
-          }`}
-          onClick={() => setIsEraser(true)}
-        >
-          🧽
-        </button>
+        <EraserBtn
+        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+          isEraser ? "bg-gray-300" : "bg-white"
+        }`}
+        onClick={() => {
+          console.log("Eraser clicked, isEraser before:", isEraser);
+          setIsEraser(true);
+          console.log("isEraser after:", true);
+        }}
+      />
+
         <div className="flex items-center gap-2">
           <input
             type="range"
@@ -178,6 +182,7 @@ const DrawingBoard = () => {
         {/* Ritcanvas */}
         <Canvas
           ref={canvasRef}
+          isEraser={isEraser}
           onMouseDown={startDrawing}
           onMouseMove={draw}
           onMouseUp={stopDrawing}
@@ -186,13 +191,9 @@ const DrawingBoard = () => {
 
         {/* Kontroller */}
         <ControlBox>
-            <button onClick={clearCanvas}>
-              🧹 Rensa
-            </button>
-            <button onClick={saveCanvas}>
-              💾 Spara
-            </button>
-            <AngraBtn onClick={undoLast}/>
+            <ClearBoardBtn onClick={clearCanvas} />
+            <SaveBoardBtn onClick={saveCanvas} />
+            <UndoBtn onClick={undoLast}/>
             <RedoBtn onClick={redoLast} />
 
       </ControlBox>
@@ -201,4 +202,3 @@ const DrawingBoard = () => {
   );
 };
 
-export default DrawingBoard;

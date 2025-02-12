@@ -1,6 +1,6 @@
 # Lps-Tuva 🐈 🦜🐟 🐢 🐶
 
-This site is live at: https://github.com/Carinalak/LpsTuva
+This site is live at: https://lpstuva.onrender.com
 
 This is the site of Lps-Tuva! 
 
