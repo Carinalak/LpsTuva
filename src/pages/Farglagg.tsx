@@ -10,6 +10,10 @@ import Nalle from '../assets/images/farglagg/nalle.jpg';
 import KaninMorotter from '../assets/images/farglagg/kanin_med_morotter.jpg';
 import KyckilngAgg from '../assets/images/farglagg/kyckling_med_agg.jpg';
 import FagelHamster from '../assets/images/farglagg/fagel_hamster.jpg';
+import OrmHjarta from '../assets/images/farglagg/orm_hjarta.jpg';
+import GrisPol from '../assets/images/farglagg/gris_i_pol.jpg';
+import Hamster from '../assets/images/farglagg/hamster.jpg';
+import Fagel from '../assets/images/farglagg/fagel.jpg';
 
 export const Farglagg = () => {
 
@@ -57,6 +61,38 @@ export const Farglagg = () => {
       <ColoringWrapper>
         <H1WhiteSecond>Färgläggning</H1WhiteSecond>
         <WhiteFont>Här kan du skriva ut, eller ladda ner bilder att färglägga.</WhiteFont>
+
+        <ColoringWrapperInner>
+          <FarglaggImage src={OrmHjarta} className="gallery-img" alt="Orm med rosett" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(OrmHjarta)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(OrmHjarta)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner> 
+
+        <ColoringWrapperInner>
+          <FarglaggImage src={GrisPol} className="gallery-img" alt="Gris i pöl" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(GrisPol)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(GrisPol)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner>  
+
+        <ColoringWrapperInner>
+          <FarglaggImage src={Hamster} className="gallery-img" alt="Hamster" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(Hamster)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(Hamster)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner>  
+
+        <ColoringWrapperInner>
+          <FarglaggImage src={Fagel} className="gallery-img" alt="Fågel" loading="lazy" />
+          <ButtonWrapper>
+            <Button onClick={() => handlePrint(Fagel)}>Skriv ut</Button>
+            <Button onClick={() => handleDownload(Fagel)}>Ladda ned</Button>
+          </ButtonWrapper>
+        </ColoringWrapperInner>   
 
         <ColoringWrapperInner>
           <FarglaggImage src={FagelHamster} className="gallery-img" alt="Fågel och Hamster" loading="lazy" />

@@ -257,7 +257,7 @@ export const BrushSize = styled.div `
     border-radius: 5px;
   }
 
-  input[type="range"]::-moz-range-thumb { // Handtaget - inre
+  input[type="range"]::-moz-range-thumb { // Handtaget - inre med border
     width: 20px;
     height: 20px;
     background: ${SMUTSROSA};
