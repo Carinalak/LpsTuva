@@ -4,6 +4,7 @@ import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from 
 import Farglagg from '../assets/logos/farglagg_logo2_300.png';
 import Memory from '../assets/logos/memory_logo300.png';
 import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
+import Ritblock from '../assets/logos/Ritblock_logo_300b.png';
 //import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
@@ -18,6 +19,7 @@ color: ${KRITVIT};
 font-size: 1.2rem;
 text-align: center;
 cursor: pointer;
+cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
 
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
@@ -26,13 +28,13 @@ cursor: pointer;
   }
 `;
 
-
 const PysselSpelLinkImage = styled.img`
 width: 100px;
 height: 100px; 
 //object-fit: cover; // Beskär bilden
 border-radius: 10px;
 cursor: pointer;
+cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
 &:hover {
@@ -77,6 +79,7 @@ export const PysselSpel = () => {
         <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
           < PysselSpelWrapper>
           <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
+          <PysselLink to="/ritblock"><PysselSpelLinkImage src={Ritblock} />Ritblock</PysselLink>
           <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
           <PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>
           {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
