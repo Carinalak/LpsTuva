@@ -195,7 +195,7 @@ const toggleEraser = () => {
           {/* Färgval på första raden */}
 
           <Colors>
-            {["#000000", "#6d2323", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
+            {["#000000", "#4c3030", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
               <ColorBtn 
                 key={c} 
                 style={{

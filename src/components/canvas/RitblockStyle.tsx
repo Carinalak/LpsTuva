@@ -65,6 +65,7 @@ export const Toolbox = styled.div `
   align-items: center;
   border-radius: 5px 5px 0 0;
 
+
   /* Färgvalen på första raden */
   > div:first-child {
     display: flex;
@@ -119,12 +120,12 @@ export const ControlBox = styled.div `
 
 `;
 
-export const UndoBtn = styled.button`
+export const UndoBtn = styled.button` // År mall för de andra knapparna i Controlbox
   padding: 0;
   border: none;
   border-radius: 10px;
   background-image: url(${UndoButton});
-  background-size: 22px 22px;
+  background-size: 35px 35px;
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
@@ -140,7 +141,6 @@ export const UndoBtn = styled.button`
       transform: scale(1.3);
     }
 
-
   &:disabled {
     background-color: ${DISSAD};
     cursor: not-allowed;
@@ -148,56 +148,21 @@ export const UndoBtn = styled.button`
   }
   `;
 
-export const RedoBtn = styled.button`
-padding: 0;
-border: none;
-border-radius: 10px;
+export const RedoBtn = styled(UndoBtn)`
 background-image: url(${RedoButton});
-background-size: 22px 22px;
-background-repeat: no-repeat;
-background-position: center;
-background-color: transparent;
-width: 40px;
-height: 40px;
-transition: background-color 0.2s ease, transform 0.2s ease;
-margin-top: -5px;
-cursor: pointer;
--webkit-tap-highlight-color: transparent;
 
-transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-  &:hover {
-      transform: scale(1.3);
-    }
-
-
-&:disabled {
-  background-color: ${DISSAD};
-  cursor: not-allowed;
-  transform: none;
-}
 `;
 
 export const ClearBoardBtn = styled(UndoBtn) `
 background-image: url(${ClearBoard});
-
-transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-  &:hover {
-      transform: scale(1.3);
-    }
-
 
 `;
 
 export const SaveBoardBtn = styled(UndoBtn) `
 background-image: url(${SaveBoard});
 
-transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-  &:hover {
-      transform: scale(1.3);
-    }
-
-
 `;
+
 export const EraserBtn = styled(UndoBtn) `
   background-image: url(${EraserButton});
 
@@ -231,11 +196,12 @@ export const EraserPenContainer = styled.div `
   align-self: center;
   justify-self: right;
   gap: 10px;
+  margin-right: 10px;
 `;
 
 
 export const Colors = styled.div `
-
+  margin-left: 10px;
 `;
 
 export const ColorBtn = styled.button `
@@ -257,6 +223,7 @@ export const BrushSize = styled.div `
   justify-self: left;
   gap: 5px;
   align-items: center;
+  margin-left: 10px;
 
   input[type="range"] {
     -webkit-appearance: none;
@@ -293,7 +260,8 @@ export const BrushSize = styled.div `
   input[type="range"]::-moz-range-thumb { // Handtaget - inre
     width: 20px;
     height: 20px;
-    background: ${KOLSVART};
+    background: ${SMUTSROSA};
     border-radius: 50%;
+    border-color: ${KOLSVART};
   }
 `;
