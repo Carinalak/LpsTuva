@@ -56,7 +56,7 @@ export const Farglagg = () => {
 
         {images.map((image, index) => (
           <ColoringWrapperInner key={index}>
-            <FarglaggImage src={image.src} className="gallery-img" alt={image.alt} loading="lazy" />
+            <FarglaggImage src={image.src} alt={image.alt} loading="lazy" />
             <ButtonWrapper>
               <Button onClick={() => handlePrint(image.src)}>Skriv ut</Button>
               <Button onClick={() => handleDownload(image.src)}>Ladda ned</Button>
