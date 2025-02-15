@@ -135,12 +135,13 @@ export const CenteredColTransWrapper = styled.div `
 `;
 
 
-// ----------------------------------- Coloring page ----------------------------------- //
+// ----------------------------------- Farglagg (Coloring) page ----------------------------------- //
 
 export const ColoringWrapper = styled.div `
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   width: 98%;
   align-items: center;
   background-color: transparent;
@@ -151,8 +152,6 @@ export const ColoringWrapper = styled.div `
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 85%;
-    flex-direction: row;
-    flex-wrap: wrap;
     row-gap: 10px;
     gap: 16px;
 }

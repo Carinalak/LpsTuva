@@ -44,18 +44,24 @@ export const GalleryImage = styled.img`
 
 export const FarglaggImage = styled.img`
 
-  width: 90%;       // Måste ha samma bredd som TextWrapper! till texten
+  width: 100px;       // Måste ha samma bredd som TextWrapper! till texten
   border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.3);
+      }
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 300px;
+  width: 100px;
   }
 
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 300px;
+    width: 100px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 410px;
+    width: 300px;
   }
 
 `;

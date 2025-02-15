@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA } from "./Variables";
 import { Link } from "react-router-dom";
 
 export const H1White = styled.h1 `
@@ -124,4 +124,34 @@ export const StyledLinkPurple = styled(Link)`
       color: ${POOLBLA};
       text-decoration: none;
     }
+`;
+
+export const StyledTextWhite = styled.div `
+  text-decoration: none;
+
+  margin: 0;
+  padding: 0; 
+  display: flex;
+  color: ${KRITVIT};
+  margin-right: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+    &:hover {
+      color: ${POOLBLA};
+    }
+`;
+
+export const StyledTextWrapper = styled.div `
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: left;
+padding-top: 10px;
+width: 100px ;     // Måste vara samma width som FarglaggImage
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 300px;
+  }
+
 `;

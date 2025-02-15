@@ -1,13 +1,27 @@
-import { Button, ButtonWrapper } from "../components/styled/Buttons";
 import { FarglaggImage } from "../components/styled/Image";
-import { H1WhiteSecond } from "../components/styled/Fonts";
+import { H1WhiteSecond, StyledTextWhite, StyledTextWrapper } from "../components/styled/Fonts";
 import { BackgroundOriginal, ColoringWrapper, ColoringWrapperInner, WhiteFont } from "../components/styled/Wrappers";
 import { useFarglaggImages } from "../components/useFarglaggImages";
+import { useState } from "react";
+import { FarglaggImageModal } from "../components/FarglaggImageModal";
+
+
 
 
 
 export const Farglagg = () => {
   const images = useFarglaggImages();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
+  
+    const openModal = (src: string, alt: string) => {
+      setSelectedImage({ src, alt });
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
 
   const handlePrint = (imageSrc: string) => {
     const printWindow = window.open('', '', 'height=600,width=800');
@@ -56,14 +70,21 @@ export const Farglagg = () => {
 
         {images.map((image, index) => (
           <ColoringWrapperInner key={index}>
-            <FarglaggImage src={image.src} alt={image.alt} loading="lazy" />
-            <ButtonWrapper>
-              <Button onClick={() => handlePrint(image.src)}>Skriv ut</Button>
-              <Button onClick={() => handleDownload(image.src)}>Ladda ned</Button>
-            </ButtonWrapper>
+            <FarglaggImage src={image.src} alt={image.alt} loading="lazy" onClick={() => openModal(image.src, image.alt)}/>
+              <StyledTextWrapper>
+                <StyledTextWhite onClick={() => handlePrint(image.src)}>Skriv ut</StyledTextWhite>
+                <StyledTextWhite onClick={() => handleDownload(image.src)}>Ladda ned</StyledTextWhite>
+              </StyledTextWrapper>
           </ColoringWrapperInner>
         ))}
       </ColoringWrapper>
+            {isModalOpen && (
+              <FarglaggImageModal
+                imageSrc={selectedImage.src}
+                imageAlt={selectedImage.alt}
+                onClose={closeModal}
+              />
+            )}
     </BackgroundOriginal>
   );
 };

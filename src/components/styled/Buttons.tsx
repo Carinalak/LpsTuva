@@ -46,24 +46,26 @@ export const ButtonWrapper = styled.div `
     }
 `;
 
-// ------------- Christmas Button ------------------------------- //
+export const FarglaggButton = styled(Button) `
 
-export const JulButton = styled(Button) `
-  background-color: ${CHRISTMAS_RED}; 
-
-  background-color: #C91212;
-  border: 1px solid ${JULGULD}; 
+background-color: transparent;
+width: 100px;
+padding: 0;
+font-size: 0.9rem;
+font-weight: 400;
 
   &:hover {
-    background-color: #e85050;
-    color: ${KRITVIT};
+    background-color: transparent;
+    color: ${SMUTSROSA};
   }
   &:active {
-    background-color: #f1d85c;
-    color: ${KRITVIT};
+    background-color:transparent;
+    color: ${POOLBLA};
   }
+
 `;
 
+// ---------------------- Arrow buttons ------------------------------- //
 
 export const ButtonArrowLeft = styled(Button)`
   padding: 0;
@@ -91,7 +93,6 @@ export const ButtonArrowLeft = styled(Button)`
     height: 80px;
     background-size: 62px 62px;
   }
-
 `;
 
 export const ButtonArrowRight = styled(Button)`
@@ -118,6 +119,24 @@ export const ButtonArrowRight = styled(Button)`
     width: 80px;
     height: 80px;
     background-size: 62px 62px;
+  }
+`;
+
+// ------------- Christmas Button ------------------------------- //
+
+export const JulButton = styled(Button) `
+  background-color: ${CHRISTMAS_RED}; 
+
+  background-color: #C91212;
+  border: 1px solid ${JULGULD}; 
+
+  &:hover {
+    background-color: #e85050;
+    color: ${KRITVIT};
+  }
+  &:active {
+    background-color: #f1d85c;
+    color: ${KRITVIT};
   }
 `;
 
