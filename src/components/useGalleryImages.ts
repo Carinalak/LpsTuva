@@ -36,6 +36,7 @@ const images = [
   { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
   
 ];
+
 export const useGalleryImages = (sortBy: string) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [imagesPerPage, setImagesPerPage] = useState(1);
@@ -73,7 +74,7 @@ export const useGalleryImages = (sortBy: string) => {
     };
   }, [updateImagesPerPage, validateCurrentPage]);
 
-  // ⚠️ FIX: Återställ sidan till 1 när sorteringsalternativet ändras
+  // Återställ sidan till 1 när sorteringsalternativet ändras
   useEffect(() => {
     setCurrentPage(1);
   }, [sortBy]);
