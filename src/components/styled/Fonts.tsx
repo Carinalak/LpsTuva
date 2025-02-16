@@ -155,3 +155,21 @@ width: 100px ;     // Måste vara samma width som FarglaggImage
   }
 
 `;
+
+export const StyledTextWhiteCenter = styled.div `
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: ${KRITVIT};
+font-size: 0.8rem;
+padding-top: 10px;
+//width: 90% ;
+padding-top: 30px;
+padding-bottom: 10px;
+
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+
+  }
+
+`;

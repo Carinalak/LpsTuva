@@ -1,24 +1,66 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond, StyledLinkWhite, StyledTextWhiteCenter } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors, BrushSize } from "./RitblockStyle";
 import { useLocation } from "react-router-dom";
+import { Board, Toolbox, ControlBox, ClearBoardBtn, SaveBoardBtn, UndoBtn, RedoBtn } from "../ritblock/RitblockStyle";
+import { Accessories, AnimalContainer, Animals, Canvas  } from "./GarderobStyle";
+import { useAccessories, useAnimals } from "../useGarderobImages";
 
-export const Ritblock = () => {
+
+
+export const LpsGarderoben = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [color, setColor] = useState("#000000");
-  const [brushSize, setBrushSize] = useState(5);
-  const [isEraser, setIsEraser] = useState(false);
+  //const [color, setColor] = useState("#000000");
+  //const [isEraser, setIsEraser] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
   const location = useLocation();
+  const items = useAccessories();
+  const animals = useAnimals();
+  const [selectedAnimal, setSelectedAnimal ] = useState<string | null>(null);
  
 
   const imageSrc = new URLSearchParams(location.search).get("image");
-
-
+  useEffect(() => {
+    if (!selectedAnimal || !canvasRef.current) return;
+  
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+  
+    // Anpassa för högre upplösning
+    const scaleFactor = window.devicePixelRatio || 1;
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight;
+  
+    canvas.width = width * scaleFactor;
+    canvas.height = height * scaleFactor;
+    ctx.scale(scaleFactor, scaleFactor);
+  
+    const img = new Image();
+    img.src = selectedAnimal;
+  
+    img.onload = () => {
+      const aspectRatio = img.width / img.height;
+      let newWidth, newHeight;
+  
+      if (width / height > aspectRatio) {
+        newHeight = height;
+        newWidth = height * aspectRatio;
+      } else {
+        newWidth = width;
+        newHeight = width / aspectRatio;
+      }
+  
+      const offsetX = (width - newWidth) / 2;
+      const offsetY = (height - newHeight) / 2;
+  
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+    };
+  }, [selectedAnimal]);
+  
 
 
 
@@ -111,15 +153,15 @@ export const Ritblock = () => {
       document.removeEventListener("touchmove", preventScroll);
     };
   }, []);
-
+/*
   const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
     const rect = canvas.getBoundingClientRect();
     return {
       offsetX: touch.clientX - rect.left,
       offsetY: touch.clientY - rect.top,
     };
-  };
-
+  };*/
+/*
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     e.preventDefault();
     document.body.style.overflow = "hidden"; // Stoppa scrollning medan man ritar
@@ -139,15 +181,13 @@ export const Ritblock = () => {
 
     setHistory((prev) => [...prev, canvas.toDataURL()]);
     setRedoHistory([]);
-    ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color; // Använd rätt färg beroende på om suddgummi är aktivt
-    ctxRef.current.lineWidth = brushSize;
     ctxRef.current.beginPath();
     ctxRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
   };
+*/
 
-
-
+/*
   const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
   if (!isDrawing || !ctxRef.current) return;
   e.preventDefault();
@@ -178,15 +218,7 @@ export const Ritblock = () => {
   ctxRef.current.lineTo(offsetX, offsetY);
   ctxRef.current.stroke();
 };
-
-
-  const stopDrawing = () => {
-    if (ctxRef.current) {
-      ctxRef.current.closePath();
-    }
-    setIsDrawing(false);
-    document.body.style.overflow = "";
-  };
+*/
 
   const clearCanvas = () => {
     const canvas = canvasRef.current;
@@ -208,20 +240,30 @@ export const Ritblock = () => {
   };
 
   const undoLast = () => {
-    if (history.length === 0 || !canvasRef.current || !ctxRef.current) return;
-    const ctx = ctxRef.current;
-    const canvas = canvasRef.current;
-    const previousState = history.pop();
-    if (!previousState) return;
-    setRedoHistory((prev) => [...prev, canvas.toDataURL()]);
+  if (history.length === 0 || !canvasRef.current || !ctxRef.current) return;
 
-    const img = new Image();
-    img.src = previousState;
-    img.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0);
-    };
+  const ctx = ctxRef.current;
+  const canvas = canvasRef.current;
+
+  // Spara nuvarande tillstånd till redoHistory innan vi går bakåt
+  const currentState = canvas.toDataURL();
+  setRedoHistory((prev) => [...prev, currentState]);
+
+  // Ta bort senaste tillståndet från history
+  const previousState = history[history.length - 1];
+  setHistory((prev) => prev.slice(0, prev.length - 1));
+
+  if (!previousState) return;
+
+  // Återställ canvasen till det tidigare tillståndet
+  const img = new Image();
+  img.src = previousState;
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Rensa canvasen innan vi ritar om
+    ctx.drawImage(img, 0, 0); // Rita om den tidigare bilden
   };
+};
+
 
   const redoLast = () => {
     if (redoHistory.length === 0 || !canvasRef.current || !ctxRef.current) return;
@@ -239,65 +281,38 @@ export const Ritblock = () => {
     };
   };
 
-  const handleColorChange = (newColor: string) => {
-    setIsEraser(false);
-    setColor(newColor);
-  };
-
-  const togglePen = () => {
-    setIsEraser(false);
-    setColor("#000000");  // Återställ till standardfärgen (kan ändras till den senaste färgen om så önskas)
-  };
-
-  const toggleEraser = () => {
-    setIsEraser(true);
-    setColor("#FFFFFF");  // Sätt färgen till vitt för suddgummit
-  };
 
   return ( <>
     <BackgroundOriginal>
-      <H1WhiteSecond>Ritblock</H1WhiteSecond>
+      <H1WhiteSecond>Lps Garderoben</H1WhiteSecond>
       <Board>
         <Toolbox>
-          {/* Färgval på första raden */}
-          <Colors>
-            {["#000000", "#4c3030", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
-              <ColorBtn 
-                key={c} 
-                style={{
-                  backgroundColor: c, 
-                  border: color === c ? "2px solid #000000" : "none"  // Sätt border om den är vald
-                }} 
-                onClick={() => handleColorChange(c)} 
-              />
+          {/* Accessories på första raden */}
+          <Accessories>
+            {items.map((item, index) => (
+              <img key={index} src={item.src} alt={item.alt} loading="lazy" width={item.width} height={item.height}/>
             ))}
-          </Colors>
+          </Accessories>
 
-          {/* Andra raden: Penselstorlek till vänster och verktyg till höger */}
+          {/* Andra raden: inget till vänster och djur till höger */}
           <div>
-            {/* Penselstorlek */}
-            <BrushSize>
-              <input type="range" min="1" max="20" value={brushSize} onChange={(e) => setBrushSize(Number(e.target.value))} />
-              <span>{brushSize}px</span>
-            </BrushSize>
+            {/* Empry on this side */}
+            <div></div>
 
             {/* Penna och Suddgummi till höger */}
-            <EraserPenContainer>
-              <PenBtn onClick={togglePen} />
-              <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
-            </EraserPenContainer>
+            <AnimalContainer>
+                          {/* Djur */}
+            <Animals>
+                {animals.map((animal, index) => (
+                  <img key={index} src={animal.src} width={animal.width} onClick={() => setSelectedAnimal(animal.src + "?t=" + new Date().getTime())} />
+                ))}
+            </Animals>
+            </AnimalContainer>
           </div>
         </Toolbox>
 
         <Canvas
           ref={canvasRef}
-          isEraser={isEraser}
-          onMouseDown={startDrawing}
-          onMouseMove={draw}
-          onMouseUp={stopDrawing}
-          onTouchStart={startDrawing}
-          onTouchMove={draw}
-          onTouchEnd={stopDrawing}
         />
         <ControlBox>
           <ClearBoardBtn onClick={clearCanvas} />
