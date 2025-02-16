@@ -4,7 +4,7 @@ import { useFarglaggImages } from "../useFarglaggImages";
 
 
 export const FarglaggNu = () => {
-  const images = useFarglaggImages(); // Hämtar listan med bilder
+  const images = useFarglaggImages();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -19,13 +19,13 @@ export const FarglaggNu = () => {
                 src={image.src}
                 alt={image.alt}
                 style={{ width: "100px", cursor: "pointer", border: "1px solid black" }}
-                onClick={() => setSelectedImage(image.src)} // Sätter vald bild
+                onClick={() => setSelectedImage(image.src)}
               />
             ))}
           </div>
         </div>
       ) : (
-        <Ritblock imageSrc={selectedImage} /> // Skickar bilden till Ritblock
+        <Ritblock/>
       )}
     </div>
   );

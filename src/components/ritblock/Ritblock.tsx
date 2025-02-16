@@ -2,8 +2,9 @@ import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
 import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors, BrushSize } from "./RitblockStyle";
+import { useLocation } from "react-router-dom";
 
-export const Ritblock = ({ imageSrc }: { imageSrc?: string }) => {
+export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -12,6 +13,10 @@ export const Ritblock = ({ imageSrc }: { imageSrc?: string }) => {
   const [isEraser, setIsEraser] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
+  const location = useLocation();
+ 
+
+  const imageSrc = new URLSearchParams(location.search).get("image");
 
 
 

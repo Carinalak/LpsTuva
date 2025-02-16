@@ -4,20 +4,18 @@ import { BackgroundOriginal, ColoringWrapper, ColoringWrapperInner, WhiteFont } 
 import { useFarglaggImages } from "../components/useFarglaggImages";
 import { useState } from "react";
 import { FarglaggImageModal } from "../components/FarglaggImageModal";
-import { Ritblock } from "../components/ritblock/Ritblock";
-
-
-
+import { useNavigate } from "react-router-dom";
 
 
 export const Farglagg = () => {
   const images = useFarglaggImages();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
-  const [selectedImageForDrawing, setSelectedImageForDrawing] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleFarglagg = (imageSrc: string) => {
-  setSelectedImageForDrawing(imageSrc);
+
+  navigate(`/ritblock?image=${encodeURIComponent(imageSrc)}`);
 };
 
   
@@ -71,9 +69,7 @@ export const Farglagg = () => {
 
   return (
     <BackgroundOriginal>
-          {selectedImageForDrawing ? (
-      <Ritblock imageSrc={selectedImageForDrawing} />
-    ) : (
+
       <ColoringWrapper>
         <H1WhiteSecond>Färgläggning</H1WhiteSecond>
         <WhiteFont>Här kan du färglägga, skriva ut eller ladda ner bilder.</WhiteFont>
@@ -89,7 +85,7 @@ export const Farglagg = () => {
           </ColoringWrapperInner>
         ))}
       </ColoringWrapper>
-    )}
+
             {isModalOpen && (
               <FarglaggImageModal
                 imageSrc={selectedImage.src}
