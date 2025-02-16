@@ -4,6 +4,7 @@ import { BackgroundOriginal, ColoringWrapper, ColoringWrapperInner, WhiteFont } 
 import { useFarglaggImages } from "../components/useFarglaggImages";
 import { useState } from "react";
 import { FarglaggImageModal } from "../components/FarglaggImageModal";
+import { Ritblock } from "../components/ritblock/Ritblock";
 
 
 
@@ -11,8 +12,14 @@ import { FarglaggImageModal } from "../components/FarglaggImageModal";
 
 export const Farglagg = () => {
   const images = useFarglaggImages();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
+  const [selectedImageForDrawing, setSelectedImageForDrawing] = useState<string | null>(null);
+
+  const handleFarglagg = (imageSrc: string) => {
+  setSelectedImageForDrawing(imageSrc);
+};
+
   
     const openModal = (src: string, alt: string) => {
       setSelectedImage({ src, alt });
@@ -64,20 +71,25 @@ export const Farglagg = () => {
 
   return (
     <BackgroundOriginal>
+          {selectedImageForDrawing ? (
+      <Ritblock imageSrc={selectedImageForDrawing} />
+    ) : (
       <ColoringWrapper>
         <H1WhiteSecond>Färgläggning</H1WhiteSecond>
-        <WhiteFont>Här kan du skriva ut, eller ladda ner bilder att färglägga.</WhiteFont>
+        <WhiteFont>Här kan du färglägga, skriva ut eller ladda ner bilder.</WhiteFont>
 
         {images.map((image, index) => (
           <ColoringWrapperInner key={index}>
             <FarglaggImage src={image.src} alt={image.alt} loading="lazy" onClick={() => openModal(image.src, image.alt)}/>
               <StyledTextWrapper>
+                <StyledTextWhite onClick={() => handleFarglagg(image.src)}>Färglägg</StyledTextWhite>
                 <StyledTextWhite onClick={() => handlePrint(image.src)}>Skriv ut</StyledTextWhite>
                 <StyledTextWhite onClick={() => handleDownload(image.src)}>Ladda ned</StyledTextWhite>
               </StyledTextWrapper>
           </ColoringWrapperInner>
         ))}
       </ColoringWrapper>
+    )}
             {isModalOpen && (
               <FarglaggImageModal
                 imageSrc={selectedImage.src}

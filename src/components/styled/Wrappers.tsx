@@ -3,7 +3,7 @@ import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGR
 
 
 export const WrapperWhite = styled.section`
-width: 80%;
+width: 90%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -19,6 +19,7 @@ font-family: "Playpen Sans", serif;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
    // width: 600px;
+   width: 80%;
     padding-bottom: 20px;
   }
 

@@ -3,7 +3,7 @@ import { H1WhiteSecond } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
 import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, ColorBtn, Colors, BrushSize } from "./RitblockStyle";
 
-export const Ritblock = () => {
+export const Ritblock = ({ imageSrc }: { imageSrc?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -12,6 +12,52 @@ export const Ritblock = () => {
   const [isEraser, setIsEraser] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
+
+
+
+
+
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+  
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      ctx.lineCap = "round";
+      ctxRef.current = ctx;
+  
+      // Om en bild är vald, rita ut den på canvas
+      if (imageSrc) {
+        const img = new Image();
+        img.src = imageSrc;
+        img.onload = () => {
+          const aspectRatio = img.width / img.height; // Bildens aspect ratio
+          const canvasWidth = canvas.width;
+          const canvasHeight = canvas.height;
+  
+          let newWidth, newHeight;
+  
+          // Behåll proportionerna och anpassa storleken så att bilden passar inom canvasen
+          if (canvasWidth / canvasHeight > aspectRatio) {
+            newHeight = canvasHeight;
+            newWidth = canvasHeight * aspectRatio;
+          } else {
+            newWidth = canvasWidth;
+            newHeight = canvasWidth / aspectRatio;
+          }
+  
+          // Beräkna positionen för att centrera bilden på canvasen
+          const offsetX = (canvasWidth - newWidth) / 2;
+          const offsetY = (canvasHeight - newHeight) / 2;
+  
+          // Rita ut bilden centrerad på canvasen
+          ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+        };
+      }
+    }
+  }, [imageSrc]); // Kör om imageSrc ändras
+  
 
   useEffect(() => {
     const updateCanvasSize = () => {
@@ -45,20 +91,22 @@ export const Ritblock = () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
   }, []);
-    // Förhindra scroll & pull-to-refresh på mobilen
-    useEffect(() => {
-      const preventScroll = (e: TouchEvent) => {
-        if (e.target === canvasRef.current) {
-          e.preventDefault();
-        }
-      };
-  
-      document.addEventListener("touchmove", preventScroll, { passive: false });
-  
-      return () => {
-        document.removeEventListener("touchmove", preventScroll);
-      };
-    }, []);
+
+  // Förhindra scroll & pull-to-refresh på mobilen
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      if (e.target === canvasRef.current) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+
+    return () => {
+      document.removeEventListener("touchmove", preventScroll);
+    };
+  }, []);
+
   const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
     const rect = canvas.getBoundingClientRect();
     return {
@@ -93,25 +141,39 @@ export const Ritblock = () => {
     setIsDrawing(true);
   };
 
+
+
   const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDrawing || !ctxRef.current) return;
-    e.preventDefault();
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  if (!isDrawing || !ctxRef.current) return;
+  e.preventDefault();
 
-    let offsetX: number, offsetY: number;
+  const canvas = canvasRef.current;
+  if (!canvas) return;
 
-    if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
-      offsetX = e.nativeEvent.offsetX;
-      offsetY = e.nativeEvent.offsetY;
-    } else {
-      const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
-      ({ offsetX, offsetY } = getTouchPos(canvas, touch));
-    }
+  let offsetX: number, offsetY: number;
 
-    ctxRef.current.lineTo(offsetX, offsetY);
-    ctxRef.current.stroke();
-  };
+  if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
+    offsetX = e.nativeEvent.offsetX;
+    offsetY = e.nativeEvent.offsetY;
+  } else {
+    const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
+    ({ offsetX, offsetY } = getTouchPos(canvas, touch));
+  }
+
+  // Hämta pixeldata på den positionen där användaren försöker rita
+  const imageData = ctxRef.current.getImageData(offsetX, offsetY, 1, 1);
+  const [r, g, b, a] = imageData.data;
+
+  // Kontrollera om pixeln är svart eller har en specifik färg (kan justeras)
+  if (r === 0 && g === 0 && b === 0 && a !== 0) { // Svart pixel
+    return; // Stoppa ritning om den är svart
+  }
+
+  // Om inte, fortsätt rita
+  ctxRef.current.lineTo(offsetX, offsetY);
+  ctxRef.current.stroke();
+};
+
 
   const stopDrawing = () => {
     if (ctxRef.current) {
@@ -180,12 +242,12 @@ export const Ritblock = () => {
   const togglePen = () => {
     setIsEraser(false);
     setColor("#000000");  // Återställ till standardfärgen (kan ändras till den senaste färgen om så önskas)
-};
+  };
 
-const toggleEraser = () => {
+  const toggleEraser = () => {
     setIsEraser(true);
     setColor("#FFFFFF");  // Sätt färgen till vitt för suddgummit
-};
+  };
 
   return (
     <BackgroundOriginal>
@@ -193,7 +255,6 @@ const toggleEraser = () => {
       <Board>
         <Toolbox>
           {/* Färgval på första raden */}
-
           <Colors>
             {["#000000", "#4c3030", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#560d8a", "#FF00FF"].map((c) => (
               <ColorBtn 
@@ -207,22 +268,22 @@ const toggleEraser = () => {
             ))}
           </Colors>
 
-           {/* Andra raden: Penselstorlek  till vänster och verktyg till höger */}
-           <div>
-                      {/* Penselstorlek */}
-          <BrushSize>
-            <input type="range" min="1" max="20" value={brushSize} onChange={(e) => setBrushSize(Number(e.target.value))} />
-            <span>{brushSize}px</span>
-          </BrushSize>
-           
+          {/* Andra raden: Penselstorlek till vänster och verktyg till höger */}
+          <div>
+            {/* Penselstorlek */}
+            <BrushSize>
+              <input type="range" min="1" max="20" value={brushSize} onChange={(e) => setBrushSize(Number(e.target.value))} />
+              <span>{brushSize}px</span>
+            </BrushSize>
+
             {/* Penna och Suddgummi till höger */}
             <EraserPenContainer>
-            
-            <PenBtn onClick={togglePen} />
-            <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
-          </EraserPenContainer>
+              <PenBtn onClick={togglePen} />
+              <EraserBtn onClick={toggleEraser} className={isEraser ? "bg-gray-300" : "bg-white"} />
+            </EraserPenContainer>
           </div>
         </Toolbox>
+
         <Canvas
           ref={canvasRef}
           isEraser={isEraser}
