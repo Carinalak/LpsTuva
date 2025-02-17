@@ -110,49 +110,52 @@ export const LpsGarderoben = () => {
     const updateCanvasSize = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-
-      const prevData = canvas.toDataURL();
+  
       const tempWidth = canvas.offsetWidth;
       const tempHeight = canvas.offsetHeight;
-
+  
       canvas.width = tempWidth;
       canvas.height = tempHeight;
-
+  
       const ctx = canvas.getContext("2d");
       if (ctx) {
         ctx.lineCap = "round";
         ctxRef.current = ctx;
-
-        const img = new Image();
-        img.src = prevData;
-        img.onload = () => {
-          ctx.drawImage(img, 0, 0);
-        };
+  
+        // Om det finns en bild, rita om den
+        if (selectedAnimal) {
+          const img = new Image();
+          img.src = selectedAnimal;
+          img.onload = () => {
+            const aspectRatio = img.width / img.height;
+            let newWidth, newHeight;
+  
+            if (tempWidth / tempHeight > aspectRatio) {
+              newHeight = tempHeight;
+              newWidth = tempHeight * aspectRatio;
+            } else {
+              newWidth = tempWidth;
+              newHeight = tempWidth / aspectRatio;
+            }
+  
+            const offsetX = (tempWidth - newWidth) / 2;
+            const offsetY = (tempHeight - newHeight) / 2;
+  
+            ctx.clearRect(0, 0, tempWidth, tempHeight);
+            ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+          };
+        }
       }
     };
-
+  
     updateCanvasSize();
     window.addEventListener("resize", updateCanvasSize);
-
+  
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
-  }, []);
-
-  // Förhindra scroll & pull-to-refresh på mobilen
-  useEffect(() => {
-    const preventScroll = (e: TouchEvent) => {
-      if (e.target === canvasRef.current) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener("touchmove", preventScroll, { passive: false });
-
-    return () => {
-      document.removeEventListener("touchmove", preventScroll);
-    };
-  }, []);
+  }, [selectedAnimal]); // Lägg till beroende så att den alltid omritas
+  
 /*
   const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
     const rect = canvas.getBoundingClientRect();
@@ -219,48 +222,45 @@ export const LpsGarderoben = () => {
   ctxRef.current.stroke();
 };
 */
+const saveCanvas = () => {
+  const canvas = canvasRef.current;
+  if (!canvas) return;
 
-  const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    if (canvas && ctxRef.current) {
-      setHistory((prev) => [...prev, canvas.toDataURL()]);
-      setRedoHistory([]);
-      ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
-    }
-  };
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = "my_drawing.png";
+  link.click();
+};
 
-  const saveCanvas = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+const clearCanvas = () => {
+  const canvas = canvasRef.current;
+  if (!canvas || !ctxRef.current) return;
 
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
-    link.download = "my_drawing.png";
-    link.click();
-  };
 
-  const undoLast = () => {
+  const currentState = canvas.toDataURL();
+  setHistory((prev) => [...prev, currentState]);
+  setRedoHistory([]);
+
+
+  ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
+};
+
+const undoLast = () => {
   if (history.length === 0 || !canvasRef.current || !ctxRef.current) return;
 
   const ctx = ctxRef.current;
   const canvas = canvasRef.current;
 
-  // Spara nuvarande tillstånd till redoHistory innan vi går bakåt
-  const currentState = canvas.toDataURL();
-  setRedoHistory((prev) => [...prev, currentState]);
-
-  // Ta bort senaste tillståndet från history
-  const previousState = history[history.length - 1];
-  setHistory((prev) => prev.slice(0, prev.length - 1));
-
+  const previousState = history.pop();
   if (!previousState) return;
 
-  // Återställ canvasen till det tidigare tillståndet
+  setRedoHistory((prev) => [...prev, canvas.toDataURL()]);
+
   const img = new Image();
   img.src = previousState;
   img.onload = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Rensa canvasen innan vi ritar om
-    ctx.drawImage(img, 0, 0); // Rita om den tidigare bilden
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
   };
 };
 
@@ -271,6 +271,7 @@ export const LpsGarderoben = () => {
     const canvas = canvasRef.current;
     const nextState = redoHistory.pop();
     if (!nextState) return;
+    
     setHistory((prev) => [...prev, canvas.toDataURL()]);
 
     const img = new Image();
