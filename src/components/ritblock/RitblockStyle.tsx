@@ -120,7 +120,7 @@ export const ControlBox = styled.div `
 
 `;
 
-export const UndoBtn = styled.button` // År mall för de andra knapparna i Controlbox
+export const UndoBtn = styled.button` // Är mall för de andra knapparna i Controlbox
   padding: 0;
   border: none;
   border-radius: 10px;
@@ -176,6 +176,7 @@ export const EraserBtn = styled(UndoBtn) `
     cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
   }
 `;
+
 export const PenBtn = styled(UndoBtn)`
   background-image: url(${PaintBrush});
 

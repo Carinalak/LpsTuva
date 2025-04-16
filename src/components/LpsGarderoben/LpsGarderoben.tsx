@@ -3,8 +3,8 @@ import { H1WhiteSecond, StyledLinkWhite, StyledTextWhiteCenter } from "../styled
 import { BackgroundOriginal } from "../styled/Wrappers";
 import { useLocation } from "react-router-dom";
 import { Board, Toolbox, ControlBox, ClearBoardBtn, SaveBoardBtn, UndoBtn, RedoBtn } from "../ritblock/RitblockStyle";
-import { Accessories, AnimalContainer, Animals, Canvas  } from "./GarderobStyle";
-import { useAccessories, useAnimals } from "../useGarderobImages";
+import { Accessories, AnimalContainer, Animals, Canvas, Item  } from "./GarderobStyle";
+import { useAccessories, useAnimals } from "./useGarderobImages";
 
 
 
@@ -19,6 +19,8 @@ export const LpsGarderoben = () => {
   const items = useAccessories();
   const animals = useAnimals();
   const [selectedAnimal, setSelectedAnimal ] = useState<string | null>(null);
+  const [selectedAccessory, setSelectedAccessory] = useState<string | null>(null);
+
  
 
   const imageSrc = new URLSearchParams(location.search).get("image");
@@ -155,73 +157,8 @@ export const LpsGarderoben = () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
   }, [selectedAnimal]); // Lägg till beroende så att den alltid omritas
-  
-/*
-  const getTouchPos = (canvas: HTMLCanvasElement, touch: Touch) => {
-    const rect = canvas.getBoundingClientRect();
-    return {
-      offsetX: touch.clientX - rect.left,
-      offsetY: touch.clientY - rect.top,
-    };
-  };*/
-/*
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    document.body.style.overflow = "hidden"; // Stoppa scrollning medan man ritar
+ 
 
-    const canvas = canvasRef.current;
-    if (!canvas || !ctxRef.current) return;
-
-    let offsetX: number, offsetY: number;
-
-    if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
-      offsetX = e.nativeEvent.offsetX;
-      offsetY = e.nativeEvent.offsetY;
-    } else {
-      const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
-      ({ offsetX, offsetY } = getTouchPos(canvas, touch));
-    }
-
-    setHistory((prev) => [...prev, canvas.toDataURL()]);
-    setRedoHistory([]);
-    ctxRef.current.beginPath();
-    ctxRef.current.moveTo(offsetX, offsetY);
-    setIsDrawing(true);
-  };
-*/
-
-/*
-  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-  if (!isDrawing || !ctxRef.current) return;
-  e.preventDefault();
-
-  const canvas = canvasRef.current;
-  if (!canvas) return;
-
-  let offsetX: number, offsetY: number;
-
-  if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
-    offsetX = e.nativeEvent.offsetX;
-    offsetY = e.nativeEvent.offsetY;
-  } else {
-    const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
-    ({ offsetX, offsetY } = getTouchPos(canvas, touch));
-  }
-
-  // Hämta pixeldata på den positionen där användaren försöker rita
-  const imageData = ctxRef.current.getImageData(offsetX, offsetY, 1, 1);
-  const [r, g, b, a] = imageData.data;
-
-  // Kontrollera om pixeln är svart eller har en specifik färg (kan justeras)
-  if (r === 0 && g === 0 && b === 0 && a !== 0) { // Svart pixel
-    return; // Stoppa ritning om den är svart
-  }
-
-  // Om inte, fortsätt rita
-  ctxRef.current.lineTo(offsetX, offsetY);
-  ctxRef.current.stroke();
-};
-*/
 const saveCanvas = () => {
   const canvas = canvasRef.current;
   if (!canvas) return;
@@ -281,7 +218,50 @@ const undoLast = () => {
       ctx.drawImage(img, 0, 0);
     };
   };
+  
+  const setCursorToAccessory = (accessorySrc: string) => {
+    // När användaren klickar på en accessoar, uppdatera muspekaren med den bild som klickades
+    document.body.style.cursor = "url('../../assets/images/garderoben/klader/rosett_prickig.png') 16 32, auto";
+    const cursorImage = new Image();
+    cursorImage.src = accessorySrc;
+  
+    cursorImage.onload = () => {
+      //document.body.style.cursor = "url('../../assets/images/garderoben/klader/rosett_prickig.png') 16 32, auto";
+      // När bilden har laddats, sätt den som muspekare../../assets/images/garderoben/klader/rosett_prickig.png
+      //document.body.style.cursor = `url(${new URL("", import.meta.url).href})  32 32, auto`;
+      //document.body.style.cursor = `url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href})  32 32, auto`;
+      //document.body.style.cursor = `url(${cursorImage.src})}) 32 32, auto`;
+      //document.body.style.cursor = `url(${cursorImage.src}) 32 32, auto`;
+      //url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href})
 
+    };
+  
+    // Markera att en accessoar har valts och kan placeras på canvasen
+    setSelectedAccessory(accessorySrc); 
+  };
+  
+  
+  const placeAccessoryOnCanvas = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!selectedAccessory) return;
+  
+    const canvas = canvasRef.current;
+    if (!canvas || !ctxRef.current) return;
+  
+    // Hämta positionen där användaren klickade på canvasen
+    const rect = canvas.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+  
+    const img = new Image();
+    img.src = selectedAccessory;
+  
+    img.onload = () => {
+      // Rita accessoaren på canvasen vid musens position
+      ctxRef.current?.drawImage(img, offsetX - 20, offsetY - 20, 40, 40); // Justera positionen och storleken här
+    };
+  };
+  
+  
 
   return ( <>
     <BackgroundOriginal>
@@ -291,7 +271,7 @@ const undoLast = () => {
           {/* Accessories på första raden */}
           <Accessories>
             {items.map((item, index) => (
-              <img key={index} src={item.src} alt={item.alt} loading="lazy" width={item.width} height={item.height}/>
+              <Item key={index} src={item.src} alt={item.alt} loading="lazy" width={item.width} height={item.height} onClick={() => setCursorToAccessory(item.src)}/>
             ))}
           </Accessories>
 
@@ -313,8 +293,10 @@ const undoLast = () => {
         </Toolbox>
 
         <Canvas
-          ref={canvasRef}
-        />
+            ref={canvasRef}
+            onClick={placeAccessoryOnCanvas}
+          />
+
         <ControlBox>
           <ClearBoardBtn onClick={clearCanvas} />
           <SaveBoardBtn onClick={saveCanvas} />

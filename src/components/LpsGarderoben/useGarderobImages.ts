@@ -1,6 +1,6 @@
-import Gris from '../assets/images/garderoben/lps/gris_stor.png';
-import Apple from '../assets/images/garderoben/mat/apple.png';
-import RosettPrickig from '../assets/images/garderoben/klader/rosett_prickig.png';
+import Gris from '../../assets/images/garderoben/lps/gris_stor.png';
+import Apple from '../../assets/images/garderoben/mat/apple.png';
+import RosettPrickig from '../../assets/images/garderoben/klader/rosett_prickig.png';
 
 
 

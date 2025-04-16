@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/winter/SealOnIce.jpg';
+import HomeImage from '../assets/images/galleri/spring/brun_katt_korsbarsblommor.jpg';
 
 export const HomeImg = styled.img `
   width: 300px;

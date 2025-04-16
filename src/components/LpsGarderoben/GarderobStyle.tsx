@@ -3,9 +3,36 @@ import { BREAKPOINT_TABLET, BREAKPOINT_DESKTOP } from "../styled/Variables";
 
 export const Accessories = styled.div `
 margin-left: 10px;
+
 `;
 
 
+export const Item = styled.img`
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+
+  //background-size: 35px 35px;
+  //background-repeat: no-repeat;
+  //background-position: center;
+ // background-color: transparent;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: -5px;
+  cursor: pointer;
+  //-webkit-tap-highlight-color: transparent;
+
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+      //cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
+    }
+    &:focus {
+    cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
+  }
+
+  `;
 
 
 export const Animals = styled.div `

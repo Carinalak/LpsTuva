@@ -309,7 +309,7 @@ export const Ritblock = () => {
 
     </BackgroundOriginal>
     <StyledTextWhiteCenter>
-      <StyledLinkWhite to="https://www.flaticon.com/free-icons/paint-brush" title="paint brush icons">Paint brush icons created by Freepik - Flaticon</StyledLinkWhite>
+      <StyledLinkWhite to="https://www.flaticon.com/free-icons/paint-brush" title="paint brush and icons">Paint brush and icons created by Freepik - Flaticon</StyledLinkWhite>
     </StyledTextWhiteCenter>
  </>);
 };
