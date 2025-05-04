@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond, StyledLinkWhite, StyledTextWhiteCenter } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
-import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, Colors, BrushSize } from "./RitblockStyle";
+import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, Colors, BrushSize, NewBtn, FarglaggBtn } from "./RitblockStyle";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export const Ritblock = () => {
@@ -18,8 +19,7 @@ export const Ritblock = () => {
   const location = useLocation();
   const [selectedColor, setSelectedColor] = useState("#C985E5");
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
-
-
+  const navigate = useNavigate();
 
   const imageSrc = new URLSearchParams(location.search).get("image");
   useEffect(() => {
@@ -291,11 +291,33 @@ export const Ritblock = () => {
                     ctx.drawImage(img, 0, 0);
 
         };
-      }
-
+}
+        // Rita tillbaka endast penseldragen
+        ctx.drawImage(img, 0, 0);
     };
 };
 
+const createNewCanvas = () => {
+  const canvas = canvasRef.current;
+  const bgCanvas = backgroundCanvasRef.current;
+
+  if (canvas && ctxRef.current && bgCanvas) {
+    // Töm historik
+    setHistory([]);
+    setRedoHistory([]);
+
+    // Töm canvas och bakgrund
+    ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
+
+    const bgCtx = bgCanvas.getContext("2d");
+    if (bgCtx) {
+      bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    }
+
+    // Töm eventuell sparad bakgrundsbild
+    setBackgroundImage(null);
+  }
+};
 
   
   const redoLast = () => {
@@ -394,8 +416,10 @@ export const Ritblock = () => {
             onTouchEnd={stopDrawing}
           />
           <ControlBox>
-            <ClearBoardBtn onClick={clearCanvas} />
+            <NewBtn onClick={createNewCanvas} />
+            <FarglaggBtn onClick={() => navigate("/farglagg")} />
             <SaveBoardBtn onClick={saveCanvas} />
+            <ClearBoardBtn onClick={clearCanvas} />
             <UndoBtn onClick={undoLast} />
             <RedoBtn onClick={redoLast} />
           </ControlBox>

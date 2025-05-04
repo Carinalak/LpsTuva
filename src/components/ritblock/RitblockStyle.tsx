@@ -8,6 +8,8 @@ import EraserButton from "../../assets/icons/eraser.png";
 import PaintBrush from "../../assets/icons/paint-brush.png";
 import SprayPaint from "../../assets/icons/spray-paint-tilt.png"
 import PaintBucket from "../../assets/icons/paint-bucket.png"
+import AddDocument from "../../assets/icons/add-document.png"
+import FarglaggIcon from "../../assets/icons/farglaggicon.png"
 
 
 export const Board = styled.div `
@@ -150,9 +152,15 @@ background-image: url(${RedoButton});
 export const ClearBoardBtn = styled(UndoBtn) `
 background-image: url(${ClearBoard});
 `;
+export const NewBtn = styled(UndoBtn) `
+background-image: url(${AddDocument});
+`;
 
 export const SaveBoardBtn = styled(UndoBtn) `
 background-image: url(${SaveBoard});
+`;
+export const FarglaggBtn = styled(UndoBtn) `
+background-image: url(${FarglaggIcon});
 `;
 
 export const EraserBtn = styled(UndoBtn) `
