@@ -13,7 +13,6 @@ export const Board = styled.div `
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-
 `;
 
 export const Canvas = styled.canvas.withConfig({
@@ -36,7 +35,6 @@ export const Canvas = styled.canvas.withConfig({
         ? "url(/eraser2.png) 16 32, auto"
         : "url(/paint-brush3.png) 0 0, auto"
     };
-
 
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -89,11 +87,9 @@ export const Toolbox = styled.div `
 
       @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         width: 600px;
-
           }
       @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
         width: 800px;
-
       }
 `;
 
@@ -111,13 +107,10 @@ export const ControlBox = styled.div `
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         width: 600px;
-
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     width: 800px;
-
     }
-
 `;
 
 export const UndoBtn = styled.button` // Är mall för de andra knapparna i Controlbox
@@ -150,17 +143,14 @@ export const UndoBtn = styled.button` // Är mall för de andra knapparna i Cont
 
 export const RedoBtn = styled(UndoBtn)`
 background-image: url(${RedoButton});
-
 `;
 
 export const ClearBoardBtn = styled(UndoBtn) `
 background-image: url(${ClearBoard});
-
 `;
 
 export const SaveBoardBtn = styled(UndoBtn) `
 background-image: url(${SaveBoard});
-
 `;
 
 export const EraserBtn = styled(UndoBtn) `
@@ -170,7 +160,6 @@ export const EraserBtn = styled(UndoBtn) `
   &:hover {
       transform: scale(1.3);
     }
-
 
   &:focus {
     cursor: url(${new URL("../../assets/icons/eraser2.png", import.meta.url).href}) 16 32, auto;
@@ -185,11 +174,9 @@ export const PenBtn = styled(UndoBtn)`
       transform: scale(1.3);
     }
 
-
   &:focus {
     cursor: url(${new URL("../../assets/icons/paint-brush2.png", import.meta.url).href}) 16 32, auto;
   }
-
 `;
 
 export const EraserPenContainer = styled.div `
