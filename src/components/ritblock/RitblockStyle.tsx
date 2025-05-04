@@ -6,6 +6,8 @@ import SaveBoard from "../../assets/icons/data-storage.png";
 import ClearBoard from "../../assets/icons/dust.png";
 import EraserButton from "../../assets/icons/eraser.png";
 import PaintBrush from "../../assets/icons/paint-brush.png";
+import SprayPaint from "../../assets/icons/spray-paint-tilt.png"
+import PaintBucket from "../../assets/icons/paint-bucket.png"
 
 
 export const Board = styled.div `
@@ -176,6 +178,32 @@ export const PenBtn = styled(UndoBtn)`
 
   &:focus {
     cursor: url(${new URL("../../assets/icons/paint-brush2.png", import.meta.url).href}) 16 32, auto;
+  }
+`;
+
+export const SprayBtn = styled(UndoBtn)`
+  background-image: url(${SprayPaint});
+  
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
+  &:focus {
+    cursor: url(${new URL("../../assets/icons/spray-paint-tilt.png", import.meta.url).href}) 16 32, auto;
+  }
+`;
+
+export const PaintBucketBtn = styled(UndoBtn)`
+  background-image: url(${PaintBucket});
+  
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+      transform: scale(1.3);
+    }
+
+  &:focus {
+    cursor: url(${new URL("../../assets/icons/paint-bucket.png", import.meta.url).href}) 16 32, auto;
   }
 `;
 

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 
 export const Ritblock = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const backgroundCanvasRef = useRef<HTMLCanvasElement>(null); // Ny referens
+  const backgroundCanvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [color, setColor] = useState("#C985E5");
@@ -17,10 +17,11 @@ export const Ritblock = () => {
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
   const location = useLocation();
   const [selectedColor, setSelectedColor] = useState("#C985E5");
+  const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
+
 
 
   const imageSrc = new URLSearchParams(location.search).get("image");
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -53,6 +54,8 @@ export const Ritblock = () => {
 
           ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
 
+          setBackgroundImage(canvas.toDataURL("image/png")); // Spara bakgrunden
+
           const bgCanvas = backgroundCanvasRef.current;
           if (bgCanvas) {
             const bgCtx = bgCanvas.getContext("2d");
@@ -65,7 +68,8 @@ export const Ritblock = () => {
         };
       }
     }
-  }, [imageSrc]);
+}, [imageSrc]);
+
 
   useEffect(() => {
     const updateCanvasSize = () => {
@@ -136,7 +140,11 @@ export const Ritblock = () => {
       ({ offsetX, offsetY } = getTouchPos(canvas, touch));
     }
 
-    setHistory((prev) => [...prev, canvas.toDataURL()]);
+    setHistory((prev) => [
+      ...prev,
+      canvasRef.current!.toDataURL("image/png")
+    ]);
+    
     setRedoHistory([]);
     ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
     ctxRef.current.lineWidth = brushSize;
@@ -229,6 +237,7 @@ export const Ritblock = () => {
     if (ctxRef.current) ctxRef.current.closePath();
     setIsDrawing(false);
     document.body.style.overflow = "";
+    
   };
 
   const clearCanvas = () => {
@@ -252,27 +261,50 @@ export const Ritblock = () => {
 
   const undoLast = () => {
     if (history.length === 0 || !canvasRef.current || !ctxRef.current) return;
+
     const ctx = ctxRef.current;
     const canvas = canvasRef.current;
     const previousState = history.pop();
     if (!previousState) return;
+
     setRedoHistory((prev) => [...prev, canvas.toDataURL()]);
 
     const img = new Image();
     img.src = previousState;
     img.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0);
-    };
-  };
+      // Återställ kontextinställningar
+      ctx.globalAlpha = 1.0;
+      ctx.shadowBlur = 0;
+      ctx.shadowColor = "transparent";
+      ctx.globalCompositeOperation = "source-over";
 
+      // Rensa ritlagret
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Rita om bakgrunden från backgroundImage
+      if (backgroundImage) {
+        const bgImg = new Image();
+        bgImg.src = backgroundImage;
+        bgImg.onload = () => {
+          ctx.drawImage(bgImg, 0, 0);
+                    // Rita tillbaka endast penseldragen
+                    ctx.drawImage(img, 0, 0);
+
+        };
+      }
+
+    };
+};
+
+
+  
   const redoLast = () => {
     if (redoHistory.length === 0 || !canvasRef.current || !ctxRef.current) return;
     const ctx = ctxRef.current;
     const canvas = canvasRef.current;
     const nextState = redoHistory.pop();
     if (!nextState) return;
-    setHistory((prev) => [...prev, canvas.toDataURL()]);
+    
 
     const img = new Image();
     img.src = nextState;
@@ -322,8 +354,6 @@ export const Ritblock = () => {
               }}
             />
           </Colors>
-
-
 
             <div>
               <BrushSize>
