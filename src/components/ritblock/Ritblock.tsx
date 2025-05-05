@@ -22,6 +22,27 @@ export const Ritblock = () => {
   const navigate = useNavigate();
 
   const imageSrc = new URLSearchParams(location.search).get("image");
+
+  /*
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    const savedDrawing = localStorage.getItem("savedDrawing");
+    const savedImageSrc = localStorage.getItem("savedImageSrc");
+  
+    // Om det finns sparad ritning och ingen imageSrc i URL
+    if (canvas && ctx && savedDrawing && (!imageSrc || imageSrc === savedImageSrc)) {
+      const img = new Image();
+      img.src = savedDrawing;
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0);
+      };
+    }
+  }, [imageSrc]);
+  */
+
+  /*
+  
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -68,6 +89,72 @@ export const Ritblock = () => {
         };
       }
     }
+}, [imageSrc]);
+*/
+
+useEffect(() => {
+  const canvas = canvasRef.current;
+  const bgCanvas = backgroundCanvasRef.current;
+  if (!canvas || !bgCanvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const bgCtx = bgCanvas.getContext("2d");
+  if (!ctx || !bgCtx) return;
+
+  ctx.lineCap = "round";
+  ctxRef.current = ctx;
+
+  const savedDrawing = localStorage.getItem("savedDrawing");
+  const savedImageSrc = localStorage.getItem("savedImageSrc");
+
+  // Ladda och rita färgläggningsbild
+  if (imageSrc) {
+    const img = new Image();
+    img.src = imageSrc;
+    img.onload = () => {
+      const aspectRatio = img.width / img.height;
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+
+      let newWidth, newHeight;
+      if (canvasWidth / canvasHeight > aspectRatio) {
+        newHeight = canvasHeight;
+        newWidth = canvasHeight * aspectRatio;
+      } else {
+        newWidth = canvasWidth;
+        newHeight = canvasWidth / aspectRatio;
+      }
+
+      const offsetX = (canvasWidth - newWidth) / 2;
+      const offsetY = (canvasHeight - newHeight) / 2;
+
+      // Rita till båda canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+      bgCanvas.width = canvas.width;
+      bgCanvas.height = canvas.height;
+      bgCtx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+      setBackgroundImage(canvas.toDataURL("image/png"));
+
+      // Efter att bakgrunden är ritad: rita savedDrawing om det är samma bild
+      if (savedDrawing && imageSrc === savedImageSrc) {
+        const savedImg = new Image();
+        savedImg.src = savedDrawing;
+        savedImg.onload = () => {
+          ctx.drawImage(savedImg, 0, 0);
+        };
+      }
+    };
+  } else if (savedDrawing && (!imageSrc || imageSrc === savedImageSrc)) {
+    // Om ingen färgläggningsbild finns men sparad ritning finns
+    const savedImg = new Image();
+    savedImg.src = savedDrawing;
+    savedImg.onload = () => {
+      ctx.drawImage(savedImg, 0, 0);
+    };
+  }
 }, [imageSrc]);
 
 
@@ -232,13 +319,18 @@ export const Ritblock = () => {
       ctxRef.current.stroke();
     }
   };
-  
   const stopDrawing = () => {
     if (ctxRef.current) ctxRef.current.closePath();
     setIsDrawing(false);
     document.body.style.overflow = "";
-    
+  
+    const canvas = canvasRef.current;
+    if (canvas) {
+      localStorage.setItem("savedDrawing", canvas.toDataURL("image/png"));
+      localStorage.setItem("savedImageSrc", imageSrc ?? ""); // <--- Spara aktuell bakgrundsbild (även tom)
+    }
   };
+  
 
   const clearCanvas = () => {
     const canvas = canvasRef.current;
@@ -302,11 +394,9 @@ const createNewCanvas = () => {
   const bgCanvas = backgroundCanvasRef.current;
 
   if (canvas && ctxRef.current && bgCanvas) {
-    // Töm historik
     setHistory([]);
     setRedoHistory([]);
 
-    // Töm canvas och bakgrund
     ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
 
     const bgCtx = bgCanvas.getContext("2d");
@@ -314,10 +404,15 @@ const createNewCanvas = () => {
       bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
     }
 
-    // Töm eventuell sparad bakgrundsbild
     setBackgroundImage(null);
+    localStorage.removeItem("savedDrawing");
+    localStorage.removeItem("savedImageSrc");
+
+    // 🧼 Ta bort image från URL
+    navigate("/ritblock", { replace: true });
   }
 };
+
 
   
   const redoLast = () => {
@@ -389,10 +484,11 @@ const createNewCanvas = () => {
                 <span>{brushSize}px</span>
               </BrushSize>
               <EraserPenContainer>
-                <PenBtn onClick={togglePen} />
+                <PenBtn onClick={togglePen} aria-label="Penna"/>
                 <EraserBtn
                   onClick={toggleEraser}
                   className={isEraser ? "bg-gray-300" : "bg-white"}
+                  aria-label="Suddgummi"
                 />
               </EraserPenContainer>
             </div>
@@ -416,12 +512,12 @@ const createNewCanvas = () => {
             onTouchEnd={stopDrawing}
           />
           <ControlBox>
-            <NewBtn onClick={createNewCanvas} />
+            <NewBtn onClick={createNewCanvas} aria-label="Nytt dokument"/>
             <FarglaggBtn onClick={() => navigate("/farglagg")} />
-            <SaveBoardBtn onClick={saveCanvas} />
-            <ClearBoardBtn onClick={clearCanvas} />
-            <UndoBtn onClick={undoLast} />
-            <RedoBtn onClick={redoLast} />
+            <SaveBoardBtn onClick={saveCanvas} aria-label="Spara" />
+            <ClearBoardBtn onClick={clearCanvas} aria-label="Rensa"/>
+            <UndoBtn onClick={undoLast} aria-label="Ångra"/>
+            <RedoBtn onClick={redoLast} aria-label="Gör om"/>
           </ControlBox>
         </Board>
       </BackgroundOriginal>
