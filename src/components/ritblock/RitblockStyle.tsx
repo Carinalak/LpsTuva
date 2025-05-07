@@ -12,6 +12,7 @@ import AddDocument from "../../assets/icons/add-document.png"
 import FarglaggIcon from "../../assets/icons/farglaggicon.png"
 
 
+
 export const Board = styled.div `
   border: 1px solid black;
   border-radius: 5px;
@@ -20,25 +21,22 @@ export const Board = styled.div `
 `;
 
 export const Canvas = styled.canvas.withConfig({
-  shouldForwardProp: (prop) => prop !== "isEraser",
-})<{ isEraser: boolean }>`
+  shouldForwardProp: (prop) => prop !== "isEraser" && prop !== "activeStickerSrc",
+})<{ isEraser: boolean; activeStickerSrc: string | null }>`
   width: 350px;
   height: 400px;
   background-color: white;
   padding: 10px;
   margin-bottom: 0;
-
-  /*
-  cursor: ${({ isEraser }) =>
-    isEraser
+  
+  cursor: ${({ isEraser, activeStickerSrc }) =>
+    activeStickerSrc
+      ? `url('${activeStickerSrc}') 50 50, auto`
+      : isEraser
       ? "url(/eraser2.png) 16 32, auto"
-      : "crosshair"};*/
+      : "url(/paint-brush3.png) 0 0, auto"
+  };
 
-    cursor: ${({ isEraser }) => 
-      isEraser 
-        ? "url(/eraser2.png) 16 32, auto"
-        : "url(/paint-brush3.png) 0 0, auto"
-    };
 
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
@@ -222,7 +220,6 @@ export const EraserPenContainer = styled.div `
   gap: 10px;
   margin-right: 10px;
 `;
-
 
 export const Colors = styled.div `
   margin-left: 10px;

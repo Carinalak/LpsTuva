@@ -7,7 +7,7 @@ import RosettPrickig from '../../assets/images/garderoben/klader/rosett_prickig.
 export const useAccessories = () => {
 
   return [
-    {src: Apple, alt: "Åpple", width: "40px", height: "40px" },
+    {src: Apple, alt: "Äpple", width: "40px", height: "40px" },
     {src: RosettPrickig, alt: "Prickig rosett", width: "40px", height: "40px" },
 
   ];

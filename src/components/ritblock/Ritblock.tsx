@@ -2,8 +2,8 @@ import { useRef, useState, useEffect } from "react";
 import { H1WhiteSecond, StyledLinkWhite, StyledTextWhiteCenter } from "../styled/Fonts";
 import { BackgroundOriginal } from "../styled/Wrappers";
 import { Board, Canvas, ControlBox, EraserBtn, RedoBtn, SaveBoardBtn, Toolbox, UndoBtn, PenBtn, ClearBoardBtn, EraserPenContainer, Colors, BrushSize, NewBtn, FarglaggBtn } from "./RitblockStyle";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { DropdownSticker } from "../DropdownSticker";
 
 
 export const Ritblock = () => {
@@ -11,86 +11,33 @@ export const Ritblock = () => {
   const backgroundCanvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [color, setColor] = useState("#C985E5");
+  const [color, setColor] = useState("#df37c6");
   const [brushSize, setBrushSize] = useState(5);
   const [isEraser, setIsEraser] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [redoHistory, setRedoHistory] = useState<string[]>([]);
   const location = useLocation();
-  const [selectedColor, setSelectedColor] = useState("#C985E5");
+  const [selectedColor, setSelectedColor] = useState("#df37c6");
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
+
   const navigate = useNavigate();
-
   const imageSrc = new URLSearchParams(location.search).get("image");
+  const [sortBy, setSortBy] = useState<string>("");
+  const [activeStickerSrc, setActiveStickerSrc] = useState<string | null>(null);
+  const stickerCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const stickerCtxRef = useRef<CanvasRenderingContext2D | null>(null);
 
-  /*
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    const savedDrawing = localStorage.getItem("savedDrawing");
-    const savedImageSrc = localStorage.getItem("savedImageSrc");
-  
-    // Om det finns sparad ritning och ingen imageSrc i URL
-    if (canvas && ctx && savedDrawing && (!imageSrc || imageSrc === savedImageSrc)) {
-      const img = new Image();
-      img.src = savedDrawing;
-      img.onload = () => {
-        ctx.drawImage(img, 0, 0);
-      };
-    }
-  }, [imageSrc]);
-  */
-
-  /*
-  
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      ctx.lineCap = "round";
-      ctxRef.current = ctx;
-
-      if (imageSrc) {
-        const img = new Image();
-        img.src = imageSrc;
-        img.onload = () => {
-          const aspectRatio = img.width / img.height;
-          const canvasWidth = canvas.width;
-          const canvasHeight = canvas.height;
-
-          let newWidth, newHeight;
-
-          if (canvasWidth / canvasHeight > aspectRatio) {
-            newHeight = canvasHeight;
-            newWidth = canvasHeight * aspectRatio;
-          } else {
-            newWidth = canvasWidth;
-            newHeight = canvasWidth / aspectRatio;
-          }
-
-          const offsetX = (canvasWidth - newWidth) / 2;
-          const offsetY = (canvasHeight - newHeight) / 2;
-
-          ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
-
-          setBackgroundImage(canvas.toDataURL("image/png")); // Spara bakgrunden
-
-          const bgCanvas = backgroundCanvasRef.current;
-          if (bgCanvas) {
-            const bgCtx = bgCanvas.getContext("2d");
-            if (bgCtx) {
-              bgCanvas.width = canvas.width;
-              bgCanvas.height = canvas.height;
-              bgCtx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
-            }
-          }
-        };
+    const stickerCanvas = stickerCanvasRef.current;
+    if (stickerCanvas) {
+      const stickerCtx = stickerCanvas.getContext("2d");
+      if (stickerCtx) {
+        stickerCtxRef.current = stickerCtx;
       }
     }
-}, [imageSrc]);
-*/
+  }, []);
+  
+  
 
 useEffect(() => {
   const canvas = canvasRef.current;
@@ -208,17 +155,56 @@ useEffect(() => {
     };
   };
 
+
+  const placeSticker = (offsetX: number, offsetY: number) => {
+    const canvas = canvasRef.current;
+    const ctx = ctxRef.current;
+  
+    if (!canvas || !ctx || !activeStickerSrc) return;
+    
+    const img = new Image();
+    img.src = activeStickerSrc;
+    img.onload = () => {
+      const stickerSize = 60;
+      ctx.save();  // Spara nuvarande kontext
+  
+      // Förhindra att penselinställningar påverkar sticker
+      ctx.setTransform(1, 0, 0, 1, 0, 0);  // Återställ alla transformeringar
+  
+      // Sätt inga färgrelaterade inställningar som strokeStyle eller fillStyle
+      ctx.globalAlpha = 1.0;  // Förhindra att transparens från penseln påverkar
+      ctx.shadowBlur = 1;     // Förhindra eventuella skuggor
+      ctx.shadowColor = "transparent";  // Ingen skugga
+      ctx.globalCompositeOperation = "source-over";  // Standard ritläge
+    
+      ctx.imageSmoothingQuality = 'medium'; // 'low' | 'medium' | 'high'
+     
+  
+      // Rita sticker på canvas
+      ctx.drawImage(img, offsetX - stickerSize / 2, offsetY - stickerSize / 2, stickerSize, stickerSize);
+  
+      ctx.restore();  // Återställ kontexten till original
+  
+      // Lägg till sticker i historiken
+      setHistory((prev) => [...prev, canvas.toDataURL("image/png")]);
+      setRedoHistory([]);
+    };
+  };
+
+
+  
   const startDrawing = (
     e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>
   ) => {
     e.preventDefault();
     document.body.style.overflow = "hidden";
-
+  
     const canvas = canvasRef.current;
-    if (!canvas || !ctxRef.current) return;
-
+    const ctx = ctxRef.current;
+    if (!canvas || !ctx) return;
+  
     let offsetX: number, offsetY: number;
-
+  
     if ("nativeEvent" in e && "offsetX" in e.nativeEvent) {
       offsetX = e.nativeEvent.offsetX;
       offsetY = e.nativeEvent.offsetY;
@@ -226,19 +212,29 @@ useEffect(() => {
       const touch = (e as React.TouchEvent<HTMLCanvasElement>).touches[0] as unknown as Touch;
       ({ offsetX, offsetY } = getTouchPos(canvas, touch));
     }
-
-    setHistory((prev) => [
-      ...prev,
-      canvasRef.current!.toDataURL("image/png")
-    ]);
-    
+  
+     // Om en sticker är aktiv, placera den istället för att rita med penna
+      if (activeStickerSrc) {
+        placeSticker(offsetX, offsetY);
+        return; // Avbryt resten av ritlogiken om sticker är aktiv
+      }
+  
+    // === VANLIG PENNA ===
+    setHistory((prev) => [...prev, canvas.toDataURL("image/png")]);
     setRedoHistory([]);
-    ctxRef.current.strokeStyle = isEraser ? "#FFFFFF" : color;
-    ctxRef.current.lineWidth = brushSize;
-    ctxRef.current.beginPath();
-    ctxRef.current.moveTo(offsetX, offsetY);
+    
+    // Här säkerställer vi att penna/sudd inte påverkar sticker-ritningarna
+    ctx.strokeStyle = isEraser ? "#FFFFFF" : color;  // Färg för ritning/sudd
+    ctx.lineWidth = brushSize;  // Penselstorlek
+  
+    ctx.beginPath();
+    ctx.moveTo(offsetX, offsetY);
     setIsDrawing(true);
+    
   };
+  
+  
+  
   
   const draw = (
     e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>
@@ -379,8 +375,8 @@ useEffect(() => {
         bgImg.src = backgroundImage;
         bgImg.onload = () => {
           ctx.drawImage(bgImg, 0, 0);
-                    // Rita tillbaka endast penseldragen
-                    ctx.drawImage(img, 0, 0);
+          // Rita tillbaka endast penseldragen
+          ctx.drawImage(img, 0, 0);
 
         };
 }
@@ -408,7 +404,7 @@ const createNewCanvas = () => {
     localStorage.removeItem("savedDrawing");
     localStorage.removeItem("savedImageSrc");
 
-    // 🧼 Ta bort image från URL
+    // Ta bort image från URL
     navigate("/ritblock", { replace: true });
   }
 };
@@ -441,13 +437,21 @@ const createNewCanvas = () => {
   const togglePen = () => {
     setIsEraser(false);
     setColor(selectedColor); // återställ senaste färgen
+    setActiveStickerSrc(null);
   };
   
 
   const toggleEraser = () => {
     setIsEraser(true);
     setColor("#FFFFFF");
+    setActiveStickerSrc(null);
   };
+
+  /*
+  const handleStickerClick = (stickerSrc: string) => {
+    setCursorToSticker(stickerSrc); // Change cursor to the selected sticker
+    setActiveStickerSrc(stickerSrc); // Set active sticker
+  };*/
 
   return (
     <>
@@ -455,23 +459,26 @@ const createNewCanvas = () => {
         <H1WhiteSecond>Ritblock</H1WhiteSecond>
         <Board>
           <Toolbox>
+            <div>
           <Colors>
-            <label style={{ color: "#fff", fontSize: "14px" }}>Välj färg:</label>
+            {/*<label style={{ color: "#fff", fontSize: "14px" }}>Välj färg:</label>*/}
             <input
               type="color"
               value={selectedColor}
               onInput={(e) => handleColorChange((e.target as HTMLInputElement).value)}
-              onClick={() => setIsEraser(false)} // Lägg till denna rad
+              onClick={() => setIsEraser(false)}
               style={{
                 width: "40px",
                 height: "40px",
                 padding: "0",
                 border: "none",
+                borderRadius: "5px",
                 cursor: "pointer"
               }}
             />
           </Colors>
-
+          <DropdownSticker sortBy={sortBy} setSortBy={setSortBy} setActiveStickerSrc={setActiveStickerSrc} />
+          </div>
             <div>
               <BrushSize>
                 <input
@@ -504,6 +511,7 @@ const createNewCanvas = () => {
           <Canvas
             ref={canvasRef}
             isEraser={isEraser}
+            activeStickerSrc={activeStickerSrc}
             onMouseDown={startDrawing}
             onMouseMove={draw}
             onMouseUp={stopDrawing}
@@ -511,6 +519,7 @@ const createNewCanvas = () => {
             onTouchMove={draw}
             onTouchEnd={stopDrawing}
           />
+
           <ControlBox>
             <NewBtn onClick={createNewCanvas} aria-label="Nytt dokument"/>
             <FarglaggBtn onClick={() => navigate("/farglagg")} />
