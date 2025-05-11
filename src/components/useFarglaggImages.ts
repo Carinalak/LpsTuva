@@ -17,6 +17,7 @@ import DogBoat from '../assets/images/farglagg/dog_boat.jpg';
 export const useFarglaggImages = () => {
 
   return [
+    {src: DogBoat, alt: "Hund på en båt"},
     {src: DrakeEld, alt: "Eldsprutande drake" },
     {src: KyckilngAgg, alt: "Kyckling med ägg" },
     {src: KaninMorotter, alt: "Kanin med morötter" },
@@ -30,7 +31,5 @@ export const useFarglaggImages = () => {
     {src: Nalle, alt: "Nalle" },
     {src: Kanin, alt: "Kanin" },
     {src: Apflicka, alt: "Apflicka"},
-    {src: DogBoat, alt: "Hund på en båt"},
-
   ];
 };

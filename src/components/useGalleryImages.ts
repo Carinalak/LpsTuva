@@ -35,29 +35,33 @@ import KaninPulka2 from "../assets/images/galleri/winter/kanin_pulka2.jpg";
 
 
 const images = [
-  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
-  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
-  
-  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
-  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
-  { src: BirdDarkPurple, alt: "Purple Bird", season: "autumn" },
-  { src: AntPurple, alt: "Purple Ant", season: "spring" },
-  { src: BirdPink, alt: "Pink Bird", season: "summer" },
-  { src: BirdPink2, alt: "Pink Bird second", season: "summer" },
-  { src: BirdPink3, alt: "Purple Bird third", season: "summer" },
+
+
   { src: LilaKoKrokus, alt: "Lila ko bredvid lila krokus", season: "spring" },
   { src: RainbowCat, alt: "Rainbowcat", season: "spring" },
   { src: LammGulKrokus, alt: "Gulligt lamm bredvid en vit krokus", season: "spring" },
   { src: FagelHyacinth, alt: "En fågel bredvid en hyacint", season: "spring" },
+  { src: AntPurple, alt: "Purple Ant", season: "spring" },
   { src: BrunKattKorsbar, alt: "En brun katt bredvid körsbärsblommor", season: "spring" },
-  { src: WhiteCat, alt: "White cat", season: "autumn" },
   { src: GraHund, alt: "Grå hund", season: "spring" },
   { src: KaninStubbe, alt: "En kanin som sitter på en stubbe", season: "spring" },
   { src: VitKaninKrokus, alt: "En vit kanin bredvid en krokus", season: "spring" },
-  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
+
+  { src: BirdPink, alt: "Pink Bird", season: "summer" },
+  { src: BirdPink2, alt: "Pink Bird second", season: "summer" },
+  { src: BirdPink3, alt: "Purple Bird third", season: "summer" },
   { src: DragonflyBlue, alt: "Blue dragonfly", season: "summer" },
+
+
+  { src: WhiteCat, alt: "White cat", season: "autumn" },
+  { src: BirdDarkPurple, alt: "Purple Bird", season: "autumn" },
   { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
   { src: GreyMouse, alt: "en grå mus", season: "autumn" },
+  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
+  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
+  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
+  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
+  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
   { src: SealOnIce, alt: "En säl på isen", season: "winter" },
   { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
   { src: LilaKaninSnow, alt: "Lila kanin i snö", season: "winter" },
