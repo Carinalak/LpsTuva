@@ -11,6 +11,7 @@ import GrisPol from '../assets/images/farglagg/gris_i_pol.jpg';
 import Hamster from '../assets/images/farglagg/hamster.jpg';
 import Fagel from '../assets/images/farglagg/fagel.jpg';
 import DrakeEld from '../assets/images/farglagg/drake_eld.jpg';
+import DogBoat from '../assets/images/farglagg/dog_boat.jpg';
 
 
 export const useFarglaggImages = () => {
@@ -29,6 +30,7 @@ export const useFarglaggImages = () => {
     {src: Nalle, alt: "Nalle" },
     {src: Kanin, alt: "Kanin" },
     {src: Apflicka, alt: "Apflicka"},
+    {src: DogBoat, alt: "Hund på en båt"},
 
   ];
 };
