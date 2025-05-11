@@ -81,8 +81,8 @@ export const PysselSpel = () => {
           <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
           <PysselLink to="/ritblock"><PysselSpelLinkImage src={Ritblock} />Ritblock</PysselLink>
           <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
-          <PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>
-          {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
+          {/**<PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>
+          <PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 
           {/* 
             <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Färgläggning</H4White>
