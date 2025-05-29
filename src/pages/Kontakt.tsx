@@ -22,12 +22,12 @@ export const Kontakt = () => {
     console.log("Form data:", data);
 
     // Använd EmailJS för att skicka formulärdata
-    emailjs.send(
-      'service_7rkooal', // SERVICE_ID
-      'template_ntypwmj',  // TEMPLATE_ID
-      data,  // Skickar data från formuläret
-      'Fx0CyuhMUzMYIorTE'  /// PUBLIC_KEY
-    )
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    data,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
     .then((response) => {
       console.log('E-post skickat:', response);
       reset();
