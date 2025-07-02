@@ -56,10 +56,10 @@ npm install framer-motion till switchknappen
 - npm install lucide-react
 
 
+## Memoryspelet
 
-
-## Kortflippningsfakta:
-För att vända korten i memoryspelet använder jag klassen "flipped" i kombinatione med CSS föratt skapa en flip-animation. Klassen "flipped" sätts baserat på om kortet är valt eller ej. När ett kort väljs får den klassen "flipped". Jag använder className="flipped" för att styra flippningen, och själva animeringen hanteras i CSS med transform: rotateY(180deg).
+### Kortflippningsfakta:
+För att vända korten i memoryspelet använder jag klassen "flipped" i kombinatione med CSS för att skapa en flip-animation. Klassen "flipped" sätts baserat på om kortet är valt eller ej. När ett kort väljs får den klassen "flipped". Jag använder className="flipped" för att styra flippningen, och själva animeringen hanteras i CSS med transform: rotateY(180deg).
 
 ### Ljud/Sounds: 🔊
 
@@ -76,7 +76,7 @@ Från Freesound.com:
 
 # ----------------------- Backend -------------------------- not in use right now
 
-## PpostgreSQL:
+## PostgreSQL:
 
 - npm init -y
 - npm install express pg dotenv

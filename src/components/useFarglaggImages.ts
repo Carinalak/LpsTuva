@@ -12,11 +12,13 @@ import Hamster from '../assets/images/farglagg/hamster.jpg';
 import Fagel from '../assets/images/farglagg/fagel.jpg';
 import DrakeEld from '../assets/images/farglagg/drake_eld.jpg';
 import DogBoat from '../assets/images/farglagg/dog_boat.jpg';
+import Badkar from '../assets/images/farglagg/badkar.jpg';
 
 
 export const useFarglaggImages = () => {
 
   return [
+    {src: Badkar, alt: "Sköldpadda badar i badkar"},
     {src: DogBoat, alt: "Hund på en båt"},
     {src: DrakeEld, alt: "Eldsprutande drake" },
     {src: KyckilngAgg, alt: "Kyckling med ägg" },

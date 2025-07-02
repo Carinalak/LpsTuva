@@ -12,8 +12,8 @@ export const HomeImg = styled.img `
   margin-bottom: 60px;
   border-radius: 10px;
 
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 400px;
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 400px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 500px;
