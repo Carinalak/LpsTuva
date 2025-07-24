@@ -75,9 +75,9 @@ export const Kontakt = () => {
             <input
               className="contactInput"
               type="email"
-              placeholder="Email"
+              placeholder="Email - valfritt"
               {...register("email", {
-                required: "Email är obligatoriskt",
+                
                 pattern: {
                   value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, // Enkel email validering
                   message: "Ogiltigt email-format"
