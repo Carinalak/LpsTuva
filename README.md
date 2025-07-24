@@ -4,7 +4,10 @@ This site is live at: https://lpstuva.onrender.com
 
 This is the site of Lps-Tuva! 
 
-## The design:
+![The site](src/assets/screenshots/LpsTuvaScreen.jpeg)
+
+## The design
+This is the plan I did in Figma:
 Mobileversion:
 ![Mobilversion i Figma](src/assets/screenshots/Mobil.png)  
 
