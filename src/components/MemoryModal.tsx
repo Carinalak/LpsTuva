@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, CHRISTMAS_GREEN, JULGRON_LJUS, JULGULD_MORK, KRITVIT, SKUGGLILA } from "./styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, CHRISTMAS_GREEN, JULGRON_LJUS, JULGULD_MORK, KRITVIT, SKUGGLILA } from "./styled/Variables";
 
 export const MemoryModal = styled.div `
   position: fixed;
@@ -13,12 +13,13 @@ export const MemoryModal = styled.div `
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  border: solid black 1px;
 
   
-  @media screen and ( min-width: ${BREAKPOINT_TABLET}) {
-    width: 400px;
-    height: 300px;
-    font-size: 1.6rem;
+  @media screen and ( min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 380px;
+    height: 220px;
+    font-size: 1.3rem;
     font-weight: bold;
     color: ${SKUGGLILA};
     display: flex;

@@ -176,7 +176,7 @@ export const Memory: React.FC = () => {
       </MemoryStyle>
       {showModal && (
         <MemoryModal>
-          <p>Grattis, du hittade alla djur! Spela igen?</p>
+          <p>Grattis, du hittade alla djur<br /> Spela igen?</p>
           <ButtonWrapper>
             <Button onClick={shuffleCards}>Ja</Button>
             <Button onClick={() => { setShowModal(false); navigate('/pysselspel'); }}>Nej</Button>
