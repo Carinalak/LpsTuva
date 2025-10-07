@@ -1,8 +1,8 @@
 import { H1PurpleSecond } from "../components/styled/Fonts"
 import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
-import { Link } from "react-router-dom";
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
+
+import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
@@ -21,17 +21,6 @@ export const HomeImg = styled.img `
   }
 `;
 
-const StyledLink = styled(Link)`
-  cursor: pointer;
-  text-decoration: none;
-  color: ${SKUGGLILA};
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: ${POOLBLA};
-    text-decoration: underline;
-  }
-`;
 
 export const Home = () => {
 
