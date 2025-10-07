@@ -20,8 +20,8 @@ import DogWhitePurpleDot from "../assets/images/galleri/summer/DogWhitePurpleDot
 import DragonflyBlue from "../assets/images/galleri/summer/DragonflyBlue.jpg";
 
 import BunnyRedLeaf from "../assets/images/galleri/autumn/BunnyRedLeaf.jpg";
-//import HundOrangeLov from "../assets/images/galleri/autumn/Hund_orange_lov.jpg";
-//import Gungar from "../assets/images/galleri/autumn/Gungar.jpg";
+import HundOrangeLov from "../assets/images/galleri/autumn/Hund_orange_lov.jpg";
+import Gungar from "../assets/images/galleri/autumn/Gungar.jpg";
 import SpindelOrangeLov1 from "../assets/images/galleri/autumn/Spindel_orangelov1.jpg";
 import SpindelOrangeLov2 from "../assets/images/galleri/autumn/Spindel_orangelov2.jpg";
 import WhiteCat from "../assets/images/galleri/autumn/CatWhite.jpg";
@@ -49,8 +49,8 @@ const images = [
 
     // AUTUMN
   { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
-  //{ src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
-  //{ src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
+  { src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
+  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
   { src: SpindelOrangeLov1, alt: "Spindel sitter på en gren uppifrån", season: "autumn" },
   { src: SpindelOrangeLov2, alt: "Spindel sitter på en gren från sidan", season: "autumn" },
   { src: WhiteCat, alt: "Vit katt", season: "autumn" },
