@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
+import HomeImage from '../assets/images/galleri/autumn/gungar.jpg';
 
 export const HomeImg = styled.img `
   width: 300px;
@@ -33,16 +33,23 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export const Home = () => {
+export const Om = () => {
 
   return ( 
   <BackgroundOriginal>
     <WrapperWhite>
-      <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
+      <H1PurpleSecond>Om Lps-Tuva</H1PurpleSecond>
       <TextWrapper>
-      <p>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga.</p>
+        <p><b>Välkommen till Lps-Tuvas sida!</b></p>
+        <p>Lps-Tuva är mest känd för sina Littlest Pet Shop filmer. Hon är även väldigt bra på teckning och musikkomposition.
+          Hon sjunger, spelar piano och gitarr. På Lps-Tuvas sida kan du <StyledLink to="/farglagg">färglägga </StyledLink>  
+          hennes bilder, spela <StyledLink to="/memory">memoryspel</StyledLink> och titta på hennes 
+          <StyledLink to="/galleribilder"> fotogalleri</StyledLink>.
+        </p>
+        <p>
+        Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
       </TextWrapper>
-      <HomeImg src={HomeImage} alt="Höstbild på en kanin med ett rött löv." loading="lazy"/>
+      <HomeImg src={HomeImage} alt="Petshoparna gungar på en gul gunga." loading="lazy"/>
 
       <SerieImage src={Gris} alt="Gris" loading="lazy"/>
     </WrapperWhite>

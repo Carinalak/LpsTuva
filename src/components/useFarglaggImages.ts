@@ -15,12 +15,18 @@ import DogBoat from '../assets/images/farglagg/dog_boat.jpg';
 import Badkar from '../assets/images/farglagg/badkar.jpg';
 import GrisFlamingo from '../assets/images/farglagg/gris_flamingobad.jpg';
 import MyraBurk from '../assets/images/farglagg/myra_burk.jpg';
+import Lejon from '../assets/images/farglagg/Lejon.jpg';
+import Giraff from '../assets/images/farglagg/giraff.jpg';
+import HamsterMedMat from '../assets/images/farglagg/hamster_med_mat.jpg';
 
 
 export const useFarglaggImages = () => {
 
   return [
     {src: MyraBurk, alt: "Myra med syltburk"},
+    {src: Lejon, alt: "Lejon"},
+    {src: Giraff, alt: "Giraff"},
+    {src: HamsterMedMat, alt: "Hamster med mat"},
     {src: GrisFlamingo, alt: "Gris med flamingo badring"},
     {src: Badkar, alt: "Sköldpadda badar i badkar"},
     {src: DogBoat, alt: "Hund på en båt"},

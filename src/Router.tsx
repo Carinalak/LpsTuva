@@ -18,6 +18,7 @@ import Admin from "./pages/Admin";
 import { Ritblock } from "./components/ritblock/Ritblock";
 import { FarglaggNu } from "./components/ritblock/FarglaggNu";
 import { LpsGarderoben } from "./components/LpsGarderoben/LpsGarderoben";
+import { Om } from "./pages/Om";
 
 
 
@@ -32,6 +33,10 @@ export const router = createHashRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+                        {
+                path: "/om",
+                element: <Om></Om>,
             },
             {
                 path: "/galleri",
