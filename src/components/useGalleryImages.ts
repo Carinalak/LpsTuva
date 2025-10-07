@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { BREAKPOINT_TABLET } from "./styled/Variables";
 
-import BirdDarkPurple from "../assets/images/galleri/autumn/BirdDarkPurple.jpg";
+
+
 import AntPurple from "../assets/images/galleri/spring/AntPurple.jpg";
 import BrunKattKorsbar from "../assets/images/galleri/spring/brun_katt_korsbarsblommor.jpg";
 import FagelHyacinth from "../assets/images/galleri/spring/fagel_hyacinth.jpg";
@@ -10,15 +11,21 @@ import KaninStubbe from "../assets/images/galleri/spring/kanin_stubbe.jpg";
 import LammGulKrokus from "../assets/images/galleri/spring/lamm_gul_krokus.jpg";
 import LilaKoKrokus from "../assets/images/galleri/spring/lila_ko_krokus.jpg";
 import VitKaninKrokus from "../assets/images/galleri/spring/vit_kanin_krokus.jpg";
+import RainbowCat from "../assets/images/galleri/spring/CatPinkRainbow.jpg";
+
 import BirdPink from "../assets/images/galleri/summer/BirdPink.jpg";
 import BirdPink2 from "../assets/images/galleri/summer/BirdPink2.jpg";
 import BirdPink3 from "../assets/images/galleri/summer/BirdPink3.jpg";
-import RainbowCat from "../assets/images/galleri/spring/CatPinkRainbow.jpg";
-import WhiteCat from "../assets/images/galleri/autumn/CatWhite.jpg";
 import DogWhitePurpleDot from "../assets/images/galleri/summer/DogWhitePurpleDot.jpg";
 import DragonflyBlue from "../assets/images/galleri/summer/DragonflyBlue.jpg";
+
+import BunnyRedLeaf from "../assets/images/galleri/autumn/BunnyRedLeaf.jpg";
+import WhiteCat from "../assets/images/galleri/autumn/CatWhite.jpg";
+import BirdDarkPurple from "../assets/images/galleri/autumn/BirdDarkPurple.jpg";
 import IgelkottWhite from "../assets/images/galleri/autumn/IgelkottBrown.jpg";
 import GreyMouse from "../assets/images/galleri/autumn/MouseGrey.jpg";
+import ZebraWhitePurple from "../assets/images/galleri/autumn/ZebraWhitePurple.jpg";
+
 import WinterPinkBear from "../assets/images/galleri/winter/WinterPinkBear.jpg";
 import SealOnIce from "../assets/images/galleri/winter/SealOnIce.jpg";
 import NalleLilaMossa from "../assets/images/galleri/winter/NalleLilaMossa.jpg";
@@ -35,6 +42,31 @@ import KaninPulka2 from "../assets/images/galleri/winter/kanin_pulka2.jpg";
 
 
 const images = [
+
+    // AUTUMN
+  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
+  { src: WhiteCat, alt: "Vit katt", season: "autumn" },
+  { src: BirdDarkPurple, alt: "Lila fågel", season: "autumn" },
+  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
+  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
+  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
+  { src: ZebraWhitePurple, alt: "Zebra", season: "autumn" },
+
+
+  // WINTER
+  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
+  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
+  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
+  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
+  { src: SealOnIce, alt: "En säl på isen", season: "winter" },
+  { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
+  { src: LilaKaninSnow, alt: "Lila kanin i snö", season: "winter" },
+  { src: SnowKana, alt: "Snökana", season: "winter" },
+  { src: RavMossaSnow, alt: "Räv i mossa", season: "winter" },
+  { src: ValrossIs, alt: "Valross i is", season: "winter" },
+  { src: KaninPulka1, alt: "Kanin på pulka", season: "winter" },
+  { src: KaninPulka2, alt: "Kanin på pulka", season: "winter" },
+  { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
 
   // SPRING
   { src: LilaKoKrokus, alt: "Lila ko bredvid lila krokus", season: "spring" },
@@ -54,28 +86,7 @@ const images = [
   { src: DragonflyBlue, alt: "Blue dragonfly", season: "summer" },
 
   
-  // AUTUMN
-  { src: WhiteCat, alt: "White cat", season: "autumn" },
-  { src: BirdDarkPurple, alt: "Purple Bird", season: "autumn" },
-  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
-  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
-  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
 
-
-  // WINTER
-  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
-  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
-  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
-  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
-  { src: SealOnIce, alt: "En säl på isen", season: "winter" },
-  { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
-  { src: LilaKaninSnow, alt: "Lila kanin i snö", season: "winter" },
-  { src: SnowKana, alt: "Snökana", season: "winter" },
-  { src: RavMossaSnow, alt: "Räv i mossa", season: "winter" },
-  { src: ValrossIs, alt: "Valross i is", season: "winter" },
-  { src: KaninPulka1, alt: "Kanin på pulka", season: "winter" },
-  { src: KaninPulka2, alt: "Kanin på pulka", season: "winter" },
-  { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
 ];
 
 export const useGalleryImages = (sortBy: string) => {

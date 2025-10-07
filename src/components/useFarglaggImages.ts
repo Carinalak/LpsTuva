@@ -14,11 +14,13 @@ import DrakeEld from '../assets/images/farglagg/drake_eld.jpg';
 import DogBoat from '../assets/images/farglagg/dog_boat.jpg';
 import Badkar from '../assets/images/farglagg/badkar.jpg';
 import GrisFlamingo from '../assets/images/farglagg/gris_flamingobad.jpg';
+import MyraBurk from '../assets/images/farglagg/myra_burk.jpg';
 
 
 export const useFarglaggImages = () => {
 
   return [
+    {src: MyraBurk, alt: "Myra med syltburk"},
     {src: GrisFlamingo, alt: "Gris med flamingo badring"},
     {src: Badkar, alt: "Sköldpadda badar i badkar"},
     {src: DogBoat, alt: "Hund på en båt"},
