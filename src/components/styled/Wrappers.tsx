@@ -9,10 +9,8 @@ flex-direction: column;
 align-items: center;
 background-color: #ffffffd9;
 /*background-color: rgba(255, 255, 255, 0.8);*/
-//padding-top: 3px;
 padding-bottom: 10px;
 border-radius: 10px;
-//margin-top: 20px;
 margin-bottom: 0;
 margin-top: 10px;
 font-family: "Playpen Sans", serif;
@@ -44,30 +42,6 @@ export const WrapperTransparent = styled(WrapperWhite)`
 `;
 
 
-// OLD WRAPPER TRANSPARENT //
-/*
-export const WrapperTransparent = styled(WrapperWhite)`
-height: 500px;
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: transparent;
-//border: 1px solid black;
-padding-top: 5px;
-padding-bottom: 40px;
-margin-bottom: 10px;
-
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 600px;
-}
-
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  width: 800px;
-}
-`;
-*/
-
-
 export const TextWrapper = styled(WrapperWhite)`
   width: 90%;       // Måste ha samma bredd som GalleryImage!
   background-color: transparent;
@@ -75,9 +49,11 @@ export const TextWrapper = styled(WrapperWhite)`
   text-align: left; /* Justerar texten horisontellt */
   align-items: flex-start; /* Justerar innehåll i Flexbox */
   margin-top: 20px;
+  
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 450px;
+  padding-bottom: 10px;
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
@@ -90,7 +66,7 @@ export const ReklamOrangeBack = styled(WrapperWhite)`
   background-color: ${BLEKPUMPA};
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 40px;
   padding-left: 15px;
   padding-right: 15px;

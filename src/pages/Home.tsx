@@ -75,7 +75,7 @@ export const Home = () => {
       <TextWrapper>
       <p>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga.</p>
       </TextWrapper>
-            <ReklamOrangeBack>
+      <ReklamOrangeBack>
         <H4Black>Musik till Halloweenfesten!</H4Black>
         <p>Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
           du kan lägga till i din spellista. 
