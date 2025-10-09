@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 
+// Denna kod gör så att det kollas två gånger per dag om det har uppdaterats något på Git Hub. Sidan kollar direkt vid laddning av användaren, när den precis går in på sidan. Om den hittar en ny version → laddar den om.
 interface VersionCheckerProps {
-  interval?: number; // tid i ms, t.ex. 120000 = 2 minuter
+  interval?: number; // ms
 }
 
-const VersionChecker: React.FC<VersionCheckerProps> = ({ interval = 120000 }) => {
+const VersionChecker: React.FC<VersionCheckerProps> = ({ interval = 43_200_000 }) => {
   const currentETag = useRef<string | null>(null);
 
   useEffect(() => {
@@ -21,7 +22,6 @@ const VersionChecker: React.FC<VersionCheckerProps> = ({ interval = 120000 }) =>
         const lastModified = response.headers.get("last-modified");
         const identifier = newETag || lastModified;
 
-        // Om vi redan har en version lagrad och den nya skiljer sig → ladda om
         if (currentETag.current && identifier && identifier !== currentETag.current) {
           console.log("Ny version upptäckt, laddar om sidan...");
           window.location.reload();
@@ -33,22 +33,15 @@ const VersionChecker: React.FC<VersionCheckerProps> = ({ interval = 120000 }) =>
       }
     };
 
-    // Kör första gången direkt
+    // Kör direkt vid sidstart
     checkForUpdate();
 
-    // Kör även varje gång användaren återvänder till fliken
-    const handleFocus = () => checkForUpdate();
-    window.addEventListener("focus", handleFocus);
-
-    // Kör automatiskt med intervall (standard var 2 min)
+    // Kör även var 12:e timme
     // eslint-disable-next-line prefer-const
     timer = setInterval(checkForUpdate, interval);
 
     // Städning
-    return () => {
-      clearInterval(timer);
-      window.removeEventListener("focus", handleFocus);
-    };
+    return () => clearInterval(timer);
   }, [interval]);
 
   return null;

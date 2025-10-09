@@ -40,13 +40,12 @@ export const Om = () => {
     <WrapperWhite>
       <H1PurpleSecond>Om Lps-Tuva</H1PurpleSecond>
       <TextWrapper>
-        <p><b>Välkommen till Lps-Tuvas sida!</b>  </p>
+        <b>Välkommen till Lps-Tuvas sida!</b>
         <p>Lps-Tuva är mest känd för sina Littlest Pet Shop filmer. Hon är även väldigt bra på teckning och musikkomposition.
           Hon sjunger och spelar både piano och gitarr. På Lps-Tuvas sida kan du <StyledLink to="/farglagg">färglägga </StyledLink>  
           hennes bilder, spela <StyledLink to="/memory">memoryspel</StyledLink> och titta på hennes 
           <StyledLink to="/galleribilder"> fotogalleri</StyledLink>.
-        </p>
-        <p>
+       <br /> <br /> 
         Om du vill skriva till Tuva kan du gå till <StyledLink to="/kontakt">Kontakt</StyledLink> och göra det där.</p>
       </TextWrapper>
       <HomeImg src={HomeImage} alt="Petshoparna gungar på en gul gunga." loading="lazy"/>
