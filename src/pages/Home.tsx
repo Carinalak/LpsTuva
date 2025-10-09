@@ -71,7 +71,7 @@ export const Home = () => {
   return ( 
   <BackgroundOriginal>
     <WrapperWhite>
-      <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
+      <H1PurpleSecond>Lps-Tuvas Sida!</H1PurpleSecond>
       <TextWrapper>
       <p>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga.</p>
       </TextWrapper>
