@@ -77,9 +77,9 @@ export const Home = () => {
       </TextWrapper>
       <ReklamOrangeBack>
         <H4Black>Musik till Halloweenfesten!</H4Black>
-        <p>Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
+        Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
           du kan lägga till i din spellista. 
-        </p>
+        
         <p>Den första är "Nu är det Halloween" som Tuva har skrivit och spelat in. 
           Den andra är "Hösten är här" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
           när den spelades in. Det är flera andra som sjunger där också. Bland annat hennes kompis Maja, hennes bror Albin 
