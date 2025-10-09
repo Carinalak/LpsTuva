@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+//import { SoundPlayerHandle, SoundPlayer } from '../components/SoundPlayer';
 import Back from '../assets/images/memory_cards/memory_halloween/back_halloween.png';
-import Pig from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
-import IceBear from '../assets/images/memory_cards/memory_halloween/fladdermushangs.jpg';
-import Penguin from '../assets/images/memory_cards/memory_halloween/fladdermuspumpa.jpg';
-import Sheep from '../assets/images/memory_cards//memory_halloween/lpsgodisar.jpg';
-import Snake from '../assets/images/memory_cards/memory_halloween/pumpabrillor.jpg';
-import Bear from '../assets/images/memory_cards/oxe.png';
+import BunnyLeaf from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
+import FladdermusHangs from '../assets/images/memory_cards/memory_halloween/fladdermushangs.jpg';
+import FladdermusPumpa from '../assets/images/memory_cards/memory_halloween/fladdermuspumpa.jpg';
+import LpsGodisar from '../assets/images/memory_cards//memory_halloween/lpsgodisar.jpg';
+import PumpaBrillor from '../assets/images/memory_cards/memory_halloween/pumpabrillor.jpg';
+import Oxe from '../assets/images/memory_cards/oxe.png';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, HalloweenButton } from '../components/styled/Buttons';
@@ -17,12 +18,12 @@ import SnowFall  from '../components/SnowFall';
 
 
 const cards = [
-  { id: 1, src: Pig, alt: 'Gris' },
-  { id: 2, src: IceBear, alt: 'Björn' },
-  { id: 3, src: Penguin, alt: 'Pingvin' },
-  { id: 4, src: Sheep, alt: 'Får' },
-  { id: 5, src: Snake, alt: 'Orm' },
-  { id: 6, src: Bear, alt: 'Björn' },
+  { id: 1, src: BunnyLeaf, alt: 'Gris' },
+  { id: 2, src: FladdermusHangs, alt: 'Björn' },
+  { id: 3, src: FladdermusPumpa, alt: 'Pingvin' },
+  { id: 4, src: LpsGodisar, alt: 'Får' },
+  { id: 5, src: PumpaBrillor, alt: 'Orm' },
+  { id: 6, src: Oxe, alt: 'Björn' },
 ];
 
 type Card = {
@@ -39,6 +40,7 @@ export const Halloweenmemory: React.FC = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
+  //const soundRef = useRef<SoundPlayerHandle>(null);
 
   const shuffleCards = () => {
     setIsResetting(true);

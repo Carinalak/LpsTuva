@@ -49,7 +49,7 @@ type Card = {
 
 
 
-export const FontEMmoryStyle = styled.span `
+export const FontMemoryStyle = styled.span `
 
 font-family: ${FONT_PLAYPEN};
 font-size: 12px;
