@@ -71,7 +71,8 @@ export const HalloweenImage = styled.div`
 
   &:active {
     background-image: url(${Ghost2});
-    transform: scale(0.98); /* liten klick-animation */
+    transform: scale(1.1);
+    //transform: scale(0.98); /* liten klick-animation */
   }
 
 
