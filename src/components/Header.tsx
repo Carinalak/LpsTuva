@@ -23,6 +23,7 @@ const LogoLink = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
+  // @vite-ignore
   cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 `;
 

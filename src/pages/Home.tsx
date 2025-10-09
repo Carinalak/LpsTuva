@@ -30,6 +30,7 @@ export const LPImage = styled.img`
   margin: 10px;
   //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  // @vite-ignore
   cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
@@ -59,6 +60,7 @@ color: ${KRITVIT};
 font-size: 1.2rem;
 text-align: center;
 cursor: pointer;
+// @vite-ignore
 cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {

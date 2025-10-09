@@ -19,6 +19,7 @@ color: ${KRITVIT};
 font-size: 1.2rem;
 text-align: center;
 cursor: pointer;
+// @vite-ignore
 cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
@@ -33,6 +34,7 @@ height: 100px;
 //object-fit: cover; // Beskär bilden
 border-radius: 10px;
 cursor: pointer;
+// @vite-ignore
 cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
