@@ -32,7 +32,7 @@ export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vi
 `;
 export const H1HalloweenSecond = styled(H1White) `      // Titel Halloween
   color: ${PUMPAORANGE};
-  //line-height: 1.1;
+  line-height: 1.1;
   text-shadow: none;
   padding-bottom: 20px;
 `;

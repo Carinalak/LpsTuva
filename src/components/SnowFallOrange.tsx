@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { BLEKPUMPA, PUMPAORANGE } from './styled/Variables';
 
 // Keyframe-animation för snöflingornas fall
 const fall = keyframes`
@@ -14,16 +15,25 @@ const fall = keyframes`
 `;
 
 // Styled-komponent för en enskild snöflinga
-const Snowflake = styled.div`
+/*const Snowflake = styled.div`
   position: absolute;
-  top: -10px; /* Start ovanför skärmen */
-  background-color: white;
+  top: -10px; // Start ovanför skärmen 
+  background-color: ${PUMPAORANGE};
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: ${fall} linear infinite;
+`;*/
+
+const Snowflake = styled.div<{ color: string }>`
+  position: absolute;
+  top: -10px;
+  background-color: ${(props) => props.color};
   border-radius: 50%;
   opacity: 0.8;
   pointer-events: none;
   animation: ${fall} linear infinite;
 `;
-
 // Föräldrakomponent som täcker hela viewporten och förhindrar att snöflingor påverkar sidans storlek
 const SnowContainer = styled.div`
   position: fixed; 
@@ -37,20 +47,24 @@ const SnowContainer = styled.div`
 `;
 
 // SnowFall-komponenten
-const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
+const SnowFallOrange: React.FC<{ count?: number }> = ({ count = 50 }) => {
   const [snowflakes, setSnowflakes] = useState<
-    { id: string; left: string; size: string; duration: string; delay: string }[]
+    {
+      color: string; id: string; left: string; size: string; duration: string; delay: string 
+}[]
   >([]);
 
   // Generera snöflingor när komponenten mountar
+  
   useEffect(() => {
     const generateSnowflakes = (count: number) =>
       Array.from({ length: count }).map(() => ({
         id: Math.random().toString(36).substr(2, 9),
-        left: `${Math.random() * 100}%`, // Random position horisontellt
-        size: `${Math.random() * 10 + 5}px`, // Mellan 5px och 15px
-        duration: `${Math.random() * 4 + 4}s`, // Mellan 5s och 10s
-        delay: `${Math.random() * 4}s`, // Mellan 0s och 5s för fördröjd start
+        left: `${Math.random() * 100}%`,
+        size: `${Math.random() * 10 + 5}px`,
+        duration: `${Math.random() * 4 + 4}s`,
+        delay: `${Math.random() * 4}s`,
+        color: Math.random() < 0.5 ? PUMPAORANGE : BLEKPUMPA, // 👈 slumpa färg
       }));
 
     setSnowflakes(generateSnowflakes(count));
@@ -60,6 +74,7 @@ const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
     <SnowContainer>
       {snowflakes.map((flake) => (
         <Snowflake
+        color={flake.color}
           key={flake.id}
           style={{
             left: flake.left,
@@ -69,9 +84,11 @@ const SnowFall: React.FC<{ count?: number }> = ({ count = 50 }) => {
             animationDelay: flake.delay, // Fördröjning innan animationen startar
           }}
         />
+        
+        
       ))}
     </SnowContainer>
   );
 };
 
-export default SnowFall;
+export default SnowFallOrange;
