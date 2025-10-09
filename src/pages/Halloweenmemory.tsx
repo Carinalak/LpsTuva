@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { SoundPlayerHandle, SoundPlayer } from '../components/SoundPlayer';
+import { SoundPlayerHalloween, SoundPlayerHalloweenHandle } from '../components/SoundPlayerHalloween';
 import Back from '../assets/images/memory_cards/memory_halloween/back_halloween.png';
 import BunnyLeaf from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
 import FladdermusHangs from '../assets/images/memory_cards/memory_halloween/fladdermushangs.jpg';
@@ -55,7 +55,7 @@ export const Halloweenmemory: React.FC = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
-  const soundRef = useRef<SoundPlayerHandle>(null);
+  const soundRef = useRef<SoundPlayerHalloweenHandle>(null);
 
   const getCards = useCallback(() => (difficulty === 'easy' ? easyCards : hardCards), [difficulty]);
 
@@ -125,7 +125,7 @@ export const Halloweenmemory: React.FC = () => {
 
   return (
     <HalloweenBackground>
-      <SoundPlayer ref={soundRef} 
+      <SoundPlayerHalloween ref={soundRef} 
           winVolume={0.5}  // Sätt volymen för 'win' ljudet till 50%
           flipVolume={1.0}  // Behåll flip-ljudet på full volym
           matchVolume={0.8} // Sätt match-ljudet till 80% volym
