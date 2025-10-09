@@ -76,9 +76,9 @@ export const Home = () => {
       <p>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga.</p>
       </TextWrapper>
       <ReklamOrangeBack>
-        <H4Black>Musik till Halloweenfesten!</H4Black>
+        <H4Black>Musik till Halloweenfesten!!!</H4Black>
         Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
-          du kan lägga till i din spellista. 
+        du kan lägga till i din spellista. 
         
         <p>Den första är "Nu är det Halloween" som Tuva har skrivit och spelat in. 
           Den andra är "Hösten är här" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
