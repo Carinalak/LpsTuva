@@ -196,6 +196,18 @@ padding-bottom: 10px;
   }
 
 `;
+export const StyledLink = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  color: ${SKUGGLILA};
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${POOLBLA};
+    text-decoration: underline;
+  }
+`;
+
 
 export const StyledLinkHalloween = styled(Link)`
   cursor: pointer;

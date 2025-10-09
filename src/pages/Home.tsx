@@ -1,4 +1,4 @@
-import { H1PurpleSecond, H4Black, StyledLinkHalloween, StyledLinkPurple } from "../components/styled/Fonts"
+import { H1PurpleSecond, H4Black, StyledLinkHalloween } from "../components/styled/Fonts"
 import { BackgroundOriginal, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
 import Halloween from '../assets/images/LPHalloween.png';
@@ -10,7 +10,6 @@ import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITV
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
-import { StyledLink } from "./Om";
 
 export const HomeImg = styled.img `
   width: 300px;
@@ -26,14 +25,13 @@ export const HomeImg = styled.img `
   }
 `;
 
-
-
 export const LPImage = styled.img`
   width: 100px;
   margin: 10px;
   //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
     &:hover {

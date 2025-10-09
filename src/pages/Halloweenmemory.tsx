@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { SoundPlayerHalloween, SoundPlayerHalloweenHandle } from '../components/SoundPlayerHalloween';
+import Ghost1 from '../assets/images/memory_cards/memory_halloween/ghost1.png';
+import Ghost2 from '../assets/images/memory_cards/memory_halloween/ghost2.png';
 import Back from '../assets/images/memory_cards/memory_halloween/back_halloween.png';
 import BunnyLeaf from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
 import FladdermusHangs from '../assets/images/memory_cards/memory_halloween/fladdermushangs.jpg';
@@ -21,6 +23,8 @@ import { HalloweenMemoryModal } from '../components/MemoryModal';
 import { HalloweenBackground, TitleToggleWrapper } from '../components/styled/Wrappers';
 import { DifficultyToggleHalloween } from '../components/DifficultyToggleHalloween';
 import SnowFallOrange from '../components/SnowFallOrange';
+import styled from 'styled-components';
+import { BREAKPOINT_DESKTOP, BREAKPOINT_BIGGER_DESKTOP } from '../components/styled/Variables';
 
 
 const easyCards = [
@@ -47,6 +51,43 @@ type Card = {
   alt: string;
   matched?: boolean;
 };
+
+export const HalloweenImage = styled.div`
+  width: 160px;
+  height: 160px;
+  padding-top: 15px;
+  cursor: pointer;
+  background-image: url(${Ghost1});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    
+  }
+
+  &:active {
+    background-image: url(${Ghost2});
+    transform: scale(0.98); /* liten klick-animation */
+  }
+
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 200px;
+    height: 200px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 280px;
+      height: 280px;
+      padding-top: 60px;
+    }
+  
+`;
 
 export const Halloweenmemory: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'hard'>('easy');
@@ -180,6 +221,8 @@ export const Halloweenmemory: React.FC = () => {
           </HalloweenMemoryModal>
         </>
       )}
+      <HalloweenImage />
+      
     </HalloweenBackground>
   );
 };
