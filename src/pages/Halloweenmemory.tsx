@@ -41,7 +41,7 @@ const hardCards = [
 ];
 
 type Card = {
-  uuid: unknown;
+  uuid: string;
   id: number;
   src: string;
   alt: string;
@@ -145,13 +145,13 @@ export const Halloweenmemory: React.FC = () => {
                   </TitleToggleWrapper>
 
       <MemoryStyle className={difficulty === "hard" ? "hard-mode" : ""}>
-        {shuffledCards.map((card, index) => {
-          const isFlipped =
-            !isResetting && (selectedCards.includes(card) || matchedCards.includes(card.id));
+        {shuffledCards.map((card) => {
+          const isFlipped = !isResetting && (selectedCards.includes(card) || matchedCards.includes(card.id));
+        
           return (
             <MemoryCard
-              key={index}
-              className={`card ${isFlipped ? 'flipped' : ''}`}
+              key={card.uuid}
+              className={`card ${isFlipped ? 'flipped' : ''} ${difficulty === "hard" ? "hard-mode" : ""}`}
               onClick={() => !isResetting && handleCardClick(card)} // Hindra klick under reset
             >
               <div className="card-inner">
