@@ -21,6 +21,8 @@ export const SOLBLEKT = "#EAE680";
 export const SOLGUL = "#EFEA67";
 export const HJARTROD = "#F31111"; 
 export const LERBRUN = "#765059"; // Spinner
+export const BLEKPUMPA = "#eaa980ff";
+export const PUMPAORANGE = "#e07b3dff";
 
 // -------------------- COLOR SCHEME CHRISTMAS ----------------- //
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT, POOLBLA, SKUGGLILA } from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KOLSVART, KRITVIT, POOLBLA, PUMPAORANGE, SKUGGLILA } from "./Variables";
 import { Link } from "react-router-dom";
 
 export const H1White = styled.h1 `
@@ -28,6 +28,13 @@ export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vi
   color: ${KRITVIT};
   //line-height: 1.1;
   text-shadow: none;
+  padding-bottom: 20px;
+`;
+export const H1HalloweenSecond = styled(H1White) `      // Titel Halloween
+  color: ${PUMPAORANGE};
+  //line-height: 1.1;
+  text-shadow: none;
+  padding-bottom: 20px;
 `;
 
 export const H2White = styled.h2 `
@@ -45,6 +52,22 @@ export const H4White = styled.h4 `
     padding: 0;
     font-family: "Playpen Sans", serif;
     color: ${KRITVIT};
+    font-size: 1rem;
+    text-align: center;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: ${BREAKPOINT_DESKTOP}) {
+        font-size: 1.4rem;
+      }
+`;
+
+export const H4Black = styled.h4 `
+    padding: 0;
+    font-family: "Playpen Sans", serif;
+    color: ${KOLSVART};
     font-size: 1rem;
     text-align: center;
 

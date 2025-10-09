@@ -19,6 +19,7 @@ import { Ritblock } from "./components/ritblock/Ritblock";
 import { FarglaggNu } from "./components/ritblock/FarglaggNu";
 import { LpsGarderoben } from "./components/LpsGarderoben/LpsGarderoben";
 import { Om } from "./pages/Om";
+import { Halloweenmemory } from "./pages/Halloweenmemory";
 
 
 
@@ -69,6 +70,10 @@ export const router = createHashRouter([
             {
                 path: "/julmemory",
                 element:<Julmemory></Julmemory>,
+            },
+                        {
+                path: "/halloweenmemory",
+                element:<Halloweenmemory></Halloweenmemory>,
             },
             {
                 path: "/tack",

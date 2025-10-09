@@ -21,7 +21,6 @@ text-align: center;
 cursor: pointer;
 cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), auto;
 
-
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     font-size: 2rem;
     line-height: 50px;

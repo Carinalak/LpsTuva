@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT } from "./Variables";
+import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -84,6 +84,27 @@ export const TextWrapper = styled(WrapperWhite)`
   width: 550px;
 }
 `;
+
+export const ReklamOrangeBack = styled(WrapperWhite)`
+  width: 80%;       
+  background-color: ${BLEKPUMPA};
+  color: ${KOLSVART};
+  text-align: left; /* Justerar texten horisontellt */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 400px;
+}
+
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  width: 550px;
+}
+`;
+
 
 export const WhiteFont = styled.p `
   background-color: transparent;
@@ -294,6 +315,25 @@ export const JulBackground = styled.div `
   align-items: center;
   justify-content: flex-start;
   padding: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 0;
+
+  //position: relative; /* Viktigt för att positionera barn relativt */
+  /*width: 100%;
+  height: 100vh;*/ /* Täcker hela viewporten */
+  overflow: hidden;
+  overflow-y: hidden;
+`;
+export const HalloweenBackground = styled.div `
+  background-color: ${KOLSVART}; 
+  color:${PUMPAORANGE} ;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  //padding: 100px;
   padding-bottom: 100px;
   margin-bottom: 0;
 
