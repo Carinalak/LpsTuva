@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, DISSAD, GAMMELROSA, JULGULD, KRITVIT, POOLBLA, SMUTSROSA, } from "./Variables";
+import { BLEKASTPUMPA, BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_TABLET, BRUN, CHRISTMAS_RED, DISSAD, GAMMELROSA, JULGULD, KOLSVART, KRITVIT, POOLBLA, PUMPAORANGE, SMUTSROSA, } from "./Variables";
 import arrowWhiteLeft from "../../assets/icons/arrow_white_left.png";
 import arrowWhiteRight from "../../assets/icons/arrow_white_right.png";
 
@@ -139,5 +139,25 @@ export const JulButton = styled(Button) `
     color: ${KRITVIT};
   }
 `;
+
+// ------------- Halloween Button ------------------------------- //
+
+export const HalloweenButton = styled(Button) `
+  background-color: ${PUMPAORANGE}; 
+  color: ${KRITVIT};
+  background-color: ${BRUN};
+  border: 1px solid ${KOLSVART}; 
+
+  &:hover {
+    background-color: ${BLEKPUMPA};
+    color: ${KOLSVART};
+  }
+  &:active {
+    background-color: ${BLEKASTPUMPA};
+    color: ${KRITVIT};
+    border: 1px solid ${BLEKPUMPA}; 
+  }
+`;
+
 
 

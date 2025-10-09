@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_BIGGER_DESKTOP, CHRISTMAS_GREEN, JULGRON_LJUS, JULGULD_MORK, KRITVIT, SKUGGLILA } from "./styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, CHRISTMAS_GREEN, JULGRON_LJUS, JULGULD_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SKUGGLILA } from "./styled/Variables";
 
 export const MemoryModal = styled.div `
   position: fixed;
@@ -30,9 +30,16 @@ export const MemoryModal = styled.div `
 `;
 
 export const JulMemoryModal = styled(MemoryModal) `
-  background-color: ${CHRISTMAS_GREEN};
+  //background-color: ${CHRISTMAS_GREEN};
   background-color: ${JULGRON_LJUS};
   border: 1px solid ${JULGULD_MORK}; 
   color: ${KRITVIT};
+
+`;
+
+export const HalloweenMemoryModal = styled(MemoryModal) `
+  background-color: ${PUMPAORANGE};
+  border: 1px solid ${KOLSVART}; 
+  color: ${KOLSVART};
 
 `;

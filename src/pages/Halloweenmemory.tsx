@@ -8,10 +8,10 @@ import Snake from '../assets/images/memory_cards/memory_halloween/pumpabrillor.j
 import Bear from '../assets/images/memory_cards/oxe.png';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
-import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
+import { ButtonWrapper, HalloweenButton } from '../components/styled/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { H1HalloweenSecond } from '../components/styled/Fonts';
-import { JulMemoryModal } from '../components/MemoryModal';
+import { HalloweenMemoryModal } from '../components/MemoryModal';
 import { HalloweenBackground } from '../components/styled/Wrappers';
 import SnowFall  from '../components/SnowFall';
 
@@ -130,13 +130,13 @@ export const Halloweenmemory: React.FC = () => {
       {showModal && (
         <>
           <SnowFall count={50} /> {/* Använd SnowFall-komponenten */}
-          <JulMemoryModal>
-            <p>Grattis du hittade alla djur! Spela igen?</p>
+          <HalloweenMemoryModal>
+            <p>Grattis du hittade allt! Spela igen?</p>
             <ButtonWrapper>
-              <JulButton onClick={shuffleCards}>Ja</JulButton>
-              <JulButton onClick={() => { setShowModal(false); navigate('/pysselspel'); }}>Nej</JulButton>
+              <HalloweenButton onClick={shuffleCards}>Ja</HalloweenButton>
+              <HalloweenButton onClick={() => { setShowModal(false); navigate('/pysselspel'); }}>Nej</HalloweenButton>
             </ButtonWrapper>
-          </JulMemoryModal>
+          </HalloweenMemoryModal>
         </>
       )}
     </HalloweenBackground>
