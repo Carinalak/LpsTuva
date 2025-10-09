@@ -48,7 +48,7 @@ export const TextWrapper = styled(WrapperWhite)`
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
   align-items: flex-start; /* Justerar innehåll i Flexbox */
-  margin-top: 20px;
+  margin-top: 0;
   
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {

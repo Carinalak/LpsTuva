@@ -1,48 +1,55 @@
 import { useEffect, useRef } from "react";
 
-const VersionChecker: React.FC = () => {
+interface VersionCheckerProps {
+  interval?: number; // tid i ms, t.ex. 120000 = 2 minuter
+}
+
+const VersionChecker: React.FC<VersionCheckerProps> = ({ interval = 120000 }) => {
   const currentETag = useRef<string | null>(null);
 
   useEffect(() => {
-    const timer: NodeJS.Timeout | null = null;
+    let timer: NodeJS.Timeout;
 
     const checkForUpdate = async () => {
       try {
         const response = await fetch("/", {
-          method: "HEAD", // vi hämtar bara headers (snabbt)
+          method: "HEAD",
           cache: "no-store",
         });
 
         const newETag = response.headers.get("etag");
         const lastModified = response.headers.get("last-modified");
+        const identifier = newETag || lastModified;
 
-        // Jämför ETag eller Last-Modified för att se om sidan uppdaterats
-        if (currentETag.current && (newETag !== currentETag.current || !newETag)) {
+        // Om vi redan har en version lagrad och den nya skiljer sig → ladda om
+        if (currentETag.current && identifier && identifier !== currentETag.current) {
           console.log("Ny version upptäckt, laddar om sidan...");
           window.location.reload();
-        } else {
-          currentETag.current = newETag || lastModified;
+        } else if (!currentETag.current && identifier) {
+          currentETag.current = identifier;
         }
       } catch (err) {
         console.error("Kunde inte kolla efter ny version:", err);
       }
-
-      // Kör igen när användaren återaktiverar fliken (t.ex. kommer tillbaka)
-      window.addEventListener("focus", checkForUpdate);
     };
 
-    // Kör en gång när komponenten laddas
+    // Kör första gången direkt
     checkForUpdate();
 
-    // Kör om användaren återvänder till fliken (fångar när sidan varit i bakgrunden)
+    // Kör även varje gång användaren återvänder till fliken
     const handleFocus = () => checkForUpdate();
     window.addEventListener("focus", handleFocus);
 
+    // Kör automatiskt med intervall (standard var 2 min)
+    // eslint-disable-next-line prefer-const
+    timer = setInterval(checkForUpdate, interval);
+
+    // Städning
     return () => {
-      if (timer) clearInterval(timer);
+      clearInterval(timer);
       window.removeEventListener("focus", handleFocus);
     };
-  }, []);
+  }, [interval]);
 
   return null;
 };
