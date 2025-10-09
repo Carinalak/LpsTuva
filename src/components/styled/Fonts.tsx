@@ -196,3 +196,15 @@ padding-bottom: 10px;
   }
 
 `;
+
+export const StyledLinkHalloween = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  color: ${KRITVIT};
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${KOLSVART};
+    text-decoration: underline;
+  }
+`;

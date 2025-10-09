@@ -21,7 +21,7 @@ export const HomeImg = styled.img `
   }
 `;
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   color: ${SKUGGLILA};

@@ -1,4 +1,4 @@
-import { H1PurpleSecond, H4Black } from "../components/styled/Fonts"
+import { H1PurpleSecond, H4Black, StyledLinkHalloween, StyledLinkPurple } from "../components/styled/Fonts"
 import { BackgroundOriginal, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
 import Halloween from '../assets/images/LPHalloween.png';
@@ -10,6 +10,7 @@ import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITV
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
+import { StyledLink } from "./Om";
 
 export const HomeImg = styled.img `
   width: 300px;
@@ -24,6 +25,8 @@ export const HomeImg = styled.img `
       margin-bottom: 20px;
   }
 `;
+
+
 
 export const LPImage = styled.img`
   width: 100px;
@@ -80,8 +83,8 @@ export const Home = () => {
         Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
         du kan lägga till i din spellista. 
         
-        <p>Den första är "Nu är det Halloween" som Tuva har skrivit och spelat in. 
-          Den andra är "Hösten är här" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
+        <p>Den första är "<StyledLinkHalloween to="https://open.spotify.com/track/1Z1qc0vQaCqJCWyHpYtbWf?si=3d2ba3e69f7e46c5" target="_blank">Nu är det Halloween</StyledLinkHalloween>" som Tuva har skrivit och spelat in. 
+          Den andra är "<StyledLinkHalloween to="https://open.spotify.com/track/4Gv0q5LLLznmzi6yLrtfcp?si=2f16de72a6494ada" target="_blank">Hösten är här</StyledLinkHalloween>" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
           när den spelades in. Det är flera andra som sjunger där också. Bland annat hennes kompis Maja, hennes bror Albin 
           och hennes mamma Carina. 
         </p>
