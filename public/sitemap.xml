@@ -4,4 +4,16 @@
     <loc>https://lpstuva.onrender.com/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://lpstuva.onrender.com/om</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lpstuva.onrender.com/memory</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lpstuva.onrender.com/galleribilder</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
