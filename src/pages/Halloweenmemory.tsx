@@ -3,17 +3,20 @@ import { SoundPlayerHalloween, SoundPlayerHalloweenHandle } from '../components/
 import Ghost1 from '../assets/images/memory_cards/memory_halloween/ghost1.png';
 import Ghost2 from '../assets/images/memory_cards/memory_halloween/ghost2.png';
 import Back from '../assets/images/memory_cards/memory_halloween/back_halloween.png';
-import BunnyLeaf from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
+//import BunnyLeaf from '../assets/images/memory_cards/memory_halloween/bunnyleaf.jpg';
 import FladdermusHangs from '../assets/images/memory_cards/memory_halloween/fladdermushangs.jpg';
 import FladdermusPumpa from '../assets/images/memory_cards/memory_halloween/fladdermuspumpa.jpg';
-import LpsGodisar from '../assets/images/memory_cards//memory_halloween/lpsgodisar.jpg';
+import SpindlarPumpa from '../assets/images/memory_cards/memory_halloween/spindlar_pumpa.jpg';
 import PumpaBrillor from '../assets/images/memory_cards/memory_halloween/pumpabrillor.jpg';
-import Oxe from '../assets/images/memory_cards/oxe.png';
 
-import TigerPurple from '../assets/images/memory_cards/purpletiger.png';
-import Snake from '../assets/images/memory_cards/snake.png';
-import Bee from '../assets/images/memory_cards/bee.png';
-import CatPurple from '../assets/images/memory_cards/cat_purple.png';
+
+import IgelkotteLov from '../assets/images/memory_cards/memory_halloween/igelkottelov.jpg';
+import PumpaMossa from '../assets/images/memory_cards/memory_halloween/pumpamossa.jpg';
+import SpindelNat from '../assets/images/memory_cards//memory_halloween/spindel_nat.jpg';
+import SpindelGul from '../assets/images/memory_cards//memory_halloween/spindel_gul.jpg';
+//import LpsGodisar from '../assets/images/memory_cards//memory_halloween/lpsgodisar.jpg';
+import LilaMus from '../assets/images/memory_cards/memory_halloween/lila_mus.jpg';
+import OrmLov from '../assets/images/memory_cards/memory_halloween/orm_lov.jpg';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, HalloweenButton } from '../components/styled/Buttons';
@@ -28,20 +31,24 @@ import { BREAKPOINT_DESKTOP, BREAKPOINT_BIGGER_DESKTOP } from '../components/sty
 
 
 const easyCards = [
-  { id: 1, src: BunnyLeaf, alt: 'Gris' },
-  { id: 2, src: FladdermusHangs, alt: 'Björn' },
-  { id: 3, src: FladdermusPumpa, alt: 'Pingvin' },
-  { id: 4, src: LpsGodisar, alt: 'Får' },
-  { id: 5, src: PumpaBrillor, alt: 'Orm' },
-  { id: 6, src: Oxe, alt: 'Oxe' },
+  { id: 1, src: SpindelGul, alt: 'Gul spindel' },
+  { id: 2, src: FladdermusHangs, alt: 'En hängande fladdermus' },
+  { id: 3, src: FladdermusPumpa, alt: 'Fladdermus bredvid en pumpalykta' },
+  { id: 4, src: SpindlarPumpa, alt: 'Spindlar kryper på en pumpa' },
+  { id: 5, src: PumpaBrillor, alt: 'En pumpa med glasögon' },
+  { id: 6, src: IgelkotteLov, alt: 'Igelkotte bland löv' },
+
 ];
 
 const hardCards = [
   ...easyCards,
-  { id: 7, src: TigerPurple, alt: 'Tiger' },
-  { id: 8, src: Snake, alt: 'Orm' },
-  { id: 9, src: Bee, alt: 'Bi' },
-  { id: 10, src: CatPurple, alt: 'Lila katt' },
+  { id: 7, src: SpindelNat, alt: 'Blå spindel' },
+  { id: 8, src: LilaMus, alt: 'En lila mus' },
+  { id: 9, src: OrmLov, alt: 'Orm med gult löv' },
+  { id: 10, src: PumpaMossa, alt: 'En vit petshop i en pumpamössa' },
+  //{ id: 10, src: BunnyLeaf, alt: 'En kanin bredvid ett rött löv.' },
+  //{ id: 12, src: LpsGodisar, alt: 'Petshopar på godis' },
+
 ];
 
 type Card = {
