@@ -3,14 +3,15 @@ import { H1WhiteSecond } from "../components/styled/Fonts";
 import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
 import Farglagg from '../assets/logos/farglagg_logo2_300.png';
 import Memory from '../assets/logos/memory_logo300.png';
-import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
+import HalloweenMemory from '../assets/logos/memory_halloween_logo.png';
+//import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
 import Ritblock from '../assets/logos/Ritblock_logo_300b.png';
 //import JulMemory from '../assets/images/link_julmemory.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 
 
-const PysselLink = styled(Link)`
+export const PysselLink = styled(Link)`
 display: flex;
 flex-direction: column;
 gap: 5px;
@@ -28,7 +29,7 @@ cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), 
   }
 `;
 
-const PysselSpelLinkImage = styled.img`
+export const PysselSpelLinkImage = styled.img`
 width: 100px;
 height: 100px; 
 //object-fit: cover; // Beskär bilden
@@ -74,6 +75,16 @@ padding-top: 30px;
 
 export const PysselSpel = () => {
 
+
+  // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
+  setTimeout(() => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "auto" });
+    }
+  }, 0);
+  // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
+
   return (
     <BackgroundOriginal>
       <WrapperTransparent>
@@ -82,7 +93,8 @@ export const PysselSpel = () => {
           <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
           <PysselLink to="/ritblock"><PysselSpelLinkImage src={Ritblock} />Ritblock</PysselLink>
           <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
-          <PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>
+          <PysselLink to="/halloweenmemory"><PysselSpelLinkImage src={HalloweenMemory} />Halloween Memory</PysselLink>
+          {/**<PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>**/}
           {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 
           {/* 

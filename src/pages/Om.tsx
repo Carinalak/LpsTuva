@@ -22,6 +22,15 @@ export const HomeImg = styled.img `
 
 export const Om = () => {
 
+  // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
+  setTimeout(() => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "auto" });
+    }
+  }, 0);
+  // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
+  
   return ( 
   <BackgroundOriginal>
     <WrapperWhite>

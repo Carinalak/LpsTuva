@@ -28,8 +28,9 @@ export const MenuLinks = [
     subLinks: [
       { path: "/farglagg", label: "Färgläggning" },
       { path: "/ritblock", label: "Ritblock" },
+      { path: "/halloweenmemory", label: "Halloween Memory" },
       { path: "/memory", label: "Memoryspel" },
-      { path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
+      //{ path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
       //{ path: "/julmemory", label: "Julmemory" },
     ],
   },
