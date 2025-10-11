@@ -53,20 +53,20 @@ export const MemoryCard = styled.div `
   }
   // ---------------------- HARD MODE --------------------------- //
   &.hard-mode {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 80px;
-      height: 80px;
+      width: 95px;
+      height: 95px;
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
   }
 
   }
