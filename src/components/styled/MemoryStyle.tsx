@@ -24,7 +24,7 @@ export const MemoryStyle = styled.div `
   &.hard-mode {
       grid-template-columns: repeat(4, 1fr);
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(7, 1fr);
     }
   }
 `;
@@ -36,16 +36,16 @@ export const MemoryCard = styled.div `
   cursor: pointer;
   border-radius: 5px;
   position: relative;
-  cursor: url(${new URL("../assets/icons/paw_white.png", import.meta.url).href}), !important;
+  cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), !important;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     width: 160px;
@@ -53,16 +53,16 @@ export const MemoryCard = styled.div `
   }
   // ---------------------- HARD MODE --------------------------- //
   &.hard-mode {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 95px;
-      height: 95px;
+      width: 110px;
+      height: 110px;
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     width: 150px;
