@@ -53,8 +53,8 @@ export const MemoryCard = styled.div `
   }
   // ---------------------- HARD MODE --------------------------- //
   &.hard-mode {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 110px;
