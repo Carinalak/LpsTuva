@@ -1,6 +1,6 @@
 import { H1PurpleSecond, H4Black, StyledLinkHalloween } from "../components/styled/Fonts"
 import { BackgroundOriginal, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
-//import Gris from '../assets/images/gris.png';
+import Gris from '../assets/images/apa.png';
 import Halloween from '../assets/images/LPHalloween.png';
 import Hosten from '../assets/images/LPHosten.png';
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import HalloweenMemory from '../assets/logos/halloween_memory_reklam.png';
 
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 import { styled } from "styled-components";
-//import { SerieImage } from "../components/styled/Image";
+import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
 import { PysselLink } from "./Pysselspel";
 
@@ -126,7 +126,7 @@ export const Home = () => {
         </p>
       </ReklamOrangeBack>
       <HomeImg src={HomeImage} alt="Höstbild på en kanin med ett rött löv." loading="lazy"/>
-      {/**<SerieImage src={Gris} alt="Gris" loading="lazy"/> */}
+      <SerieImage src={Gris} alt="Gris" loading="lazy"/>
     </WrapperWhite>
   
   </BackgroundOriginal>
