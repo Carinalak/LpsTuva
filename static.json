@@ -1,0 +1,10 @@
+{
+  "headers": {
+    "/index.html": {
+      "cache-control": "no-cache"
+    },
+    "/assets/*": {
+      "cache-control": "max-age=31536000, immutable"
+    }
+  }
+}
