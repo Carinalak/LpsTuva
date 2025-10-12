@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    <VersionChecker interval={43_200_000} /> {/* två gånger per dag kollas det efter ny version och uppdateras*/}
+    <VersionChecker /> {/* Kollar uppdatering direkt vid sidstart och vid fasta tider varje dag*/}
     <RouterProvider router={router}></RouterProvider>
     </>
   )
