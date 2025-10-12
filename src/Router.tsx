@@ -20,6 +20,7 @@ import { FarglaggNu } from "./components/ritblock/FarglaggNu";
 import { LpsGarderoben } from "./components/LpsGarderoben/LpsGarderoben";
 import { Om } from "./pages/Om";
 import { Halloweenmemory } from "./pages/Halloweenmemory";
+import { Webmaster } from "./pages/Webmaster";
 
 
 
@@ -106,6 +107,10 @@ export const router = createHashRouter([
             {
                 path: "/lpsgarderoben",
                 element: <LpsGarderoben />,
+            },
+                        {
+                path: "/webmaster",
+                element: <Webmaster />,
             },
         ],
     },

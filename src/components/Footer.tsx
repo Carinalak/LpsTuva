@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
-import { FooterTextWhite } from "./styled/Fonts";
+import { FooterTextWhite, StyledLinkHalloween } from "./styled/Fonts";
 
 const FooterContainer = styled.footer`
 background-color: ${SMUTSROSA};
@@ -50,7 +50,7 @@ export const Footer = () => {
 
 return (
   <FooterContainer>
-    <FooterTextWhite>&copy; Lps-Tuva 2025 </FooterTextWhite>
+    <FooterTextWhite>&copy; Lps-Tuva 2025 - <StyledLinkHalloween to="/webmaster"> Webmaster </StyledLinkHalloween></FooterTextWhite>
     <SocialMediaWrapper>
       <a href="https://www.youtube.com/c/LPSTuwa" target="_blank" rel="noopener noreferrer">
         <ResponsiveIcon icon={faSquareYoutube} />

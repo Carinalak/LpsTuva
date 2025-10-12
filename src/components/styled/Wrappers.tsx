@@ -99,15 +99,41 @@ export const BlackFont = styled(WhiteFont) `
 
 // Text ovanför kontaktformuläret:
 export const WhiteFontSmallerBox = styled(WhiteFont) `
-  width: 290px;
+  width: 320px;
   text-align: left;
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 400px;
+    width: 420px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 470px;
   }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 480px;
+  }
+`;
 
+// Text under kontaktformulär med vit bakgrund:
+export const WhiteWrapperMini = styled(WhiteFont) `
+  width: 320px;
+  text-align: left;
+  align-items: center;
+  color: ${KOLSVART};
+  background-color: ${KRITVIT};
+  border-radius: 10px;
+  padding: 30px;
+  padding-bottom: 100px;
+  
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 420px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 470px;
+  }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 480px;
+  }
 `;
 
 

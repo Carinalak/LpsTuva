@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINT_TABLET, SKUGGLILA, SMUTSROSA} from "./Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, SKUGGLILA, SMUTSROSA} from "./Variables";
 
 export const Form = styled.form `
   display: flex;
@@ -22,12 +22,18 @@ export const Form = styled.form `
     border: none;
     outline: none;
     padding: 10px;
-    width: 280px;
+    width: 310px;
     border-radius: 10px;
 
       @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-        width: 350px;
+        width: 400px;
       }
+      @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+        width: 460px;
+      }
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+        width: 470px;
+    }
   }
 
   .contactTextArea {
@@ -41,11 +47,17 @@ export const Form = styled.form `
     height: 260px;
     padding: 10px;
     padding-top: 15px;
-    width: 280px;
+    width: 310px;
     border-radius: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 350px;
+      width: 400px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 460px;
+    }
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+        width: 470px;
     }
   }
 `;

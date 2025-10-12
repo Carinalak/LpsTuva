@@ -10,6 +10,7 @@ import { H1WhiteSecond } from '../components/styled/Fonts';
 import Nalle from '../assets/images/nalle.png';
 import { SerieImage } from '../components/styled/Image';
 import emailjs from 'emailjs-com';
+import { Webmaster } from './Webmaster';
 
 export const Kontakt = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Person>();
@@ -47,7 +48,6 @@ export const Kontakt = () => {
       topElement.scrollIntoView({ behavior: "auto" });
     }
   }, 0);
-
   // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
 
   return (
@@ -111,7 +111,10 @@ export const Kontakt = () => {
             <Button type="submit">Skicka</Button>
           </ButtonWrapper>
         </Form>
+
         <SerieImage src={Nalle} alt="Nalle" loading="lazy"/>
+<Webmaster></Webmaster>
+
       </WrapperTransparent>
     </BackgroundOriginal>
   );

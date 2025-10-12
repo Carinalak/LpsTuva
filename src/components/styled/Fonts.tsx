@@ -70,6 +70,8 @@ export const H4Black = styled.h4 `
     color: ${KOLSVART};
     font-size: 1rem;
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       font-size: 1.3rem;
