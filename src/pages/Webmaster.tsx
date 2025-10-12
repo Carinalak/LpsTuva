@@ -5,7 +5,7 @@ export const Webmaster = () => {
 
   return (<>
 
-        <WhiteWrapperMini id="Webmaster">
+        <WhiteWrapperMini>
                 <H4Black>Webmaster</H4Black>
             <div>
             Vad vill du se mer av på den här sidan? Är det något du vill ändra på, eller något som ser konstigt ut 

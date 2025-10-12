@@ -115,7 +115,7 @@ export const WhiteFontSmallerBox = styled(WhiteFont) `
 
 // Text under kontaktformulär med vit bakgrund:
 export const WhiteWrapperMini = styled(WhiteFont) `
-  width: 320px;
+  width: 280px;
   text-align: left;
   align-items: center;
   color: ${KOLSVART};
@@ -126,13 +126,13 @@ export const WhiteWrapperMini = styled(WhiteFont) `
   
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 420px;
+    width: 370px;
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 470px;
+    width: 430px;
   }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 480px;
+    width: 450px;
   }
 `;
 
