@@ -1,11 +1,14 @@
 if ('serviceWorker' in navigator) {
+  // Lyssna på när ny service worker tar över
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    // En ny service worker har tagit över – ladda om sidan
-    console.log('🆕 Ny version aktiv, laddar om...');
-    window.location.reload();
+    console.log('🆕 Ny version aktiv, laddar om smidigt...');
+    // Lägg till fade-out för mjukare övergång
+    document.body.style.transition = 'opacity 0.3s ease';
+    document.body.style.opacity = '0';
+    setTimeout(() => window.location.reload(), 300); // reload efter 0.3s
   });
 
-  // Registrera uppdateringar
+  // Håll service workern uppdaterad
   navigator.serviceWorker.getRegistration().then((registration) => {
     if (registration) {
       setInterval(() => {
