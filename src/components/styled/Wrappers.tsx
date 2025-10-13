@@ -68,6 +68,7 @@ export const ReklamOrangeBack = styled(WrapperWhite)`
   text-align: left; /* Justerar texten horisontellt */
   margin-top: 0;
   margin-bottom: 40px;
+  padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
