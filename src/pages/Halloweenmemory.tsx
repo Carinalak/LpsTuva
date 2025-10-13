@@ -69,13 +69,13 @@ export const HalloweenImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
-  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-/*
+  //transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
   &:hover {
     //transform: scale(1.1);
     background-image: url(${Ghost2});
   }
-*/
+
   &:active {
     background-image: url(${Ghost2});
     //transform: scale(1.1);
