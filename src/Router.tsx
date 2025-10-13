@@ -21,6 +21,7 @@ import { LpsGarderoben } from "./components/LpsGarderoben/LpsGarderoben";
 import { Om } from "./pages/Om";
 import { Halloweenmemory } from "./pages/Halloweenmemory";
 import { Webmaster } from "./pages/Webmaster";
+import ChristmasCalendar from "./Jul/ChristmasCalendar/ChristmasCalendar";
 
 
 
@@ -108,9 +109,13 @@ export const router = createHashRouter([
                 path: "/lpsgarderoben",
                 element: <LpsGarderoben />,
             },
-                        {
+            {
                 path: "/webmaster",
                 element: <Webmaster />,
+            },
+                        {
+                path: "/jul/christmascalendar/christmascalendar",
+                element: <ChristmasCalendar />,
             },
         ],
     },

@@ -26,12 +26,13 @@ Tablet och Desktopversion:
 
 - npm run dev
 
-## To deploy the project to GitHubPages run this command every time you pushed and want to do a new build: 
+<!--
+## To deploy the project to GitHubPages run this command every time you push and want to do a new build: 
 
 - rm -rf dist
 - npm run build
 - npm run deploy
-
+-->
 ## The form uses React hook form and Reg Ex to validate:
 
 - npm install react-hook-form @hookform/resolvers yup
@@ -47,7 +48,7 @@ npm install axios
 npm install emailjs-com
 npm install framer-motion till switchknappen
 
-
+<!--
 ## Supabase till att Tuva själv kan uppdatera texten i sin sida, genom Admin-komponenten: 
 - npm install @supabase/supabase-js
 
@@ -57,7 +58,7 @@ npm install framer-motion till switchknappen
 
 ## Ikon till password
 - npm install lucide-react
-
+-->
 
 ## Memoryspelet
 
