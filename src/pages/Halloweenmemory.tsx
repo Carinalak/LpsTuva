@@ -60,10 +60,7 @@ type Card = {
 };
 
 
-const GhostAnimation = keyframes`
-  0%, 50%, 100% { content: url(${Ghost1}); transform: translateY(0); }
-  25%, 75% { content: url(${Ghost2}); transform: translateY(-5px); }
-`;
+
 /*
 const GhostAnimation = keyframes`
   0% {
@@ -89,24 +86,27 @@ const GhostAnimation = keyframes`
   }
 `;*/
 
+
+const GhostAnimation = keyframes`
+  0%, 50%, 100% { content: url(${Ghost1}); transform: translateY(0); }
+  25%, 75% { content: url(${Ghost2}); transform: translateY(-5px); }
+`;
+
 export const HalloweenImage = styled.div`
   width: 160px;
-
-  margin-top: 15px;
+  margin-top: 20px;
 
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
- animation: ${GhostAnimation} 4s infinite steps(1);
+  animation: ${GhostAnimation} 5s infinite steps(1);
 
 
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     width: 200px;
-
     margin-top: 40px;
     margin-bottom: 20px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       width: 280px;
-
       margin-top: 60px;
     }
   
