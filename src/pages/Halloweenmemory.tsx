@@ -26,7 +26,7 @@ import { HalloweenMemoryModal } from '../components/MemoryModal';
 import { HalloweenBackground, TitleToggleWrapper } from '../components/styled/Wrappers';
 import { DifficultyToggleHalloween } from '../components/DifficultyToggleHalloween';
 import SnowFallOrange from '../components/SnowFallOrange';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { BREAKPOINT_DESKTOP, BREAKPOINT_BIGGER_DESKTOP } from '../components/styled/Variables';
 
 
@@ -59,6 +59,61 @@ type Card = {
   matched?: boolean;
 };
 
+
+
+const GhostAnimation = keyframes`
+  0% {
+    background-image: url(${Ghost1});
+    transform: translateY(0);
+  }
+  25% {
+    background-image: url(${Ghost2});
+    transform: translateY(-5px); // liten rörelse upp 
+  }
+  50% {
+    background-image: url(${Ghost1});
+    transform: translateY(0);
+  }
+
+  75% {
+    background-image: url(${Ghost2});
+    transform: translateY(5px); // liten rörelse ner 
+  }
+  100% {
+    background-image: url(${Ghost1});
+    transform: translateY(0);
+  }
+`;
+export const HalloweenImage = styled.div`
+  width: 160px;
+  height: 160px;
+  padding-top: 15px;
+  cursor: pointer;
+  background-image: url(${Ghost1});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
+  animation: ${GhostAnimation} 4s infinite;
+
+
+
+
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 200px;
+    height: 200px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 280px;
+      height: 280px;
+      padding-top: 60px;
+    }
+  
+`;
+
+/*
 export const HalloweenImage = styled.div`
   width: 160px;
   height: 160px;
@@ -79,7 +134,7 @@ export const HalloweenImage = styled.div`
   &:active {
     background-image: url(${Ghost2});
     //transform: scale(1.1);
-    //transform: scale(0.98); /* liten klick-animation */
+    //transform: scale(0.98); // liten klick-animation 
   }
 
 
@@ -95,7 +150,7 @@ export const HalloweenImage = styled.div`
       padding-top: 60px;
     }
   
-`;
+`;*/
 
 export const Halloweenmemory: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'hard'>('easy');
