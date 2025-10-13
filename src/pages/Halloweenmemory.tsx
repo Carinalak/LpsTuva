@@ -94,7 +94,7 @@ const GhostAnimation = keyframes`
 
 export const HalloweenImage = styled.div`
   width: 160px;
-  margin-top: 20px;
+  margin-top: 40px;
 
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
   animation: ${GhostAnimation} 5s infinite steps(1);
