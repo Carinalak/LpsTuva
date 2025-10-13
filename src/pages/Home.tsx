@@ -100,7 +100,7 @@ export const Home = () => {
     <WrapperWhite>
       <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
       <TextWrapper>
-      <b>Testar detta nu!</b>
+      <b>Tuva är bäst"</b>
         <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga. Nya memoryspelet med Halloweentema är här. Kolla in det!</div>
       </TextWrapper>
         <PysselLink to="/halloweenmemory"><HalloweenImg src={HalloweenMemory} /></PysselLink>
