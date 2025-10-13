@@ -76,6 +76,18 @@ Från Freesound.com:
 ### Cookies:
 - npm install js-cookie
 
+### Reload och Cache problem - lösning
+Dessa filer används vid problem när uppdateringar inte laddas upp automatiskt i Browsern hos användaren:
+1.Installera pluginet PWA - npm install vite-plugin-pwa
+2. vite.config.ts
+3. main.tsx
+4. virtual.d.ts 
+5. static.json
+Version check (lite av den i nån av ovanstående filer också kanske)
+6. index.html - lägg in <meta name="version" content="%VITE_APP_VERSION%">
+7. versionCheck.js
+8. swListener.js
+
 
 # ----------------------- Backend -------------------------- not in use right now
 

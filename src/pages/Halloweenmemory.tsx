@@ -69,7 +69,7 @@ export const HalloweenImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
-  //transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
   &:hover {
     //transform: scale(1.1);
@@ -79,7 +79,7 @@ export const HalloweenImage = styled.div`
   &:active {
     background-image: url(${Ghost2});
     //transform: scale(1.1);
-    //transform: scale(0.98); /* liten klick-animation */
+    transform: scale(0.98); /* liten klick-animation */
   }
 
 
