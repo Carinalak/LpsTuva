@@ -1,0 +1,87 @@
+import { motion } from "framer-motion";
+import styled from "styled-components";
+import { CHRISTMAS_RED_DARK, FONT_PLAYPEN, KOLSVART, KRITVIT } from "./styled/Variables";
+
+interface DifficultyToggleJulProps {
+  onClick: () => void;
+  difficulty: "easy" | "hard";
+}
+
+export const SwitchContainer = styled.div`
+  width: 53px;
+  height: 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  position: relative;
+  background-color: ${CHRISTMAS_RED_DARK};
+  border: 1px solid ${KRITVIT};
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+`;
+
+export const SwitchHandle = styled(motion.div)<{ difficulty: "easy" | "hard" }>`
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: ${KRITVIT};
+  position: absolute;
+  border: 1px solid ${KOLSVART};
+`;
+
+export const FontToggleLeft = styled.span `
+
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  padding-left: 6px;
+`;
+export const FontToggleRight = styled.span `
+
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  padding-right: 6px;
+`;
+export const FontToggleStyle = styled.span `
+
+  font-family: ${FONT_PLAYPEN};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${KRITVIT};
+`;
+
+export const ToggleWrap = styled.span `
+  font-family: ${FONT_PLAYPEN};
+  font-size: 14px;
+  font-weight: 600;
+  color: ${KRITVIT};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const DifficultyToggleJul: React.FC<DifficultyToggleJulProps> = ({ onClick, difficulty }) => {
+  return (<ToggleWrap>
+    <FontToggleStyle>Välj nivå:</FontToggleStyle>
+    <SwitchContainer onClick={onClick}>
+      <FontToggleLeft>20</FontToggleLeft>
+      <SwitchHandle
+        layout
+        initial={false}
+        difficulty={difficulty}
+        animate={{ x: difficulty === "hard" ? 30 : 3 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      />
+      <FontToggleRight>12</FontToggleRight>
+    </SwitchContainer>
+    </ToggleWrap>
+  );
+};

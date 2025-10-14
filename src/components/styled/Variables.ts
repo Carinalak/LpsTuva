@@ -29,6 +29,7 @@ export const BRUN = "#8f3f0dff";
 // -------------------- COLOR SCHEME CHRISTMAS ----------------- //
 
 export const CHRISTMAS_RED = "#C91212"; // #C91212 på button
+export const CHRISTMAS_RED_DARK = "#991919ff";
 export const CHRISTMAS_GREEN = "#28A24B"; 
 export const JULGRON_MORK = "#0d4d1f"; // Andra gröna  #008000 #0d4d1f 
 export const JULGRON_LJUS = "#206a35"

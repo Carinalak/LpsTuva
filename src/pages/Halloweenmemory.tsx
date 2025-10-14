@@ -246,10 +246,8 @@ export const Halloweenmemory: React.FC = () => {
           />
 
                 <TitleToggleWrapper>
-                  
                 <div/>
                  <H1HalloweenSecond>Halloween-memory</H1HalloweenSecond>
-          
                  <div>
                   <DifficultyToggleHalloween
                     difficulty={difficulty}
