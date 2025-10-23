@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Hemsidan med OG-bild -->
   <url>
     <loc>https://lpstuva.onrender.com/</loc>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lpstuva.onrender.com/LpsTuva.png</image:loc>
+      <image:caption>Lps-Tuva – pyssel, spel och bildgalleri</image:caption>
+      <image:title>Lps-Tuva</image:title>
+    </image:image>
   </url>
+
+  <!-- Övriga sidor -->
   <url>
     <loc>https://lpstuva.onrender.com/om</loc>
     <priority>0.8</priority>
@@ -16,4 +27,5 @@
     <loc>https://lpstuva.onrender.com/galleribilder</loc>
     <priority>0.8</priority>
   </url>
+
 </urlset>
