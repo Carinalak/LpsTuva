@@ -12,7 +12,6 @@ type MenuLinks = {
 };
 
 export const MenuLinks = [
-  { path: "/om", label: "Om" },
   { path: "/", label: "Hem" },
   { 
     path: "/galleribilder",
@@ -35,5 +34,6 @@ export const MenuLinks = [
       //{ path: "/julmemory", label: "Julmemory" },
     ],
   },
+  { path: "/om", label: "Om" },
   { path: "/kontakt", label: "Kontakt" },
 ];

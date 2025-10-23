@@ -36,7 +36,6 @@ export const Om = () => {
     <WrapperWhite>
       <H1PurpleSecond>Om Lps-Tuva</H1PurpleSecond>
       <TextWrapper>
-        <b>Välkommen till Lps-Tuvas sida!</b>
         <p>Lps-Tuva är mest känd för sina Littlest Pet Shop filmer. Hon är även väldigt bra på teckning och musikkomposition.
           Hon sjunger och spelar både piano och gitarr. På Lps-Tuvas sida kan du <StyledLink to="/farglagg">färglägga </StyledLink>  
           hennes bilder, spela <StyledLink to="/memory">memoryspel</StyledLink> och titta på hennes 
