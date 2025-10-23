@@ -451,14 +451,15 @@ export const HalloweenPysselImage = styled.img`
   width: 300px;       // Måste ha samma bredd som HalloweenPysselTextWrapper! till texten
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 200px;
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
     &:hover {
         transform: scale(1.1);
       }
 
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 200px;
   }
 
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
