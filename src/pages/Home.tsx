@@ -1,6 +1,6 @@
 import { H1PurpleSecond, H4Black, StyledLink, StyledLinkHalloween } from "../components/styled/Fonts"
 import { BackgroundOriginal, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
-import Gris from '../assets/images/apa.png';
+import Pumpakorg from '../assets/images/halloween/dekorationer/pumpakorg.png';
 import Halloween from '../assets/images/LPHalloween.png';
 import Hosten from '../assets/images/LPHosten.png';
 import { Link } from "react-router-dom";
@@ -127,7 +127,7 @@ export const Home = () => {
         </p>
       </ReklamOrangeBack>
       <HomeImg src={HomeImage} alt="Höstbild på en kanin med ett rött löv." loading="lazy"/>
-      <SerieImage src={Gris} alt="Gris" loading="lazy"/>
+      <SerieImage src={Pumpakorg} alt="Pumpakorg" loading="lazy"/>
     </WrapperWhite>
   
   </BackgroundOriginal>
