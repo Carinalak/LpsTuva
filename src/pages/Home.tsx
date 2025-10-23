@@ -1,4 +1,4 @@
-import { H1PurpleSecond, H4Black, StyledLinkHalloween } from "../components/styled/Fonts"
+import { H1PurpleSecond, H4Black, StyledLink, StyledLinkHalloween } from "../components/styled/Fonts"
 import { BackgroundOriginal, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/apa.png';
 import Halloween from '../assets/images/LPHalloween.png';
@@ -100,10 +100,11 @@ export const Home = () => {
     <WrapperWhite>
       <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
       <TextWrapper>
-        <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga. Nya memoryspelet med Halloweentema är här. Kolla in det!</div>
+        <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. 
+          Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga 
+          och <StyledLink to="/../halloween/halloweenpyssel"> halloweenpyssel</StyledLink> att pyssla! Nya memoryspelet med Halloweentema är här. Kolla in det!</div>
       </TextWrapper>
         <PysselLink to="/halloweenmemory"><HalloweenImg src={HalloweenMemory} /></PysselLink>
-
       <TextWrapper>
         
       </TextWrapper>

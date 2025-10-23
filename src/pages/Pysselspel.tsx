@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { H1WhiteSecond } from "../components/styled/Fonts";
-import { BackgroundOriginal, CenteredColTransWrapper, WrapperTransparent } from "../components/styled/Wrappers";
+import { BackgroundOriginal, WrapperTransparent } from "../components/styled/Wrappers";
 import Farglagg from '../assets/logos/farglagg_logo2_300.png';
 import Memory from '../assets/logos/memory_logo300.png';
 import HalloweenMemory from '../assets/logos/memory_halloween_logo.png';
+import HalloweenPyssel from '../assets/logos/halloweenpyssel_logo.png';
 //import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
 import Ritblock from '../assets/logos/Ritblock_logo_300b.png';
 //import JulMemory from '../assets/images/link_julmemory.png';
@@ -59,17 +60,24 @@ transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 `;
 
-const PysselSpelWrapper = styled(CenteredColTransWrapper) `
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-padding-top: 30px;
-
-
-@media screen and (min-width: ${BREAKPOINT_TABLET}) {
+const PysselSpelWrapper = styled.div `
   display: flex;
   flex-direction: row;
-  align-items: center;
-}
+  justify-content: space-between;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-top: 30px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+    
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      gap: 80px;
+  }
 `;
 
 
@@ -90,10 +98,13 @@ export const PysselSpel = () => {
       <WrapperTransparent>
         <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
           < PysselSpelWrapper>
+          <PysselLink to="/halloweenmemory"><PysselSpelLinkImage src={HalloweenMemory} />Halloween Memory</PysselLink>
+          <PysselLink to="/halloween/halloweenpyssel"><PysselSpelLinkImage src={HalloweenPyssel} />Halloweenpyssel</PysselLink>
+          <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
           <PysselLink to="/farglagg"><PysselSpelLinkImage src={Farglagg} />Färglägg</PysselLink>
           <PysselLink to="/ritblock"><PysselSpelLinkImage src={Ritblock} />Ritblock</PysselLink>
-          <PysselLink to="/memory"><PysselSpelLinkImage src={Memory} />Memory</PysselLink>
-          <PysselLink to="/halloweenmemory"><PysselSpelLinkImage src={HalloweenMemory} />Halloween Memory</PysselLink>
+ 
+
           {/**<PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>**/}
           {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
 

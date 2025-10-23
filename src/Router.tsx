@@ -22,6 +22,7 @@ import { Om } from "./pages/Om";
 import { Halloweenmemory } from "./pages/Halloweenmemory";
 import { Webmaster } from "./pages/Webmaster";
 import ChristmasCalendar from "./Jul/Calendar/ChristmasCalendar";
+import { Halloweenpyssel } from "./pages/halloween/Halloweenpyssel";
 
 
 
@@ -73,9 +74,13 @@ export const router = createHashRouter([
                 path: "/julmemory",
                 element:<Julmemory></Julmemory>,
             },
-                        {
+            {
                 path: "/halloweenmemory",
                 element:<Halloweenmemory></Halloweenmemory>,
+            },
+            {
+                path: "/halloween/halloweenpyssel",
+                element:<Halloweenpyssel></Halloweenpyssel>,
             },
             {
                 path: "/tack",

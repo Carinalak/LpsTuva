@@ -65,6 +65,8 @@ export const FarglaggImage = styled.img`
   }
 
 `;
+
+
 export const SerieImage = styled.img`
   width: 120px;
   padding-top: 10px;

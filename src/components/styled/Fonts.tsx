@@ -28,7 +28,7 @@ export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vi
   color: ${KRITVIT};
   line-height: 1.1;
   text-shadow: none;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 `;
 export const H1HalloweenSecond = styled(H1White) `      // Titel Halloween
   color: ${PUMPAORANGE};
@@ -178,7 +178,6 @@ width: 100px ;     // Måste vara samma width som FarglaggImage
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     width: 300px;
   }
-
 `;
 
 export const StyledTextWhiteCenter = styled.div `

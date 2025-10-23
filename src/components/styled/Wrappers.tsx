@@ -87,7 +87,7 @@ export const WhiteFont = styled.p `
   background-color: transparent;
   display: block;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 2px;
   color: ${KRITVIT};
   font-family: "Playpen Sans", serif;
   text-align: center;
@@ -417,3 +417,57 @@ padding-bottom: 10px;
 */
 `;
 
+// --------------------------------- Halloween -------------------------------------- //
+export const HalloweenWrapperInner = styled.div `
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid white;
+`;
+
+export const HalloweenPysselTextWrapper = styled.div `
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: left;
+padding-top: 10px;
+width: 300px ;     // Måste vara samma width som HalloweenPysselImage
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 200px;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 200px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 300px;
+  }
+`;
+
+export const HalloweenPysselImage = styled.img`
+
+  width: 300px;       // Måste ha samma bredd som HalloweenPysselTextWrapper! till texten
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+      }
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 200px;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 200px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 300px;
+  }
+
+`;
+
+// ------------------------- End Halloween -------------------------------------- //
