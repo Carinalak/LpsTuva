@@ -10,7 +10,7 @@ import HalloweenMemory from '../assets/logos/halloween_memory_reklam.png';
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/autumn/BunnyRedLeaf.jpg';
+import HomeImage from '../assets/images/galleri/autumn/Hund_orange_lov.jpg';
 import { PysselLink } from "./Pysselspel";
 
 export const HomeImg = styled.img `
@@ -126,7 +126,7 @@ export const Home = () => {
         <p>Känner du till några bra höst eller Halloweenlåtar så tipsa gärna Tuva.
         </p>
       </ReklamOrangeBack>
-      <HomeImg src={HomeImage} alt="Höstbild på en kanin med ett rött löv." loading="lazy"/>
+      <HomeImg src={HomeImage} alt="Höstbild" loading="lazy"/>
       <SerieImage src={Pumpakorg} alt="Pumpakorg" loading="lazy"/>
     </WrapperWhite>
   
