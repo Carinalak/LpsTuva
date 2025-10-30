@@ -1,45 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
-
-// 🔹 Importera dina lokala bilder
-import BunnyRedLeaf from "../../assets/images/galleri/autumn/BunnyRedLeaf.jpg";
-import HundOrangeLov from "../../assets/images/galleri/autumn/Hund_orange_lov.jpg";
-import Gungar from "../../assets/images/galleri/autumn/Gungar.jpg";
-import SpindelOrangeLov1 from "../../assets/images/galleri/autumn/Spindel_orangelov1.jpg";
-import RosaKatt from "../../assets/images/galleri/winter/rosa_katt.jpg";
-import SnowKana from "../../assets/images/galleri/winter/Snow_kana.jpg";
-import RavMossaSnow from "../../assets/images/galleri/winter/Rav_mossa_snow.jpg";
-import ValrossIs from "../../assets/images/galleri/winter/valross_is.jpg";
-import KaninPulka1 from "../../assets/images/galleri/winter/kanin_pulka.jpg";
-import KaninPulka2 from "../../assets/images/galleri/winter/kanin_pulka2.jpg";
-
-// 🔹 Bilder med hårdkodat lucknummer
-const images = [
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", number: 1 },
-  { src: RosaKatt, alt: "Rosa katt", number: 2 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 3 },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 4 },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", number: 5 },
-  { src: SnowKana, alt: "Snökana", number: 6 },
-  { src: ValrossIs, alt: "Valross i is", number: 7 },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 8 },
-  { src: KaninPulka1, alt: "Kanin på pulka", number: 9 },
-  { src: KaninPulka2, alt: "Kanin på pulka", number: 10 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 11 },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", number: 12 },
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", number: 13 },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 14 },
-  { src: RavMossaSnow, alt: "Räv i mossa", number: 15 },
-  { src: SnowKana, alt: "Snökana", number: 16 },
-  { src: RavMossaSnow, alt: "Räv i mossa", number: 17 },
-  { src: ValrossIs, alt: "Valross i is", number: 18 },
-  { src: KaninPulka1, alt: "Kanin på pulka", number: 19 },
-  { src: KaninPulka2, alt: "Kanin på pulka", number: 20 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 21 },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", number: 22 },
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", number: 23 },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 24 },
-];
+import { CalendarImages } from "../Calendar/CalendarImages";
 
 // 🔹 Styled-components och animationer
 const CalendarWrapper = styled.div`
@@ -136,30 +97,88 @@ const Image = styled.img<{ visible: boolean }>`
   border-radius: 10px;
   transition: opacity 0.8s ease-in-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
+  cursor: zoom-in;
 `;
 
-interface DoorState {
-  opened: boolean;
-  direction: "left" | "right";
-}
+// 🔹 Modal för gallery
+const ModalOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.4s ease-in-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #b22222;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  &:hover { background: #8b1a1a; }
+`;
+
+const NavButton = styled.button<{ left?: boolean }>`
+  position: absolute;
+  top: 50%;
+  ${({ left }) => (left ? "left: 10px;" : "right: 10px;")}
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 40px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover { background: rgba(0,0,0,0.6); }
+`;
+
+// 🔹 Komponent
+interface DoorState { opened: boolean; direction: "left" | "right"; }
 
 const ChristmasCalendar: React.FC = () => {
   const [doors, setDoors] = useState<DoorState[]>(
-    Array(images.length)
-      .fill(null)
-      .map(() => ({
-        opened: false,
-        direction: Math.random() > 0.5 ? "left" : "right",
-      }))
+    Array(CalendarImages.length).fill({ opened: false, direction: "left" }).map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }))
   );
+  const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
 
-  // Läs tidigare öppnade luckor från localStorage
   useEffect(() => {
     const stored = localStorage.getItem("christmasCalendar2025");
     if (stored) setDoors(JSON.parse(stored));
   }, []);
 
-  // Spara när luckor öppnas
   useEffect(() => {
     localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
   }, [doors]);
@@ -171,36 +190,93 @@ const ChristmasCalendar: React.FC = () => {
       newDoors[index].opened = true;
       setDoors(newDoors);
     } else {
-      alert(`🎅 Du kan inte öppna lucka ${index + 1} ännu!`);
+      alert(`🎅 Du kan inte öppna lucka ${index+1} ännu!`);
     }
   };
 
-  // Sortera bilderna efter den ordning du vill visa i gridden
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const openModal = (images: any[], index = 0) => setModalState({ images, index });
+  const closeModal = () => setModalState(null);
+  const prevImage = () => {
+    if (!modalState) return;
+    const newIndex = (modalState.index - 1 + modalState.images.length) % modalState.images.length;
+    setModalState({ ...modalState, index: newIndex });
+  };
+  const nextImage = () => {
+    if (!modalState) return;
+    const newIndex = (modalState.index + 1) % modalState.images.length;
+    setModalState({ ...modalState, index: newIndex });
+  };
+
   const gridOrder = [
     3, 0, 5, 7, 2, 8, 1, 4, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 22
-  ]; // Exempel: positioner i gridden
+  ];
 
   return (
     <CalendarWrapper>
       <Title>🎄 Julkalender 2025 🎁</Title>
       <Grid>
-        {gridOrder.map((imgIndex) => (
-          <DoorWrapper key={images[imgIndex].number}>
-            <Image
-              src={images[imgIndex].src}
-              alt={images[imgIndex].alt}
-              visible={doors[images[imgIndex].number - 1].opened}
-            />
-            <Door
-              opened={doors[images[imgIndex].number - 1].opened}
-              direction={doors[images[imgIndex].number - 1].direction}
-              onClick={() => handleOpen(images[imgIndex].number - 1)}
-            >
-              {images[imgIndex].number}
-            </Door>
-          </DoorWrapper>
-        ))}
+        {gridOrder.map((i) => {
+          const door = doors[CalendarImages[i].number-1];
+          const imgData = CalendarImages[i];
+
+          return (
+            <DoorWrapper key={imgData.number}>
+              <Image
+                src={imgData.gallery ? imgData.gallery[0].src : imgData.src}
+                alt={imgData.gallery ? imgData.gallery[0].alt : imgData.alt}
+                visible={door.opened}
+                onClick={() => {
+                  if (!door.opened) return;
+                  if (imgData.gallery) openModal(imgData.gallery);
+                  else openModal([{ src: imgData.src, alt: imgData.alt }]);
+                }}
+              />
+              <Door
+                opened={door.opened}
+                direction={door.direction}
+                onClick={() => handleOpen(imgData.number-1)}
+              >
+                {imgData.number}
+              </Door>
+            </DoorWrapper>
+          )
+        })}
       </Grid>
+
+      {modalState && (
+  <ModalOverlay onClick={closeModal}>
+    <ModalContent onClick={e => e.stopPropagation()}>
+      <img src={modalState.images[modalState.index].src} alt={modalState.images[modalState.index].alt}/>
+      
+      {modalState.images.length > 1 && (
+        <>
+          <NavButton
+            left
+            onClick={prevImage}
+            disabled={modalState.index === 0}
+            style={{ opacity: modalState.index === 0 ? 0.3 : 1, cursor: modalState.index === 0 ? "not-allowed" : "pointer" }}
+          >
+            &#8249;
+          </NavButton>
+          
+          <NavButton
+            onClick={nextImage}
+            disabled={modalState.index === modalState.images.length - 1}
+            style={{ opacity: modalState.index === modalState.images.length - 1 ? 0.3 : 1, cursor: modalState.index === modalState.images.length - 1 ? "not-allowed" : "pointer" }}
+          >
+            &#8250;
+          </NavButton>
+        </>
+      )}
+
+      <CloseButton onClick={closeModal}>Stäng ✖</CloseButton>
+    </ModalContent>
+  </ModalOverlay>
+
+
+      )}
+
     </CalendarWrapper>
   );
 };

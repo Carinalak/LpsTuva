@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { H1WhiteSecond } from '../components/styled/Fonts';
 import { BackgroundOriginal, GalleryContainer, GalleryWrapper, GalleryWrapperInner, PaginationWrapper, TitleDropdownWrapper } from '../components/styled/Wrappers';
 import { GalleryImage } from '../components/styled/Image';
@@ -25,12 +25,13 @@ export const GalleriBilder: React.FC = () => {
   };
 
   // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
-  setTimeout(() => {
-    const topElement = document.getElementById("top");
-    if (topElement) {
-      topElement.scrollIntoView({ behavior: "auto" });
-    }
-  }, 0);
+  // Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
+useEffect(() => {
+  const topElement = document.getElementById("top");
+  if (topElement) {
+    topElement.scrollIntoView({ behavior: "auto" });
+  }
+}, []); // Körs EN gång när sidan laddas
   // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
   
   return (

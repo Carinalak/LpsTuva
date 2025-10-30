@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     VitePWA({
     registerType: 'autoUpdate', // Uppdaterar automatiskt när ny version finns
-    includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt'], // valfria statiska filer
+    includeAssets: ['robots.txt'], // valfria statiska filer
     manifest: {
       name: "Memoryspel",
       short_name: "Memory",

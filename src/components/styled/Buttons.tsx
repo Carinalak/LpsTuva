@@ -139,6 +139,15 @@ export const JulButton = styled(Button) `
     color: ${KRITVIT};
   }
 `;
+// ---------------  Christmas arrow buttons modal not in use right now ---------------- //
+export const ButtonArrowRedLeft = styled(ButtonArrowLeft)`
+  background-color: ${CHRISTMAS_RED};
+`;
+
+export const ButtonArrowRedRight = styled(ButtonArrowRight)`
+
+  background-color: ${CHRISTMAS_RED};
+`;
 
 // ------------- Halloween Button ------------------------------- //
 
