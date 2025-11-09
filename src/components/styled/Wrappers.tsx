@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE } from "./Variables";
+import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SMUTSROSA } from "./Variables";
 
 
 export const WrapperWhite = styled.section`
@@ -50,10 +50,54 @@ export const TextWrapper = styled(WrapperWhite)`
   align-items: flex-start; /* Justerar innehåll i Flexbox */
   margin-top: 0;
   
-
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 450px;
   padding-bottom: 10px;
+}
+
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  width: 550px;
+}
+`;
+
+
+export const HistoryDatePink = styled.div`
+  width: 90%;       // Måste ha samma bredd som Textwrapper!
+  background-color: ${SMUTSROSA};
+  color: ${KOLSVART};
+  text-align: left; /* Justerar texten horisontellt */
+  align-items: center; /* Justerar innehåll i Flexbox */
+  margin-top: 0;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 450px;
+}
+
+@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+  width: 550px;
+}
+`;
+
+export const HistoryDateHalloween = styled.div`
+  width: 90%;       // Måste ha samma bredd som Textwrapper!
+  background-color: ${PUMPAORANGE};
+  color: ${KOLSVART};
+  text-align: left; /* Justerar texten horisontellt */
+  align-items: center; /* Justerar innehåll i Flexbox */
+  margin-top: 0;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  width: 450px;
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
@@ -368,6 +412,24 @@ export const TitleDropdownWrapper = styled.section`
   }
 `;
 
+export const DropdownWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 10px; 
+  //border: 1px solid white;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      flex-direction: row;
+      gap: 20px; 
+      margin-bottom: 5px;
+  }
+`;
+
 export const TitleToggleWrapper = styled(TitleDropdownWrapper)`
     flex-direction: column;
     align-items: center;
@@ -472,3 +534,36 @@ export const HalloweenPysselImage = styled.img`
 `;
 
 // ------------------------- End Halloween -------------------------------------- //
+
+// ------------------------- History -------------------------------------- //
+export const HistoryWrapperWhite = styled.section`  //Kopierat från WrapperWhite
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: transparent;
+/*background-color: rgba(255, 255, 255, 0.8);*/
+padding-bottom: 10px;
+border-radius: 10px;
+margin-bottom: 0;
+margin-top: 10px;
+font-family: "Playpen Sans", serif;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+   // width: 600px;
+
+    padding-bottom: 20px;
+  }
+
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    width: 800px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    width: 1500px;
+    height: 89%;
+    padding-bottom: 70px;
+  }
+
+`;
+// ------------------------- End History -------------------------------------- //

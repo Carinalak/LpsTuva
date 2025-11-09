@@ -25,13 +25,15 @@ export const MenuLinks = [
     label: "Pyssel & Spel",
     target: "_blank?",
     subLinks: [
+
       { path: "/farglagg", label: "Färgläggning" },
       { path: "/ritblock", label: "Ritblock" },
       { path: "/halloween/halloweenpyssel", label: "Halloweenpyssel", target: "top" },
       { path: "/halloweenmemory", label: "Halloween Memory", target: "top" },
+      //{ path: "/julmemory", label: "Julmemory" },
       { path: "/memory", label: "Memoryspel" },
       //{ path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
-      //{ path: "/julmemory", label: "Julmemory" },
+
     ],
   },
   { path: "/om", label: "Om" },

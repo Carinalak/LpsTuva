@@ -1,21 +1,17 @@
-import { H1PurpleSecond, H4Black, StyledLink, StyledLinkHalloween } from "../components/styled/Fonts"
-import { BackgroundOriginal, DropdownWrapper, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
-import Pumpakorg from '../assets/images/halloween/dekorationer/pumpakorg.png';
-import Halloween from '../assets/images/LPHalloween.png';
-import Hosten from '../assets/images/LPHosten.png';
+import { H4Black, StyledLink, StyledLinkHalloween } from "../../components/styled/Fonts"
+import { HistoryDateHalloween, HistoryWrapperWhite, ReklamOrangeBack, TextWrapper, } from "../../components/styled/Wrappers"
+import Pumpakorg from '../../assets/images/halloween/dekorationer/pumpakorg.png';
+import Halloween from '../../assets/images/LPHalloween.png';
+import Hosten from '../../assets/images/LPHosten.png';
 import { Link } from "react-router-dom";
-import HalloweenMemory from '../assets/logos/halloween_memory_reklam.png';
+import HalloweenMemory from '../../assets/logos/halloween_memory_reklam.png';
 
 
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../../components/styled/Variables";
 import { styled } from "styled-components";
-import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/autumn/Hund_orange_lov.jpg';
-import { PysselLink } from "./Pysselspel";
-
-import { useEffect, useState } from "react";
-import { useHistoryEntries } from "../components/styled/useHistoryEntries";
-import { HistorySortDropdown } from "./history/HistorySortDropdown";
+import { SerieImage } from "../../components/styled/Image";
+import HomeImage from '../../assets/images/galleri/autumn/Hund_orange_lov.jpg';
+import { PysselLink } from "./../Pysselspel";
 
 export const HomeImg = styled.img `
   width: 300px;
@@ -70,7 +66,7 @@ export const LPImage = styled.img`
 
     }
 `;
-const LPLink = styled(Link)`
+export const LPLink = styled(Link)`
 //display: flex;
 //flex-direction: row;
 gap: 5px;
@@ -88,25 +84,13 @@ cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), auto;
   }
 `;
 
-export const Home = () => {
-    const [sortBy, setSortBy] = useState("none");
-    const { currentEntries } = useHistoryEntries(sortBy);
+export const Oktober25 = () => {
 
-  // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
-  // Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
-  useEffect(() => {
-  const topElement = document.getElementById("top");
-  if (topElement) {
-    topElement.scrollIntoView({ behavior: "auto" });
-  }
-}, []); // Körs EN gång när sidan laddas
-  // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
   
   return ( 
-  <BackgroundOriginal>
-    <WrapperWhite>
-      <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
+    <HistoryWrapperWhite>
       <TextWrapper>
+        <HistoryDateHalloween>Oktober 2025</HistoryDateHalloween>
         <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. 
           Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga 
           och <StyledLink to="/../halloween/halloweenpyssel"> halloweenpyssel</StyledLink> att pyssla! Nya memoryspelet med Halloweentema är här. Kolla in det!</div>
@@ -136,21 +120,5 @@ export const Home = () => {
       <HomeImg src={HomeImage} alt="Höstbild" loading="lazy"/>
       <SerieImage src={Pumpakorg} alt="Pumpakorg" loading="lazy"/>
 
-  <DropdownWrapper>
-
-    Gamla inlägg:       
-    
-    <HistorySortDropdown sortBy={sortBy} setSortBy={setSortBy} />
-      
-    </DropdownWrapper>
-     {/*<Oktober25 /> */} 
-      <div style={{ marginTop: 40 }}>
-        {currentEntries.map((entry, i) => (
-          <div key={i}>{entry.component}</div>
-        ))}
-      </div>
-    </WrapperWhite>
-  
-  </BackgroundOriginal>
-
+    </HistoryWrapperWhite>
   )};

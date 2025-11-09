@@ -47,21 +47,7 @@ import KaninPulka2 from "../assets/images/galleri/winter/kanin_pulka2.jpg";
 
 const images = [
 
-    // AUTUMN
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
-  { src: SpindelOrangeLov1, alt: "Spindel sitter på en gren uppifrån", season: "autumn" },
-  { src: SpindelOrangeLov2, alt: "Spindel sitter på en gren från sidan", season: "autumn" },
-  { src: WhiteCat, alt: "Vit katt", season: "autumn" },
-  { src: BirdDarkPurple, alt: "Lila fågel", season: "autumn" },
-  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
-  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
-  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
-  { src: ZebraWhitePurple, alt: "Zebra", season: "autumn" },
-
-
-  // WINTER
+    // WINTER
   { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
   { src: RosaKatt, alt: "Rosa katt", season: "winter" },
   { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
@@ -75,6 +61,20 @@ const images = [
   { src: KaninPulka1, alt: "Kanin på pulka", season: "winter" },
   { src: KaninPulka2, alt: "Kanin på pulka", season: "winter" },
   { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
+
+    // AUTUMN
+  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
+  { src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
+  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
+  { src: SpindelOrangeLov1, alt: "Spindel sitter på en gren uppifrån", season: "autumn" },
+  { src: SpindelOrangeLov2, alt: "Spindel sitter på en gren från sidan", season: "autumn" },
+  { src: WhiteCat, alt: "Vit katt", season: "autumn" },
+  { src: BirdDarkPurple, alt: "Lila fågel", season: "autumn" },
+  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
+  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
+  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
+  { src: ZebraWhitePurple, alt: "Zebra", season: "autumn" },
+
 
   // SPRING
   { src: LilaKoKrokus, alt: "Lila ko bredvid lila krokus", season: "spring" },
