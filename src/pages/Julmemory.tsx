@@ -154,10 +154,10 @@ export const Julmemory: React.FC = () => {
           const isFlipped = !isResetting && (selectedCards.includes(card) || matchedCards.includes(card.id));
         
           return (
-            <MemoryCard
+           <MemoryCard
               key={card.uuid}
-              className={`card ${isFlipped ? 'flipped' : ''}`}
-              onClick={() => !isResetting && handleCardClick(card)} // Hindra klick under reset
+              className={`card ${isFlipped ? 'flipped' : ''} ${difficulty === "hard" ? "hard-mode" : ""}`}
+              onClick={() => !isResetting && handleCardClick(card)}
             >
               <div className="card-inner">
                 {/* Framsidan: Djurets bild */}
