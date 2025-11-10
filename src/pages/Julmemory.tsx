@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Back from '../assets/images/memory_cards/memory_jul/back.png';
-import Pig from '../assets/images/memory_cards/memory_jul/pig.png';
-import IceBear from '../assets/images/memory_cards/memory_jul/icebear.png';
-import Penguin from '../assets/images/memory_cards/memory_jul/penguin.png';
-import Sheep from '../assets/images/memory_cards/sheep.png';
-import Snake from '../assets/images/memory_cards/snake.png';
-import Bear from '../assets/images/memory_cards/bear.png';
+//import Pig from '../assets/images/memory_cards/memory_jul/pig300.png';
+import IceBear from '../assets/images/memory_cards/memory_jul/icebear300.png';
+//import Penguin from '../assets/images/memory_cards/memory_jul/penguin300.png';
+import HundarKalke from '../assets/images/memory_cards/memory_jul/hundar_kalke300.png';
+import IsBjorn from '../assets/images/memory_cards/memory_jul/isbjorn300.png';
+import KaninPulka from '../assets/images/memory_cards/memory_jul/kanin_pulka300.png';
 
-import SpindelNat from '../assets/images/memory_cards//memory_halloween/spindel_nat.jpg';
-import LilaMus from '../assets/images/memory_cards/memory_halloween/lila_mus.jpg';
-import OrmLov from '../assets/images/memory_cards/memory_halloween/orm_lov.jpg';
-import PumpaMossa from '../assets/images/memory_cards/memory_halloween/pumpamossa.jpg';
+import KattSnoHog from '../assets/images/memory_cards/memory_jul/katt_snohog300.png';
+import LilaKanin from '../assets/images/memory_cards/memory_jul/lila_kanin300.png';
+import NalleMossa from '../assets/images/memory_cards/memory_jul/nalle_mossa300.png';
+import Fox from '../assets/images/memory_cards/memory_jul/rav300.png';
+import Seal from '../assets/images/memory_cards/memory_jul/sal300.png';
+import Valross from '../assets/images/memory_cards/memory_jul/valross300.png';
 
 import { CardImage, MemoryCard, MemoryStyle } from '../components/styled/MemoryStyle';
 import { ButtonWrapper, JulButton } from '../components/styled/Buttons';
@@ -19,28 +21,29 @@ import { H1WhiteSecond } from '../components/styled/Fonts';
 import { JulMemoryModal } from '../components/MemoryModal';
 import { JulBackground, TitleToggleWrapper } from '../components/styled/Wrappers';
 import SnowFall  from '../components/SnowFall';
-import { SoundPlayerHandle, SoundPlayer } from '../components/SoundPlayer';
+import { SoundPlayerJul, SoundPlayerJulHandle } from '../components/SoundPlayerJul';
 import { DifficultyToggleJul } from '../components/DifficultyToggleJul';
 
 
 const easyCards = [
-  { id: 1, src: Pig, alt: 'Gris' },
-  { id: 2, src: IceBear, alt: 'Björn' },
-  { id: 3, src: Penguin, alt: 'Pingvin' },
-  { id: 4, src: Sheep, alt: 'Får' },
-  { id: 5, src: Snake, alt: 'Orm' },
-  { id: 6, src: Bear, alt: 'Björn' },
+  { id: 1, src: Fox, alt: 'Räv' },
+  { id: 2, src: IceBear, alt: 'Isbjörn' },
+  { id: 3, src: Seal, alt: 'Säl' },
+  { id: 4, src: HundarKalke, alt: 'Hundar åker kälke' },
+  { id: 5, src: IsBjorn, alt: 'Isbjörn' },
+  { id: 6, src: KaninPulka, alt: 'Kanin på pulka' },
 
 ];
 
 const hardCards = [
   ...easyCards,
-  { id: 7, src: SpindelNat, alt: 'Blå spindel' },
-  { id: 8, src: LilaMus, alt: 'En lila mus' },
-  { id: 9, src: OrmLov, alt: 'Orm med gult löv' },
-  { id: 10, src: PumpaMossa, alt: 'En vit petshop i en pumpamössa' },
-  //{ id: 10, src: BunnyLeaf, alt: 'En kanin bredvid ett rött löv.' },
-  //{ id: 12, src: LpsGodisar, alt: 'Petshopar på godis' },
+  { id: 7, src: KattSnoHog, alt: 'Katt vid snöhög' },
+  { id: 8, src: LilaKanin, alt: 'Lila kanin' },
+  { id: 9, src: NalleMossa, alt: 'Nalle med lila mössa' },
+  { id: 10, src: Valross, alt: 'Valross' },
+
+  //{ id: 3, src: Penguin, alt: 'Pingvin' },
+  //{ id: 1, src: Pig, alt: 'Gris' },
 
 ];
 
@@ -60,7 +63,7 @@ export const Julmemory: React.FC = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
-  const soundRef = useRef<SoundPlayerHandle>(null);
+  const soundRef = useRef<SoundPlayerJulHandle>(null);
 
   const getCards = useCallback(() => (difficulty === 'easy' ? easyCards : hardCards), [difficulty]);
 
@@ -131,7 +134,7 @@ export const Julmemory: React.FC = () => {
 
   return (
     <JulBackground>
-            <SoundPlayer ref={soundRef} 
+            <SoundPlayerJul ref={soundRef} 
                 winVolume={0.5}  // Sätt volymen för 'win' ljudet till 50%
                 flipVolume={1.0}  // Behåll flip-ljudet på full volym
                 matchVolume={0.8} // Sätt match-ljudet till 80% volym
