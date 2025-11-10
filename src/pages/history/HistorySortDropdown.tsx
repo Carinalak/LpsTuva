@@ -26,7 +26,7 @@ const DropdownButton = styled.div<{ isOpen: boolean }>`
 `;
 
 const DropdownList = styled.ul<{ isOpen: boolean }>`
-  position: absolute;
+  //position: absolute;           // Tog bort denna när jag ville att listan ska putta ner botten när den öppnas.
   top: 100%;
   left: 0;
   background-color: ${SKUGGLILA};
@@ -37,6 +37,11 @@ const DropdownList = styled.ul<{ isOpen: boolean }>`
   margin: 0;
   border-radius: 0 0 5px 5px;
   z-index: 100;
+  max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};    // Lade till denna när jag ville att listan ska putta ner botten när den öppnas.
+  overflow: hidden;                                    // Lade till denna när jag ville att listan ska putta ner botten när den öppnas.
+  transition: max-height 0.3s ease;                   // Lade till denna när jag ville att listan ska putta ner botten när den öppnas.
+  box-shadow: ${({ isOpen }) =>                       // Lade till denna när jag ville att listan ska putta ner botten när den öppnas.
+  isOpen ? "0px 4px 10px rgba(0,0,0,0.3)" : "none"}; // Lade till denna när jag ville att listan ska putta ner botten när den öppnas.
 `;
 
 const DropdownItem = styled.li`

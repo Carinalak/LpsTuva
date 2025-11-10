@@ -89,8 +89,8 @@ export const Oktober25 = () => {
   
   return ( 
     <HistoryWrapperWhite>
+      <HistoryDateHalloween>Oktober 2025</HistoryDateHalloween>
       <TextWrapper>
-        <HistoryDateHalloween>Oktober 2025</HistoryDateHalloween>
         <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. 
           Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga 
           och <StyledLink to="/../halloween/halloweenpyssel"> halloweenpyssel</StyledLink> att pyssla! Nya memoryspelet med Halloweentema är här. Kolla in det!</div>

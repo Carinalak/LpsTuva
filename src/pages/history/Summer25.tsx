@@ -37,8 +37,8 @@ export const Summer25 = () => {
   return ( 
 
     <HistoryWrapperWhite>
+      <HistoryDatePink> Sommar 2025 </HistoryDatePink>
       <TextWrapper>
-        <HistoryDatePink> Sommar 2025 </HistoryDatePink>
         <p>Välkommen till Lps-Tuvas sida!</p>
         <p>Här hittar du <StyledLink to="/farglagg">färgläggning</StyledLink>, <StyledLink to="/pysselspel">memoryspel</StyledLink> och 
         ett <StyledLink to="/galleribilder">fotogalleri</StyledLink>.
