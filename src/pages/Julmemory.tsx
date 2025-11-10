@@ -32,7 +32,6 @@ const easyCards = [
   { id: 4, src: HundarKalke, alt: 'Hundar åker kälke' },
   { id: 5, src: IsBjorn, alt: 'Isbjörn' },
   { id: 6, src: KaninPulka, alt: 'Kanin på pulka' },
-
 ];
 
 const hardCards = [

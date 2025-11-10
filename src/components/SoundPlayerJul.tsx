@@ -1,7 +1,7 @@
 import { useRef, useImperativeHandle, forwardRef } from "react";
 import FlipSound from "../assets/sounds/card_flip.ogg"; 
 import AchievementSound from "../assets/sounds/achievement-sparkle.wav";
-import WinSound from "../assets/sounds/nuardethalloween.wav";
+import WinSound from "../assets/sounds/win.flac";
 
 export interface SoundPlayerJulHandle {
   play: (soundType: "flip" | "match" | "win") => void;

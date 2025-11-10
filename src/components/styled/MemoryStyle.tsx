@@ -4,7 +4,7 @@ import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from
 export const MemoryStyle = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px;
   max-width: 100%;
   margin: 0 auto;
   justify-items: center;
@@ -12,9 +12,9 @@ export const MemoryStyle = styled.div `
 
 @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  gap: 10px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     gap: 20px;
