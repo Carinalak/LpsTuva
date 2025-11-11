@@ -175,57 +175,7 @@ const Julkalender: React.FC = () => {
   const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
 
 
-// ------------------ Tidsbegränsad ----------------------------------- //
-useEffect(() => {
-  const RESET_KEY = "julkalender_reset_time";
 
-  // Hämta tidigare sparad reset-tid
-  const savedResetTime = localStorage.getItem(RESET_KEY);
-  const now = Date.now();
-
-  // Om ingen reset-tid finns, sätt den nu
-  if (!savedResetTime) {
-    localStorage.setItem(RESET_KEY, now.toString());
-  }
-
-const checkReset = () => {
-  const saved = localStorage.getItem(RESET_KEY);
-  if (!saved) return;
-
-  // 🔹 Viktigt: räkna tiden dynamiskt varje gång!
-  const currentTime = Date.now();
-  const elapsedMinutes = (currentTime - Number(saved)) / (1000 * 60);
-
-
-    // 🔸 Testläge: 1 minut
-    if (elapsedMinutes >= 1) {
-      // Nollställ alla luckor
-      const resetDoors = Array(CalendarImages.length)
-        .fill({ opened: false, direction: "left" })
-        .map((d) => ({
-          ...d,
-          direction: Math.random() > 0.5 ? "left" : "right",
-        }));
-
-      setDoors(resetDoors);
-
-      // Spara om nollställd data till localStorage
-      localStorage.setItem("christmasCalendar2025", JSON.stringify(resetDoors));
-
-      // Sätt ny reset-tid
-      localStorage.setItem(RESET_KEY, Date.now().toString());
-
-      console.log("🎅 Alla luckor har nollställts efter 1 minut!");
-    }
-  };
-
-  // Kör kontroll varje 5:e sekund
-  const interval = setInterval(checkReset, 5000);
-  return () => clearInterval(interval);
-}, []);
-
-
-//------------------------------- END Tidsbegrändad ----------------------------------- //
 
 /*
   useEffect(() => {
@@ -237,16 +187,29 @@ const checkReset = () => {
     localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
   }, [doors]);
 
-  const handleOpen = (index: number) => {
-    const today = new Date().getDate();
-    if (index + 1 <= today) {
-      const newDoors = [...doors];
-      newDoors[index].opened = true;
-      setDoors(newDoors);
-    } else {
-      alert(`🎅 Du kan inte öppna lucka ${index+1} ännu!`);
-    }
-  };
+
+const handleOpen = (index: number) => {
+  const today = new Date();
+  const month = today.getMonth(); // 0 = januari, 11 = december
+  const day = today.getDate();
+
+  // 🔹 Endast december
+  if (month !== 10) {
+    alert("🎅 Du kan bara öppna kalendern i december!");
+    return;
+  }
+
+  // 🔹 Endast luckor upp till dagens datum
+  if (index + 1 > day) {
+    alert(`🎁 Du kan inte öppna lucka ${index + 1} ännu!`);
+    return;
+  }
+
+  // 🔹 Öppna luckan
+  const newDoors = [...doors];
+  newDoors[index].opened = true;
+  setDoors(newDoors);
+};
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const openModal = (images: any[], index = 0) => setModalState({ images, index });
@@ -268,7 +231,7 @@ const checkReset = () => {
 
   return (
     <CalendarWrapper>
-      <Title>🎄 Julkalender 2025 🎁</Title>
+      <Title>🎄 Julkalender 2025 </Title>
       <Grid>
         {gridOrder.map((i) => {
           const door = doors[CalendarImages[i].number-1];
