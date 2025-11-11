@@ -174,10 +174,40 @@ const Julkalender: React.FC = () => {
   );
   const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
 
+
+// ------------------ Tidsbegränsad ----------------------------------- 
+useEffect(() => {
+  const STORAGE_KEY = "christmasCalendar2025";
+  const TIMESTAMP_KEY = "christmasCalendar2025_timestamp";
+  const EXPIRATION_MINUTES = 1; // Testa med 1 minut
+
+  const now = new Date().getTime();
+  const savedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
+
+  if (savedTimestamp) {
+    const minutesPassed = (now - Number(savedTimestamp)) / (1000 * 60);
+    if (minutesPassed > EXPIRATION_MINUTES) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(TIMESTAMP_KEY);
+      console.log("🧹 LocalStorage rensades efter 1 minut (testläge)");
+    }
+  }
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) {
+    setDoors(JSON.parse(stored));
+  } else {
+    localStorage.setItem(TIMESTAMP_KEY, now.toString());
+  }
+}, []);
+
+//------------------------------------------------------------------
+
+/*
   useEffect(() => {
     const stored = localStorage.getItem("christmasCalendar2025");
     if (stored) setDoors(JSON.parse(stored));
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
