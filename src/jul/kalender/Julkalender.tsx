@@ -176,52 +176,56 @@ const Julkalender: React.FC = () => {
 
 
 // ------------------ Tidsbegränsad ----------------------------------- //
-
 useEffect(() => {
-  const STORAGE_KEY = "christmasCalendar2025";
-  const TIMESTAMP_KEY = "christmasCalendar2025_timestamp";
+  const RESET_KEY = "julkalender_reset_time";
 
-  const EXPIRATION_MINUTES = 1; // ⏱️ Testläge: 1 minut
-  const now = new Date().getTime();
+  // Hämta tidigare sparad reset-tid
+  const savedResetTime = localStorage.getItem(RESET_KEY);
+  const now = Date.now();
 
-  const checkExpiration = () => {
-    const savedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
-    if (savedTimestamp) {
-      const minutesPassed = (new Date().getTime() - Number(savedTimestamp)) / (1000 * 60);
-      if (minutesPassed > EXPIRATION_MINUTES) {
-        localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(TIMESTAMP_KEY);
-        console.log("🧹 LocalStorage rensades efter 1 minut (testläge)");
-        // Reset state direkt i appen
-        setDoors(
-          Array(CalendarImages.length)
-            .fill({ opened: false, direction: "left" })
-            .map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }))
-        );
-      }
+  // Om ingen reset-tid finns, sätt den nu
+  if (!savedResetTime) {
+    localStorage.setItem(RESET_KEY, now.toString());
+  }
+
+const checkReset = () => {
+  const saved = localStorage.getItem(RESET_KEY);
+  if (!saved) return;
+
+  // 🔹 Viktigt: räkna tiden dynamiskt varje gång!
+  const currentTime = Date.now();
+  const elapsedMinutes = (currentTime - Number(saved)) / (1000 * 60);
+
+
+    // 🔸 Testläge: 1 minut
+    if (elapsedMinutes >= 1) {
+      // Nollställ alla luckor
+      const resetDoors = Array(CalendarImages.length)
+        .fill({ opened: false, direction: "left" })
+        .map((d) => ({
+          ...d,
+          direction: Math.random() > 0.5 ? "left" : "right",
+        }));
+
+      setDoors(resetDoors);
+
+      // Spara om nollställd data till localStorage
+      localStorage.setItem("christmasCalendar2025", JSON.stringify(resetDoors));
+
+      // Sätt ny reset-tid
+      localStorage.setItem(RESET_KEY, Date.now().toString());
+
+      console.log("🎅 Alla luckor har nollställts efter 1 minut!");
     }
   };
 
-  // 🔹 Kör direkt när sidan laddas
-  checkExpiration();
-
-  // 🔹 Ladda data om den finns kvar
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    setDoors(JSON.parse(stored));
-  } else {
-    localStorage.setItem(TIMESTAMP_KEY, now.toString());
-  }
-
-  // 🔹 Kör kontrollen automatiskt varje 10:e sekund
-  const interval = setInterval(checkExpiration, 10 * 1000);
-
-  // 🔹 Rensa intervallet om komponenten avmonteras
+  // Kör kontroll varje 5:e sekund
+  const interval = setInterval(checkReset, 5000);
   return () => clearInterval(interval);
 }, []);
 
 
-//------------------------------------------------------------------
+//------------------------------- END Tidsbegrändad ----------------------------------- //
 
 /*
   useEffect(() => {
