@@ -81,22 +81,26 @@ function App() {
     }
   }, []);
 
-  const initGoogleAnalytics = () => {
-    // GA4-scriptet:
-    const script1 = document.createElement("script");
-    script1.async = true;
-    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-J3L3K5W9YC";
-    document.head.appendChild(script1);
+const initGoogleAnalytics = () => {
+  const GA_ID = process.env.REACT_APP_GA_ID;
 
-    const script2 = document.createElement("script");
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J3L3K5W9YC');
-    `;
-    document.head.appendChild(script2);
-  };
+  if (!GA_ID) return; // Stoppar om env-variabeln saknas
+
+  const script1 = document.createElement("script");
+  script1.async = true;
+  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(script1);
+
+  const script2 = document.createElement("script");
+  script2.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA_ID}');
+  `;
+  document.head.appendChild(script2);
+};
+
 
   return (
     <>
