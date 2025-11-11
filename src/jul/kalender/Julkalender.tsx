@@ -95,9 +95,8 @@ const Image = styled.img<{ visible: boolean }>`
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  transition: opacity 0.8s ease-in-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out;
-  filter: ${({ loading }) => (loading ? "blur(20px)" : "none")};
   cursor: zoom-in;
 `;
 

@@ -85,7 +85,7 @@ function App() {
     // GA4-scriptet:
     const script1 = document.createElement("script");
     script1.async = true;
-    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-SKKF33TBZC";
+    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-J3L3K5W9YC";
     document.head.appendChild(script1);
 
     const script2 = document.createElement("script");
@@ -93,7 +93,7 @@ function App() {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-SKKF33TBZC');
+      gtag('config', 'G-J3L3K5W9YC');
     `;
     document.head.appendChild(script2);
   };
