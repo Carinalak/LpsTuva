@@ -175,31 +175,51 @@ const Julkalender: React.FC = () => {
   const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
 
 
-// ------------------ Tidsbegränsad ----------------------------------- 
+// ------------------ Tidsbegränsad ----------------------------------- //
+
 useEffect(() => {
   const STORAGE_KEY = "christmasCalendar2025";
   const TIMESTAMP_KEY = "christmasCalendar2025_timestamp";
-  const EXPIRATION_MINUTES = 1; // Testa med 1 minut
 
+  const EXPIRATION_MINUTES = 1; // ⏱️ Testläge: 1 minut
   const now = new Date().getTime();
-  const savedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
 
-  if (savedTimestamp) {
-    const minutesPassed = (now - Number(savedTimestamp)) / (1000 * 60);
-    if (minutesPassed > EXPIRATION_MINUTES) {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(TIMESTAMP_KEY);
-      console.log("🧹 LocalStorage rensades efter 1 minut (testläge)");
+  const checkExpiration = () => {
+    const savedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
+    if (savedTimestamp) {
+      const minutesPassed = (new Date().getTime() - Number(savedTimestamp)) / (1000 * 60);
+      if (minutesPassed > EXPIRATION_MINUTES) {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(TIMESTAMP_KEY);
+        console.log("🧹 LocalStorage rensades efter 1 minut (testläge)");
+        // Reset state direkt i appen
+        setDoors(
+          Array(CalendarImages.length)
+            .fill({ opened: false, direction: "left" })
+            .map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }))
+        );
+      }
     }
-  }
+  };
 
+  // 🔹 Kör direkt när sidan laddas
+  checkExpiration();
+
+  // 🔹 Ladda data om den finns kvar
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
     setDoors(JSON.parse(stored));
   } else {
     localStorage.setItem(TIMESTAMP_KEY, now.toString());
   }
+
+  // 🔹 Kör kontrollen automatiskt varje 10:e sekund
+  const interval = setInterval(checkExpiration, 10 * 1000);
+
+  // 🔹 Rensa intervallet om komponenten avmonteras
+  return () => clearInterval(interval);
 }, []);
+
 
 //------------------------------------------------------------------
 
