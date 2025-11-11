@@ -8,10 +8,10 @@ import RavMossaSnow from "../../assets/images/galleri/winter/Rav_mossa_snow.jpg"
 import ValrossIs from "../../assets/images/galleri/winter/valross_is.jpg";
 import KaninPulka1 from "../../assets/images/galleri/winter/kanin_pulka.jpg";
 import KaninPulka2 from "../../assets/images/galleri/winter/kanin_pulka2.jpg";
-import SeerInget_1 from "../../Jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_1.webp";
-import SeerInget_2 from "../../Jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_2.webp";
-import SeerInget_3 from "../../Jul/kalender/img/SeerInget_snoboll//SeerInget_snoboll_3.webp";
-import SeerInget_4 from "../../Jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_4.webp";
+import SeerInget_1 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_1.webp";
+import SeerInget_2 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_2.webp";
+import SeerInget_3 from "../../jul/kalender/img/SeerInget_snoboll//SeerInget_snoboll_3.webp";
+import SeerInget_4 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_4.webp";
 
 
 //  Bilder med hårdkodat lucknummer
