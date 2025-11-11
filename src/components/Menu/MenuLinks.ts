@@ -32,6 +32,7 @@ export const MenuLinks = [
       { path: "/halloweenmemory", label: "Halloween Memory", target: "top" },
       //{ path: "/julmemory", label: "Julmemory" },
       { path: "/memory", label: "Memoryspel" },
+      //{ path: "/jul/kalender/julkalender", label: "Julkalender" },
       //{ path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
 
     ],

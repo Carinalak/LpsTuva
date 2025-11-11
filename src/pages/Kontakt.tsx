@@ -56,7 +56,7 @@ export const Kontakt = () => {
       
       <WrapperTransparent>
         <H1WhiteSecond>Skriv till Tuva</H1WhiteSecond>
-        <WhiteFontSmallerBox>Skriv till mig om vad du vill! Är det något mer du vill se på den här sidan? Skicka gärna förslag till mig här.
+        <WhiteFontSmallerBox>Skriv till mig! 
         </WhiteFontSmallerBox>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div>

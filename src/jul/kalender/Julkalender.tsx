@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
-import { CalendarImages } from "../Calendar/CalendarImages";
+import { CalendarImages } from "./CalendarImages";
 
 // 🔹 Styled-components och animationer
 const CalendarWrapper = styled.div`
@@ -168,7 +168,7 @@ const NavButton = styled.button<{ left?: boolean }>`
 // 🔹 Komponent
 interface DoorState { opened: boolean; direction: "left" | "right"; }
 
-const ChristmasCalendar: React.FC = () => {
+const Julkalender: React.FC = () => {
   const [doors, setDoors] = useState<DoorState[]>(
     Array(CalendarImages.length).fill({ opened: false, direction: "left" }).map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }))
   );
@@ -281,4 +281,4 @@ const ChristmasCalendar: React.FC = () => {
   );
 };
 
-export default ChristmasCalendar;
+export default Julkalender;

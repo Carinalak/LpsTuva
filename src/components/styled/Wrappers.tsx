@@ -168,6 +168,7 @@ export const WhiteWrapperMini = styled(WhiteFont) `
   border-radius: 10px;
   padding: 30px;
   padding-bottom: 100px;
+  margin-top: 30px;
   
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {

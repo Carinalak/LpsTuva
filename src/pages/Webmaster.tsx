@@ -9,8 +9,8 @@ export const Webmaster = () => {
                 <H4Black>Webmaster</H4Black>
             <div>
             Vad vill du se mer av på den här sidan? Är det något du vill ändra på, eller något som ser konstigt ut 
-            eller inte fungerar? Maila till 
-            Webmaster <StyledLink to="mailto:carina.lakosil@gmail.com" target="_blank" rel="noopener noreferrer"> Carina</StyledLink>.</div>
+            eller inte fungerar? Skriv till 
+             <StyledLink to="mailto:carina.lakosil@gmail.com" target="_blank" rel="noopener noreferrer"> Webmaster Carina</StyledLink>.</div>
             
         </WhiteWrapperMini>
 </>
