@@ -165,51 +165,58 @@ const NavButton = styled.button<{ left?: boolean }>`
   &:hover { background: rgba(0,0,0,0.6); }
 `;
 
-// 🔹 Komponent
 interface DoorState { opened: boolean; direction: "left" | "right"; }
 
+
+
+
+
 const Julkalender: React.FC = () => {
-  const [doors, setDoors] = useState<DoorState[]>(
-    Array(CalendarImages.length).fill({ opened: false, direction: "left" }).map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }))
-  );
-  const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
-
-
-
-
-/*
-  useEffect(() => {
-    const stored = localStorage.getItem("christmasCalendar2025");
-    if (stored) setDoors(JSON.parse(stored));
-  }, []);*/
-
-  useEffect(() => {
-    localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
-  }, [doors]);
-
-
-const handleOpen = (index: number) => {
   const today = new Date();
   const month = today.getMonth(); // 0 = januari, 11 = december
   const day = today.getDate();
 
-  // 🔹 Endast december
-  if (month !== 10) {
-    alert("🎅 Du kan bara öppna kalendern i december!");
-    return;
-  }
+  const [doors, setDoors] = useState<DoorState[]>(() => {
+    const stored = localStorage.getItem("christmasCalendar2025");
 
-  // 🔹 Endast luckor upp till dagens datum
-  if (index + 1 > day) {
-    alert(`🎁 Du kan inte öppna lucka ${index + 1} ännu!`);
-    return;
-  }
+    // Om det är december, använd sparade luckor från localStorage om de finns
+    if (month === 10 && stored) {
+      return JSON.parse(stored);
+    }
 
-  // 🔹 Öppna luckan
-  const newDoors = [...doors];
-  newDoors[index].opened = true;
-  setDoors(newDoors);
-};
+    // Annars, skapa nya stängda luckor
+    return Array(CalendarImages.length)
+      .fill({ opened: false, direction: "left" })
+      .map(d => ({ ...d, direction: Math.random() > 0.5 ? "left" : "right" }));
+  });
+
+  const [modalState, setModalState] = useState<{ images: {src:string,alt:string}[], index:number } | null>(null);
+
+  // Spara luckor till localStorage **endast i december**
+  useEffect(() => {
+    if (month === 10) {
+      localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
+    } else {
+      // Om det inte är december, rensa luckorna från localStorage
+      localStorage.removeItem("christmasCalendar2025");
+    }
+  }, [doors, month]);
+
+  const handleOpen = (index: number) => {
+    if (month !== 10) {
+      alert("🎅 Du kan bara öppna kalendern i december!");
+      return;
+    }
+
+    if (index + 1 > day) {
+      alert(`🎁 Du kan inte öppna lucka ${index + 1} ännu!`);
+      return;
+    }
+
+    const newDoors = [...doors];
+    newDoors[index].opened = true;
+    setDoors(newDoors);
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const openModal = (images: any[], index = 0) => setModalState({ images, index });
@@ -224,6 +231,7 @@ const handleOpen = (index: number) => {
     const newIndex = (modalState.index + 1) % modalState.images.length;
     setModalState({ ...modalState, index: newIndex });
   };
+
 
   const gridOrder = [
     3, 0, 5, 7, 2, 8, 1, 4, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 22
