@@ -95,8 +95,9 @@ const Image = styled.img<{ visible: boolean }>`
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  transition: opacity 0.8s ease-in-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
+  filter: ${({ loading }) => (loading ? "blur(20px)" : "none")};
   cursor: zoom-in;
 `;
 
@@ -169,8 +170,6 @@ interface DoorState { opened: boolean; direction: "left" | "right"; }
 
 
 
-
-
 const Julkalender: React.FC = () => {
   const today = new Date();
   const month = today.getMonth(); // 0 = januari, 11 = december
@@ -234,7 +233,7 @@ const Julkalender: React.FC = () => {
 
 
   const gridOrder = [
-    3, 0, 5, 7, 2, 8, 1, 4, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 22
+    3, 0, 5, 12, 7, 14, 2, 18, 1, 4, 20, 16, 9, 10, 11, 13, 15, 6, 17, 8, 19, 21, 23, 22
   ];
 
   return (
