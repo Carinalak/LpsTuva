@@ -293,7 +293,7 @@ const Julkalender: React.FC = () => {
         </>
       )}
 
-      <CloseButton onClick={closeModal}>Stäng ✖</CloseButton>
+      <CloseButton onClick={closeModal}>✖</CloseButton>
     </ModalContent>
   </ModalOverlay>
 

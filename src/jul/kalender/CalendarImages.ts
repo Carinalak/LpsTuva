@@ -8,10 +8,14 @@ import RavMossaSnow from "../../assets/images/galleri/winter/Rav_mossa_snow.jpg"
 import ValrossIs from "../../assets/images/galleri/winter/valross_is.jpg";
 import KaninPulka1 from "../../assets/images/galleri/winter/kanin_pulka.jpg";
 import KaninPulka2 from "../../assets/images/galleri/winter/kanin_pulka2.jpg";
-import SeerInget_1 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_1.webp";
-import SeerInget_2 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_2.webp";
-import SeerInget_3 from "../../jul/kalender/img/SeerInget_snoboll//SeerInget_snoboll_3.webp";
-import SeerInget_4 from "../../jul/kalender/img/SeerInget_snoboll/SeerInget_snoboll_4.webp";
+import SeerInget_1 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_1.webp";
+import SeerInget_2 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_2.webp";
+import SeerInget_3 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_3.webp";
+import SeerInget_4 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_4.webp";
+import Lucia1 from "../../jul/kalender/img/seeringet_tomtar/seeringet_lucia_kyssa/seerInget_lucia1.webp";
+import Lucia2 from "../../jul/kalender/img/seeringet_tomtar/seeringet_lucia_kyssa/seeringet_lucia2.webp";
+import KyssaTomten1 from "../../jul/kalender/img/seeringet_tomtar/seeringet_lucia_kyssa/SeerInget_kyssa1.webp";
+import KyssaTomten2 from "../../jul/kalender/img/seeringet_tomtar/seeringet_lucia_kyssa/SeerInget_kyssa2.webp";
 
 
 //  Bilder med hårdkodat lucknummer
@@ -31,13 +35,25 @@ export const CalendarImages = [
   { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 4 },
   { src: HundOrangeLov, alt: "Hund bland orange löv", number: 5 },
   { src: SnowKana, alt: "Snökana", number: 6 },
-  { src: ValrossIs, alt: "Valross i is", number: 7 },
+    {
+    number: 7,
+    gallery: [
+      { src: KyssaTomten1, alt: "Jag såg mamma kysse tomten, jag" },
+      { src: KyssaTomten2, alt: "Jag seer ingen tomte..." },
+    ],
+  },
   { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 8 },
   { src: KaninPulka1, alt: "Kanin på pulka", number: 9 },
   { src: KaninPulka2, alt: "Kanin på pulka", number: 10 },
   { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 11 },
   { src: HundOrangeLov, alt: "Hund bland orange löv", number: 12 },
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", number: 13 },
+    {
+    number: 13,
+    gallery: [
+      { src: Lucia1, alt: "Santa Lucia, ge mig en tia..." },
+      { src: Lucia2, alt: "Jag seer ingen tia." },
+    ],
+  },
   { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 14 },
   { src: RavMossaSnow, alt: "Räv i mossa", number: 15 },
   { src: SnowKana, alt: "Snökana", number: 16 },
