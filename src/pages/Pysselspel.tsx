@@ -7,7 +7,7 @@ import HalloweenMemory from '../assets/logos/memory_halloween_logo.png';
 import HalloweenPyssel from '../assets/logos/halloweenpyssel_logo.png';
 //import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
 import Ritblock from '../assets/logos/Ritblock_logo_300b.png';
-//import JulMemory from '../assets/images/link_julmemory.png';
+//import JulMemory from '../assets/logos/julmemory_logo_300.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 
@@ -106,7 +106,7 @@ export const PysselSpel = () => {
  
 
           {/**<PysselLink to="https://kaninspelet.onrender.com" target="_blank"><PysselSpelLinkImage src={Kaninspelet} />Kaninspelet</PysselLink>**/}
-          {/**<PysselLink to="/julmemory">Julmemory<PysselSpelLinkImage src={JulMemory} /></PysselLink> **/}
+          {/**<PysselLink to="/julmemory"><PysselSpelLinkImage src={JulMemory} />Julmemory</PysselLink> */}
 
           {/* 
             <H4White style={{ cursor: 'pointer', textDecoration: 'underline' }}>Färgläggning</H4White>

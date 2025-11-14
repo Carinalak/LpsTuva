@@ -5,6 +5,8 @@ import Halloween from '../assets/images/LPHalloween.png';
 import Hosten from '../assets/images/LPHosten.png';
 import { Link } from "react-router-dom";
 import HalloweenMemory from '../assets/logos/halloween_memory_reklam.png';
+//import GodJulTomte from '../assets/images/jul/godjul_tomte_animation.gif'
+//import JulMemory from '../assets/logos/julmemory_logo_300.png';
 
 
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";

@@ -1,8 +1,12 @@
-import BunnyRedLeaf from "../../assets/images/galleri/autumn/BunnyRedLeaf.jpg";
+import LuciaKatt from "../../jul/kalender/img/luckor/Lucia_katt.png";
+import PepparkaksFigurSnogubbe from "../../jul/kalender/img/luckor/pepparkaksfigur_snogubbe.png";
+import TarnaHast from "../../jul/kalender/img/luckor/tarna_hast.png";
+import SalPulka from "../../jul/kalender/img/luckor/sal_pulka.png";
+import StjarngossePingvin from "../../jul/kalender/img/luckor/stjarngosse_pingvin.png";
+import TarnaRadjur from "../../jul/kalender/img/luckor/tarna_radjur.png";
 import HundOrangeLov from "../../assets/images/galleri/autumn/Hund_orange_lov.jpg";
 import Gungar from "../../assets/images/galleri/autumn/Gungar.jpg";
 import SpindelOrangeLov1 from "../../assets/images/galleri/autumn/Spindel_orangelov1.jpg";
-import RosaKatt from "../../assets/images/galleri/winter/rosa_katt.jpg";
 import SnowKana from "../../assets/images/galleri/winter/Snow_kana.jpg";
 import RavMossaSnow from "../../assets/images/galleri/winter/Rav_mossa_snow.jpg";
 import ValrossIs from "../../assets/images/galleri/winter/valross_is.jpg";
@@ -30,11 +34,11 @@ export const CalendarImages = [
       { src: SeerInget_4, alt: "Tomte med prickig luva fortsätter: Det var säkert du som kastade den där snöbollen på mig." },
     ],
   },
-  { src: RosaKatt, alt: "Rosa katt", number: 2 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 3 },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 4 },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", number: 5 },
-  { src: SnowKana, alt: "Snökana", number: 6 },
+  { src: SalPulka, alt: "", number: 2 },
+  { src: SpindelOrangeLov1, alt: "", number: 3 },
+  { src: PepparkaksFigurSnogubbe, alt: "", number: 4 },
+  { src: HundOrangeLov, alt: "", number: 5 },
+  { src: SnowKana, alt: "", number: 6 },
     {
     number: 7,
     gallery: [
@@ -42,11 +46,11 @@ export const CalendarImages = [
       { src: KyssaTomten2, alt: "Jag seer ingen tomte..." },
     ],
   },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 8 },
-  { src: KaninPulka1, alt: "Kanin på pulka", number: 9 },
-  { src: KaninPulka2, alt: "Kanin på pulka", number: 10 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 11 },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", number: 12 },
+  { src: SpindelOrangeLov1, alt: "", number: 8 },
+  { src: KaninPulka1, alt: "", number: 9 },
+  { src: TarnaRadjur, alt: "", number: 10 },
+  { src: LuciaKatt, alt: "", number: 11 },
+  { src: StjarngossePingvin, alt: "", number: 12 },
     {
     number: 13,
     gallery: [
@@ -54,14 +58,14 @@ export const CalendarImages = [
       { src: Lucia2, alt: "Jag seer ingen tia." },
     ],
   },
-  { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 14 },
-  { src: RavMossaSnow, alt: "Räv i mossa", number: 15 },
-  { src: SnowKana, alt: "Snökana", number: 16 },
-  { src: RavMossaSnow, alt: "Räv i mossa", number: 17 },
-  { src: ValrossIs, alt: "Valross i is", number: 18 },
-  { src: KaninPulka1, alt: "Kanin på pulka", number: 19 },
-  { src: KaninPulka2, alt: "Kanin på pulka", number: 20 },
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", number: 21 },
+  { src: TarnaHast, alt: "", number: 14 },
+  { src: RavMossaSnow, alt: "", number: 15 },
+  { src: SnowKana, alt: "", number: 16 },
+  { src: RavMossaSnow, alt: "", number: 17 },
+  { src: ValrossIs, alt: "", number: 18 },
+  { src: KaninPulka1, alt: "", number: 19 },
+  { src: KaninPulka2, alt: "", number: 20 },
+  { src: KaninPulka1, alt: "", number: 21 },
   { src: HundOrangeLov, alt: "Hund bland orange löv", number: 22 },
   { src: Gungar, alt: "Petshoparna gungar på en gul gunga", number: 23 },
   { src: SpindelOrangeLov1, alt: "Spindel på gren", number: 24 },
