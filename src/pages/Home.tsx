@@ -1,5 +1,5 @@
 import { H1PurpleSecond, H4White, StyledLinkHalloween } from "../components/styled/Fonts"
-import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, TextWrapperBred, WrapperWhite } from "../components/styled/Wrappers"
+import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, TextWrapperRed, WrapperWhite } from "../components/styled/Wrappers"
 //import { Link } from "react-router-dom";
 import GodJulTomte from '../jul/img/godjul_tomte_animation.gif';
 import TarnaHast from '../jul/img/tarna_hast.png';
@@ -60,8 +60,7 @@ padding-top: 30px;
 `;
 
 export const MediumImgHover = styled(HomeImg)`
-  width: 200px;
-  padding-top: 30px;
+  width: 110px;
   cursor: pointer;
   // @vite-ignore
   cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), auto;
@@ -73,12 +72,9 @@ export const MediumImgHover = styled(HomeImg)`
     }
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 200px;
+    width: 150px;
   }
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 250px;
-      margin-bottom: 20px;
-  }
+
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       width: 350px;
 
@@ -88,18 +84,17 @@ export const MediumImgHover = styled(HomeImg)`
 export const DoubleImage = styled.div `
 padding-top: 20px;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
+justify-content: center;
+gap: 50px;
+width: 100%;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     padding-top: 30px;
-    flex-direction: row;
-    gap: 30px;
+    gap: 70px;
   }
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    gap: 3
-    0px;
-  }
+
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     gap: 110px;
   }
@@ -147,16 +142,16 @@ export const Home = () => {
       <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
       <ChristmasBackground>
           <H4White>God Jul önskar Tuva!</H4White>
-          <TextWrapperBred>
+          <TextWrapperRed>
             <div>
             Snart är julen här och vi har laddat upp med ett roligt <StyledLinkHalloween to="/julmemory"> Julmemory</StyledLinkHalloween>. 
             Men bäst av allt - <StyledLinkHalloween to="/jul/kalender/julkalender"> Tuvas Julkalender</StyledLinkHalloween>! 
             Öppna en lucka per dag till och med julafton!!
           </div>
-          </TextWrapperBred>
+          </TextWrapperRed>
           <DoubleImage>
-          <StyledLinkHalloween to="/julmemory"><MediumImgHover src={JulMemory} /></StyledLinkHalloween>
-          <StyledLinkHalloween to="/jul/kalender/julkalender"><MediumImgHover src={JulKalender} /></StyledLinkHalloween>
+          <div><StyledLinkHalloween to="/julmemory"><MediumImgHover src={JulMemory} /></StyledLinkHalloween></div>
+          <div><StyledLinkHalloween to="/jul/kalender/julkalender"><MediumImgHover src={JulKalender} /></StyledLinkHalloween></div>
           </DoubleImage>
           <SerieImage src={TarnaHast} />
   

@@ -65,7 +65,7 @@ export const TextWrapper = styled(WrapperWhite)`
 }
 `;
 
-export const TextWrapperBred = styled(WrapperWhite)` // passar till ChristmasBackground
+export const TextWrapperRed = styled(WrapperWhite)` // passar till ChristmasBackground
   width: 90%;       
   background-color: transparent;
   color: ${KRITVIT};
