@@ -64,10 +64,6 @@ export const H4White = styled.h4 `
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       font-size: 1.3rem;
     }
-
-    @media (min-width: ${BREAKPOINT_DESKTOP}) {
-        font-size: 1.4rem;
-      }
           @media (min-width: ${BREAKPOINT_DESKTOP}) {
         font-size: 2rem;
       }
