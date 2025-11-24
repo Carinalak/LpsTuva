@@ -87,7 +87,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-gap: 50px;
+gap: 30px;
 width: 100%;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
