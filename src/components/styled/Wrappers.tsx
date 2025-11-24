@@ -3,7 +3,7 @@ import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TA
 import Julbakgrund from "../../jul/img/bakgrund_snoflingor_gron.png";
 
 export const WrapperWhite = styled.section`
-width: 90%;
+width: 95%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -113,7 +113,7 @@ export const HistoryDateHalloween = styled(HistoryDatePink)`
 `;
 
 export const ReklamOrangeBack = styled(WrapperWhite)`
-  width: 90%;       
+  width: 85%;       
   background-color: ${BLEKPUMPA};
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
