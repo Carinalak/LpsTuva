@@ -17,12 +17,13 @@ export const MemoryStyle = styled.div `
   gap: 10px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    gap: 20px;
+    gap: 35px;
   }
 
   // ---------------------- HARD MODE --------------------------- //
   &.hard-mode {
       grid-template-columns: repeat(4, 1fr);
+
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       grid-template-columns: repeat(7, 1fr);
     }
@@ -48,8 +49,8 @@ export const MemoryCard = styled.div `
     height: 140px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
   }
   // ---------------------- HARD MODE --------------------------- //
   &.hard-mode {
@@ -65,8 +66,8 @@ export const MemoryCard = styled.div `
     height: 120px;
   }
   @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 150px;
-    height: 150px;
+    width: 185px;
+    height: 185px;
   }
 
   }
