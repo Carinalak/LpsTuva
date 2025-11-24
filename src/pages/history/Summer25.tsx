@@ -1,28 +1,12 @@
-import { HistoryDatePink, HistoryWrapperWhite, TextWrapper } from "../../components/styled/Wrappers"
+import { HistoryDatePink, HistoryWrapperWhite, HomeImg, TextWrapper } from "../../components/styled/Wrappers"
 import Gris from '../../assets/images/gris.png';
 import { Link } from "react-router-dom";
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, POOLBLA, SKUGGLILA } from "../../components/styled/Variables";
+import { POOLBLA, SKUGGLILA } from "../../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../../components/styled/Image";
 import HomeImage from '../../assets/images/galleri/spring/lila_ko_krokus.jpg';
 
-export const HomeImg = styled.img `
-  width: 300px;
-  margin-bottom: 60px;
-  border-radius: 10px;
 
-    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 400px;
-  }
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 500px;
-      margin-bottom: 80px;
-  }
-      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 700px;
-      margin-bottom: 20px;
-  }
-`;
 
 const StyledLink = styled(Link)`
   cursor: pointer;

@@ -75,9 +75,8 @@ export const DesktopNav = styled.nav`
       }
       
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
-
 
     }
 
@@ -135,10 +134,7 @@ export const DesktopNav = styled.nav`
       // justify-content: center;
       z-index: 99;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
-          
-          
-      }
+   
     }
 
     ul.submenu li {
@@ -169,10 +165,12 @@ export const DesktopNav = styled.nav`
       
        @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
         font-weight: 400;
-        font-size: 2rem;
-        height: 55px;
-        padding-left: 20px;
-        padding-right: 20px;
+        font-size: 1.8rem;
+        height: 70px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 5px;
+        //padding-bottom: 20px;
         
       }
     }

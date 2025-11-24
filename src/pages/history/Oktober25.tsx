@@ -1,5 +1,5 @@
 import { H4Black, StyledLink, StyledLinkHalloween } from "../../components/styled/Fonts"
-import { HistoryDateHalloween, HistoryWrapperWhite, ReklamOrangeBack, TextWrapper, } from "../../components/styled/Wrappers"
+import { HistoryDateHalloween, HistoryWrapperWhite, HomeImg, ReklamOrangeBack, TextWrapper, } from "../../components/styled/Wrappers"
 import Pumpakorg from '../../assets/images/halloween/dekorationer/pumpakorg.png';
 import Halloween from '../../assets/images/LPHalloween.png';
 import Hosten from '../../assets/images/LPHosten.png';
@@ -12,7 +12,6 @@ import { styled } from "styled-components";
 import { SerieImage } from "../../components/styled/Image";
 import HomeImage from '../../assets/images/galleri/autumn/Hund_orange_lov.jpg';
 import { PysselLink } from "./../Pysselspel";
-import { HomeImg } from "./Summer25";
 
 
 export const HalloweenImg = styled(HomeImg)`

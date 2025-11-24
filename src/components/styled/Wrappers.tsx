@@ -214,6 +214,24 @@ export const CenteredColTransWrapper = styled.div `
 }
 `;
 
+export const HomeImg = styled.img `
+  width: 300px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 400px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 500px;
+      margin-bottom: 80px;
+  }
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 700px;
+      margin-bottom: 20px;
+  }
+`;
+
 
 // ----------------------------------- Farglagg (Coloring) page ----------------------------------- //
 

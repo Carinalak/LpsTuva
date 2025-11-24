@@ -1,18 +1,20 @@
 import { H1PurpleSecond, H4White, StyledLinkHalloween } from "../components/styled/Fonts"
-import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, TextWrapperRed, WrapperWhite } from "../components/styled/Wrappers"
+import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, HomeImg, TextWrapperRed, WrapperWhite } from "../components/styled/Wrappers"
 //import { Link } from "react-router-dom";
 import GodJulTomte from '../jul/img/godjul_tomte_animation.gif';
 import TarnaHast from '../jul/img/tarna_hast.png';
 import JulMemory from '../assets/logos/julmemory_logo_300.png';
 import JulKalender from '../assets/logos/julkalender25_logo300text.png';
 
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "../components/styled/Variables";
-import { styled } from "styled-components";
+
+
 import { SerieImage } from "../components/styled/Image";
 import { useEffect, useState } from "react";
 import { useHistoryEntries } from "../components/styled/useHistoryEntries";
 import { HistorySortDropdown } from "./history/HistorySortDropdown";
-
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "../components/styled/Variables";
+import styled from "styled-components";
+/*
 export const HomeImg = styled.img `
   width: 300px;
   margin-bottom: 40px;
@@ -25,7 +27,7 @@ export const HomeImg = styled.img `
       width: 500px;
       margin-bottom: 20px;
   }
-`;
+`;*/
 
 export const HalloweenImg = styled(HomeImg)`
 width: 200px;

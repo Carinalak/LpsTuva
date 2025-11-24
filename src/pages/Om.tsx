@@ -1,24 +1,10 @@
 import { H1PurpleSecond, StyledLink } from "../components/styled/Fonts"
-import { BackgroundOriginal, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
+import { BackgroundOriginal, HomeImg, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
 import Gris from '../assets/images/gris.png';
-import { BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "../components/styled/Variables";
-import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
 import HomeImage from '../assets/images/galleri/autumn/Gungar.jpg';
 
-export const HomeImg = styled.img `
-  width: 300px;
-  margin-bottom: 40px;
-  border-radius: 10px;
 
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 400px;
-  }
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 500px;
-      margin-bottom: 20px;
-  }
-`;
 
 export const Om = () => {
 
