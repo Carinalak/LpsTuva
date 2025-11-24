@@ -16,12 +16,18 @@ export const H1White = styled.h1 `
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       font-size: 2.4rem;
     }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      font-size: 3.2rem;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
 `;
 
 export const H1PurpleSecond = styled(H1White) `           // Titel på varje sida - lila
   color: ${SKUGGLILA};
   line-height: 1.1;
   text-shadow: none;
+  
 `;
 
 export const H1WhiteSecond = styled(H1White) `      // Titel på varje sida - vit
@@ -62,6 +68,9 @@ export const H4White = styled.h4 `
     @media (min-width: ${BREAKPOINT_DESKTOP}) {
         font-size: 1.4rem;
       }
+          @media (min-width: ${BREAKPOINT_DESKTOP}) {
+        font-size: 2rem;
+      }
 `;
 
 export const H4Black = styled.h4 `
@@ -79,6 +88,9 @@ export const H4Black = styled.h4 `
 
     @media (min-width: ${BREAKPOINT_DESKTOP}) {
         font-size: 1.4rem;
+      }
+      @media (min-width: ${BREAKPOINT_DESKTOP}) {
+        font-size: 2rem;
       }
 `;
 
@@ -212,7 +224,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledLinkHalloween = styled(Link)`
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: underline;
   color: ${KRITVIT};
   transition: color 0.3s ease;
 

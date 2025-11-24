@@ -32,6 +32,10 @@ export const Button = styled.button`
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 110px;
     }
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+        width: 140px;
+        height: 50px;
+    }
 `;
 
 export const ButtonWrapper = styled.div `

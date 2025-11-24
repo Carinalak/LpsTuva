@@ -1,20 +1,14 @@
-import { H1PurpleSecond, H4Black, StyledLink, StyledLinkHalloween } from "../components/styled/Fonts"
-import { BackgroundOriginal, DropdownWrapper, ReklamOrangeBack, TextWrapper, WrapperWhite } from "../components/styled/Wrappers"
-import Pumpakorg from '../assets/images/halloween/dekorationer/pumpakorg.png';
-import Halloween from '../assets/images/LPHalloween.png';
-import Hosten from '../assets/images/LPHosten.png';
-import { Link } from "react-router-dom";
-import HalloweenMemory from '../assets/logos/halloween_memory_reklam.png';
-//import GodJulTomte from '../assets/images/jul/godjul_tomte_animation.gif'
-//import JulMemory from '../assets/logos/julmemory_logo_300.png';
+import { H1PurpleSecond, H4White, StyledLinkHalloween } from "../components/styled/Fonts"
+import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, TextWrapperBred, WrapperWhite } from "../components/styled/Wrappers"
+//import { Link } from "react-router-dom";
+import GodJulTomte from '../jul/img/godjul_tomte_animation.gif';
+import TarnaHast from '../jul/img/tarna_hast.png';
+import JulMemory from '../assets/logos/julmemory_logo_300.png';
+import JulKalender from '../assets/logos/julkalender25_logo300text.png';
 
-
-import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET } from "../components/styled/Variables";
 import { styled } from "styled-components";
 import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/autumn/Hund_orange_lov.jpg';
-import { PysselLink } from "./Pysselspel";
-
 import { useEffect, useState } from "react";
 import { useHistoryEntries } from "../components/styled/useHistoryEntries";
 import { HistorySortDropdown } from "./history/HistorySortDropdown";
@@ -46,32 +40,75 @@ width: 200px;
 
 `;
 
-export const LPImage = styled.img`
-  width: 100px;
-  margin: 10px;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+export const MediumImg = styled(HomeImg)`
+width: 200px;
+padding-top: 30px;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    width: 200px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 250px;
+      margin-bottom: 20px;
+  }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 380px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+  }
+`;
+
+export const MediumImgHover = styled(HomeImg)`
+  width: 200px;
+  padding-top: 30px;
   cursor: pointer;
   // @vite-ignore
   cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), auto;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 
-    &:hover {
+      &:hover {
       transform: scale(1.1);
     }
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-
-    }
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 150px;
-
-    }
+    width: 200px;
+  }
+  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 250px;
+      margin-bottom: 20px;
+  }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 200px;
+      width: 350px;
 
-    }
+  }
 `;
+
+export const DoubleImage = styled.div `
+padding-top: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    padding-top: 30px;
+    flex-direction: row;
+    gap: 30px;
+  }
+    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+    gap: 3
+    0px;
+  }
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    gap: 110px;
+  }
+
+
+`;
+
+
+/*
 const LPLink = styled(Link)`
 //display: flex;
 //flex-direction: row;
@@ -89,54 +126,43 @@ cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), auto;
     line-height: 50px;
   }
 `;
-
+*/
 export const Home = () => {
     const [sortBy, setSortBy] = useState("none");
     const { currentEntries } = useHistoryEntries(sortBy);
 
-  // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
-  // Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
+// --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
+// Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
   useEffect(() => {
   const topElement = document.getElementById("top");
   if (topElement) {
     topElement.scrollIntoView({ behavior: "auto" });
   }
 }, []); // Körs EN gång när sidan laddas
-  // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
+// ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
   
   return ( 
   <BackgroundOriginal>
     <WrapperWhite>
       <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-      <TextWrapper>
-        <div>Hösten är här! Galleriet är påfyllt med härliga höstbilder på Littlest Pet Shop när de är ute på äventyr. 
-          Gå in och titta. Det finns också några nya färgläggningsbilder att färglägga 
-          och <StyledLink to="/../halloween/halloweenpyssel"> halloweenpyssel</StyledLink> att pyssla! Nya memoryspelet med Halloweentema är här. Kolla in det!</div>
-      </TextWrapper>
-        <PysselLink to="/halloweenmemory"><HalloweenImg src={HalloweenMemory} /></PysselLink>
-      <TextWrapper>
-        
-      </TextWrapper>
-      <ReklamOrangeBack>
-        <H4Black>Musik till Halloweenfesten!</H4Black>
-        Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
-        du kan lägga till i din spellista. 
-        
-        <p>
-          Den första är "<StyledLinkHalloween to="https://open.spotify.com/track/1Z1qc0vQaCqJCWyHpYtbWf?si=3d2ba3e69f7e46c5" target="_blank">Nu är det Halloween</StyledLinkHalloween>" som Tuva har skrivit och spelat in. 
-          Den andra är "<StyledLinkHalloween to="https://open.spotify.com/track/4Gv0q5LLLznmzi6yLrtfcp?si=2f16de72a6494ada" target="_blank">Hösten är här</StyledLinkHalloween>" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
-          när den spelades in. Det är flera andra som sjunger där också. Bland annat hennes kompis Maja, hennes bror Albin 
-          och hennes mamma Carina. 
-        </p>
-        <div>
-          <LPLink to="https://open.spotify.com/track/1Z1qc0vQaCqJCWyHpYtbWf?si=3d2ba3e69f7e46c5" target="_blank"><LPImage src={Halloween} alt="Nu är det Halloween" loading="lazy"/></LPLink>
-          <LPLink to="https://open.spotify.com/track/4Gv0q5LLLznmzi6yLrtfcp?si=2f16de72a6494ada" target="_blank"><LPImage src={Hosten} alt="Hösten är här" loading="lazy"/></LPLink>
-        </div>
-        <p>Känner du till några bra höst eller Halloweenlåtar så tipsa gärna Tuva.
-        </p>
-      </ReklamOrangeBack>
-      <HomeImg src={HomeImage} alt="Höstbild" loading="lazy"/>
-      <SerieImage src={Pumpakorg} alt="Pumpakorg" loading="lazy"/>
+      <ChristmasBackground>
+          <H4White>God Jul önskar Tuva!</H4White>
+          <TextWrapperBred>
+            <div>
+            Snart är julen här och vi har laddat upp med ett roligt <StyledLinkHalloween to="/julmemory"> Julmemory</StyledLinkHalloween>. 
+            Men bäst av allt - <StyledLinkHalloween to="/jul/kalender/julkalender"> Tuvas Julkalender</StyledLinkHalloween>! 
+            Öppna en lucka per dag till och med julafton!!
+          </div>
+          </TextWrapperBred>
+          <DoubleImage>
+          <StyledLinkHalloween to="/julmemory"><MediumImgHover src={JulMemory} /></StyledLinkHalloween>
+          <StyledLinkHalloween to="/jul/kalender/julkalender"><MediumImgHover src={JulKalender} /></StyledLinkHalloween>
+          </DoubleImage>
+          <SerieImage src={TarnaHast} />
+  
+        </ChristmasBackground>
+        <MediumImg src={GodJulTomte} />
+     
 
   <DropdownWrapper>
 

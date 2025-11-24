@@ -12,20 +12,8 @@ import { styled } from "styled-components";
 import { SerieImage } from "../../components/styled/Image";
 import HomeImage from '../../assets/images/galleri/autumn/Hund_orange_lov.jpg';
 import { PysselLink } from "./../Pysselspel";
+import { HomeImg } from "./Summer25";
 
-export const HomeImg = styled.img `
-  width: 300px;
-  margin-bottom: 40px;
-  border-radius: 10px;
-
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    width: 400px;
-  }
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      width: 500px;
-      margin-bottom: 20px;
-  }
-`;
 
 export const HalloweenImg = styled(HomeImg)`
 width: 200px;
@@ -38,6 +26,19 @@ width: 200px;
       margin-bottom: 20px;
   }
 
+`;
+
+export const LpWrapper = styled.div `
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+    gap: 20px;
+    }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      gap: 50px;
+    }
 `;
 
 export const LPImage = styled.img`
@@ -62,8 +63,7 @@ export const LPImage = styled.img`
 
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 200px;
-
+      width: 250px;
     }
 `;
 export const LPLink = styled(Link)`
@@ -101,19 +101,20 @@ export const Oktober25 = () => {
       </TextWrapper>
       <ReklamOrangeBack>
         <H4Black>Musik till Halloweenfesten!</H4Black>
+        <TextWrapper>
         Vill du ha tips till Halloweenfesten eller bra höstmusik att ha när du höst-pysslar så finns det två jättebra låtar 
         du kan lägga till i din spellista. 
         
-        <p>
+        
           Den första är "<StyledLinkHalloween to="https://open.spotify.com/track/1Z1qc0vQaCqJCWyHpYtbWf?si=3d2ba3e69f7e46c5" target="_blank">Nu är det Halloween</StyledLinkHalloween>" som Tuva har skrivit och spelat in. 
           Den andra är "<StyledLinkHalloween to="https://open.spotify.com/track/4Gv0q5LLLznmzi6yLrtfcp?si=2f16de72a6494ada" target="_blank">Hösten är här</StyledLinkHalloween>" som Tuva har varit med och skrivit och är med och sjunger på. Tuva var fortfarande rätt liten 
           när den spelades in. Det är flera andra som sjunger där också. Bland annat hennes kompis Maja, hennes bror Albin 
           och hennes mamma Carina. 
-        </p>
-        <div>
+        </TextWrapper>
+        <LpWrapper>
           <LPLink to="https://open.spotify.com/track/1Z1qc0vQaCqJCWyHpYtbWf?si=3d2ba3e69f7e46c5" target="_blank"><LPImage src={Halloween} alt="Nu är det Halloween" loading="lazy"/></LPLink>
           <LPLink to="https://open.spotify.com/track/4Gv0q5LLLznmzi6yLrtfcp?si=2f16de72a6494ada" target="_blank"><LPImage src={Hosten} alt="Hösten är här" loading="lazy"/></LPLink>
-        </div>
+        </LpWrapper>
         <p>Känner du till några bra höst eller Halloweenlåtar så tipsa gärna Tuva.
         </p>
       </ReklamOrangeBack>

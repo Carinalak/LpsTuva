@@ -25,14 +25,14 @@ export const MenuLinks = [
     label: "Pyssel & Spel",
     target: "_blank?",
     subLinks: [
+      { path: "/jul/kalender/julkalender", label: "Julkalender" },
+      { path: "/julmemory", label: "Julmemory" },
+      { path: "/memory", label: "Memoryspel", target: "top" },
+      { path: "/farglagg", label: "Färgläggning", target: "top"},
+      { path: "/ritblock", label: "Ritblock", target: "top"},
+      //{ path: "/halloween/halloweenpyssel", label: "Halloweenpyssel", target: "top" },
+      //{ path: "/halloweenmemory", label: "Halloween Memory", target: "top" },
 
-      { path: "/farglagg", label: "Färgläggning" },
-      { path: "/ritblock", label: "Ritblock" },
-      { path: "/halloween/halloweenpyssel", label: "Halloweenpyssel", target: "top" },
-      { path: "/halloweenmemory", label: "Halloween Memory", target: "top" },
-      //{ path: "/julmemory", label: "Julmemory" },
-      { path: "/memory", label: "Memoryspel" },
-      //{ path: "/jul/kalender/julkalender", label: "Julkalender" },
       //{ path: "https://kaninspelet.onrender.com/", label: "Kaninspelet", target: "_blank" },
 
     ],

@@ -81,8 +81,9 @@ export const SerieImage = styled.img`
     padding-bottom: 20px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      width: 250px;
-      padding-top: 40px;
+      width: 200px;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
   
 `;

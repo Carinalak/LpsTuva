@@ -11,8 +11,10 @@ export const Form = styled.form `
       font-family: "Playpen Sans", serif;
       color: ${SMUTSROSA};
       font-size: 16px;
-
 }
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      row-gap: 20px;
+    }
 
   .contactInput {
     font-family: "Playpen Sans", serif;
@@ -32,7 +34,9 @@ export const Form = styled.form `
         width: 460px;
       }
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-        width: 470px;
+        width: 500px;
+        height: 50px;
+        font-size: 20px;
     }
   }
 
@@ -56,8 +60,9 @@ export const Form = styled.form `
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 460px;
     }
-      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-        width: 470px;
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      width: 500px;
+      font-size: 20px;
     }
   }
 `;

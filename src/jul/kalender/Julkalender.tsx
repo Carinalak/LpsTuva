@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 import { CalendarImages } from "./CalendarImages";
+import { JulBackground } from "../../components/styled/Wrappers";
+import { BREAKPOINT_BIGGER_DESKTOP, FONT_PLAYPEN } from "../../components/styled/Variables";
 
-// 🔹 Styled-components och animationer
 const CalendarWrapper = styled.div`
   background: #f5e6e0;
   border-radius: 20px;
@@ -11,13 +12,21 @@ const CalendarWrapper = styled.div`
   margin: 2rem auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   text-align: center;
+  
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+        margin-top: 200px;
+        max-width: 70%;
+    }
 `;
 
 const Title = styled.h1`
   color: #b22222;
-  font-family: "Georgia", serif;
+  font-family: ${FONT_PLAYPEN}; // Förut Georgia", serif
   font-size: 2rem;
   margin-bottom: 1.5rem;
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+    font-size: 2.5rem;
+}
 `;
 
 const Grid = styled.div`
@@ -49,6 +58,9 @@ const DoorWrapper = styled.div`
   perspective: 1000px;
   overflow: hidden;
   border-radius: 10px;
+    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+      height: 150px;
+  }
 `;
 
 const Door = styled.div<{ opened: boolean; direction: "left" | "right" }>`
@@ -100,7 +112,7 @@ const Image = styled.img<{ visible: boolean }>`
   cursor: zoom-in;
 `;
 
-// 🔹 Modal för gallery
+// Modal 
 const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
@@ -178,7 +190,7 @@ const Julkalender: React.FC = () => {
     const stored = localStorage.getItem("christmasCalendar2025");
 
     // Om det är december, använd sparade luckor från localStorage om de finns
-    if (month === 10 && stored) {
+    if (month === 11 && stored) {
       return JSON.parse(stored);
     }
 
@@ -192,7 +204,7 @@ const Julkalender: React.FC = () => {
 
   // Spara luckor till localStorage **endast i december**
   useEffect(() => {
-    if (month === 10) {
+    if (month === 11) {
       localStorage.setItem("christmasCalendar2025", JSON.stringify(doors));
     } else {
       // Om det inte är december, rensa luckorna från localStorage
@@ -201,7 +213,7 @@ const Julkalender: React.FC = () => {
   }, [doors, month]);
 
   const handleOpen = (index: number) => {
-    if (month !== 10) {
+    if (month !== 11) {
       alert("🎅 Du kan bara öppna kalendern i december!");
       return;
     }
@@ -232,12 +244,23 @@ const Julkalender: React.FC = () => {
 
 
   const gridOrder = [
-    3, 0, 11, 12, 7, 14, 2, 18, 1, 4, 20, 16, 9, 10, 5, 13, 15, 6, 17, 8, 19, 21, 23, 22
+    3, 0, 11, 12, 7, 18, 2, 14, 1, 4, 20, 16, 9, 5, 10, 13, 15, 6, 17, 8, 19, 21, 23, 22
   ];
 
+    // --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
+    // Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
+      useEffect(() => {
+        const topElement = document.getElementById("top");
+        if (topElement) {
+          topElement.scrollIntoView({ behavior: "auto" });
+        }
+      }, []); // Körs EN gång när sidan laddas
+    // ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
+
   return (
+    <JulBackground>
     <CalendarWrapper>
-      <Title>🎄 Julkalender 2025 </Title>
+      <Title>🎄 Julkalender 2025</Title>
       <Grid>
         {gridOrder.map((i) => {
           const door = doors[CalendarImages[i].number-1];
@@ -301,6 +324,7 @@ const Julkalender: React.FC = () => {
       )}
 
     </CalendarWrapper>
+    </JulBackground>
   );
 };
 

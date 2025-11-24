@@ -129,7 +129,17 @@ export const Julmemory: React.FC = () => {
     };
     preloadImages();
   }, [getCards]);
-  
+
+// --------------------- Koden nedan gör så att sidan hamnar högst upp när den öppnas ---------------------- // 
+// Den scrollar till toppen endast vid första mount av komponenten. Ignorerar vid lokala klick.
+  useEffect(() => {
+    const topElement = document.getElementById("top");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "auto" });
+    }
+  }, []); // Körs EN gång när sidan laddas
+// ---------------------------------------- SLUT PÅ SCROLLKOD ---------------------------------------------- //
+
 
   return (
     <JulBackground>

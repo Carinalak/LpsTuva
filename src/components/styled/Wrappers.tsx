@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SMUTSROSA } from "./Variables";
-
+import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SMUTSROSA } from "./Variables";
+import Julbakgrund from "../../jul/img/bakgrund_snoflingor_gron.png";
 
 export const WrapperWhite = styled.section`
 width: 90%;
@@ -43,7 +43,7 @@ export const WrapperTransparent = styled(WrapperWhite)`
 
 
 export const TextWrapper = styled(WrapperWhite)`
-  width: 90%;       // Måste ha samma bredd som GalleryImage!
+  width: 80%;       // Måste ha samma bredd som GalleryImage!
   background-color: transparent;
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
@@ -53,16 +53,41 @@ export const TextWrapper = styled(WrapperWhite)`
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
   width: 450px;
   padding-bottom: 10px;
+  width: 90%;  
 }
 
 @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
   width: 550px;
 }
+
+@media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+  width: 700px;
+}
+`;
+
+export const TextWrapperBred = styled(WrapperWhite)` // passar till ChristmasBackground
+  width: 90%;       
+  background-color: transparent;
+  color: ${KRITVIT};
+  text-align: left; /* Justerar texten horisontellt */
+  align-items: flex-start; /* Justerar innehåll i Flexbox */
+  margin-top: 0;
+  
+  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+  padding-bottom: 10px;
+}
+
 `;
 
 
+export const TextWrapperWhiteFont = styled(WrapperWhite)` // samma som Textwrapper fast vit font
+
+  color: ${KRITVIT};
+
+`;
+
 export const HistoryDatePink = styled.div`
-  width: 90%;       // Måste ha samma bredd som Textwrapper!
+  width: 80%;       // Måste ha samma bredd som Textwrapper!
   background-color: ${SMUTSROSA};
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
@@ -71,38 +96,20 @@ export const HistoryDatePink = styled.div`
   padding: 5px;
   padding-left: 10px;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 10px;
-  
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 450px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 90%;
+      padding-left: 15px;
 }
 
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  width: 550px;
-}
+
 `;
 
-export const HistoryDateHalloween = styled.div`
-  width: 90%;       // Måste ha samma bredd som Textwrapper!
+export const HistoryDateHalloween = styled(HistoryDatePink)`
   background-color: ${PUMPAORANGE};
   color: ${KOLSVART};
-  text-align: left; /* Justerar texten horisontellt */
-  align-items: center; /* Justerar innehåll i Flexbox */
-  margin-top: 0;
-  padding: 5px;
-  padding-left: 10px;
-  border-radius: 5px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 450px;
-}
-
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  width: 550px;
-}
 `;
 
 export const ReklamOrangeBack = styled(WrapperWhite)`
@@ -118,12 +125,20 @@ export const ReklamOrangeBack = styled(WrapperWhite)`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 400px;
+  width: 90%;
 }
 
-@media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-  width: 550px;
-}
+`;
+
+export const ChristmasBackground = styled(ReklamOrangeBack)`  
+  background-color: ${CHRISTMAS_RED};
+  color: ${KRITVIT};
+  padding-bottom: 20px;
+
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 90%;
+  
+    }
 `;
 
 
@@ -178,10 +193,9 @@ export const WhiteWrapperMini = styled(WhiteFont) `
     width: 430px;
   }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-    width: 450px;
+    width: 550px;
   }
 `;
-
 
 
 export const CenteredWrapperTransparent = styled.div `
@@ -355,7 +369,9 @@ export const BackgroundOriginal = styled.div `
 `;
 
 export const JulBackground = styled.div `
-  background-color: ${JULGRON_MORK}; 
+  /*background-color: ${JULGRON_MORK}; */
+  background-image: url(${Julbakgrund});
+  background-repeat: repeat;
   min-height: 100vh;
   min-width: 100%;
   display: flex;
@@ -372,6 +388,7 @@ export const JulBackground = styled.div `
   overflow: hidden;
   overflow-y: hidden;
 `;
+
 export const HalloweenBackground = styled.div `
   background-color: ${KOLSVART}; 
   color:${PUMPAORANGE} ;

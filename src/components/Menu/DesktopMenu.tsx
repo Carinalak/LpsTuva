@@ -24,6 +24,7 @@ export const DesktopNav = styled.nav`
 
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     align-items: flex-end;
+    width: 60%;
 
   }
 
@@ -52,7 +53,7 @@ export const DesktopNav = styled.nav`
 
     a {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
       color: ${KRITVIT};
       text-decoration: none;
       display: flex;
@@ -67,15 +68,15 @@ export const DesktopNav = styled.nav`
 
       @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         font-size: 1rem;
-    }
+      }
 
-    @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-      font-size: 1.2rem;
-    }
-    
-    @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
-      font-size: 1.8rem;
-    }
+      @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+        font-size: 1.2rem;
+      }
+      
+      @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
+        font-size: 2rem;
+      }
 
 
     }
@@ -134,6 +135,10 @@ export const DesktopNav = styled.nav`
       // justify-content: center;
       z-index: 99;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+          
+          
+      }
     }
 
     ul.submenu li {
@@ -147,6 +152,7 @@ export const DesktopNav = styled.nav`
       padding: 0;
       text-align: left;
       white-space: nowrap;
+      
 
     }
 
@@ -160,6 +166,15 @@ export const DesktopNav = styled.nav`
       width: 100%;
       height: 30px;
       text-align: left;
+      
+       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
+        font-weight: 400;
+        font-size: 2rem;
+        height: 55px;
+        padding-left: 20px;
+        padding-right: 20px;
+        
+      }
     }
 
     ul.submenu li a:hover {
