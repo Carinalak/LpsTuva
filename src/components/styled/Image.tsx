@@ -18,30 +18,6 @@ export const GalleryImage = styled.img`
 `;
 
 
-/* Gammal
-export const GalleryImage = styled.img`
-  width: 90%;        Måste ha samma bredd som TextWrapper! till texten
-  border-radius: 10px;
-  max-width: 80%;
-  cursor: pointer;
-    Centrering 
-  display: block;
-  margin: 0 auto;
-
-
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    max-width: 100%;
-    width: 450px;
-  }
-
-  @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
-    width: 550px;
-  }
-
-`;
-
-*/
-
 export const FarglaggImage = styled.img`
 
   width: 100px;       // Måste ha samma bredd som TextWrapper! till texten
@@ -69,20 +45,14 @@ export const FarglaggImage = styled.img`
 
 export const SerieImage = styled.img`
   width: 110px;
-  padding-top: 5px;
+  //padding-top: 5px;
 
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-    padding-top: 10px;
-
-    }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
     width: 150px;
-    padding-top: 15px;
-    padding-bottom: 20px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       width: 200px;
-      padding-top: 50px;
+      padding-top: 10px;
       padding-bottom: 50px;
     }
   

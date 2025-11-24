@@ -12,6 +12,9 @@ export const Form = styled.form `
       color: ${SMUTSROSA};
       font-size: 16px;
 }
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      row-gap: 16px;
+    }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       row-gap: 20px;
     }

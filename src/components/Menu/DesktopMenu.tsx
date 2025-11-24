@@ -154,14 +154,16 @@ export const DesktopNav = styled.nav`
 
     ul.submenu li a {
       color: ${KRITVIT};
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 5;
+      font-weight: 400;
+      font-size: 1.3rem;
+      padding: 5px;
       margin: 0;
       display: block;
       width: 100%;
       height: 30px;
       text-align: left;
+      padding-left: 50px;
+      padding-right: 50px;
       
        @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}){
         font-weight: 400;

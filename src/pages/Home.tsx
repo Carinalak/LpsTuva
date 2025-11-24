@@ -70,6 +70,7 @@ export const MediumImgHover = styled(HomeImg)`
   cursor: url(${new URL("/public/paw_white.png", import.meta.url).href}), auto;
   -webkit-tap-highlight-color: transparent; // Tar bort blå markering på mobila enheter
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  margin-bottom: 20px;
 
       &:hover {
       transform: scale(1.1);
@@ -86,13 +87,14 @@ export const MediumImgHover = styled(HomeImg)`
 `;
 
 export const DoubleImage = styled.div `
-padding-top: 20px;
+padding-top: 10px;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 30px;
 width: 100%;
+//border: 1px solid white;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     padding-top: 30px;
