@@ -64,30 +64,18 @@ export const H4White = styled.h4 `
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       font-size: 1.3rem;
     }
-          @media (min-width: ${BREAKPOINT_DESKTOP}) {
-        font-size: 2rem;
-      }
+
 `;
 
-export const H4Black = styled.h4 `
-    padding: 0;
-    font-family: "Playpen Sans", serif;
+export const H4Black = styled(H4White) `
     color: ${KOLSVART};
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 0;
+    //margin-top: 0;
     margin-bottom: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       font-size: 1.3rem;
     }
 
-    @media (min-width: ${BREAKPOINT_DESKTOP}) {
-        font-size: 1.4rem;
-      }
-      @media (min-width: ${BREAKPOINT_DESKTOP}) {
-        font-size: 2rem;
-      }
 `;
 
 export const FooterTextWhite = styled.p `
