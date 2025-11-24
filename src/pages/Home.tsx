@@ -42,10 +42,12 @@ width: 200px;
 
 export const MediumImg = styled(HomeImg)`
 width: 200px;
-padding-top: 30px;
+padding-top: 20px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
     width: 200px;
+    padding-top: 30px;
+    
   }
   @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       width: 250px;

@@ -69,10 +69,10 @@ export const FarglaggImage = styled.img`
 
 export const SerieImage = styled.img`
   width: 120px;
-  padding-top: 10px;
+  padding-top: 8px;
 
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-
+    padding-top: 10px;
 
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
