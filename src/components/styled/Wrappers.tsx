@@ -113,7 +113,7 @@ export const HistoryDateHalloween = styled(HistoryDatePink)`
 `;
 
 export const ReklamOrangeBack = styled(WrapperWhite)`
-  width: 80%;       
+  width: 90%;       
   background-color: ${BLEKPUMPA};
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
@@ -123,10 +123,6 @@ export const ReklamOrangeBack = styled(WrapperWhite)`
   padding-left: 15px;
   padding-right: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 90%;
-}
 
 `;
 
