@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 import { CalendarImages } from "./CalendarImages";
 import { JulBackground } from "../../components/styled/Wrappers";
-import { BREAKPOINT_BIGGER_DESKTOP, FONT_PLAYPEN } from "../../components/styled/Variables";
+import { BREAKPOINT_BIGGER_DESKTOP } from "../../components/styled/Variables";
+import { H1WhiteSecond } from "../../components/styled/Fonts";
+
 
 const CalendarWrapper = styled.div`
-  background: #f5e6e0;
+  //background: #f5e6e0;
+  background-color: transparent;
   border-radius: 20px;
   padding: 2rem;
   max-width: 800px;
   margin: 2rem auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  //box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   text-align: center;
   
       @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
@@ -18,7 +21,7 @@ const CalendarWrapper = styled.div`
         max-width: 70%;
     }
 `;
-
+/*
 const Title = styled.h1`
   color: #b22222;
   font-family: ${FONT_PLAYPEN}; // Förut Georgia", serif
@@ -27,7 +30,7 @@ const Title = styled.h1`
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
     font-size: 2.5rem;
 }
-`;
+`;*/
 
 const Grid = styled.div`
   display: grid;
@@ -219,7 +222,7 @@ const Julkalender: React.FC = () => {
     }
 
     if (index + 1 > day) {
-      alert(`🎁 Du kan inte öppna lucka ${index + 1} ännu!`);
+      alert(`🎁 🎄 Du kan inte öppna lucka ${index + 1} ännu!`);
       return;
     }
 
@@ -260,7 +263,7 @@ const Julkalender: React.FC = () => {
   return (
     <JulBackground>
     <CalendarWrapper>
-      <Title>🎄 Julkalender 2025</Title>
+      <H1WhiteSecond>🎅 Julkalender 2025</H1WhiteSecond>
       <Grid>
         {gridOrder.map((i) => {
           const door = doors[CalendarImages[i].number-1];
