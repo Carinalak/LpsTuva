@@ -263,7 +263,7 @@ const Julkalender: React.FC = () => {
   return (
     <JulBackground>
     <CalendarWrapper>
-      <H1WhiteSecond>🎅 Julkalender ☃️</H1WhiteSecond>
+      <H1WhiteSecond>Julkalender</H1WhiteSecond>
       <Grid>
         {gridOrder.map((i) => {
           const door = doors[CalendarImages[i].number-1];

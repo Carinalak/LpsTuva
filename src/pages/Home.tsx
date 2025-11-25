@@ -4,7 +4,7 @@ import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, HomeImg, Text
 import GodJulTomte from '../jul/img/godjul_tomte_animation.gif';
 import TarnaHast from '../jul/img/tarna_hast.png';
 import JulMemory from '../assets/logos/julmemory_logo_300.png';
-import JulKalender from '../assets/logos/julkalender25_logo300text.png';
+import JulKalender from '../assets/logos/julkalender25_logo300.png';
 import { SerieImage } from "../components/styled/Image";
 import { useEffect, useState } from "react";
 import { useHistoryEntries } from "../components/styled/useHistoryEntries";
