@@ -121,59 +121,59 @@ const initGoogleAnalytics = () => {
     <>
     <RouterProvider router={router}></RouterProvider>
 
-<CookieConsent
-  location="bottom"
-  buttonText="Jag godkänner"
-  declineButtonText="Nej tack"
-  cookieName="cookieConsent"
-  style={{ background: "rgba(0, 0, 0, 0.8)" }}
-  buttonStyle={{
-    color: "#ffffff",
-    fontSize: "13px",
-    background: "#D77DD4",
-    borderRadius: "4px"
-  }}
-  declineButtonStyle={{
-    color: "#ffffff",
-    fontSize: "13px",
-    background: "#AB3DA7",
-    borderRadius: "4px"
-  }}
-  enableDeclineButton
-  expires={150}
+    <CookieConsent
+      location="bottom"
+      buttonText="Jag godkänner"
+      declineButtonText="Nej tack"
+      cookieName="cookieConsent"
+      style={{ background: "rgba(0, 0, 0, 0.8)" }}
+      buttonStyle={{
+        color: "#ffffff",
+        fontSize: "13px",
+        background: "#D77DD4",
+        borderRadius: "4px"
+      }}
+      declineButtonStyle={{
+        color: "#ffffff",
+        fontSize: "13px",
+        background: "#AB3DA7",
+        borderRadius: "4px"
+      }}
+      enableDeclineButton
+      expires={150}
 
-  // 👉 Körs när användaren GODKÄNNER cookies
-  onAccept={() => {
-    // Spara cookie
-    document.cookie =
-      "cookieConsent=true; path=/; max-age=" + 150 * 24 * 60 * 60;
+      // 👉 Körs när användaren GODKÄNNER cookies
+      onAccept={() => {
+        // Spara cookie
+        document.cookie =
+          "cookieConsent=true; path=/; max-age=" + 150 * 24 * 60 * 60;
 
-    // Uppdatera GA om samtycke nu är givet
-    if (typeof window.gtag === "function") {
-      window.gtag("consent", "update", {
-        ad_storage: "granted",
-        analytics_storage: "granted"
-      });
-    }
+        // Uppdatera GA om samtycke nu är givet
+        if (typeof window.gtag === "function") {
+          window.gtag("consent", "update", {
+            ad_storage: "granted",
+            analytics_storage: "granted"
+          });
+        }
 
-            // Starta Google Analytics
-            initGoogleAnalytics();
-          }}
+                // Starta Google Analytics
+                initGoogleAnalytics();
+              }}
 
-          // 👉 Körs när användaren NEKAR cookies
-          onDecline={() => {
-            document.cookie =
-              "cookieConsent=false; path=/; max-age=" + 150 * 24 * 60 * 60;
+              // 👉 Körs när användaren NEKAR cookies
+              onDecline={() => {
+                document.cookie =
+                  "cookieConsent=false; path=/; max-age=" + 150 * 24 * 60 * 60;
 
-            // Säkerställ att GA är blockerat
-            if (typeof window.gtag === "function") {
-              window.gtag("consent", "update", {
-                ad_storage: "denied",
-                analytics_storage: "denied"
-              });
-            }
-          }}
-        >
+                // Säkerställ att GA är blockerat
+                if (typeof window.gtag === "function") {
+                  window.gtag("consent", "update", {
+                    ad_storage: "denied",
+                    analytics_storage: "denied"
+                  });
+                }
+              }}
+            >
         <CookieWrapper>
         <CookieImage src="/happyCookie.png" alt="Kaka" />
         <div>Vi använder kakor för att förbättra sajten. Välj om du vill godkänna.</div>
