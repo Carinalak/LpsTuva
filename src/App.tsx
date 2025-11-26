@@ -72,19 +72,27 @@ export const CookieWrapper = styled.div `
 `;
 
 
-
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 function App() {
-   useEffect(() => {
-    // Om användaren redan godkänt, initiera Analytics
-    if (localStorage.getItem("cookieConsent") === "true") {
-      initGoogleAnalytics();
-    }
-  }, []);
+useEffect(() => {
+  const cookieValue = document.cookie
+    .split("; ")
+    .find(row => row.startsWith("cookieConsent="))
+    ?.split("=")[1];
+
+  if (cookieValue === "true") {
+    initGoogleAnalytics();
+  }
+}, []);
+
 
 const initGoogleAnalytics = () => {
   const GA_ID = process.env.REACT_APP_GA_ID;
-
-  if (!GA_ID) return; // Stoppar om env-variabeln saknas
+  if (!GA_ID) return;
 
   const script1 = document.createElement("script");
   script1.async = true;
@@ -95,6 +103,13 @@ const initGoogleAnalytics = () => {
   script2.innerHTML = `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // Blockera GA tills samtycke ges
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    });
+
     gtag('js', new Date());
     gtag('config', '${GA_ID}');
   `;
@@ -106,29 +121,59 @@ const initGoogleAnalytics = () => {
     <>
     <RouterProvider router={router}></RouterProvider>
 
-      <CookieConsent
-        location="bottom"
-        buttonText="Jag godkänner"
-        declineButtonText="Nej tack"
-        cookieName="cookieConsent"
-        style={{ background: "rgba(0, 0, 0, 0.8)" }}
+<CookieConsent
+  location="bottom"
+  buttonText="Jag godkänner"
+  declineButtonText="Nej tack"
+  cookieName="cookieConsent"
+  style={{ background: "rgba(0, 0, 0, 0.8)" }}
+  buttonStyle={{
+    color: "#ffffff",
+    fontSize: "13px",
+    background: "#D77DD4",
+    borderRadius: "4px"
+  }}
+  declineButtonStyle={{
+    color: "#ffffff",
+    fontSize: "13px",
+    background: "#AB3DA7",
+    borderRadius: "4px"
+  }}
+  enableDeclineButton
+  expires={150}
 
+  // 👉 Körs när användaren GODKÄNNER cookies
+  onAccept={() => {
+    // Spara cookie
+    document.cookie =
+      "cookieConsent=true; path=/; max-age=" + 150 * 24 * 60 * 60;
 
-        buttonStyle={{ color: "#ffffff", fontSize: "13px", background: "#D77DD4", borderRadius: "4px" }}
+    // Uppdatera GA om samtycke nu är givet
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        ad_storage: "granted",
+        analytics_storage: "granted"
+      });
+    }
 
+            // Starta Google Analytics
+            initGoogleAnalytics();
+          }}
 
-        declineButtonStyle={{ color: "#ffffff", fontSize: "13px", background: "#AB3DA7", borderRadius: "4px" }}
-        enableDeclineButton
-        expires={150}
-        onAccept={() => {
-          document.cookie = "cookieConsent=true; max-age=" + 150*24*60*60;
-          initGoogleAnalytics();
-        }}
-        onDecline={() => {
-          document.cookie = "cookieConsent=false; max-age=" + 150*24*60*60;
-          // här gör du inget, Analytics laddas inte
-        }}
-      >
+          // 👉 Körs när användaren NEKAR cookies
+          onDecline={() => {
+            document.cookie =
+              "cookieConsent=false; path=/; max-age=" + 150 * 24 * 60 * 60;
+
+            // Säkerställ att GA är blockerat
+            if (typeof window.gtag === "function") {
+              window.gtag("consent", "update", {
+                ad_storage: "denied",
+                analytics_storage: "denied"
+              });
+            }
+          }}
+        >
         <CookieWrapper>
         <CookieImage src="/happyCookie.png" alt="Kaka" />
         <div>Vi använder kakor för att förbättra sajten. Välj om du vill godkänna.</div>
