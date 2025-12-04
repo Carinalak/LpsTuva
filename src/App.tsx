@@ -36,15 +36,15 @@ export const CookieBigWrapper = styled.div `
 
       @media screen and (min-width: ${BREAKPOINT_TABLET}) {
         flex-direction: row;
-          gap: 40px;
+        gap: 40px;
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       flex-direction: row;
-        gap: 50px;
+      gap: 50px;
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       flex-direction: row;
-        gap: 60x;
+      gap: 60px;
     }
 `;
 
@@ -56,10 +56,9 @@ export const CookieWrapper = styled.div `
   justify-content: left;
   gap: 20px;
 
-      @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-        justify-content: center;
-        gap: 40px;
-
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      justify-content: center;
+      gap: 40px;
     }
     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
       flex-direction: row;
@@ -67,7 +66,7 @@ export const CookieWrapper = styled.div `
     }
     @media screen and (min-width: ${BREAKPOINT_BIGGER_DESKTOP}) {
       flex-direction: row;
-        gap: 60x;
+        gap: 60px;
     }
 `;
 
@@ -91,11 +90,13 @@ useEffect(() => {
 
 
 const initGoogleAnalytics = () => {
-  const GA_ID = process.env.REACT_APP_GA_ID;
+  const GA_ID = import.meta.env.VITE_GA_ID;
+  if (document.getElementById("ga-script")) return;
   if (!GA_ID) return;
 
   const script1 = document.createElement("script");
   script1.async = true;
+  script1.id = "ga-script";
   script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
   document.head.appendChild(script1);
 

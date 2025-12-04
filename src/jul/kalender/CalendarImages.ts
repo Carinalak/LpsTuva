@@ -4,8 +4,8 @@ import TarnaHast from "../../jul/kalender/img/luckor/tarna_hast.png";
 import SalPulka from "../../jul/kalender/img/luckor/sal_pulka.png";
 import StjarngossePingvin from "../../jul/kalender/img/luckor/stjarngosse_pingvin.png";
 import TarnaRadjur from "../../jul/kalender/img/luckor/tarna_radjur.png";
-import HundOrangeLov from "../../assets/images/galleri/autumn/Hund_orange_lov.jpg";
-import Gungar from "../../assets/images/galleri/autumn/Gungar.jpg";
+import PepparkaksDjur from "../../jul/kalender/img/luckor/pepparkaks_djur.jpg";
+import SalLjusstake from "../../jul/kalender/img/luckor/sal_ljusstake.jpg";
 import SeerInget_1 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_1.webp";
 import SeerInget_2 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_2.webp";
 import SeerInget_3 from "../../jul/kalender/img/seeringet_tomtar/seerInget_snoboll/SeerInget_snoboll_3.webp";
@@ -75,7 +75,7 @@ export const CalendarImages = [
   { src: Snogubbe, alt: "", number: 19 },
   { src: RadjurGran, alt: "", number: 20 },
   { src: HundTomteMossa, alt: "", number: 21 },
-  { src: HundOrangeLov, alt: "", number: 22 },
-  { src: Gungar, alt: "", number: 23 },
+  { src: SalLjusstake, alt: "", number: 22 },
+  { src: PepparkaksDjur, alt: "", number: 23 },
   { src: Pepparkakshus, alt: "", number: 24 },
 ];

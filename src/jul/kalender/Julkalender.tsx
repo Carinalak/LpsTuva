@@ -222,7 +222,7 @@ const Julkalender: React.FC = () => {
     }
 
     if (index + 1 > day) {
-      alert(`🎁 🎄 Du kan inte öppna lucka ${index + 1} ännu!`);
+      alert(`🎁 Du kan inte öppna lucka ${index + 1} ännu!`);
       return;
     }
 
