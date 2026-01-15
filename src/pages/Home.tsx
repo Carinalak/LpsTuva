@@ -1,11 +1,8 @@
 import { H1PurpleSecond, H4White, StyledLinkHalloween } from "../components/styled/Fonts"
-import { BackgroundOriginal, ChristmasBackground, DropdownWrapper, HomeImg, TextWrapperRed, WrapperWhite } from "../components/styled/Wrappers"
+import { BackgroundOriginal, DropdownWrapper, HomeImg, PinkBackground, TextWrapperWhiteFont2, WrapperWhite } from "../components/styled/Wrappers"
 //import { Link } from "react-router-dom";
-import GodJulTomte from '../jul/img/godjul_tomte_animation.gif';
-import TarnaHast from '../jul/img/tarna_hast.png';
-import JulMemory from '../assets/logos/julmemory_logo_300.png';
-import JulKalender from '../assets/logos/julkalender25_logo300.png';
-import { SerieImage } from "../components/styled/Image";
+//import { SerieImage } from "../components/styled/Image";
+import HomeImage from '../assets/images/galleri/winter/rav_gran.jpg';
 import { useEffect, useState } from "react";
 import { useHistoryEntries } from "../components/styled/useHistoryEntries";
 import { HistorySortDropdown } from "./history/HistorySortDropdown";
@@ -143,23 +140,18 @@ export const Home = () => {
   <BackgroundOriginal>
     <WrapperWhite>
       <H1PurpleSecond>Lps-Tuvas Sida</H1PurpleSecond>
-      <ChristmasBackground>
-          <H4White>God Jul önskar Tuva!</H4White>
-          <TextWrapperRed>
+      <PinkBackground>
+          <H4White>Välkommen!</H4White>
+          <TextWrapperWhiteFont2>
             <div>
-            Snart är julen här och vi har laddat upp med ett roligt <StyledLinkHalloween to="/julmemory"> Julmemory</StyledLinkHalloween>. 
-            Men bäst av allt - <StyledLinkHalloween to="/jul/kalender/julkalender"> Tuvas Julkalender</StyledLinkHalloween>! 
-            Öppna en lucka per dag till och med julafton!!
-          </div>
-          </TextWrapperRed>
-          <DoubleImage>
-          <div><StyledLinkHalloween to="/julmemory"><MediumImgHover src={JulMemory} /></StyledLinkHalloween></div>
-          <div><StyledLinkHalloween to="/jul/kalender/julkalender"><MediumImgHover src={JulKalender} /></StyledLinkHalloween></div>
-          </DoubleImage>
-          <SerieImage src={TarnaHast} />
+              Välkommen till Lps-Tuvas sida! 
+              Spela Tuvas <StyledLinkHalloween to="/memory">memoryspel</StyledLinkHalloween>, eller <StyledLinkHalloween to="/farglagg">färglägg/skriv ut</StyledLinkHalloween> hennes bilder. <StyledLinkHalloween to="/galleribilder">Bildgalleriet</StyledLinkHalloween> är påfyllt med konstnärliga bilder på Petshopar.
+            </div>
+          </TextWrapperWhiteFont2>
+        <HomeImg src={HomeImage} alt="Frontbild" loading="lazy"/>
   
-        </ChristmasBackground>
-        <MediumImg src={GodJulTomte} />
+        </PinkBackground>
+ 
      
 
   <DropdownWrapper>

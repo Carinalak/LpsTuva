@@ -70,7 +70,6 @@ export const CookieWrapper = styled.div `
     }
 `;
 
-
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;

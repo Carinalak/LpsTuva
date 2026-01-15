@@ -8,7 +8,7 @@ import Memory from '../assets/logos/memory_logo300.png';
 //import Kaninspelet from '../assets/logos/Kaninspelet_logo300.png';
 import Ritblock from '../assets/logos/Ritblock_logo_300b.png';
 import JulMemory from '../assets/logos/julmemory_logo_300.png';
-import JulKalender from '../assets/logos/julkalender25_logo300.png';
+//import JulKalender from '../assets/logos/julkalender25_logo300.png';
 import styled from "styled-components";
 import { BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, KRITVIT } from "../components/styled/Variables";
 import { useEffect } from "react";
@@ -105,7 +105,7 @@ export const PysselSpel = () => {
       <WrapperTransparent>
         <H1WhiteSecond>Pyssel & Spel</H1WhiteSecond>
           < PysselSpelWrapper>
-          <PysselLink to="/jul/kalender/julkalender"><PysselSpelLinkImage src={JulKalender} />Julkalender</PysselLink>
+          {/*<PysselLink to="/jul/kalender/julkalender"><PysselSpelLinkImage src={JulKalender} />Julkalender</PysselLink>*/}
           <PysselLink to="/julmemory"><PysselSpelLinkImage src={JulMemory} />Julmemory</PysselLink>
           {/*<PysselLink to="/halloweenmemory"><PysselSpelLinkImage src={HalloweenMemory} />Halloween Memory</PysselLink>
           <PysselLink to="/halloween/halloweenpyssel"><PysselSpelLinkImage src={HalloweenPyssel} />Halloweenpyssel</PysselLink> */}

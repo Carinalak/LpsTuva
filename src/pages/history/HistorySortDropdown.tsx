@@ -72,6 +72,7 @@ export const HistorySortDropdown: React.FC<HistorySortDropdownProps> = ({
   // Grundalternativen
   const baseOptions = [
     { label: "Visa alla", value: "all" },
+    { label: "December 2025", value: "December25" },
     { label: "Oktober 2025", value: "Oktober25" },
     { label: "Sommar 2025", value: "Summer25" },
   ];

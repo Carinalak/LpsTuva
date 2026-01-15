@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SMUTSROSA } from "./Variables";
+import { BLEKPUMPA, BREAKPOINT_BIGGER_DESKTOP, BREAKPOINT_DESKTOP, BREAKPOINT_TABLET, CHRISTMAS_RED, CHRISTMAS_RED_DARK, JULGRON_MORK, KOLSVART, KRITVIT, PUMPAORANGE, SMUTSROSA } from "./Variables";
 import Julbakgrund from "../../jul/img/bakgrund_snoflingor_gron.png";
 
 export const WrapperWhite = styled.section`
@@ -51,7 +51,7 @@ export const TextWrapper = styled(WrapperWhite)`
   margin-top: 0;
   
   @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-  width: 450px;
+  //width: 450px;
   padding-bottom: 10px;
   width: 90%;  
 }
@@ -65,7 +65,7 @@ export const TextWrapper = styled(WrapperWhite)`
 }
 `;
 
-export const TextWrapperRed = styled(WrapperWhite)` // passar till ChristmasBackground
+export const TextWrapperWhiteFont2 = styled(WrapperWhite)` // passar till ChristmasBackground
   width: 90%;       
   background-color: transparent;
   color: ${KRITVIT};
@@ -87,7 +87,7 @@ export const TextWrapperWhiteFont = styled(WrapperWhite)` // samma som Textwrapp
 `;
 
 export const HistoryDatePink = styled.div`
-  width: 80%;       // Måste ha samma bredd som Textwrapper!
+  width: 88%;       // Måste ha samma bredd som Textwrapper!
   background-color: ${SMUTSROSA};
   color: ${KOLSVART};
   text-align: left; /* Justerar texten horisontellt */
@@ -100,9 +100,13 @@ export const HistoryDatePink = styled.div`
   margin-bottom: 10px;
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
-      width: 90%;
+      width: 91%;
       padding-left: 15px;
-}
+    }
+     @media screen and (min-width: ${BREAKPOINT_DESKTOP}) {
+      width: 91%;
+      padding-left: 15px;
+    }
 
 
 `;
@@ -110,6 +114,11 @@ export const HistoryDatePink = styled.div`
 export const HistoryDateHalloween = styled(HistoryDatePink)`
   background-color: ${PUMPAORANGE};
   color: ${KOLSVART};
+`;
+
+export const HistoryDateJul = styled(HistoryDatePink)`
+  background-color: ${CHRISTMAS_RED_DARK};
+  color: ${KRITVIT};
 `;
 
 export const ReklamOrangeBack = styled(WrapperWhite)`
@@ -123,7 +132,6 @@ export const ReklamOrangeBack = styled(WrapperWhite)`
   padding-left: 15px;
   padding-right: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 `;
 
 export const ChristmasBackground = styled(ReklamOrangeBack)`  
@@ -133,7 +141,16 @@ export const ChristmasBackground = styled(ReklamOrangeBack)`
 
     @media screen and (min-width: ${BREAKPOINT_TABLET}) {
       width: 90%;
+    }
+`;
+
+export const PinkBackground = styled(ReklamOrangeBack)`  
+  background-color: ${SMUTSROSA};
+  color: ${KRITVIT};
+  padding-bottom: 20px;
   
+    @media screen and (min-width: ${BREAKPOINT_TABLET}) {
+      width: 90%;
     }
 `;
 
@@ -193,13 +210,10 @@ export const WhiteWrapperMini = styled(WhiteFont) `
   }
 `;
 
-
 export const CenteredWrapperTransparent = styled.div `
-
   padding-top: 100px;
   text-align: center;
   color: ${KRITVIT};
-
 `;
 
 export const CenteredColTransWrapper = styled.div `
@@ -216,6 +230,7 @@ export const CenteredColTransWrapper = styled.div `
 
 export const HomeImg = styled.img `
   width: 300px;
+  margin-top: 20px;
   margin-bottom: 60px;
   border-radius: 10px;
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import  { Oktober25 }  from "../../pages/history/Oktober25.tsx"; 
 import { Summer25 } from "../../pages/history/Summer25.tsx";
+import { December25 } from "../../pages/history/December25.tsx";
 
 interface HistoryEntry {
   component: JSX.Element;
@@ -8,6 +9,10 @@ interface HistoryEntry {
 }
 
 const entries: HistoryEntry[] = [
+    {
+    component: <December25 />,
+    season: "December25"         
+  },
   {
     component: <Oktober25 />,
     season: "Oktober25"         

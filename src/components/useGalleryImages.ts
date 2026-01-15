@@ -43,11 +43,17 @@ import RavMossaSnow from "../assets/images/galleri/winter/Rav_mossa_snow.jpg";
 import ValrossIs from "../assets/images/galleri/winter/valross_is.jpg";
 import KaninPulka1 from "../assets/images/galleri/winter/kanin_pulka.jpg";
 import KaninPulka2 from "../assets/images/galleri/winter/kanin_pulka2.jpg";
+import RavGran from "../assets/images/galleri/winter/rav_gran.jpg";
+import SnoflingeHund from "../assets/images/galleri/winter/snoflinge_hund.jpg";
+import GraHundGlitter from "../assets/images/galleri/winter/grahund_glitter.jpg";
 
 
 const images = [
 
     // WINTER
+  { src: SnoflingeHund, alt: "En hund med snöflingeögon", season: "winter" },
+  { src: RavGran, alt: "En räv vid en gran", season: "winter" },
+  { src: GraHundGlitter, alt: "Grå hund med glitter runt sig", season: "winter" },
   { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
   { src: RosaKatt, alt: "Rosa katt", season: "winter" },
   { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
