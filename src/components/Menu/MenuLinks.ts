@@ -26,7 +26,7 @@ export const MenuLinks = [
     target: "_blank?",
     subLinks: [
       //{ path: "/jul/kalender/julkalender", label: "Julkalender" },
-      { path: "/julmemory", label: "Julmemory" },
+      //{ path: "/julmemory", label: "Julmemory" },
       { path: "/memory", label: "Memoryspel", target: "top" },
       { path: "/farglagg", label: "Färgläggning", target: "top"},
       { path: "/ritblock", label: "Ritblock", target: "top"},
