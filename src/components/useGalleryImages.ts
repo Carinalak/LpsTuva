@@ -50,37 +50,6 @@ import GraHundGlitter from "../assets/images/galleri/winter/grahund_glitter.jpg"
 
 const images = [
 
-    // WINTER
-  { src: SnoflingeHund, alt: "En hund med snöflingeögon", season: "winter" },
-  { src: RavGran, alt: "En räv vid en gran", season: "winter" },
-  { src: GraHundGlitter, alt: "Grå hund med glitter runt sig", season: "winter" },
-  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
-  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
-  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
-  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
-  { src: SealOnIce, alt: "En säl på isen", season: "winter" },
-  { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
-  { src: LilaKaninSnow, alt: "Lila kanin i snö", season: "winter" },
-  { src: SnowKana, alt: "Snökana", season: "winter" },
-  { src: RavMossaSnow, alt: "Räv i mossa", season: "winter" },
-  { src: ValrossIs, alt: "Valross i is", season: "winter" },
-  { src: KaninPulka1, alt: "Kanin på pulka", season: "winter" },
-  { src: KaninPulka2, alt: "Kanin på pulka", season: "winter" },
-  { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
-
-    // AUTUMN
-  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
-  { src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
-  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
-  { src: SpindelOrangeLov1, alt: "Spindel sitter på en gren uppifrån", season: "autumn" },
-  { src: SpindelOrangeLov2, alt: "Spindel sitter på en gren från sidan", season: "autumn" },
-  { src: WhiteCat, alt: "Vit katt", season: "autumn" },
-  { src: BirdDarkPurple, alt: "Lila fågel", season: "autumn" },
-  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
-  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
-  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
-  { src: ZebraWhitePurple, alt: "Zebra", season: "autumn" },
-
 
   // SPRING
   { src: LilaKoKrokus, alt: "Lila ko bredvid lila krokus", season: "spring" },
@@ -99,8 +68,37 @@ const images = [
   { src: BirdPink3, alt: "Purple Bird third", season: "summer" },
   { src: DragonflyBlue, alt: "Blue dragonfly", season: "summer" },
 
+      // AUTUMN
+  { src: BunnyRedLeaf, alt: "Kanin med ett rött löv", season: "autumn" },
+  { src: HundOrangeLov, alt: "Hund bland orange löv", season: "autumn" },
+  { src: Gungar, alt: "Petshoparna gungar på en gul gunga", season: "autumn" },
+  { src: SpindelOrangeLov1, alt: "Spindel sitter på en gren uppifrån", season: "autumn" },
+  { src: SpindelOrangeLov2, alt: "Spindel sitter på en gren från sidan", season: "autumn" },
+  { src: WhiteCat, alt: "Vit katt", season: "autumn" },
+  { src: BirdDarkPurple, alt: "Lila fågel", season: "autumn" },
+  { src: IgelkottWhite, alt: "En igelkotte", season: "autumn" },
+  { src: GreyMouse, alt: "en grå mus", season: "autumn" },
+  { src: DogWhitePurpleDot, alt: "Dog with dots", season: "autumn" },
+  { src: ZebraWhitePurple, alt: "Zebra", season: "autumn" },
   
-
+    // WINTER
+  { src: SnoflingeHund, alt: "En hund med snöflingeögon", season: "winter" },
+  { src: RavGran, alt: "En räv vid en gran", season: "winter" },
+  { src: GraHundGlitter, alt: "Grå hund med glitter runt sig", season: "winter" },
+  { src: CrystalBear, alt: "Björn med iskristaller", season: "winter" },
+  { src: RosaKatt, alt: "Rosa katt", season: "winter" },
+  { src: HundKalkeSnow1, alt: "Hundar på kälke", season: "winter" },
+  { src: HundKalkeSnow2, alt: "Hundar på kälke", season: "winter" },
+  { src: SealOnIce, alt: "En säl på isen", season: "winter" },
+  { src: NalleLilaMossa, alt: "Nalle med lila mössa", season: "winter" },
+  { src: LilaKaninSnow, alt: "Lila kanin i snö", season: "winter" },
+  { src: SnowKana, alt: "Snökana", season: "winter" },
+  { src: RavMossaSnow, alt: "Räv i mossa", season: "winter" },
+  { src: ValrossIs, alt: "Valross i is", season: "winter" },
+  { src: KaninPulka1, alt: "Kanin på pulka", season: "winter" },
+  { src: KaninPulka2, alt: "Kanin på pulka", season: "winter" },
+  { src: WinterPinkBear, alt: "Rosa nalle", season: "winter" },
+  
 ];
 
 export const useGalleryImages = (sortBy: string) => {

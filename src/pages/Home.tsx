@@ -2,7 +2,7 @@ import { H1PurpleSecond, H4White, StyledLinkHalloween } from "../components/styl
 import { BackgroundOriginal, DropdownWrapper, HomeImg, PinkBackground, TextWrapperWhiteFont2, WrapperWhite } from "../components/styled/Wrappers"
 //import { Link } from "react-router-dom";
 //import { SerieImage } from "../components/styled/Image";
-import HomeImage from '../assets/images/galleri/winter/rav_gran.jpg';
+import HomeImage from '../assets/images/galleri/spring/kanin_stubbe.jpg';
 import { useEffect, useState } from "react";
 import { useHistoryEntries } from "../components/styled/useHistoryEntries";
 import { HistorySortDropdown } from "./history/HistorySortDropdown";

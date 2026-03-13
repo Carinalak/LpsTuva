@@ -2,8 +2,8 @@
   font-family: "Playpen Sans", serif;
   line-height: 1.5;
   font-weight: 400;
-  /*background-color: #AB3DA7;*/
-  background-image: url("/bakgrund_snoflingor_lila.png");
+  background-color: #AB3DA7;
+  /*background-image: url("/bakgrund_snoflingor_lila.png");*/
   background-repeat: repeat;
 
   @media screen and (min-width: 1600px) {   
